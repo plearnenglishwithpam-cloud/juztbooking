@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | juztbooking</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#9F4884" },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="text-slate-900">
+    <!-- Gradient background -->
+    <div
+      class="min-h-screen bg-gradient-to-b from-white via-primary/5 to-white"
+    >
+      <!-- Decorative blobs (no images needed) -->
+      <div
+        class="pointer-events-none fixed -left-28 top-10 h-80 w-80 rounded-full bg-primary/15 blur-3xl"
+      ></div>
+      <div
+        class="pointer-events-none fixed -right-28 top-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl"
+      ></div>
+
+      <!-- Top bar -->
+      <div class="sticky top-0 z-40 border-b bg-white/75 backdrop-blur">
+        <div
+          class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+        >
+          <!-- Brand -->
+          <a href="/" class="flex items-center gap-3">
+            <img
+              src="/assets/logo-juztbooking.png"
+              alt="juztbooking"
+              class="h-12 rounded-xl object-cover"
+            />
+          </a>
+
+          <!-- Desktop nav -->
+          <div class="hidden items-center gap-2 md:flex">
+            <!-- ✅ Home -->
+            <a
+              href="/"
+              data-navlink
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navHome"
+              >Home</a
+            >
+
+            <a
+              href="/solutions"
+              data-navlink
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navSolutions"
+              >Solutions</a
+            >
+            <a
+              href="/features"
+              data-navlink
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navFeatures"
+              >Features</a
+            >
+            <a
+              href="/pricing"
+              data-navlink
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navPricing"
+              >Pricing</a
+            >
+            <a
+              href="/contact"
+              data-navlink
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navContact"
+              >Contact</a
+            >
+
+            <!-- Language dropdown -->
+            <div class="relative">
+              <button
+                id="langBtnDesktop"
+                class="inline-flex items-center gap-2 rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                type="button"
+              >
+                <span id="langLabelDesktop">EN</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-4 w-4 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
+                  />
+                </svg>
+              </button>
+
+              <div
+                id="langMenuDesktop"
+                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-white shadow-lg"
+                role="menu"
+              >
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="en"
+                  role="menuitem"
+                  type="button"
+                >
+                  English (EN)
+                </button>
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="th"
+                  role="menuitem"
+                  type="button"
+                >
+                  ไทย (TH)
+                </button>
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="nl"
+                  role="menuitem"
+                  type="button"
+                >
+                  Nederlands (NL)
+                </button>
+              </div>
+            </div>
+
+            <a
+              href="/login"
+              class="ml-1 inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navLogin"
+              >Login</a
+            >
+            <a
+              href="/trial"
+              class="inline-flex items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+              data-i18n="navTrial"
+              >Start 15-day trial</a
+            >
+          </div>
+
+          <!-- Mobile / Tablet -->
+          <div class="flex items-center gap-2 md:hidden">
+            <a
+              href="/trial"
+              class="inline-flex items-center justify-center rounded-2xl bg-primary px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
+              data-i18n="navTrialShort"
+              >Start 15-day trial</a
+            >
+            <button
+              id="menuBtn"
+              type="button"
+              class="inline-flex items-center justify-center rounded-2xl border bg-white p-2.5 hover:bg-slate-50"
+              aria-label="Open menu"
+              aria-controls="mobileMenu"
+              aria-expanded="false"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="h-5 w-5 fill-slate-800"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 6.5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile drawer overlay -->
+      <div
+        id="menuOverlay"
+        class="fixed inset-0 z-50 hidden bg-slate-900/40 backdrop-blur-sm"
+      ></div>
+
+      <!-- Mobile drawer -->
+      <aside
+        id="mobileMenu"
+        class="fixed right-0 top-0 z-50 h-full w-[86%] max-w-sm translate-x-full border-l bg-white shadow-xl transition-transform duration-200"
+        aria-label="Mobile navigation"
+      >
+        <div class="flex items-center justify-between border-b px-4 py-3">
+          <div class="flex items-center gap-3">
+            <img
+              src="/assets/logo-juztbooking.png"
+              alt="juztbooking"
+              class="h-9 w-9 rounded-xl object-cover"
+            />
+            <div class="leading-tight">
+              <div class="font-semibold tracking-tight">juztbooking</div>
+              <div class="text-xs text-slate-500" data-i18n="tagline">
+                Booking system for Salon & Massage
+              </div>
+            </div>
+          </div>
+
+          <button
+            id="menuCloseBtn"
+            type="button"
+            class="inline-flex items-center justify-center rounded-2xl border bg-white p-2.5 hover:bg-slate-50"
+            aria-label="Close menu"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              class="h-5 w-5 fill-slate-800"
+              aria-hidden="true"
+            >
+              <path
+                d="M18.3 5.71a1 1 0 0 1 0 1.41L13.41 12l4.89 4.88a1 1 0 1 1-1.41 1.42L12 13.41l-4.88 4.89a1 1 0 1 1-1.42-1.41L10.59 12 5.7 7.12A1 1 0 1 1 7.12 5.7L12 10.59l4.88-4.89a1 1 0 0 1 1.42.01z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="px-4 py-4">
+          <!-- ✅ Home -->
+          <a
+            href="/"
+            data-navlink
+            class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navHome"
+            >Home</a
+          >
+
+          <a
+            href="/solutions"
+            data-navlink
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navSolutions"
+            >Solutions</a
+          >
+          <a
+            href="/features"
+            data-navlink
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navFeatures"
+            >Features</a
+          >
+          <a
+            href="/pricing"
+            data-navlink
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navPricing"
+            >Pricing</a
+          >
+          <a
+            href="/contact"
+            data-navlink
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navContact"
+            >Contact</a
+          >
+
+          <a
+            href="/trial"
+            class="mt-3 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
+            data-i18n="navTrial"
+            >Start 15-day trial</a
+          >
+          <a
+            href="/login"
+            class="mt-2 inline-flex w-full items-center justify-center rounded-2xl border px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            data-i18n="navLogin"
+            >Login</a
+          >
+
+          <!-- Language dropdown (mobile) -->
+          <div class="mt-5 rounded-3xl border bg-white p-4">
+            <div
+              class="text-xs font-semibold text-slate-600"
+              data-i18n="navLangTitle"
+            >
+              Language
+            </div>
+
+            <div class="relative mt-2">
+              <button
+                id="langBtnMobile"
+                class="inline-flex w-full items-center justify-between rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                type="button"
+              >
+                <span id="langLabelMobile">EN</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-4 w-4 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
+                  />
+                </svg>
+              </button>
+
+              <div
+                id="langMenuMobile"
+                class="mt-2 hidden overflow-hidden rounded-2xl border bg-white shadow-lg"
+                role="menu"
+              >
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="en"
+                  role="menuitem"
+                  type="button"
+                >
+                  English (EN)
+                </button>
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="th"
+                  role="menuitem"
+                  type="button"
+                >
+                  ไทย (TH)
+                </button>
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="nl"
+                  role="menuitem"
+                  type="button"
+                >
+                  Nederlands (NL)
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Hero -->
+      <header class="relative">
+        <div
+          class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-4 py-12 md:grid-cols-2 md:py-16"
+        >
+          <div>
+            <div
+              class="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-sm text-slate-700"
+            >
+              <span class="inline-block h-2 w-2 rounded-full bg-primary"></span>
+              <span data-i18n="heroBadge"
+                >Talk to us — friendly help is here</span
+              >
+            </div>
+
+            <h1
+              class="mt-4 text-3xl font-bold tracking-tight md:text-5xl"
+              data-i18n="heroTitle"
+            >
+              We’ll help you start taking bookings smoothly
+            </h1>
+
+            <p class="mt-4 text-slate-600 md:text-lg" data-i18n="heroDesc">
+              Whether you run a salon or a massage studio, our team will gladly
+              help you choose a package and set things up. You can also connect
+              juztbooking to your existing website.
+            </p>
+
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#contact-form"
+                class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95"
+                data-i18n="heroCtaPrimary"
+              >
+                Send a message
+              </a>
+
+              <a
+                href="/trial"
+                class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-white/60"
+                data-i18n="heroCtaTrial"
+              >
+                Start 15-day trial
+              </a>
+            </div>
+
+            <div class="mt-6 rounded-2xl border bg-white p-4">
+              <div
+                class="text-sm font-semibold text-slate-900"
+                data-i18n="stepsTitle"
+              >
+                Getting started is easy
+              </div>
+              <ol class="mt-2 grid gap-2 text-sm text-slate-600">
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >1</span
+                  >
+                  <span data-i18n="step1"
+                    >Add services (price and duration)</span
+                  >
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >2</span
+                  >
+                  <span data-i18n="step2">Add staff and opening hours</span>
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >3</span
+                  >
+                  <span data-i18n="step3"
+                    >Share your booking link and manage bookings in the
+                    calendar</span
+                  >
+                </li>
+              </ol>
+
+              <div class="mt-3 text-xs text-slate-500" data-i18n="notifyNote">
+                Gentle reminders can be sent via Email.
+              </div>
+            </div>
+
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span
+                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
+                data-i18n="benefit1"
+                >Reduce admin work</span
+              >
+              <span
+                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
+                data-i18n="benefit2"
+                >Reduce no-show</span
+              >
+              <span
+                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
+                data-i18n="benefit3"
+                >Easier payments</span
+              >
+              <span
+                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
+                data-i18n="benefit4"
+                >Clear reports</span
+              >
+            </div>
+          </div>
+
+          <div class="relative">
+            <div
+              class="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/10 via-white to-primary/5"
+            ></div>
+
+            <div class="rounded-[2rem] border bg-white p-4 shadow-sm">
+              <img
+                src="/assets/contact-hero-illustration.png"
+                alt="Contact illustration"
+                class="h-[340px] w-full rounded-[1.5rem] object-cover md:h-[420px]"
+              />
+
+              <div class="mt-4 grid grid-cols-2 gap-3">
+                <div class="rounded-2xl border bg-white p-3">
+                  <div
+                    class="text-xs font-semibold text-slate-900"
+                    data-i18n="miniCard1Title"
+                  >
+                    Quick setup
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="miniCard1Desc"
+                  >
+                    You can start in days.
+                  </div>
+                </div>
+                <div class="rounded-2xl border bg-white p-3">
+                  <div
+                    class="text-xs font-semibold text-slate-900"
+                    data-i18n="miniCard2Title"
+                  >
+                    Fewer no-shows
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="miniCard2Desc"
+                  >
+                    Friendly reminders help.
+                  </div>
+                </div>
+                <div class="rounded-2xl border bg-white p-3">
+                  <div
+                    class="text-xs font-semibold text-slate-900"
+                    data-i18n="miniCard3Title"
+                  >
+                    Payments made simple
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="miniCard3Desc"
+                  >
+                    Cash, card, or online.
+                  </div>
+                </div>
+                <div class="rounded-2xl border bg-white p-3">
+                  <div
+                    class="text-xs font-semibold text-slate-900"
+                    data-i18n="miniCard4Title"
+                  >
+                    Clear overview
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="miniCard4Desc"
+                  >
+                    Bookings and reports.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Quick contact -->
+      <section class="border-t bg-white/60">
+        <div class="mx-auto max-w-6xl px-4 py-12">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <h2
+                class="text-2xl font-bold tracking-tight"
+                data-i18n="quickTitle"
+              >
+                Quick contact
+              </h2>
+              <p class="mt-2 text-slate-600" data-i18n="quickDesc">
+                Pick what feels easiest. We usually reply within 1 business day.
+              </p>
+            </div>
+
+            <div class="hidden text-sm text-slate-600 md:block">
+              <span
+                class="rounded-full bg-primary/10 px-3 py-1 text-primary"
+                data-i18n="annualNote"
+              >
+                Annual billing saves 50%
+              </span>
+            </div>
+          </div>
+
+          <div class="mt-8 grid gap-4 md:grid-cols-3">
+            <!-- WhatsApp -->
+            <div class="rounded-3xl border bg-white p-5">
+              <div class="flex items-center gap-3">
+                <img
+                  src="/assets/icon-whatsapp.png"
+                  alt="WhatsApp"
+                  class="h-10 w-10 rounded-2xl object-cover"
+                />
+                <div>
+                  <div class="font-semibold" data-i18n="waTitle">WhatsApp</div>
+                  <div class="text-sm text-slate-600" data-i18n="waDesc">
+                    For quick questions
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 text-sm text-slate-700">
+                <div>
+                  <span class="text-slate-500" data-i18n="waLabel"
+                    >Number:</span
+                  >
+                  <a
+                    href="https://wa.me/31612345678"
+                    target="_blank"
+                    rel="noopener"
+                    class="font-semibold text-primary hover:underline"
+                    aria-label="Chat on WhatsApp"
+                  >
+                    +31 6 1234 5678
+                  </a>
+                </div>
+
+                <div class="mt-2">
+                  <a
+                    class="inline-flex items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+                    href="https://wa.me/31612345678"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="waCta"
+                    aria-label="Message us on WhatsApp"
+                  >
+                    Message us
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="rounded-3xl border bg-white p-5">
+              <div class="flex items-center gap-3">
+                <img
+                  src="/assets/icon-email.png"
+                  alt="Email"
+                  class="h-10 w-10 rounded-2xl object-cover"
+                />
+                <div>
+                  <div class="font-semibold" data-i18n="emailTitle">Email</div>
+                  <div class="text-sm text-slate-600" data-i18n="emailDesc">
+                    For details and documents
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 text-sm text-slate-700">
+                <div>
+                  <span class="text-slate-500" data-i18n="emailLabel"
+                    >Email:</span
+                  >
+                  admin@juztbooking.com
+                </div>
+                <div class="mt-2">
+                  <a
+                    class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                    href="mailto:admin@juztbooking.com"
+                    data-i18n="emailCta"
+                  >
+                    Send email
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="rounded-3xl border bg-white p-5">
+              <div class="flex items-center gap-3">
+                <img
+                  src="/assets/icon-phone.png"
+                  alt="Phone"
+                  class="h-10 w-10 rounded-2xl object-cover"
+                />
+                <div>
+                  <div class="font-semibold" data-i18n="phoneTitle">Phone</div>
+                  <div class="text-sm text-slate-600" data-i18n="phoneDesc">
+                    Business hours support
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 text-sm text-slate-700">
+                <div>
+                  <span class="text-slate-500" data-i18n="phoneLabel"
+                    >Call:</span
+                  >
+                  <a
+                    href="tel:+31200001234"
+                    class="font-semibold text-primary hover:underline"
+                    aria-label="Call +31 20 000 1234"
+                  >
+                    +31 20 000 1234
+                  </a>
+                </div>
+
+                <div class="mt-2 text-xs text-slate-500" data-i18n="bizHours">
+                  Mon–Fri 09:00–18:00 (CET)
+                </div>
+
+                <div class="mt-2">
+                  <a
+                    href="tel:+31200001234"
+                    class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                    aria-label="Tap to call"
+                  >
+                    Call now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Form + Office -->
+      <section id="contact-form" class="border-t bg-white">
+        <div
+          class="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 py-12 md:grid-cols-5"
+        >
+          <!-- Form -->
+          <div class="md:col-span-3">
+            <div class="rounded-3xl border bg-white p-6 shadow-sm">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h2
+                    class="text-2xl font-bold tracking-tight"
+                    data-i18n="formTitle"
+                  >
+                    Send us a message
+                  </h2>
+                  <p class="mt-2 text-slate-600" data-i18n="formDesc">
+                    Our team will reply with a kind recommendation and a simple
+                    checklist to get you started.
+                  </p>
+                </div>
+              </div>
+
+              <form
+                class="mt-6 grid gap-4"
+                onsubmit="return handleSubmit(event)"
+              >
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label
+                      class="text-sm font-semibold"
+                      for="name"
+                      data-i18n="fNameLabel"
+                      >Name</label
+                    >
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      class="mt-2 w-full rounded-2xl border px-4 py-3 outline-none ring-primary/30 focus:ring-4"
+                      data-i18n-placeholder="phName"
+                      placeholder="Your name"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      class="text-sm font-semibold"
+                      for="business"
+                      data-i18n="fBizLabel"
+                      >Business type</label
+                    >
+                    <select
+                      id="business"
+                      name="business"
+                      class="mt-2 w-full rounded-2xl border px-4 py-3 outline-none ring-primary/30 focus:ring-4"
+                      required
+                    >
+                      <option value="" data-i18n="fBizPlaceholder">
+                        Select...
+                      </option>
+                      <option value="Hair & Beauty" data-i18n="fBizOpt1">
+                        Hair & Beauty (Salon)
+                      </option>
+                      <option value="Spa & Massage" data-i18n="fBizOpt2">
+                        Spa & Massage
+                      </option>
+                      <option value="Other" data-i18n="fBizOpt3">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label
+                      class="text-sm font-semibold"
+                      for="email"
+                      data-i18n="fEmailLabel"
+                      >Email</label
+                    >
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      class="mt-2 w-full rounded-2xl border px-4 py-3 outline-none ring-primary/30 focus:ring-4"
+                      data-i18n-placeholder="phEmail"
+                      placeholder="name@company.com"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      class="text-sm font-semibold"
+                      for="phone"
+                      data-i18n="fPhoneLabel"
+                      >Phone (optional)</label
+                    >
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      class="mt-2 w-full rounded-2xl border px-4 py-3 outline-none ring-primary/30 focus:ring-4"
+                      data-i18n-placeholder="phPhone"
+                      placeholder="+31 / +66 ..."
+                    />
+                  </div>
+                </div>
+
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label
+                      class="text-sm font-semibold"
+                      for="website"
+                      data-i18n="fWebLabel"
+                      >Website (optional)</label
+                    >
+                    <input
+                      id="website"
+                      name="website"
+                      type="url"
+                      class="mt-2 w-full rounded-2xl border px-4 py-3 outline-none ring-primary/30 focus:ring-4"
+                      data-i18n-placeholder="phWebsite"
+                      placeholder="https://yourdomain.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      class="text-sm font-semibold"
+                      for="whatsapp"
+                      data-i18n="fWaLabel"
+                      >WhatsApp (optional)</label
+                    >
+                    <input
+                      id="whatsapp"
+                      name="whatsapp"
+                      type="tel"
+                      class="mt-2 w-full rounded-2xl border px-4 py-3 outline-none ring-primary/30 focus:ring-4"
+                      data-i18n-placeholder="phWhatsapp"
+                      placeholder="+31 6 ..."
+                    />
+                  </div>
+                </div>
+
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label
+                      class="text-sm font-semibold"
+                      for="package"
+                      data-i18n="fPkgLabel"
+                      >Interested package</label
+                    >
+                    <select
+                      id="package"
+                      name="package"
+                      class="mt-2 w-full rounded-2xl border px-4 py-3 outline-none ring-primary/30 focus:ring-4"
+                    >
+                      <option value="" data-i18n="fPkgPlaceholder">
+                        Not sure yet
+                      </option>
+                      <option value="Junior">Junior</option>
+                      <option value="Senior">Senior</option>
+                      <option value="Master">Master</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label
+                      class="text-sm font-semibold"
+                      for="billing"
+                      data-i18n="fBillingLabel"
+                      >Billing</label
+                    >
+                    <select
+                      id="billing"
+                      name="billing"
+                      class="mt-2 w-full rounded-2xl border px-4 py-3 outline-none ring-primary/30 focus:ring-4"
+                    >
+                      <option value="monthly" data-i18n="fBillingMonthly">
+                        Monthly
+                      </option>
+                      <option value="annual" data-i18n="fBillingAnnual">
+                        Annual (save 50%)
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    class="text-sm font-semibold"
+                    for="message"
+                    data-i18n="fMsgLabel"
+                    >Message</label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    class="mt-2 w-full resize-none rounded-2xl border px-4 py-3 outline-none ring-primary/30 focus:ring-4"
+                    data-i18n-placeholder="phMessage"
+                    placeholder="Tell us a little about your business — number of staff, services, and opening hours."
+                    required
+                  ></textarea>
+                  <p class="mt-2 text-xs text-slate-500" data-i18n="fMsgHint">
+                    Tip: A few details help our team recommend the best package
+                    more quickly.
+                  </p>
+                </div>
+
+                <label class="flex items-start gap-3 text-sm text-slate-600">
+                  <input
+                    id="agree"
+                    type="checkbox"
+                    class="mt-1 h-4 w-4 rounded border"
+                    required
+                  />
+                  <span data-i18n="fAgree"
+                    >I agree to the Privacy Policy and allow juztbooking to
+                    contact me about this request.</span
+                  >
+                </label>
+
+                <div
+                  class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+                >
+                  <button
+                    type="submit"
+                    class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95"
+                    data-i18n="fSubmit"
+                  >
+                    Submit
+                  </button>
+                  <div class="text-xs text-slate-500" data-i18n="fAlt">
+                    Or email us: admin@juztbooking.com
+                  </div>
+                </div>
+
+                <div
+                  id="formToast"
+                  class="hidden rounded-2xl border bg-white p-4 text-sm"
+                ></div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Office -->
+          <div class="md:col-span-2">
+            <div class="rounded-3xl border bg-white p-6">
+              <h3 class="text-lg font-bold" data-i18n="officeTitle">Office</h3>
+              <p class="mt-2 text-sm text-slate-600" data-i18n="officeAddr">
+                Keizersgracht 123, 1015 CJ Amsterdam, Netherlands
+              </p>
+
+              <div class="mt-4 overflow-hidden rounded-2xl border">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.6741474203927!2d4.887410200000001!3d52.3763283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609c59611441f%3A0x91b5689d0230a5ba!2sKeizersgracht%20123%2C%201015%20CJ%20Amsterdam%2C%20Netherlands!5e0!3m2!1sen!2sth!4v1766723976544!5m2!1sen!2sth"
+                  width="600"
+                  height="450"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  class="h-64 w-full"
+                  title="juztbooking office map"
+                ></iframe>
+              </div>
+
+              <p class="mt-3 text-xs text-slate-500" data-i18n="officeNote">
+                Visiting by appointment is recommended, so we can give you our
+                full attention.
+              </p>
+
+              <div class="mt-6 rounded-3xl bg-primary/5 p-5">
+                <div
+                  class="text-sm font-semibold text-slate-900"
+                  data-i18n="sideTitle"
+                >
+                  What you’ll get
+                </div>
+                <ul class="mt-3 grid gap-2 text-sm text-slate-700">
+                  <li data-i18n="side1">
+                    A kind package recommendation (Junior / Senior / Master)
+                  </li>
+                  <li data-i18n="side2">
+                    A simple flow: booking → confirm → remind → payment
+                  </li>
+                  <li data-i18n="side3">Reminder options via Email</li>
+                  <li data-i18n="side4">
+                    If you don’t have a website, we can build one for you
+                  </li>
+                </ul>
+
+                <a
+                  href="/trial"
+                  class="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+                  data-i18n="sideCta"
+                  >Start 15-day trial</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="border-t bg-white/70 backdrop-blur">
+        <div class="mx-auto max-w-6xl px-4 py-10">
+          <div
+            class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
+          >
+            <div class="flex items-center gap-3">
+              <img
+                src="/assets/logo-juztbooking.png"
+                alt="juztbooking"
+                class="h-12 rounded-xl object-cover"
+              />
+              <div>
+                <div class="font-semibold">juztbooking</div>
+                <div class="text-sm text-slate-600" data-i18n="footerLine">
+                  Booking system for Salon & Massage
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3">
+              <a
+                href="/privacy-policy"
+                class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                data-i18n="privacy"
+                >Privacy Policy</a
+              >
+
+              <a
+                class="rounded-xl p-2 hover:bg-slate-50"
+                href="https://www.facebook.com/juztbooking"
+                aria-label="Facebook"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                class="rounded-xl p-2 hover:bg-slate-50"
+                href="https://www.x.com/juztbooking"
+                aria-label="X"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18.9 2H22l-6.77 7.73L23 22h-6.17l-4.83-7.06L5.9 22H2.8l7.25-8.29L1 2h6.32l4.37 6.41L18.9 2zm-1.08 18h1.71L7.23 3.9H5.4L17.82 20z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                class="rounded-xl p-2 hover:bg-slate-50"
+                href="https://www.instragram.com/juztbooking"
+                aria-label="Instagram"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4.5A5.5 5.5 0 1 1 6.5 14 5.5 5.5 0 0 1 12 8.5zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5zM18 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-6 text-xs text-slate-500">
+            © <span id="year"></span> juztbooking.
+            <span data-i18n="footerRights">All rights reserved.</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // ---------------------------
+      // Mobile menu controls
+      // ---------------------------
+      const menuBtn = document.getElementById("menuBtn");
+      const menuOverlay = document.getElementById("menuOverlay");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuCloseBtn = document.getElementById("menuCloseBtn");
+
+      const openMenu = () => {
+        menuOverlay.classList.remove("hidden");
+        mobileMenu.classList.remove("translate-x-full");
+        menuBtn?.setAttribute("aria-expanded", "true");
+        document.body.classList.add("overflow-hidden");
+      };
+
+      const closeMenu = () => {
+        mobileMenu.classList.add("translate-x-full");
+        menuOverlay.classList.add("hidden");
+        menuBtn?.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("overflow-hidden");
+      };
+
+      menuBtn?.addEventListener("click", openMenu);
+      menuCloseBtn?.addEventListener("click", closeMenu);
+      menuOverlay?.addEventListener("click", closeMenu);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+
+      // ---------------------------
+      // Language dropdown controls
+      // ---------------------------
+      const langBtnDesktop = document.getElementById("langBtnDesktop");
+      const langMenuDesktop = document.getElementById("langMenuDesktop");
+      const langLabelDesktop = document.getElementById("langLabelDesktop");
+
+      const langBtnMobile = document.getElementById("langBtnMobile");
+      const langMenuMobile = document.getElementById("langMenuMobile");
+      const langLabelMobile = document.getElementById("langLabelMobile");
+
+      function toggleMenu(btn, menu) {
+        const isOpen = !menu.classList.contains("hidden");
+        if (isOpen) {
+          menu.classList.add("hidden");
+          btn.setAttribute("aria-expanded", "false");
+        } else {
+          menu.classList.remove("hidden");
+          btn.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      function closeLangMenus() {
+        langMenuDesktop?.classList.add("hidden");
+        langBtnDesktop?.setAttribute("aria-expanded", "false");
+        langMenuMobile?.classList.add("hidden");
+        langBtnMobile?.setAttribute("aria-expanded", "false");
+      }
+
+      langBtnDesktop?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleMenu(langBtnDesktop, langMenuDesktop);
+      });
+
+      langBtnMobile?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleMenu(langBtnMobile, langMenuMobile);
+      });
+
+      document.addEventListener("click", () => closeLangMenus());
+
+      // ---------------------------
+      // ✅ Active menu (PC / Mobile / Tablet)
+      // ---------------------------
+      function normalizePath(p) {
+        if (!p) return "/";
+        p = p.split("?")[0].split("#")[0];
+        if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
+        return p;
+      }
+
+      function applyActiveNav() {
+        const currentPath = normalizePath(window.location.pathname);
+
+        document.querySelectorAll("a[data-navlink]").forEach((a) => {
+          const href = a.getAttribute("href") || "";
+          if (!href.startsWith("/")) return;
+
+          const linkPath = normalizePath(href);
+          const isActive = linkPath === currentPath;
+
+          // Active style
+          a.classList.toggle("bg-primary/10", isActive);
+          a.classList.toggle("text-primary", isActive);
+          a.classList.toggle("ring-1", isActive);
+          a.classList.toggle("ring-primary/20", isActive);
+          a.classList.toggle("hover:bg-primary/10", isActive);
+
+          // Inactive style
+          a.classList.toggle("hover:bg-slate-50", !isActive);
+
+          // A11y
+          if (isActive) a.setAttribute("aria-current", "page");
+          else a.removeAttribute("aria-current");
+        });
+      }
+
+      // ---------------------------
+      // i18n dictionary (EN default)
+      // ---------------------------
+      const dict = {
+        en: {
+          tagline: "Booking system for Salon & Massage",
+          navHome: "Home",
+          navSolutions: "Solutions",
+          navFeatures: "Features",
+          navPricing: "Pricing",
+          navContact: "Contact",
+          navLogin: "Login",
+          navTrial: "Start 15-day trial",
+          navTrialShort: "Start 15-day trial",
+          navLangTitle: "Language",
+
+          heroBadge: "Talk to us — friendly help is here",
+          heroTitle: "We’ll help you start taking bookings smoothly",
+          heroDesc:
+            "Whether you run a salon or a massage studio, our team will gladly help you choose a package and set things up. You can also connect juztbooking to your existing website.",
+          heroCtaPrimary: "Send a message",
+          heroCtaTrial: "Start 15-day trial",
+
+          stepsTitle: "Getting started is easy",
+          step1: "Add services (price and duration)",
+          step2: "Add staff and opening hours",
+          step3: "Share your booking link and manage bookings in the calendar",
+          notifyNote: "Gentle reminders can be sent via Email.",
+
+          benefit1: "Reduce admin work",
+          benefit2: "Reduce no-show",
+          benefit3: "Easier payments",
+          benefit4: "Clear reports",
+
+          miniCard1Title: "Quick setup",
+          miniCard1Desc: "You can start in days.",
+          miniCard2Title: "Fewer no-shows",
+          miniCard2Desc: "Friendly reminders help.",
+          miniCard3Title: "Payments made simple",
+          miniCard3Desc: "Cash, card, or online.",
+          miniCard4Title: "Clear overview",
+          miniCard4Desc: "Bookings and reports.",
+
+          quickTitle: "Quick contact",
+          quickDesc:
+            "Pick what feels easiest. We usually reply within 1 business day.",
+          annualNote: "Annual billing saves 50%",
+
+          waTitle: "WhatsApp",
+          waDesc: "For quick questions",
+          waLabel: "Number:",
+          waCta: "Message us",
+
+          emailTitle: "Email",
+          emailDesc: "For details and documents",
+          emailLabel: "Email:",
+          emailCta: "Send email",
+
+          phoneTitle: "Phone",
+          phoneDesc: "Business hours support",
+          phoneLabel: "Call:",
+          bizHours: "Mon–Fri 09:00–18:00 (CET)",
+
+          formTitle: "Send us a message",
+          formDesc:
+            "Our team will reply with a kind recommendation and a simple checklist to get you started.",
+          formBadge: "Salon / Spa & Massage",
+
+          fNameLabel: "Name",
+          fBizLabel: "Business type",
+          fBizPlaceholder: "Select...",
+          fBizOpt1: "Hair & Beauty (Salon)",
+          fBizOpt2: "Spa & Massage",
+          fBizOpt3: "Other",
+
+          fEmailLabel: "Email",
+          fPhoneLabel: "Phone (optional)",
+          fWebLabel: "Website (optional)",
+          fWaLabel: "WhatsApp (optional)",
+
+          fPkgLabel: "Interested package",
+          fPkgPlaceholder: "Not sure yet",
+          fBillingLabel: "Billing",
+          fBillingMonthly: "Monthly",
+          fBillingAnnual: "Annual (save 50%)",
+
+          fMsgLabel: "Message",
+          fMsgHint:
+            "Tip: A few details help our team recommend the best package more quickly.",
+          fAgree:
+            "I agree to the Privacy Policy and allow juztbooking to contact me about this request.",
+          fSubmit: "Submit",
+          fAlt: "Or email us: admin@juztbooking.com",
+
+          phName: "Your name",
+          phEmail: "name@company.com",
+          phPhone: "+31 / +66 ...",
+          phWebsite: "https://yourdomain.com",
+          phWhatsapp: "+31 6 ...",
+          phMessage:
+            "Tell us a little about your business — number of staff, services, and opening hours.",
+
+          officeTitle: "Office",
+          officeAddr: "Keizersgracht 123, 1015 CJ Amsterdam, Netherlands",
+          officeNote:
+            "Visiting by appointment is recommended, so we can give you our full attention.",
+
+          sideTitle: "What you’ll get",
+          side1: "A kind package recommendation (Junior / Senior / Master)",
+          side2: "A simple flow: booking → confirm → remind → payment",
+          side3: "Reminder options via Email",
+          side4: "If you don’t have a website, we can build one for you",
+          sideCta: "Start 15-day trial",
+
+          footerLine: "Booking system for Salon & Massage",
+          privacy: "Privacy Policy",
+          footerRights: "All rights reserved.",
+
+          toastOkTitle: "Thanks! We received your message.",
+          toastOkDesc: "Our team will get back to you as soon as possible.",
+        },
+
+        th: {
+          tagline: "ระบบจองคิวสำหรับ Salon & ร้านนวด",
+          navHome: "หน้าแรก",
+          navSolutions: "โซลูชัน",
+          navFeatures: "ฟีเจอร์",
+          navPricing: "แพ็กเกจ",
+          navContact: "ติดต่อ",
+          navLogin: "เข้าสู่ระบบ",
+          navTrial: "ทดลองใช้ 15 วัน",
+          navTrialShort: "ทดลองใช้ 15 วัน",
+          navLangTitle: "ภาษา",
+
+          heroBadge: "ทักมาคุยได้เลยนะคะ",
+          heroTitle: "ติดต่อเรา — ช่วยให้เริ่มรับจองได้แบบสบาย ๆ",
+          heroDesc:
+            "ไม่ว่าคุณจะเป็นร้าน Salon หรือร้านนวด ทีมงานยินดีช่วยแนะนำแพ็กเกจและช่วยตั้งค่าให้เริ่มใช้งานได้ไว และสามารถเชื่อมกับเว็บไซต์เดิมของคุณได้ด้วยค่ะ",
+          heroCtaPrimary: "ส่งข้อความหาเรา",
+          heroCtaTrial: "เริ่มทดลองใช้ 15 วัน",
+
+          stepsTitle: "เริ่มใช้งานง่ายมาก",
+          step1: "เพิ่มบริการ (ราคา และระยะเวลา)",
+          step2: "เพิ่มพนักงาน และเวลาเปิด-ปิด",
+          step3: "แชร์ลิงก์จอง และจัดการคิวในปฏิทิน",
+          notifyNote: "รองรับการแจ้งเตือนผ่าน Email",
+
+          benefit1: "ลดงานแอดมิน",
+          benefit2: "ลด no-show",
+          benefit3: "เก็บเงินง่ายขึ้น",
+          benefit4: "รายงานชัดขึ้น",
+
+          miniCard1Title: "เริ่มไว",
+          miniCard1Desc: "เปิดรับจองได้ในไม่กี่วัน",
+          miniCard2Title: "ลด no-show",
+          miniCard2Desc: "มีระบบเตือนนัดแบบสุภาพ",
+          miniCard3Title: "ชำระเงินง่าย",
+          miniCard3Desc: "เงินสด/บัตร/ออนไลน์",
+          miniCard4Title: "ภาพรวมชัด",
+          miniCard4Desc: "ดูคิวและรายงานได้ง่าย",
+
+          quickTitle: "ช่องทางติดต่อด่วน",
+          quickDesc:
+            "เลือกช่องทางที่สะดวก โดยทั่วไปทีมงานตอบกลับภายใน 1 วันทำการค่ะ",
+          annualNote: "รายปีถูกลง 50%",
+
+          waTitle: "WhatsApp",
+          waDesc: "เหมาะสำหรับคำถามสั้น ๆ",
+          waLabel: "เบอร์:",
+          waCta: "ทักมาเลย",
+
+          emailTitle: "อีเมล",
+          emailDesc: "เหมาะสำหรับส่งรายละเอียด",
+          emailLabel: "อีเมล:",
+          emailCta: "ส่งอีเมล",
+
+          phoneTitle: "โทรศัพท์",
+          phoneDesc: "ติดต่อช่วงเวลาทำการ",
+          phoneLabel: "โทร:",
+          bizHours: "จันทร์–ศุกร์ 09:00–18:00 (CET)",
+
+          formTitle: "ส่งข้อความถึงเรา",
+          formDesc:
+            "ทีมงานจะตอบกลับพร้อมคำแนะนำที่เหมาะกับร้านของคุณ และเช็กลิสต์ตั้งค่าแบบง่าย ๆ ค่ะ",
+          formBadge: "Salon / ร้านนวด",
+
+          fNameLabel: "ชื่อผู้ติดต่อ",
+          fBizLabel: "ประเภทธุรกิจ",
+          fBizPlaceholder: "เลือก...",
+          fBizOpt1: "Hair & Beauty (Salon)",
+          fBizOpt2: "Spa & Massage (ร้านนวด)",
+          fBizOpt3: "อื่น ๆ",
+
+          fEmailLabel: "อีเมล",
+          fPhoneLabel: "เบอร์โทร (ไม่บังคับ)",
+          fWebLabel: "เว็บไซต์ (ไม่บังคับ)",
+          fWaLabel: "WhatsApp (ไม่บังคับ)",
+
+          fPkgLabel: "สนใจแพ็กเกจ",
+          fPkgPlaceholder: "ยังไม่แน่ใจ",
+          fBillingLabel: "รอบบิล",
+          fBillingMonthly: "รายเดือน",
+          fBillingAnnual: "รายปี (ลด 50%)",
+
+          fMsgLabel: "เล่าให้ฟังหน่อยค่ะ",
+          fMsgHint:
+            "Tip: บอกจำนวนพนักงาน จำนวนบริการ และเวลาเปิด-ปิด จะช่วยให้ทีมงานแนะนำได้ไวขึ้นค่ะ",
+          fAgree:
+            "ยอมรับนโยบายความเป็นส่วนตัว และอนุญาตให้ juztbooking ติดต่อกลับเกี่ยวกับคำขอนี้",
+          fSubmit: "ส่งข้อความ",
+          fAlt: "หรืออีเมลมาได้ที่: admin@juztbooking.com",
+
+          phName: "ชื่อของคุณ",
+          phEmail: "name@company.com",
+          phPhone: "+31 / +66 ...",
+          phWebsite: "https://yourdomain.com",
+          phWhatsapp: "+31 6 ...",
+          phMessage:
+            "เล่าเกี่ยวกับร้านของคุณนิดนึง เช่น จำนวนพนักงาน บริการ และเวลาเปิด-ปิด",
+
+          officeTitle: "ที่อยู่",
+          officeAddr: "Keizersgracht 123, 1015 CJ Amsterdam, Netherlands",
+          officeNote:
+            "แนะนำให้นัดหมายล่วงหน้า เพื่อที่ทีมงานจะได้ดูแลคุณได้เต็มที่ค่ะ",
+
+          sideTitle: "คุณจะได้รับอะไรบ้าง",
+          side1: "คำแนะนำแพ็กเกจที่เหมาะกับร้านของคุณ",
+          side2: "ลำดับใช้งานแบบง่าย: จอง → ยืนยัน → แจ้งเตือน → รับชำระ",
+          side3: "ตัวเลือกการแจ้งเตือน: Email",
+          side4: "ถ้ายังไม่มีเว็บไซต์ ทีมงานรับทำเว็บให้และเชื่อมระบบจองได้ค่ะ",
+          sideCta: "เริ่มทดลองใช้ 15 วัน",
+
+          footerLine: "ระบบจองคิวสำหรับ Salon & ร้านนวด",
+          privacy: "Privacy Policy",
+          footerRights: "สงวนลิขสิทธิ์",
+
+          toastOkTitle: "ขอบคุณมากค่ะ ทีมงานได้รับข้อความแล้ว",
+          toastOkDesc: "ทีมงานจะติดต่อกลับโดยเร็วที่สุดนะคะ",
+        },
+
+        nl: {
+          tagline: "Boekingssysteem voor Salon & Massage",
+          navHome: "Home",
+          navSolutions: "Oplossingen",
+          navFeatures: "Functies",
+          navPricing: "Prijzen",
+          navContact: "Contact",
+          navLogin: "Inloggen",
+          navTrial: "Start 15 dagen proef",
+          navTrialShort: "Proef",
+          navLangTitle: "Taal",
+
+          heroBadge: "Stuur gerust een bericht",
+          heroTitle: "We helpen je rustig op weg met boekingen",
+          heroDesc:
+            "Of je nu een salon of massagepraktijk hebt, ons team helpt je graag met een passend pakket en een eenvoudige start. Je kunt juztbooking ook koppelen aan je bestaande website.",
+          heroCtaPrimary: "Stuur een bericht",
+          heroCtaTrial: "Start 15 dagen proef",
+
+          stepsTitle: "Zo begin je eenvoudig",
+          step1: "Diensten toevoegen (prijs en duur)",
+          step2: "Personeel en openingstijden toevoegen",
+          step3: "Boekingslink delen en boekingen beheren in de kalender",
+          notifyNote: "Herinneringen via  e-mail zijn mogelijk.",
+
+          benefit1: "Minder adminwerk",
+          benefit2: "Minder no-shows",
+          benefit3: "Makkelijker betalen",
+          benefit4: "Duidelijke rapporten",
+
+          miniCard1Title: "Snel starten",
+          miniCard1Desc: "Binnen dagen live.",
+          miniCard2Title: "Minder no-shows",
+          miniCard2Desc: "Vriendelijke reminders.",
+          miniCard3Title: "Betalen is simpel",
+          miniCard3Desc: "Contant/kaart/online.",
+          miniCard4Title: "Helder overzicht",
+          miniCard4Desc: "Boekingen en rapporten.",
+
+          quickTitle: "Snel contact",
+          quickDesc:
+            "Kies wat het makkelijkst voelt. Ons team reageert meestal binnen 1 werkdag.",
+          annualNote: "Jaarlijks 50% korting",
+
+          waTitle: "WhatsApp",
+          waDesc: "Voor korte vragen",
+          waLabel: "Nummer:",
+          waCta: "Stuur WhatsApp",
+
+          emailTitle: "E-mail",
+          emailDesc: "Voor details en documenten",
+          emailLabel: "E-mail:",
+          emailCta: "E-mail sturen",
+
+          phoneTitle: "Telefoon",
+          phoneDesc: "Support tijdens kantooruren",
+          phoneLabel: "Bel:",
+          bizHours: "Ma–Vr 09:00–18:00 (CET)",
+
+          formTitle: "Stuur ons een bericht",
+          formDesc:
+            "Ons team reageert met een vriendelijke aanbeveling en een eenvoudige checklist.",
+          formBadge: "Salon / Spa & Massage",
+
+          fNameLabel: "Naam",
+          fBizLabel: "Bedrijfstype",
+          fBizPlaceholder: "Kies...",
+          fBizOpt1: "Hair & Beauty (Salon)",
+          fBizOpt2: "Spa & Massage",
+          fBizOpt3: "Anders",
+
+          fEmailLabel: "E-mail",
+          fPhoneLabel: "Telefoon (optioneel)",
+          fWebLabel: "Website (optioneel)",
+          fWaLabel: "WhatsApp (optioneel)",
+
+          fPkgLabel: "Interesse in pakket",
+          fPkgPlaceholder: "Nog niet zeker",
+          fBillingLabel: "Facturatie",
+          fBillingMonthly: "Maandelijks",
+          fBillingAnnual: "Jaarlijks (50% korting)",
+
+          fMsgLabel: "Bericht",
+          fMsgHint:
+            "Tip: Een paar details helpen ons team sneller het beste pakket te adviseren.",
+          fAgree:
+            "Ik ga akkoord met het Privacybeleid en sta toe dat juztbooking contact met mij opneemt.",
+          fSubmit: "Versturen",
+          fAlt: "Of mail ons: admin@juztbooking.com",
+
+          phName: "Jouw naam",
+          phEmail: "name@company.com",
+          phPhone: "+31 / +66 ...",
+          phWebsite: "https://yourdomain.com",
+          phWhatsapp: "+31 6 ...",
+          phMessage:
+            "Vertel kort over je bedrijf — aantal medewerkers, diensten en openingstijden.",
+
+          officeTitle: "Adres",
+          officeAddr: "Keizersgracht 123, 1015 CJ Amsterdam, Netherlands",
+          officeNote:
+            "Maak bij voorkeur een afspraak, dan kan ons team echt tijd voor je nemen.",
+
+          sideTitle: "Wat je krijgt",
+          side1: "Een passend pakketadvies",
+          side2: "Eenvoudige flow: boeken → bevestigen → herinneren → betaling",
+          side3: "Meldingen: e-mail",
+          side4: "Geen website? Ons team kan er één bouwen en koppelen.",
+          sideCta: "Start 15 dagen proef",
+
+          footerLine: "Boekingssysteem voor Salon & Massage",
+          privacy: "Privacybeleid",
+          footerRights: "Alle rechten voorbehouden",
+
+          toastOkTitle: "Bedankt! We hebben je bericht ontvangen.",
+          toastOkDesc: "Ons team neemt zo snel mogelijk contact met je op.",
+        },
+      };
+
+      const LANG_STORAGE_KEY = "juztbooking_lang";
+
+      function setLangLabel(lang) {
+        const label = lang === "en" ? "EN" : lang === "th" ? "TH" : "NL";
+        if (langLabelDesktop) langLabelDesktop.textContent = label;
+        if (langLabelMobile) langLabelMobile.textContent = label;
+      }
+
+      function applyLang(lang) {
+        const pack = dict[lang] || dict.en;
+
+        // text nodes
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (pack[key]) el.textContent = pack[key];
+        });
+
+        // placeholders
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-placeholder");
+          if (pack[key]) el.setAttribute("placeholder", pack[key]);
+        });
+
+        setLangLabel(lang);
+        localStorage.setItem(LANG_STORAGE_KEY, lang);
+        closeLangMenus();
+
+        // ✅ keep active menu highlight after language changes
+        applyActiveNav();
+      }
+
+      // click language options
+      function bindLangButtons(container) {
+        if (!container) return;
+        container.querySelectorAll("[data-lang]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const lang = btn.getAttribute("data-lang");
+            applyLang(lang);
+          });
+        });
+      }
+      bindLangButtons(langMenuDesktop);
+      bindLangButtons(langMenuMobile);
+
+      // default language EN
+      const saved = localStorage.getItem(LANG_STORAGE_KEY) || "en";
+      applyLang(saved);
+
+      // ✅ Active nav on load
+      applyActiveNav();
+
+      // ---------------------------
+      // Form submit (demo)
+      // ---------------------------
+      function handleSubmit(e) {
+        e.preventDefault();
+        const lang = localStorage.getItem(LANG_STORAGE_KEY) || "en";
+        const pack = dict[lang] || dict.en;
+
+        const toast = document.getElementById("formToast");
+        toast.classList.remove("hidden");
+        toast.classList.add("border-primary/30");
+        toast.innerHTML = `
+          <div class="font-semibold text-slate-900">${pack.toastOkTitle}</div>
+          <div class="mt-1 text-slate-600">${pack.toastOkDesc}</div>
+        `;
+
+        e.target.reset();
+        document.getElementById("agree").checked = false;
+        return false;
+      }
+
+      // Footer year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

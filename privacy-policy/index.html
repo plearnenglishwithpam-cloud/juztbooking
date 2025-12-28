@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy | juztbooking</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#9F4884" },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="text-slate-900">
+    <!-- Gradient background -->
+    <div
+      class="min-h-screen bg-gradient-to-b from-white via-primary/5 to-white"
+    >
+      <!-- Decorative blobs (no images needed) -->
+      <div
+        class="pointer-events-none fixed -left-28 top-10 h-80 w-80 rounded-full bg-primary/15 blur-3xl"
+      ></div>
+      <div
+        class="pointer-events-none fixed -right-28 top-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl"
+      ></div>
+
+      <!-- Top bar -->
+      <div class="sticky top-0 z-40 border-b bg-white/75 backdrop-blur">
+        <div
+          class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+        >
+          <!-- Brand -->
+          <a href="/" class="flex items-center gap-3">
+            <img
+              src="/assets/logo-juztbooking.png"
+              alt="juztbooking"
+              class="h-12 rounded-xl object-cover"
+            />
+          </a>
+
+          <!-- Desktop nav -->
+          <div class="hidden items-center gap-2 md:flex">
+            <a
+              href="/solutions"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navSolutions"
+              >Solutions</a
+            >
+            <a
+              href="/features"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navFeatures"
+              >Features</a
+            >
+            <a
+              href="/pricing"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navPricing"
+              >Pricing</a
+            >
+            <a
+              href="/contact"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navContact"
+              >Contact</a
+            >
+
+            <!-- Language dropdown -->
+            <div class="relative">
+              <button
+                id="langBtnDesktop"
+                class="inline-flex items-center gap-2 rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                type="button"
+              >
+                <span id="langLabelDesktop">EN</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-4 w-4 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
+                  />
+                </svg>
+              </button>
+
+              <div
+                id="langMenuDesktop"
+                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-white shadow-lg"
+                role="menu"
+              >
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="en"
+                  role="menuitem"
+                  type="button"
+                >
+                  English (EN)
+                </button>
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="th"
+                  role="menuitem"
+                  type="button"
+                >
+                  ไทย (TH)
+                </button>
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="nl"
+                  role="menuitem"
+                  type="button"
+                >
+                  Nederlands (NL)
+                </button>
+              </div>
+            </div>
+
+            <a
+              href="/login"
+              class="ml-1 inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navLogin"
+              >Login</a
+            >
+            <a
+              href="/trial"
+              class="inline-flex items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+              data-i18n="navTrial"
+              >Start 15-day trial</a
+            >
+          </div>
+
+          <!-- Mobile / Tablet -->
+          <div class="flex items-center gap-2 md:hidden">
+            <a
+              href="/trial"
+              class="inline-flex items-center justify-center rounded-2xl bg-primary px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
+              data-i18n="navTrialShort"
+              >Start 15-day trial</a
+            >
+            <button
+              id="menuBtn"
+              type="button"
+              class="inline-flex items-center justify-center rounded-2xl border bg-white p-2.5 hover:bg-slate-50"
+              aria-label="Open menu"
+              aria-controls="mobileMenu"
+              aria-expanded="false"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="h-5 w-5 fill-slate-800"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 6.5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile drawer overlay -->
+      <div
+        id="menuOverlay"
+        class="fixed inset-0 z-50 hidden bg-slate-900/40 backdrop-blur-sm"
+      ></div>
+
+      <!-- Mobile drawer -->
+      <aside
+        id="mobileMenu"
+        class="fixed right-0 top-0 z-50 h-full w-[86%] max-w-sm translate-x-full border-l bg-white shadow-xl transition-transform duration-200"
+        aria-label="Mobile navigation"
+      >
+        <div class="flex items-center justify-between border-b px-4 py-3">
+          <div class="flex items-center gap-3">
+            <img
+              src="/assets/logo-juztbooking.png"
+              alt="juztbooking"
+              class="h-9 w-9 rounded-xl object-cover"
+            />
+            <div class="leading-tight">
+              <div class="font-semibold tracking-tight">juztbooking</div>
+              <div class="text-xs text-slate-500" data-i18n="tagline">
+                Booking system for Salon & Massage
+              </div>
+            </div>
+          </div>
+
+          <button
+            id="menuCloseBtn"
+            type="button"
+            class="inline-flex items-center justify-center rounded-2xl border bg-white p-2.5 hover:bg-slate-50"
+            aria-label="Close menu"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              class="h-5 w-5 fill-slate-800"
+              aria-hidden="true"
+            >
+              <path
+                d="M18.3 5.71a1 1 0 0 1 0 1.41L13.41 12l4.89 4.88a1 1 0 1 1-1.41 1.42L12 13.41l-4.88 4.89a1 1 0 1 1-1.42-1.41L10.59 12 5.7 7.12A1 1 0 1 1 7.12 5.7L12 10.59l4.88-4.89a1 1 0 0 1 1.42.01z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="px-4 py-4">
+          <a
+            href="/solutions"
+            class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navSolutions"
+            >Solutions</a
+          >
+          <a
+            href="/features"
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navFeatures"
+            >Features</a
+          >
+          <a
+            href="/pricing"
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navPricing"
+            >Pricing</a
+          >
+          <a
+            href="/contact"
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navContact"
+            >Contact</a
+          >
+
+          <a
+            href="/trial"
+            class="mt-3 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
+            data-i18n="navTrial"
+            >Start 15-day trial</a
+          >
+          <a
+            href="/login"
+            class="mt-2 inline-flex w-full items-center justify-center rounded-2xl border px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            data-i18n="navLogin"
+            >Login</a
+          >
+
+          <!-- Language dropdown (mobile) -->
+          <div class="mt-5 rounded-3xl border bg-white p-4">
+            <div
+              class="text-xs font-semibold text-slate-600"
+              data-i18n="navLangTitle"
+            >
+              Language
+            </div>
+
+            <div class="relative mt-2">
+              <button
+                id="langBtnMobile"
+                class="inline-flex w-full items-center justify-between rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                type="button"
+              >
+                <span id="langLabelMobile">EN</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-4 w-4 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
+                  />
+                </svg>
+              </button>
+
+              <div
+                id="langMenuMobile"
+                class="mt-2 hidden overflow-hidden rounded-2xl border bg-white shadow-lg"
+                role="menu"
+              >
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="en"
+                  role="menuitem"
+                  type="button"
+                >
+                  English (EN)
+                </button>
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="th"
+                  role="menuitem"
+                  type="button"
+                >
+                  ไทย (TH)
+                </button>
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="nl"
+                  role="menuitem"
+                  type="button"
+                >
+                  Nederlands (NL)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <a
+            href="/privacy-policy"
+            class="mt-5 block rounded-2xl bg-primary/10 px-4 py-3 text-sm font-semibold text-primary"
+            aria-current="page"
+            data-i18n="privacy"
+            >Privacy Policy</a
+          >
+        </nav>
+      </aside>
+
+      <!-- Hero -->
+      <header class="relative">
+        <div
+          class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-4 py-12 md:grid-cols-2 md:py-16"
+        >
+          <div>
+            <div
+              class="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-sm text-slate-700"
+            >
+              <span class="inline-block h-2 w-2 rounded-full bg-primary"></span>
+              <span data-i18n="heroBadge">Your privacy matters to us</span>
+            </div>
+
+            <h1
+              class="mt-4 text-3xl font-bold tracking-tight md:text-5xl"
+              data-i18n="heroTitle"
+            >
+              Privacy Policy
+            </h1>
+
+            <p class="mt-4 text-slate-600 md:text-lg" data-i18n="heroDesc">
+              This page explains what information we collect, why we collect it,
+              and how we keep it safe—so you can feel comfortable using
+              juztbooking.
+            </p>
+
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#policy"
+                class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95"
+                data-i18n="heroCtaPrimary"
+              >
+                Read the policy
+              </a>
+
+              <a
+                href="/contact"
+                class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-white/60"
+                data-i18n="heroCtaSecondary"
+              >
+                Contact us
+              </a>
+            </div>
+
+            <div class="mt-6 rounded-2xl border bg-white p-4">
+              <div
+                class="text-sm font-semibold text-slate-900"
+                data-i18n="summaryTitle"
+              >
+                Quick summary
+              </div>
+              <ul class="mt-2 grid gap-2 text-sm text-slate-600">
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >1</span
+                  >
+                  <span data-i18n="sum1"
+                    >We only use your data to run bookings, payments, and
+                    helpful reminders.</span
+                  >
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >2</span
+                  >
+                  <span data-i18n="sum2"
+                    >We don’t sell personal data—ever.</span
+                  >
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >3</span
+                  >
+                  <span data-i18n="sum3"
+                    >You can ask to access, correct, or delete your data.</span
+                  >
+                </li>
+              </ul>
+
+              <div class="mt-3 text-xs text-slate-500">
+                <span data-i18n="lastUpdatedLabel">Last updated:</span>
+                <span data-i18n="lastUpdatedDate">26 December 2025</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div
+              class="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/10 via-white to-primary/5"
+            ></div>
+
+            <div class="rounded-[2rem] border bg-white p-4 shadow-sm">
+              <img
+                src="/assets/privacy-hero-illustration.png"
+                alt="Privacy illustration"
+                class="h-[340px] w-full rounded-[1.5rem] object-cover md:h-[420px]"
+              />
+
+              <div class="mt-4 grid grid-cols-2 gap-3">
+                <div class="rounded-2xl border bg-white p-3">
+                  <div
+                    class="text-xs font-semibold text-slate-900"
+                    data-i18n="mini1Title"
+                  >
+                    Clear purpose
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="mini1Desc"
+                  >
+                    We collect only what we need.
+                  </div>
+                </div>
+                <div class="rounded-2xl border bg-white p-3">
+                  <div
+                    class="text-xs font-semibold text-slate-900"
+                    data-i18n="mini2Title"
+                  >
+                    Secure handling
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="mini2Desc"
+                  >
+                    We protect data with care.
+                  </div>
+                </div>
+                <div class="rounded-2xl border bg-white p-3">
+                  <div
+                    class="text-xs font-semibold text-slate-900"
+                    data-i18n="mini3Title"
+                  >
+                    Your choice
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="mini3Desc"
+                  >
+                    You can manage your rights.
+                  </div>
+                </div>
+                <div class="rounded-2xl border bg-white p-3">
+                  <div
+                    class="text-xs font-semibold text-slate-900"
+                    data-i18n="mini4Title"
+                  >
+                    No selling
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="mini4Desc"
+                  >
+                    We never sell personal data.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Policy content -->
+      <section id="policy" class="border-t bg-white/60">
+        <div class="mx-auto max-w-6xl px-4 py-12">
+          <div class="grid gap-8 md:grid-cols-3">
+            <!-- Side card -->
+            <aside class="md:col-span-1">
+              <div class="rounded-3xl border bg-white p-6">
+                <h2 class="text-lg font-bold" data-i18n="sideTitle">
+                  Need help?
+                </h2>
+                <p class="mt-2 text-sm text-slate-600" data-i18n="sideDesc">
+                  If anything feels unclear, please message us. We’ll explain in
+                  a simple way.
+                </p>
+
+                <div class="mt-4 rounded-2xl bg-primary/5 p-4">
+                  <div
+                    class="text-sm font-semibold text-slate-900"
+                    data-i18n="sideContactTitle"
+                  >
+                    Contact
+                  </div>
+                  <div class="mt-2 text-sm text-slate-700">
+                    <div>
+                      <span class="text-slate-500" data-i18n="sideEmailLabel"
+                        >Email:</span
+                      >
+                      privacy@juztbooking.com
+                    </div>
+                    <div class="mt-1">
+                      <span class="text-slate-500" data-i18n="sideAddrLabel"
+                        >Address:</span
+                      >
+                      <span data-i18n="sideAddr"
+                        >Keizersgracht 123, 1015 CJ Amsterdam, Netherlands</span
+                      >
+                    </div>
+                  </div>
+
+                  <a
+                    href="/contact"
+                    class="mt-4 inline-flex w-full items-center justify-center rounded-2xl border bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                    data-i18n="sideCta"
+                    >Go to Contact</a
+                  >
+                </div>
+
+                <div class="mt-4 text-xs text-slate-500" data-i18n="sideNote">
+                  For bookings made with a salon/massage business, that business
+                  may be the main owner of your booking data. We still keep it
+                  safe while we run the system.
+                </div>
+              </div>
+            </aside>
+
+            <!-- Main policy -->
+            <main class="md:col-span-2">
+              <div class="rounded-3xl border bg-white p-6 shadow-sm">
+                <!-- ✅ NOTE: We do NOT rely on prose (CDN has no typography plugin)
+                     We'll style headings/paragraphs/lists via JS after render -->
+                <div class="max-w-[75ch]">
+                  <div data-i18n-html="policyBody"></div>
+                </div>
+
+                <div class="mt-8 rounded-2xl border bg-white p-5">
+                  <div
+                    class="text-sm font-semibold text-slate-900"
+                    data-i18n="ctaBoxTitle"
+                  >
+                    Want to try juztbooking first?
+                  </div>
+                  <p class="mt-2 text-sm text-slate-600" data-i18n="ctaBoxDesc">
+                    You can start a 15-day trial and see how bookings,
+                    reminders, and payments feel for your business.
+                  </p>
+                  <div class="mt-4 flex flex-col gap-3 sm:flex-row">
+                    <a
+                      href="/trial"
+                      class="inline-flex items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+                      data-i18n="ctaBoxBtn"
+                      >Start 15-day trial</a
+                    >
+                    <a
+                      href="/pricing"
+                      class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                      data-i18n="ctaBoxBtn2"
+                      >See pricing</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="border-t bg-white/70 backdrop-blur">
+        <div class="mx-auto max-w-6xl px-4 py-10">
+          <div
+            class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
+          >
+            <div class="flex items-center gap-3">
+              <img
+                src="/assets/logo-juztbooking.png"
+                alt="juztbooking"
+                class="h-12 rounded-xl object-cover"
+              />
+              <div>
+                <div class="font-semibold">juztbooking</div>
+                <div class="text-sm text-slate-600" data-i18n="footerLine">
+                  Booking system for Salon & Massage
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3">
+              <a
+                href="/privacy-policy"
+                class="rounded-xl bg-primary/10 px-3 py-2 text-sm font-semibold text-primary"
+                aria-current="page"
+                data-i18n="privacy"
+                >Privacy Policy</a
+              >
+
+              <a
+                class="rounded-xl p-2 hover:bg-slate-50"
+                href="https://www.facebook.com/juztbooking"
+                aria-label="Facebook"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                class="rounded-xl p-2 hover:bg-slate-50"
+                href="https://www.x.com/juztbooking"
+                aria-label="X"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18.9 2H22l-6.77 7.73L23 22h-6.17l-4.83-7.06L5.9 22H2.8l7.25-8.29L1 2h6.32l4.37 6.41L18.9 2zm-1.08 18h1.71L7.23 3.9H5.4L17.82 20z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                class="rounded-xl p-2 hover:bg-slate-50"
+                href="https://www.instagram.com/juztbooking"
+                aria-label="Instagram"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4.5A5.5 5.5 0 1 1 6.5 14 5.5 5.5 0 0 1 12 8.5zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5zM18 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-6 text-xs text-slate-500">
+            © <span id="year"></span> juztbooking.
+            <span data-i18n="footerRights">All rights reserved.</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // ---------------------------
+      // Mobile menu controls
+      // ---------------------------
+      const menuBtn = document.getElementById("menuBtn");
+      const menuOverlay = document.getElementById("menuOverlay");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuCloseBtn = document.getElementById("menuCloseBtn");
+
+      const openMenu = () => {
+        menuOverlay.classList.remove("hidden");
+        mobileMenu.classList.remove("translate-x-full");
+        menuBtn?.setAttribute("aria-expanded", "true");
+        document.body.classList.add("overflow-hidden");
+      };
+
+      const closeMenu = () => {
+        mobileMenu.classList.add("translate-x-full");
+        menuOverlay.classList.add("hidden");
+        menuBtn?.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("overflow-hidden");
+      };
+
+      menuBtn?.addEventListener("click", openMenu);
+      menuCloseBtn?.addEventListener("click", closeMenu);
+      menuOverlay?.addEventListener("click", closeMenu);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+
+      // ---------------------------
+      // Language dropdown controls
+      // ---------------------------
+      const langBtnDesktop = document.getElementById("langBtnDesktop");
+      const langMenuDesktop = document.getElementById("langMenuDesktop");
+      const langLabelDesktop = document.getElementById("langLabelDesktop");
+
+      const langBtnMobile = document.getElementById("langBtnMobile");
+      const langMenuMobile = document.getElementById("langMenuMobile");
+      const langLabelMobile = document.getElementById("langLabelMobile");
+
+      function toggleMenu(btn, menu) {
+        const isOpen = !menu.classList.contains("hidden");
+        if (isOpen) {
+          menu.classList.add("hidden");
+          btn.setAttribute("aria-expanded", "false");
+        } else {
+          menu.classList.remove("hidden");
+          btn.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      function closeLangMenus() {
+        langMenuDesktop?.classList.add("hidden");
+        langBtnDesktop?.setAttribute("aria-expanded", "false");
+        langMenuMobile?.classList.add("hidden");
+        langBtnMobile?.setAttribute("aria-expanded", "false");
+      }
+
+      langBtnDesktop?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleMenu(langBtnDesktop, langMenuDesktop);
+      });
+
+      langBtnMobile?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleMenu(langBtnMobile, langMenuMobile);
+      });
+
+      document.addEventListener("click", () => closeLangMenus());
+
+      // ---------------------------
+      // ✅ Policy spacing helper (CDN does not include Typography plugin)
+      // ---------------------------
+      function stylePolicyBody() {
+        const root = document.querySelector('[data-i18n-html="policyBody"]');
+        if (!root) return;
+
+        root.classList.add(
+          "text-sm",
+          "md:text-base",
+          "leading-relaxed",
+          "text-slate-700"
+        );
+
+        root.querySelectorAll("h2").forEach((h) => {
+          h.classList.add(
+            "mt-8",
+            "first:mt-0",
+            "mb-3",
+            "text-base",
+            "md:text-lg",
+            "font-bold",
+            "text-slate-900"
+          );
+        });
+
+        root.querySelectorAll("p").forEach((p) => {
+          p.classList.add("my-3");
+        });
+
+        root.querySelectorAll("ul").forEach((ul) => {
+          ul.classList.add("my-3", "list-disc", "pl-6", "space-y-2");
+        });
+
+        root.querySelectorAll("li").forEach((li) => {
+          li.classList.add("leading-relaxed");
+        });
+      }
+
+      // ---------------------------
+      // i18n dictionary (EN default)
+      // ---------------------------
+      const dict = {
+        en: {
+          tagline: "Booking system for Salon & Massage",
+          navSolutions: "Solutions",
+          navFeatures: "Features",
+          navPricing: "Pricing",
+          navContact: "Contact",
+          navLogin: "Login",
+          navTrial: "Start 15-day trial",
+          navTrialShort: "Start 15-day trial",
+          navLangTitle: "Language",
+          privacy: "Privacy Policy",
+          footerLine: "Booking system for Salon & Massage",
+          footerRights: "All rights reserved.",
+
+          heroBadge: "Your privacy matters to us",
+          heroTitle: "Privacy Policy",
+          heroDesc:
+            "This page explains what information we collect, why we collect it, and how we keep it safe—so you can feel comfortable using juztbooking.",
+          heroCtaPrimary: "Read the policy",
+          heroCtaSecondary: "Contact us",
+
+          summaryTitle: "Quick summary",
+          sum1: "We only use your data to run bookings, payments, and helpful reminders.",
+          sum2: "We don’t sell personal data ever.",
+          sum3: "You can ask to access, correct, or delete your data.",
+          lastUpdatedLabel: "Last updated:",
+          lastUpdatedDate: "26 December 2025",
+
+          mini1Title: "Clear purpose",
+          mini1Desc: "We collect only what we need.",
+          mini2Title: "Secure handling",
+          mini2Desc: "We protect data with care.",
+          mini3Title: "Your choice",
+          mini3Desc: "You can manage your rights.",
+          mini4Title: "No selling",
+          mini4Desc: "We never sell personal data.",
+
+          sideTitle: "Need help?",
+          sideDesc:
+            "If anything feels unclear, please message us. We’ll explain in a simple way.",
+          sideContactTitle: "Contact",
+          sideEmailLabel: "Email:",
+          sideAddrLabel: "Address:",
+          sideAddr: "Keizersgracht 123, 1015 CJ Amsterdam, Netherlands",
+          sideCta: "Go to Contact",
+          sideNote:
+            "For bookings made with a salon/massage business, that business may be the main owner of your booking data. We still keep it safe while we run the system.",
+
+          ctaBoxTitle: "Want to try juztbooking first?",
+          ctaBoxDesc:
+            "You can start a 15-day trial and see how bookings, reminders, and payments feel for your business.",
+          ctaBoxBtn: "Start 15-day trial",
+          ctaBoxBtn2: "See pricing",
+
+          policyBody: `
+            <h2>1) Who we are</h2>
+            <p>
+              <strong>juztbooking</strong> provides an online booking system for beauty & wellness businesses (such as salons and massage studios).
+              Our office address is <strong>Keizersgracht 123, 1015 CJ Amsterdam, Netherlands</strong>.
+            </p>
+
+            <h2 class="pt-2">2) When this policy applies</h2>
+            <p>
+              This policy covers (a) visitors of our website (including the Contact form) and (b) people who use booking pages and services
+              powered by juztbooking.
+            </p>
+
+            <h2 class="pt-2">3) Two common situations (important)</h2>
+            <ul>
+              <li>
+                <strong>When you book with a salon/massage business:</strong> that business usually decides what to collect and why (they are the “main decision maker”).
+                We help run the system for them and keep the information safe.
+              </li>
+              <li>
+                <strong>When you contact juztbooking directly:</strong> we handle your details to respond to your message and support you.
+              </li>
+            </ul>
+
+            <h2 class="pt-2">4) Information we may collect</h2>
+            <p>Depending on how you use the website or booking system, we may collect:</p>
+            <ul>
+              <li><strong>Contact details:</strong> name, email, phone number, WhatsApp number (if you share it).</li>
+              <li><strong>Booking details:</strong> selected service, staff/provider, date and time, notes you enter, booking status (confirmed/cancelled/no-show/arrived).</li>
+              <li><strong>Customer list & history:</strong> booking history, preferences and simple notes (only if the business chooses to record them).</li>
+              <li><strong>Payment information:</strong> payment status and transaction references. (Card details are typically handled by our payment provider, not stored by us.)</li>
+              <li><strong>Messages & reminders:</strong> reminder confirmations and delivery status for Email / SMS / WhatsApp.</li>
+              <li><strong>Website usage:</strong> basic device and log information (for security and reliability). If we use analytics, it is used to understand general usage trends.</li>
+            </ul>
+
+            <h2 class="pt-2">5) Why we use the information</h2>
+            <ul>
+              <li>To create and manage bookings and calendars.</li>
+              <li>To send booking confirmations and gentle reminders (Email / SMS / WhatsApp) when enabled.</li>
+              <li>To support payments, invoices, and simple reporting for businesses.</li>
+              <li>To keep the system secure, prevent abuse, and improve reliability.</li>
+              <li>To respond to your questions and support requests.</li>
+            </ul>
+
+            <h2 class="pt-2">6) Who we share information with</h2>
+            <p>
+              We share information only when needed to provide the service. Examples may include:
+            </p>
+            <ul>
+              <li><strong>Hosting and infrastructure</strong> (where the system runs).</li>
+              <li><strong>Payment providers</strong> (to process online payments).</li>
+              <li><strong>Messaging providers</strong> (Email / SMS / WhatsApp) to deliver confirmations and reminders.</li>
+              <li><strong>Professional advisors</strong> (when needed for legal, accounting, or compliance).</li>
+            </ul>
+            <p>
+              We do <strong>not</strong> sell personal data.
+            </p>
+
+            <h2 class="pt-2">7) International transfers</h2>
+            <p>
+              Some service providers may process data in other countries. If that happens, we use appropriate safeguards to protect the data.
+            </p>
+
+            <h2 class="pt-2">8) How long we keep information</h2>
+            <p>
+              We keep personal data only as long as needed for the purposes above, or as required by law.
+              Businesses using juztbooking can choose their own retention settings for booking history where available.
+            </p>
+
+            <h2 class="pt-2">9) Your rights</h2>
+            <p>
+              Depending on your location (including the EU/EEA), you may have rights such as:
+            </p>
+            <ul>
+              <li>Ask for access to your personal data.</li>
+              <li>Ask to correct inaccurate information.</li>
+              <li>Ask to delete data (when applicable).</li>
+              <li>Ask to limit or object to certain processing.</li>
+              <li>Receive a copy of your data in a usable format (data portability).</li>
+              <li>Withdraw consent when processing is based on consent.</li>
+            </ul>
+            <p>
+              If you made a booking with a business, sometimes the fastest path is to contact that business first (they control the booking details).
+              You can also contact us at <strong>privacy@juztbooking.com</strong>.
+            </p>
+
+            <h2 class="pt-2">10) Cookies</h2>
+            <p>
+              We may use essential cookies for things like language preference and secure sessions. If we use analytics cookies, we aim to keep them minimal.
+              You can manage cookies through your browser settings.
+            </p>
+
+            <h2 class="pt-2">11) Security</h2>
+            <p>
+              We take reasonable measures to protect data (such as access controls and monitoring). No method is 100% perfect, but we treat privacy seriously
+              and improve safeguards over time.
+            </p>
+
+            <h2 class="pt-2">12) Changes to this policy</h2>
+            <p>
+              We may update this policy from time to time. When we do, we will update the “Last updated” date at the top of this page.
+            </p>
+          `,
+        },
+
+        th: {
+          tagline: "ระบบจองคิวสำหรับ Salon & ร้านนวด",
+          navSolutions: "โซลูชัน",
+          navFeatures: "ฟีเจอร์",
+          navPricing: "แพ็กเกจ",
+          navContact: "ติดต่อ",
+          navLogin: "เข้าสู่ระบบ",
+          navTrial: "ทดลองใช้ 15 วัน",
+          navTrialShort: "ทดลองใช้ 15 วัน",
+          navLangTitle: "ภาษา",
+          privacy: "นโยบายความเป็นส่วนตัว",
+          footerLine: "ระบบจองคิวสำหรับ Salon & ร้านนวด",
+          footerRights: "สงวนลิขสิทธิ์",
+
+          heroBadge: "เราให้ความสำคัญกับความเป็นส่วนตัวของคุณ",
+          heroTitle: "นโยบายความเป็นส่วนตัว",
+          heroDesc:
+            "หน้านี้อธิบายว่าเราเก็บข้อมูลอะไร เพื่ออะไร และดูแลข้อมูลอย่างไร เพื่อให้คุณใช้งาน juztbooking ได้อย่างสบายใจค่ะ",
+          heroCtaPrimary: "อ่านนโยบาย",
+          heroCtaSecondary: "ติดต่อเรา",
+
+          summaryTitle: "สรุปแบบเร็ว ๆ",
+          sum1: "เราใช้ข้อมูลเพื่อให้ระบบจอง/ชำระเงิน/แจ้งเตือนทำงานได้เท่านั้น",
+          sum2: "เราไม่ขายข้อมูลส่วนบุคคลค่ะ",
+          sum3: "คุณสามารถขอเข้าถึง แก้ไข หรือขอลบข้อมูลได้",
+          lastUpdatedLabel: "อัปเดตล่าสุด:",
+          lastUpdatedDate: "26 ธันวาคม 2025",
+
+          mini1Title: "เก็บเท่าที่จำเป็น",
+          mini1Desc: "เพื่อให้บริการได้ดีค่ะ",
+          mini2Title: "ดูแลให้ปลอดภัย",
+          mini2Desc: "เราระวังเรื่องนี้มาก",
+          mini3Title: "คุณเป็นคนเลือกได้",
+          mini3Desc: "สิทธิ์ข้อมูลของคุณสำคัญ",
+          mini4Title: "ไม่ขายข้อมูล",
+          mini4Desc: "ยืนยันชัดเจนค่ะ",
+
+          sideTitle: "อยากให้ช่วยอธิบายไหมคะ?",
+          sideDesc:
+            "ถ้าส่วนไหนอ่านแล้วยังไม่ชัด ทักมาได้เลยค่ะ เราจะอธิบายให้แบบง่าย ๆ",
+          sideContactTitle: "ติดต่อ",
+          sideEmailLabel: "อีเมล:",
+          sideAddrLabel: "ที่อยู่:",
+          sideAddr: "Keizersgracht 123, 1015 CJ Amsterdam, Netherlands",
+          sideCta: "ไปหน้าติดต่อ",
+          sideNote:
+            "ถ้าคุณจองคิวกับร้าน Salon/ร้านนวด โดยทั่วไปข้อมูลการจองจะอยู่ภายใต้การดูแลของร้านนั้นเป็นหลัก แต่เรายังคงดูแลความปลอดภัยของข้อมูลระหว่างที่ระบบทำงานค่ะ",
+
+          ctaBoxTitle: "อยากลองใช้งานก่อนใช่ไหมคะ?",
+          ctaBoxDesc:
+            "คุณสามารถเริ่มทดลองใช้ 15 วัน เพื่อดูว่าระบบจอง แจ้งเตือน และการชำระเงินเหมาะกับร้านของคุณแค่ไหนค่ะ",
+          ctaBoxBtn: "เริ่มทดลองใช้ 15 วัน",
+          ctaBoxBtn2: "ดูแพ็กเกจ",
+
+          policyBody: `
+            <h2>1) เราคือใคร</h2>
+            <p>
+              <strong>juztbooking</strong> ให้บริการระบบจองคิวออนไลน์สำหรับธุรกิจความงามและสุขภาพ เช่น Salon และร้านนวด
+              ที่อยู่สำนักงาน: <strong>Keizersgracht 123, 1015 CJ Amsterdam, Netherlands</strong>
+            </p>
+
+            <h2 class="pt-2">2) นโยบายนี้ครอบคลุมอะไรบ้าง</h2>
+            <p>
+              นโยบายนี้ครอบคลุม (ก) ผู้เข้าชมเว็บไซต์ของเรา (รวมถึงฟอร์ม Contact) และ (ข) ผู้ที่ใช้งานหน้าจอง/บริการที่ทำงานด้วยระบบ juztbooking
+            </p>
+
+            <h2 class="pt-2">3) มี 2 กรณีหลักที่อยากให้เข้าใจ (สำคัญค่ะ)</h2>
+            <ul>
+              <li>
+                <strong>กรณีจองคิวกับร้าน Salon/ร้านนวด:</strong> ร้านมักเป็นผู้กำหนดว่าจะเก็บข้อมูลอะไรและเพื่ออะไร (ร้านเป็นผู้ดูแลข้อมูลหลัก)
+                ส่วนเราเป็นผู้ช่วยให้ระบบทำงานและดูแลความปลอดภัยของข้อมูลค่ะ
+              </li>
+              <li>
+                <strong>กรณีติดต่อ juztbooking โดยตรง:</strong> เราจะใช้ข้อมูลของคุณเพื่อช่วยตอบคำถามและให้การช่วยเหลือค่ะ
+              </li>
+            </ul>
+
+            <h2 class="pt-2">4) ข้อมูลที่เราอาจเก็บ</h2>
+            <p>ขึ้นอยู่กับรูปแบบการใช้งาน เราอาจเก็บข้อมูลดังนี้ค่ะ</p>
+            <ul>
+              <li><strong>ข้อมูลติดต่อ:</strong> ชื่อ อีเมล เบอร์โทร เบอร์ WhatsApp (ถ้าคุณให้ไว้)</li>
+              <li><strong>ข้อมูลการจอง:</strong> บริการที่เลือก ผู้ให้บริการ วัน-เวลา โน้ตที่คุณพิมพ์ สถานะการจอง (ยืนยัน/ยกเลิก/no-show/มาแล้ว)</li>
+              <li><strong>ประวัติลูกค้า:</strong> ประวัติการจองและโน้ตแบบง่าย ๆ (ถ้าร้านเลือกบันทึก)</li>
+              <li><strong>ข้อมูลการชำระเงิน:</strong> สถานะการชำระเงินและรหัสอ้างอิงธุรกรรม (โดยทั่วไปข้อมูลบัตรจะถูกจัดการโดยผู้ให้บริการชำระเงิน ไม่ได้เก็บที่เรา)</li>
+              <li><strong>การแจ้งเตือน:</strong> การยืนยันการแจ้งเตือนและสถานะการส่งผ่าน Email / SMS / WhatsApp</li>
+              <li><strong>การใช้งานเว็บไซต์:</strong> ข้อมูลพื้นฐานเพื่อความปลอดภัยและความเสถียรของระบบ (ถ้าใช้สถิติการเข้าชม จะใช้เพื่อดูแนวโน้มโดยรวมค่ะ)</li>
+            </ul>
+
+            <h2 class="pt-2">5) เราใช้ข้อมูลเพื่ออะไร</h2>
+            <ul>
+              <li>เพื่อสร้างและจัดการการจองและปฏิทินคิว</li>
+              <li>เพื่อส่งการยืนยันและแจ้งเตือนนัด (Email / SMS / WhatsApp) เมื่อเปิดใช้งาน</li>
+              <li>เพื่อช่วยเรื่องการชำระเงิน ใบแจ้งหนี้ และรายงานแบบเข้าใจง่ายสำหรับร้าน</li>
+              <li>เพื่อความปลอดภัย ป้องกันการใช้งานที่ไม่เหมาะสม และทำให้ระบบเสถียร</li>
+              <li>เพื่อช่วยตอบคำถามและให้การสนับสนุน</li>
+            </ul>
+
+            <h2 class="pt-2">6) เราแชร์ข้อมูลกับใครบ้าง</h2>
+            <p>เราแชร์ข้อมูลเท่าที่จำเป็นเพื่อให้บริการทำงานได้ เช่น</p>
+            <ul>
+              <li><strong>ผู้ให้บริการโฮสติ้ง/โครงสร้างระบบ</strong> (เพื่อให้ระบบทำงาน)</li>
+              <li><strong>ผู้ให้บริการรับชำระเงิน</strong> (เพื่อประมวลผลการชำระเงินออนไลน์)</li>
+              <li><strong>ผู้ให้บริการส่งข้อความ</strong> (Email / SMS / WhatsApp) เพื่อส่งการยืนยันและแจ้งเตือน</li>
+              <li><strong>ที่ปรึกษาทางวิชาชีพ</strong> (เมื่อจำเป็นด้านกฎหมาย/บัญชี/การปฏิบัติตามข้อกำหนด)</li>
+            </ul>
+            <p><strong>เราไม่ขายข้อมูลส่วนบุคคลค่ะ</strong></p>
+
+            <h2 class="pt-2">7) การส่งข้อมูลไปต่างประเทศ</h2>
+            <p>
+              ผู้ให้บริการบางรายอาจประมวลผลข้อมูลในประเทศอื่น หากเกิดขึ้น เราจะใช้มาตรการที่เหมาะสมเพื่อปกป้องข้อมูลค่ะ
+            </p>
+
+            <h2 class="pt-2">8) เราเก็บข้อมูลนานแค่ไหน</h2>
+            <p>
+              เราเก็บข้อมูลเท่าที่จำเป็นสำหรับวัตถุประสงค์ด้านบน หรือเท่าที่กฎหมายกำหนด
+              ร้านที่ใช้ juztbooking อาจเลือกการตั้งค่าการเก็บประวัติได้ (ถ้ามีในระบบ)
+            </p>
+
+            <h2 class="pt-2">9) สิทธิ์ของคุณ</h2>
+            <p>คุณอาจมีสิทธิ์ เช่น</p>
+            <ul>
+              <li>ขอเข้าถึงข้อมูลของคุณ</li>
+              <li>ขอแก้ไขข้อมูลที่ไม่ถูกต้อง</li>
+              <li>ขอลบข้อมูล (ในกรณีที่ทำได้)</li>
+              <li>ขอจำกัด/คัดค้านการใช้ข้อมูลบางประเภท</li>
+              <li>ขอรับสำเนาข้อมูลในรูปแบบที่ใช้งานได้</li>
+              <li>ถอนความยินยอม (ถ้าเราพึ่งพาความยินยอมเป็นหลัก)</li>
+            </ul>
+            <p>
+              ถ้าคุณจองกับร้านโดยตรง บางครั้งการติดต่อร้านก่อนจะเร็วที่สุด (เพราะร้านเป็นผู้ดูแลข้อมูลการจองหลัก)
+              และคุณสามารถติดต่อเราได้ที่ <strong>privacy@juztbooking.com</strong> ค่ะ
+            </p>
+
+            <h2 class="pt-2">10) คุกกี้</h2>
+            <p>
+              เราอาจใช้คุกกี้ที่จำเป็น เช่น เพื่อจำภาษาที่เลือกและการใช้งานที่ปลอดภัย หากมีสถิติการเข้าชม เราจะพยายามให้มีเท่าที่จำเป็นค่ะ
+              คุณสามารถจัดการคุกกี้ผ่านการตั้งค่าเบราว์เซอร์ได้
+            </p>
+
+            <h2 class="pt-2">11) ความปลอดภัย</h2>
+            <p>
+              เรามีมาตรการดูแลข้อมูลอย่างเหมาะสม (เช่น การจำกัดการเข้าถึงและการเฝ้าระวังระบบ) แม้ไม่มีวิธีไหนสมบูรณ์ 100% แต่เราให้ความสำคัญกับความปลอดภัยจริง ๆ ค่ะ
+            </p>
+
+            <h2 class="pt-2">12) การเปลี่ยนแปลงนโยบาย</h2>
+            <p>
+              เราอาจอัปเดตนโยบายนี้เป็นครั้งคราว และจะปรับวันที่ “อัปเดตล่าสุด” ด้านบนของหน้านี้ค่ะ
+            </p>
+          `,
+        },
+
+        nl: {
+          tagline: "Boekingssysteem voor Salon & Massage",
+          navSolutions: "Oplossingen",
+          navFeatures: "Functies",
+          navPricing: "Prijzen",
+          navContact: "Contact",
+          navLogin: "Inloggen",
+          navTrial: "Start 15 dagen proef",
+          navTrialShort: "Start 15 dagen proef",
+          navLangTitle: "Taal",
+          privacy: "Privacybeleid",
+          footerLine: "Boekingssysteem voor Salon & Massage",
+          footerRights: "Alle rechten voorbehouden",
+
+          heroBadge: "Jouw privacy is belangrijk voor ons",
+          heroTitle: "Privacybeleid",
+          heroDesc:
+            "Op deze pagina leggen we uit welke informatie we verzamelen, waarom we dat doen en hoe we die beschermen—zodat je juztbooking met vertrouwen kunt gebruiken.",
+          heroCtaPrimary: "Lees het beleid",
+          heroCtaSecondary: "Neem contact op",
+
+          summaryTitle: "Korte samenvatting",
+          sum1: "We gebruiken gegevens alleen voor boekingen, betalingen en vriendelijke reminders.",
+          sum2: "We verkopen nooit persoonsgegevens.",
+          sum3: "Je kunt vragen om inzage, correctie of verwijdering.",
+          lastUpdatedLabel: "Laatst bijgewerkt:",
+          lastUpdatedDate: "26 december 2025",
+
+          mini1Title: "Duidelijk doel",
+          mini1Desc: "We verzamelen alleen wat nodig is.",
+          mini2Title: "Veilig omgaan",
+          mini2Desc: "We beschermen data zorgvuldig.",
+          mini3Title: "Jouw keuze",
+          mini3Desc: "Je kunt je rechten gebruiken.",
+          mini4Title: "Niet verkopen",
+          mini4Desc: "We verkopen geen data.",
+
+          sideTitle: "Hulp nodig?",
+          sideDesc:
+            "Als iets onduidelijk is, stuur ons gerust een bericht. We leggen het graag simpel uit.",
+          sideContactTitle: "Contact",
+          sideEmailLabel: "E-mail:",
+          sideAddrLabel: "Adres:",
+          sideAddr: "Keizersgracht 123, 1015 CJ Amsterdam, Netherlands",
+          sideCta: "Naar Contact",
+          sideNote:
+            "Bij een boeking bij een salon/massagebedrijf is dat bedrijf vaak de ‘hoofdverantwoordelijke’ voor jouw boekingsgegevens. Wij houden het veilig terwijl wij het systeem draaien.",
+
+          ctaBoxTitle: "Eerst even proberen?",
+          ctaBoxDesc:
+            "Start een proefperiode van 15 dagen en ervaar hoe boekingen, reminders en betalingen werken voor jouw bedrijf.",
+          ctaBoxBtn: "Start 15 dagen proef",
+          ctaBoxBtn2: "Bekijk prijzen",
+
+          policyBody: `
+            <h2>1) Wie wij zijn</h2>
+            <p>
+              <strong>juztbooking</strong> biedt een online boekingssysteem voor beauty & wellness (zoals salons en massagepraktijken).
+              Ons adres: <strong>Keizersgracht 123, 1015 CJ Amsterdam, Netherlands</strong>.
+            </p>
+
+            <h2>2) Wanneer dit beleid geldt</h2>
+            <p>
+              Dit beleid geldt voor (a) bezoekers van onze website (incl. Contact-formulier) en (b) mensen die boekingspagina’s en diensten gebruiken die door juztbooking worden ondersteund.
+            </p>
+
+            <h2>3) Twee situaties (belangrijk)</h2>
+            <ul>
+              <li>
+                <strong>Boeken bij een salon/massagebedrijf:</strong> dat bedrijf bepaalt meestal welke gegevens worden verzameld en waarom (zij zijn de belangrijkste beslisser).
+                Wij helpen het systeem te draaien en beschermen de gegevens.
+              </li>
+              <li>
+                <strong>Contact met juztbooking:</strong> wij gebruiken jouw gegevens om te reageren en ondersteuning te bieden.
+              </li>
+            </ul>
+
+            <h2>4) Welke informatie we kunnen verzamelen</h2>
+            <ul>
+              <li><strong>Contactgegevens:</strong> naam, e-mail, telefoonnummer, WhatsApp-nummer (als je dit deelt).</li>
+              <li><strong>Boekingsgegevens:</strong> gekozen dienst, medewerker/provider, datum en tijd, opmerkingen, status (bevestigd/geannuleerd/no-show/gekomen).</li>
+              <li><strong>Klantlijst & historie:</strong> boekingsgeschiedenis en eenvoudige notities (als een bedrijf dit gebruikt).</li>
+              <li><strong>Betalingen:</strong> betaalstatus en transactie-referenties. (Kaartgegevens worden meestal door de betaalprovider verwerkt, niet door ons opgeslagen.)</li>
+              <li><strong>Reminders:</strong> bevestiging en afleverstatus via E-mail / SMS / WhatsApp.</li>
+              <li><strong>Websitegebruik:</strong> basis log- en apparaatgegevens voor beveiliging en betrouwbaarheid.</li>
+            </ul>
+
+            <h2>5) Waarom we de informatie gebruiken</h2>
+            <ul>
+              <li>Boekingen en agenda’s aanmaken en beheren.</li>
+              <li>Bevestigingen en vriendelijke reminders sturen (E-mail / SMS / WhatsApp) wanneer ingeschakeld.</li>
+              <li>Betalingen ondersteunen en simpele rapporten mogelijk maken.</li>
+              <li>Beveiliging, misbruikpreventie en betrouwbaarheid verbeteren.</li>
+              <li>Vragen beantwoorden en support leveren.</li>
+            </ul>
+
+            <h2>6) Delen van informatie</h2>
+            <p>We delen alleen wanneer het nodig is om de dienst te leveren, bijvoorbeeld met:</p>
+            <ul>
+              <li><strong>Hosting & infrastructuur</strong></li>
+              <li><strong>Betaalproviders</strong></li>
+              <li><strong>Berichtproviders</strong> (E-mail / SMS / WhatsApp)</li>
+              <li><strong>Professionele adviseurs</strong> (indien noodzakelijk)</li>
+            </ul>
+            <p><strong>We verkopen geen persoonsgegevens.</strong></p>
+
+            <h2>7) Internationale doorgifte</h2>
+            <p>
+              Sommige leveranciers verwerken data buiten jouw land. Waar nodig gebruiken we passende waarborgen om data te beschermen.
+            </p>
+
+            <h2>8) Bewaartermijn</h2>
+            <p>
+              We bewaren data niet langer dan nodig voor de doelen hierboven, of zolang als wettelijk vereist.
+            </p>
+
+            <h2>9) Jouw rechten</h2>
+            <p>Afhankelijk van je locatie (incl. EU/EEA) kun je rechten hebben zoals inzage, correctie, verwijdering en bezwaar.</p>
+            <p>
+              Bij boekingen via een bedrijf is het vaak het snelst om dat bedrijf eerst te benaderen. Je kunt ons ook bereiken via <strong>privacy@juztbooking.com</strong>.
+            </p>
+
+            <h2>10) Cookies</h2>
+            <p>
+              We kunnen essentiële cookies gebruiken (zoals taalvoorkeur en veilige sessies). Je kunt cookies beheren via je browserinstellingen.
+            </p>
+
+            <h2>11) Beveiliging</h2>
+            <p>
+              We nemen redelijke maatregelen om data te beschermen. Geen methode is 100% perfect, maar we nemen privacy serieus.
+            </p>
+
+            <h2>12) Wijzigingen</h2>
+            <p>
+              We kunnen dit beleid bijwerken. De datum “Laatst bijgewerkt” bovenaan wordt dan aangepast.
+            </p>
+          `,
+        },
+      };
+
+      const LANG_STORAGE_KEY = "juztbooking_lang";
+
+      function setLangLabel(lang) {
+        const label = lang === "en" ? "EN" : lang === "th" ? "TH" : "NL";
+        if (langLabelDesktop) langLabelDesktop.textContent = label;
+        if (langLabelMobile) langLabelMobile.textContent = label;
+      }
+
+      function applyLang(lang) {
+        const pack = dict[lang] || dict.en;
+
+        // text nodes
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (pack[key]) el.textContent = pack[key];
+        });
+
+        // HTML blocks
+        document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-html");
+          if (pack[key]) el.innerHTML = pack[key];
+        });
+
+        // ✅ apply spacing after rendering
+        stylePolicyBody();
+
+        setLangLabel(lang);
+        localStorage.setItem(LANG_STORAGE_KEY, lang);
+        closeLangMenus();
+      }
+
+      // click language options
+      function bindLangButtons(container) {
+        if (!container) return;
+        container.querySelectorAll("[data-lang]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const lang = btn.getAttribute("data-lang");
+            applyLang(lang);
+          });
+        });
+      }
+      bindLangButtons(langMenuDesktop);
+      bindLangButtons(langMenuMobile);
+
+      // default language EN
+      const saved = localStorage.getItem(LANG_STORAGE_KEY) || "en";
+      applyLang(saved);
+
+      // Footer year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

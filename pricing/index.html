@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing | juztbooking</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#9F4884" },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="text-slate-900">
+    <!-- Gradient background -->
+    <div
+      class="min-h-screen bg-gradient-to-b from-white via-primary/5 to-white"
+    >
+      <!-- Decorative blobs (no images needed) -->
+      <div
+        class="pointer-events-none fixed -left-28 top-10 h-80 w-80 rounded-full bg-primary/15 blur-3xl"
+      ></div>
+      <div
+        class="pointer-events-none fixed -right-28 top-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl"
+      ></div>
+
+      <!-- Top bar -->
+      <div class="sticky top-0 z-40 border-b bg-white/75 backdrop-blur">
+        <div
+          class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+        >
+          <!-- Brand -->
+          <a href="/" class="flex items-center gap-3">
+            <img
+              src="/assets/logo-juztbooking.png"
+              alt="juztbooking"
+              class="h-12 rounded-xl object-cover"
+            />
+          </a>
+
+          <!-- Desktop nav -->
+          <div class="hidden items-center gap-2 md:flex">
+            <!-- ✅ Home -->
+            <a
+              href="/"
+              data-navlink
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navHome"
+              >Home</a
+            >
+
+            <a
+              href="/solutions"
+              data-navlink
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navSolutions"
+              >Solutions</a
+            >
+            <a
+              href="/features"
+              data-navlink
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navFeatures"
+              >Features</a
+            >
+            <a
+              href="/pricing"
+              data-navlink
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navPricing"
+              >Pricing</a
+            >
+            <a
+              href="/contact"
+              data-navlink
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navContact"
+              >Contact</a
+            >
+
+            <!-- Language dropdown -->
+            <div class="relative">
+              <button
+                id="langBtnDesktop"
+                class="inline-flex items-center gap-2 rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                type="button"
+              >
+                <span id="langLabelDesktop">EN</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-4 w-4 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
+                  />
+                </svg>
+              </button>
+
+              <div
+                id="langMenuDesktop"
+                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-white shadow-lg"
+                role="menu"
+              >
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="en"
+                  role="menuitem"
+                  type="button"
+                >
+                  English (EN)
+                </button>
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="th"
+                  role="menuitem"
+                  type="button"
+                >
+                  ไทย (TH)
+                </button>
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="nl"
+                  role="menuitem"
+                  type="button"
+                >
+                  Nederlands (NL)
+                </button>
+              </div>
+            </div>
+
+            <a
+              href="/login"
+              class="ml-1 inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navLogin"
+              >Login</a
+            >
+            <a
+              href="/trial"
+              class="inline-flex items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+              data-i18n="navTrial"
+              >Start 15-day trial</a
+            >
+          </div>
+
+          <!-- Mobile / Tablet -->
+          <div class="flex items-center gap-2 md:hidden">
+            <a
+              href="/trial"
+              class="inline-flex items-center justify-center rounded-2xl bg-primary px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
+              data-i18n="navTrialShort"
+              >Start 15-day trial</a
+            >
+            <button
+              id="menuBtn"
+              type="button"
+              class="inline-flex items-center justify-center rounded-2xl border bg-white p-2.5 hover:bg-slate-50"
+              aria-label="Open menu"
+              aria-controls="mobileMenu"
+              aria-expanded="false"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="h-5 w-5 fill-slate-800"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 6.5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile drawer overlay -->
+      <div
+        id="menuOverlay"
+        class="fixed inset-0 z-50 hidden bg-slate-900/40 backdrop-blur-sm"
+      ></div>
+
+      <!-- Mobile drawer -->
+      <aside
+        id="mobileMenu"
+        class="fixed right-0 top-0 z-50 h-full w-[86%] max-w-sm translate-x-full border-l bg-white shadow-xl transition-transform duration-200"
+        aria-label="Mobile navigation"
+      >
+        <div class="flex items-center justify-between border-b px-4 py-3">
+          <div class="flex items-center gap-3">
+            <img
+              src="/assets/logo-juztbooking.png"
+              alt="juztbooking"
+              class="h-9 w-9 rounded-xl object-cover"
+            />
+            <div class="leading-tight">
+              <div class="font-semibold tracking-tight">juztbooking</div>
+              <div class="text-xs text-slate-500" data-i18n="tagline">
+                Booking system for Salon & Massage
+              </div>
+            </div>
+          </div>
+
+          <button
+            id="menuCloseBtn"
+            type="button"
+            class="inline-flex items-center justify-center rounded-2xl border bg-white p-2.5 hover:bg-slate-50"
+            aria-label="Close menu"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              class="h-5 w-5 fill-slate-800"
+              aria-hidden="true"
+            >
+              <path
+                d="M18.3 5.71a1 1 0 0 1 0 1.41L13.41 12l4.89 4.88a1 1 0 1 1-1.41 1.42L12 13.41l-4.88 4.89a1 1 0 1 1-1.42-1.41L10.59 12 5.7 7.12A1 1 0 1 1 7.12 5.7L12 10.59l4.88-4.89a1 1 0 0 1 1.42.01z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="px-4 py-4">
+          <!-- ✅ Home -->
+          <a
+            href="/"
+            data-navlink
+            class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navHome"
+            >Home</a
+          >
+
+          <a
+            href="/solutions"
+            data-navlink
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navSolutions"
+            >Solutions</a
+          >
+          <a
+            href="/features"
+            data-navlink
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navFeatures"
+            >Features</a
+          >
+          <a
+            href="/pricing"
+            data-navlink
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navPricing"
+            >Pricing</a
+          >
+          <a
+            href="/contact"
+            data-navlink
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navContact"
+            >Contact</a
+          >
+
+          <a
+            href="/trial"
+            class="mt-3 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
+            data-i18n="navTrial"
+            >Start 15-day trial</a
+          >
+          <a
+            href="/login"
+            class="mt-2 inline-flex w-full items-center justify-center rounded-2xl border px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            data-i18n="navLogin"
+            >Login</a
+          >
+
+          <!-- Language dropdown (mobile) -->
+          <div class="mt-5 rounded-3xl border bg-white p-4">
+            <div
+              class="text-xs font-semibold text-slate-600"
+              data-i18n="navLangTitle"
+            >
+              Language
+            </div>
+
+            <div class="relative mt-2">
+              <button
+                id="langBtnMobile"
+                class="inline-flex w-full items-center justify-between rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                type="button"
+              >
+                <span id="langLabelMobile">EN</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-4 w-4 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
+                  />
+                </svg>
+              </button>
+
+              <div
+                id="langMenuMobile"
+                class="mt-2 hidden overflow-hidden rounded-2xl border bg-white shadow-lg"
+                role="menu"
+              >
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="en"
+                  role="menuitem"
+                  type="button"
+                >
+                  English (EN)
+                </button>
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="th"
+                  role="menuitem"
+                  type="button"
+                >
+                  ไทย (TH)
+                </button>
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="nl"
+                  role="menuitem"
+                  type="button"
+                >
+                  Nederlands (NL)
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Hero -->
+      <header class="relative">
+        <div
+          class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-4 py-12 md:grid-cols-2 md:py-16"
+        >
+          <div>
+            <div
+              class="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-sm text-slate-700"
+            >
+              <span class="inline-block h-2 w-2 rounded-full bg-primary"></span>
+              <span data-i18n="heroBadge">Simple pricing that feels fair</span>
+            </div>
+
+            <h1
+              class="mt-4 text-3xl font-bold tracking-tight md:text-5xl"
+              data-i18n="heroTitle"
+            >
+              Choose a package that fits your salon or massage studio
+            </h1>
+
+            <p class="mt-4 text-slate-600 md:text-lg" data-i18n="heroDesc">
+              Start with what you need today, and upgrade anytime when your team
+              grows. If you already have a website, we can connect the booking
+              link. If you don’t, we can build a lovely website for you too.
+            </p>
+
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#plans"
+                class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95"
+                data-i18n="heroCtaPrimary"
+              >
+                See packages
+              </a>
+
+              <a
+                href="/trial"
+                class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-white/60"
+                data-i18n="heroCtaSecondary"
+              >
+                Start 15-day trial
+              </a>
+            </div>
+
+            <div class="mt-6 rounded-2xl border bg-white p-4">
+              <div
+                class="text-sm font-semibold text-slate-900"
+                data-i18n="benefitsTitle"
+              >
+                Key benefits you’ll notice
+              </div>
+              <ul class="mt-2 grid gap-2 text-sm text-slate-600">
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  <span data-i18n="benefit1">Less admin work</span>
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  <span data-i18n="benefit2"
+                    >Fewer no-shows (confirm + reminders)</span
+                  >
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  <span data-i18n="benefit3">Easier payments</span>
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  <span data-i18n="benefit4"
+                    >Clear reports and booking history</span
+                  >
+                </li>
+              </ul>
+
+              <div class="mt-3 text-xs text-slate-500" data-i18n="notifyNote">
+                Gentle reminders can be sent via Email.
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div
+              class="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/10 via-white to-primary/5"
+            ></div>
+
+            <div class="rounded-[2rem] border bg-white p-4 shadow-sm">
+              <img
+                src="/assets/pricing-hero-illustration.png"
+                alt="Pricing illustration"
+                class="h-[340px] w-full rounded-[1.5rem] object-cover md:h-[420px]"
+              />
+
+              <div class="mt-4 grid grid-cols-2 gap-3">
+                <div class="rounded-2xl border bg-white p-3">
+                  <div
+                    class="text-xs font-semibold text-slate-900"
+                    data-i18n="mini1Title"
+                  >
+                    Calendar & bookings
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="mini1Desc"
+                  >
+                    See your day clearly.
+                  </div>
+                </div>
+                <div class="rounded-2xl border bg-white p-3">
+                  <div
+                    class="text-xs font-semibold text-slate-900"
+                    data-i18n="mini2Title"
+                  >
+                    Services & staff
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="mini2Desc"
+                  >
+                    Simple setup once.
+                  </div>
+                </div>
+                <div class="rounded-2xl border bg-white p-3">
+                  <div
+                    class="text-xs font-semibold text-slate-900"
+                    data-i18n="mini3Title"
+                  >
+                    Payments
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="mini3Desc"
+                  >
+                    Online or in store.
+                  </div>
+                </div>
+                <div class="rounded-2xl border bg-white p-3">
+                  <div
+                    class="text-xs font-semibold text-slate-900"
+                    data-i18n="mini4Title"
+                  >
+                    Reports & logs
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="mini4Desc"
+                  >
+                    Clear overview anytime.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 rounded-[2rem] border bg-white p-4">
+              <div class="flex items-center justify-between gap-3">
+                <div>
+                  <div
+                    class="text-sm font-semibold text-slate-900"
+                    data-i18n="stepsTitle"
+                  >
+                    Getting started is easy
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="stepsSubtitle"
+                  >
+                    A simple flow: add services → add staff → share booking link
+                  </div>
+                </div>
+                <a
+                  href="/contact"
+                  class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                  data-i18n="stepsCta"
+                  >Talk to us</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Plans -->
+      <section id="plans" class="border-t bg-white/60">
+        <div class="mx-auto max-w-6xl px-4 py-12">
+          <div
+            class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end"
+          >
+            <div>
+              <h2
+                class="text-2xl font-bold tracking-tight md:text-3xl"
+                data-i18n="plansTitle"
+              >
+                Packages & pricing
+              </h2>
+              <p class="mt-2 text-slate-600" data-i18n="plansDesc">
+                Choose monthly or yearly billing. Yearly saves 50% compared to
+                monthly.
+              </p>
+            </div>
+
+            <!-- Billing toggle -->
+            <div class="rounded-3xl border bg-white p-2">
+              <div class="flex items-center gap-2">
+                <button
+                  id="btnMonthly"
+                  type="button"
+                  class="rounded-2xl px-4 py-2 text-sm font-semibold"
+                >
+                  Monthly
+                </button>
+                <button
+                  id="btnAnnual"
+                  type="button"
+                  class="rounded-2xl px-4 py-2 text-sm font-semibold"
+                >
+                  Annual (save 50%)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-3 text-xs text-slate-500" data-i18n="vatNote">
+            VAT is shown at 21%. Prices below are excl. VAT unless stated.
+          </div>
+
+          <!-- Cards rendered by JS -->
+          <div id="planCards" class="mt-8 grid gap-4 md:grid-cols-3"></div>
+
+          <!-- Comparison / small note -->
+          <div class="mt-10 grid gap-4 md:grid-cols-3">
+            <div class="rounded-3xl border bg-white p-6 md:col-span-2">
+              <h3 class="text-lg font-bold" data-i18n="compareTitle">
+                What’s included (overview)
+              </h3>
+              <p class="mt-2 text-sm text-slate-600" data-i18n="compareDesc">
+                These are the main areas the system helps with. Details vary by
+                package.
+              </p>
+
+              <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                <div class="rounded-2xl border bg-white p-4">
+                  <div class="font-semibold" data-i18n="area1Title">
+                    Calendar & bookings
+                  </div>
+                  <div
+                    class="mt-1 text-sm text-slate-600"
+                    data-i18n="area1Desc"
+                  >
+                    Day/week view, staff view, create/edit/move, status
+                    tracking.
+                  </div>
+                </div>
+                <div class="rounded-2xl border bg-white p-4">
+                  <div class="font-semibold" data-i18n="area2Title">
+                    Services & staff setup
+                  </div>
+                  <div
+                    class="mt-1 text-sm text-slate-600"
+                    data-i18n="area2Desc"
+                  >
+                    Add services, staff skills, opening hours, schedules.
+                  </div>
+                </div>
+                <div class="rounded-2xl border bg-white p-4">
+                  <div class="font-semibold" data-i18n="area3Title">
+                    Customers (CRM)
+                  </div>
+                  <div
+                    class="mt-1 text-sm text-slate-600"
+                    data-i18n="area3Desc"
+                  >
+                    Client list, booking history, simple notes.
+                  </div>
+                </div>
+                <div class="rounded-2xl border bg-white p-4">
+                  <div class="font-semibold" data-i18n="area4Title">
+                    Payments
+                  </div>
+                  <div
+                    class="mt-1 text-sm text-slate-600"
+                    data-i18n="area4Desc"
+                  >
+                    Online payments, payment status, invoices support.
+                  </div>
+                </div>
+                <div class="rounded-2xl border bg-white p-4 sm:col-span-2">
+                  <div class="font-semibold" data-i18n="area5Title">
+                    Reports & logs
+                  </div>
+                  <div
+                    class="mt-1 text-sm text-slate-600"
+                    data-i18n="area5Desc"
+                  >
+                    Booking reports, activity logs, and a clear overview for
+                    decisions.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <aside class="rounded-3xl border bg-white p-6">
+              <div
+                class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary"
+              >
+                <span data-i18n="sideBadge">Need help choosing?</span>
+              </div>
+              <h3 class="mt-3 text-lg font-bold" data-i18n="sideTitle">
+                I can recommend the best fit
+              </h3>
+              <p class="mt-2 text-sm text-slate-600" data-i18n="sideDesc">
+                Tell us your number of staff, services, and opening hours —
+                we’ll suggest a package kindly.
+              </p>
+
+              <div class="mt-4 rounded-2xl bg-primary/5 p-4">
+                <div
+                  class="text-sm font-semibold text-slate-900"
+                  data-i18n="sideListTitle"
+                >
+                  Most common workflow
+                </div>
+                <ol class="mt-2 grid gap-2 text-sm text-slate-700">
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary"
+                      >1</span
+                    >
+                    <span data-i18n="flow1">Customer books</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary"
+                      >2</span
+                    >
+                    <span data-i18n="flow2">Confirm</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary"
+                      >3</span
+                    >
+                    <span data-i18n="flow3">Remind</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary"
+                      >4</span
+                    >
+                    <span data-i18n="flow4">Payment</span>
+                  </li>
+                </ol>
+              </div>
+
+              <a
+                href="/contact"
+                class="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+                data-i18n="sideCta"
+                >Message us</a
+              >
+              <div class="mt-2 text-xs text-slate-500" data-i18n="sideFoot">
+                We can connect to your website, or build one if needed.
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="border-t bg-white">
+        <div class="mx-auto max-w-6xl px-4 py-12">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <h2
+                class="text-2xl font-bold tracking-tight"
+                data-i18n="faqTitle"
+              >
+                FAQ
+              </h2>
+              <p class="mt-2 text-slate-600" data-i18n="faqDesc">
+                If you’re unsure about anything, please message us — we’ll
+                explain simply.
+              </p>
+            </div>
+
+            <div class="hidden md:block">
+              <a
+                href="/trial"
+                class="inline-flex items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+                data-i18n="faqCta"
+                >Start 15-day trial</a
+              >
+            </div>
+          </div>
+
+          <div id="faqList" class="mt-8 grid gap-4 md:grid-cols-2"></div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="border-t bg-white/70 backdrop-blur">
+        <div class="mx-auto max-w-6xl px-4 py-10">
+          <div
+            class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
+          >
+            <div class="flex items-center gap-3">
+              <img
+                src="/assets/logo-juztbooking.png"
+                alt="juztbooking"
+                class="h-12 rounded-xl object-cover"
+              />
+              <div>
+                <div class="font-semibold">juztbooking</div>
+                <div class="text-sm text-slate-600" data-i18n="footerLine">
+                  Booking system for Salon & Massage
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3">
+              <a
+                href="/privacy-policy"
+                class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                data-i18n="privacy"
+                >Privacy Policy</a
+              >
+
+              <a
+                class="rounded-xl p-2 hover:bg-slate-50"
+                href="https://www.facebook.com/juztbooking"
+                aria-label="Facebook"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                class="rounded-xl p-2 hover:bg-slate-50"
+                href="https://www.x.com/juztbooking"
+                aria-label="X"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18.9 2H22l-6.77 7.73L23 22h-6.17l-4.83-7.06L5.9 22H2.8l7.25-8.29L1 2h6.32l4.37 6.41L18.9 2zm-1.08 18h1.71L7.23 3.9H5.4L17.82 20z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                class="rounded-xl p-2 hover:bg-slate-50"
+                href="https://www.instragram.com/juztbooking"
+                aria-label="Instagram"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4.5A5.5 5.5 0 1 1 6.5 14 5.5 5.5 0 0 1 12 8.5zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5zM18 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-6 text-xs text-slate-500">
+            © <span id="year"></span> juztbooking.
+            <span data-i18n="footerRights">All rights reserved.</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // ---------------------------
+      // Mobile menu controls
+      // ---------------------------
+      const menuBtn = document.getElementById("menuBtn");
+      const menuOverlay = document.getElementById("menuOverlay");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuCloseBtn = document.getElementById("menuCloseBtn");
+
+      const openMenu = () => {
+        menuOverlay.classList.remove("hidden");
+        mobileMenu.classList.remove("translate-x-full");
+        menuBtn?.setAttribute("aria-expanded", "true");
+        document.body.classList.add("overflow-hidden");
+      };
+
+      const closeMenu = () => {
+        mobileMenu.classList.add("translate-x-full");
+        menuOverlay.classList.add("hidden");
+        menuBtn?.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("overflow-hidden");
+      };
+
+      menuBtn?.addEventListener("click", openMenu);
+      menuCloseBtn?.addEventListener("click", closeMenu);
+      menuOverlay?.addEventListener("click", closeMenu);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+
+      // ---------------------------
+      // Language dropdown controls
+      // ---------------------------
+      const langBtnDesktop = document.getElementById("langBtnDesktop");
+      const langMenuDesktop = document.getElementById("langMenuDesktop");
+      const langLabelDesktop = document.getElementById("langLabelDesktop");
+
+      const langBtnMobile = document.getElementById("langBtnMobile");
+      const langMenuMobile = document.getElementById("langMenuMobile");
+      const langLabelMobile = document.getElementById("langLabelMobile");
+
+      function toggleMenu(btn, menu) {
+        const isOpen = !menu.classList.contains("hidden");
+        if (isOpen) {
+          menu.classList.add("hidden");
+          btn.setAttribute("aria-expanded", "false");
+        } else {
+          menu.classList.remove("hidden");
+          btn.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      function closeLangMenus() {
+        langMenuDesktop?.classList.add("hidden");
+        langBtnDesktop?.setAttribute("aria-expanded", "false");
+        langMenuMobile?.classList.add("hidden");
+        langBtnMobile?.setAttribute("aria-expanded", "false");
+      }
+
+      langBtnDesktop?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleMenu(langBtnDesktop, langMenuDesktop);
+      });
+
+      langBtnMobile?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleMenu(langBtnMobile, langMenuMobile);
+      });
+
+      document.addEventListener("click", () => closeLangMenus());
+
+      // ---------------------------
+      // ✅ Active menu (PC / Mobile / Tablet)
+      // ---------------------------
+      function normalizePath(p) {
+        if (!p) return "/";
+        p = p.split("?")[0].split("#")[0];
+        if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
+        return p;
+      }
+
+      function applyActiveNav() {
+        const currentPath = normalizePath(window.location.pathname);
+
+        document.querySelectorAll("a[data-navlink]").forEach((a) => {
+          const href = a.getAttribute("href") || "";
+          if (!href.startsWith("/")) return;
+
+          const linkPath = normalizePath(href);
+          const isActive = linkPath === currentPath;
+
+          a.classList.toggle("bg-primary/10", isActive);
+          a.classList.toggle("text-primary", isActive);
+          a.classList.toggle("ring-1", isActive);
+          a.classList.toggle("ring-primary/20", isActive);
+          a.classList.toggle("hover:bg-primary/10", isActive);
+
+          a.classList.toggle("hover:bg-slate-50", !isActive);
+
+          if (isActive) a.setAttribute("aria-current", "page");
+          else a.removeAttribute("aria-current");
+        });
+      }
+
+      // ---------------------------
+      // Pricing + Billing toggle
+      // ---------------------------
+      const VAT_RATE = 0.21;
+      const DISCOUNT_ANNUAL = 0.5; // ✅ was 0.1 (10%), now 50%
+
+      const PRICING = {
+        junior: { monthlyExVat: 19.95, highlight: false },
+        senior: { monthlyExVat: 39.95, highlight: true }, // Recommended
+        master: { monthlyExVat: 49.95, highlight: false },
+      };
+
+      const BILLING_STORAGE_KEY = "juztbooking_billing";
+      const LANG_STORAGE_KEY = "juztbooking_lang";
+
+      let currentBilling =
+        localStorage.getItem(BILLING_STORAGE_KEY) || "monthly";
+
+      const btnMonthly = document.getElementById("btnMonthly");
+      const btnAnnual = document.getElementById("btnAnnual");
+
+      function setBillingUI(mode) {
+        currentBilling = mode;
+        localStorage.setItem(BILLING_STORAGE_KEY, mode);
+
+        const active = "bg-primary text-white shadow-sm";
+        const inactive = "text-slate-700 hover:bg-slate-50";
+
+        btnMonthly.className =
+          "rounded-2xl px-4 py-2 text-sm font-semibold " +
+          (mode === "monthly" ? active : inactive);
+        btnAnnual.className =
+          "rounded-2xl px-4 py-2 text-sm font-semibold " +
+          (mode === "annual" ? active : inactive);
+
+        renderPlans();
+      }
+
+      btnMonthly?.addEventListener("click", () => setBillingUI("monthly"));
+      btnAnnual?.addEventListener("click", () => setBillingUI("annual"));
+
+      // ---------------------------
+      // i18n dictionary (EN default)
+      // ---------------------------
+      const dict = {
+        en: {
+          // nav / footer
+          tagline: "Booking system for Salon & Massage",
+          navHome: "Home",
+          navSolutions: "Solutions",
+          navFeatures: "Features",
+          navPricing: "Pricing",
+          navContact: "Contact",
+          navLogin: "Login",
+          navTrial: "Start 15-day trial",
+          navTrialShort: "Start 15-day trial",
+          navLangTitle: "Language",
+          footerLine: "Booking system for Salon & Massage",
+          privacy: "Privacy Policy",
+          footerRights: "All rights reserved.",
+
+          // hero
+          heroBadge: "Simple pricing that feels fair",
+          heroTitle: "Choose a package that fits your salon or massage studio",
+          heroDesc:
+            "Start with what you need today, and upgrade anytime when your team grows. If you already have a website, we can connect the booking link. If you don’t, we can build a lovely website for you too.",
+          heroCtaPrimary: "See packages",
+          heroCtaSecondary: "Start 15-day trial",
+
+          // benefits
+          benefitsTitle: "Key benefits you’ll notice",
+          benefit1: "Less admin work",
+          benefit2: "Fewer no-shows (confirm + reminders)",
+          benefit3: "Easier payments",
+          benefit4: "Clear reports and booking history",
+          notifyNote: "Gentle reminders can be sent via Email.",
+
+          // mini cards
+          mini1Title: "Calendar & bookings",
+          mini1Desc: "See your day clearly.",
+          mini2Title: "Services & staff",
+          mini2Desc: "Simple setup once.",
+          mini3Title: "Payments",
+          mini3Desc: "Online or in store.",
+          mini4Title: "Reports & logs",
+          mini4Desc: "Clear overview anytime.",
+
+          stepsTitle: "Getting started is easy",
+          stepsSubtitle:
+            "A simple flow: add services → add staff → share booking link",
+          stepsCta: "Talk to us",
+
+          // plans
+          plansTitle: "Packages & pricing",
+          plansDesc:
+            "Choose monthly or yearly billing. Yearly saves 50% compared to monthly.",
+          vatNote:
+            "VAT is shown at 21%. Prices below are excl. VAT unless stated.",
+
+          // compare
+          compareTitle: "What’s included (overview)",
+          compareDesc:
+            "These are the main areas the system helps with. Details vary by package.",
+
+          area1Title: "Calendar & bookings",
+          area1Desc:
+            "Day/week view, staff view, create/edit/move, status tracking.",
+          area2Title: "Services & staff setup",
+          area2Desc: "Add services, staff skills, opening hours, schedules.",
+          area3Title: "Customers (CRM)",
+          area3Desc: "Client list, booking history, simple notes.",
+          area4Title: "Payments",
+          area4Desc: "Online payments, payment status, invoices support.",
+          area5Title: "Reports & logs",
+          area5Desc:
+            "Booking reports, activity logs, and a clear overview for decisions.",
+
+          // side
+          sideBadge: "Need help choosing?",
+          sideTitle: "I can recommend the best fit",
+          sideDesc:
+            "Tell us your number of staff, services, and opening hours — we’ll suggest a package kindly.",
+          sideListTitle: "Most common workflow",
+          flow1: "Customer books",
+          flow2: "Confirm",
+          flow3: "Remind",
+          flow4: "Payment",
+          sideCta: "Message us",
+          sideFoot: "We can connect to your website, or build one if needed.",
+
+          // faq
+          faqTitle: "FAQ",
+          faqDesc:
+            "If you’re unsure about anything, please message us — we’ll explain simply.",
+          faqCta: "Start 15-day trial",
+
+          // plan content
+          labels: {
+            mostPopular: "Recommended",
+            billedMonthly: "Billed monthly",
+            billedYearly: "Billed yearly",
+            save10: "Save 50%", // ✅ label key kept, text updated
+            perMonth: "/month",
+            perYear: "/year",
+            monthEq: "Monthly equivalent",
+            subtotalEx: "Subtotal (excl. VAT)",
+            vat: "VAT (21%)",
+            totalInc: "Total (incl. VAT)",
+            choose: "Start this plan",
+            includes: "What’s included",
+            noteShort: "You can upgrade anytime. No pressure.",
+          },
+
+          plans: {
+            junior: {
+              name: "🟢 Junior",
+              tagline: "Best for small businesses getting started",
+              cta: "Start with Junior",
+              features: [
+                { ok: false, label: "Automatic booking reminder emails" },
+                { ok: true, label: "Online booking website & dashboard" },
+                { ok: false, label: "Custom booking link (your brand URL)" },
+                {
+                  ok: true,
+                  label: "Booking calendar (up to 35 bookings / month)",
+                },
+                { ok: true, label: "Client list & booking history" },
+                { ok: true, label: "Business info & opening hours setup" },
+                { ok: false, label: "Google Calendar sync" },
+                { ok: true, label: "Manage up to 5 services (1 staff member)" },
+                { ok: false, label: "Multi-user access" },
+                { ok: true, label: "Online payment setup" },
+                { ok: false, label: "Plans & pricing management" },
+                { ok: false, label: "Discount codes & promotions" },
+                { ok: false, label: "Staff & service scheduling" },
+                { ok: false, label: "Booking reports & activity logs" },
+                { ok: false, label: "Payment reports" },
+                { ok: false, label: "Priority support" },
+              ],
+              gentleNote:
+                "A sweet starting point when you want a simple online booking page and a tidy calendar.",
+            },
+            senior: {
+              name: "⭐ Senior",
+              tagline: "Best for growing teams that need automation",
+              cta: "Start with Senior",
+              features: [
+                { ok: true, label: "Automatic booking reminder emails" },
+                { ok: true, label: "Online booking website & dashboard" },
+                { ok: false, label: "Custom booking link (your brand URL)" },
+                {
+                  ok: true,
+                  label: "Booking calendar (up to 100 bookings / month)",
+                },
+                { ok: true, label: "Client list & booking history" },
+                { ok: true, label: "Business info & opening hours setup" },
+                { ok: true, label: "Google Calendar sync" },
+                {
+                  ok: true,
+                  label: "Unlimited services & up to 5 staff members",
+                },
+                { ok: false, label: "Multi-user access" },
+                { ok: true, label: "Online payment setup" },
+                { ok: true, label: "Plans & pricing management" },
+                { ok: true, label: "Discount codes & promotions" },
+                { ok: true, label: "Staff & service scheduling" },
+                { ok: true, label: "Booking reports & activity logs" },
+                { ok: false, label: "Payment reports" },
+                { ok: false, label: "Priority support" },
+              ],
+              gentleNote:
+                "Perfect when you want reminders + a smooth calendar, and you’re starting to handle a busier schedule.",
+            },
+            master: {
+              name: "👑 Master",
+              tagline: "Best for established businesses that want full control",
+              cta: "Start with Master",
+              features: [
+                { ok: true, label: "Automatic booking reminder emails" },
+                { ok: true, label: "Online booking website & dashboard" },
+                { ok: true, label: "Custom booking link (your brand URL)" },
+                { ok: true, label: "Unlimited bookings" },
+                { ok: true, label: "Client list & booking history" },
+                { ok: true, label: "Business info & opening hours setup" },
+                { ok: true, label: "Google Calendar sync" },
+                {
+                  ok: true,
+                  label: "Unlimited services & up to 9 staff members",
+                },
+                { ok: true, label: "Multi-user access" },
+                { ok: true, label: "Online payment setup" },
+                { ok: true, label: "Plans & pricing management" },
+                { ok: true, label: "Discount codes & promotions" },
+                { ok: true, label: "Staff & service scheduling" },
+                { ok: true, label: "Booking reports & activity logs" },
+                { ok: true, label: "Payment reports" },
+                { ok: true, label: "Priority support" },
+              ],
+              gentleNote:
+                "Ideal when you want deeper reporting, multi-user access, and a branded booking link for your business.",
+            },
+          },
+
+          faqs: [
+            {
+              q: "Do I get a free trial?",
+              a: "Yes, you can start a 15-day trial. If you need help setting up, please message us — we’ll guide you gently.",
+            },
+            {
+              q: "Can I switch between monthly and annual?",
+              a: "Yes. You can change billing later. Yearly billing saves 50% compared to monthly.",
+            },
+            {
+              q: "Do you support Email notifications?",
+              a: "Yes. You can send confirmations and friendly reminders via Email",
+            },
+            {
+              q: "Can you connect juztbooking to my existing website?",
+              a: "Yes. You can place a booking button/link on your website. If you don’t have a website, we can build one for you too.",
+            },
+            {
+              q: "Is VAT included in the displayed price?",
+              a: "We show the subtotal (excl. VAT), VAT (21%), and the total (incl. VAT) so it’s easy to understand.",
+            },
+            {
+              q: "What happens if my team grows?",
+              a: "You can upgrade anytime. I’ll help you pick the next package when you’re ready.",
+            },
+          ],
+        },
+
+        th: {
+          tagline: "ระบบจองคิวสำหรับ Salon & ร้านนวด",
+          navHome: "หน้าแรก",
+          navSolutions: "โซลูชัน",
+          navFeatures: "ฟีเจอร์",
+          navPricing: "แพ็กเกจ",
+          navContact: "ติดต่อ",
+          navLogin: "เข้าสู่ระบบ",
+          navTrial: "ทดลองใช้ 15 วัน",
+          navTrialShort: "ทดลองใช้ 15 วัน",
+          navLangTitle: "ภาษา",
+          footerLine: "ระบบจองคิวสำหรับ Salon & ร้านนวด",
+          privacy: "Privacy Policy",
+          footerRights: "สงวนลิขสิทธิ์",
+
+          heroBadge: "ราคาเข้าใจง่าย และเลือกได้แบบสบายใจค่ะ",
+          heroTitle: "เลือกแพ็กเกจที่เหมาะกับร้าน Salon หรือร้านนวดของคุณ",
+          heroDesc:
+            "เริ่มจากสิ่งที่จำเป็นก่อน แล้วค่อยอัปเกรดเมื่อทีมโตขึ้นก็ได้ค่ะ ถ้ามีเว็บไซต์อยู่แล้ว เราช่วยเชื่อมลิงก์จองให้ได้ และถ้ายังไม่มีเว็บไซต์ เรารับทำเว็บให้ได้เช่นกันค่ะ",
+          heroCtaPrimary: "ดูแพ็กเกจ",
+          heroCtaSecondary: "เริ่มทดลองใช้ 15 วัน",
+
+          benefitsTitle: "ผลลัพธ์ที่คุณจะเห็นชัด",
+          benefit1: "ลดงานแอดมิน",
+          benefit2: "ลด no-show (ยืนยัน + แจ้งเตือน)",
+          benefit3: "เก็บเงินง่ายขึ้น",
+          benefit4: "เห็นภาพรวมและประวัติจองชัดขึ้น",
+          notifyNote: "รองรับการแจ้งเตือนผ่าน Email",
+
+          mini1Title: "ปฏิทินคิว",
+          mini1Desc: "เห็นทั้งวันแบบชัด ๆ",
+          mini2Title: "บริการ & พนักงาน",
+          mini2Desc: "ตั้งค่าง่ายครั้งเดียว",
+          mini3Title: "การชำระเงิน",
+          mini3Desc: "ออนไลน์หรือหน้าร้าน",
+          mini4Title: "รายงาน & ประวัติ",
+          mini4Desc: "ดูภาพรวมได้ตลอด",
+
+          stepsTitle: "เริ่มใช้งานง่ายมากค่ะ",
+          stepsSubtitle:
+            "ลำดับแบบง่าย: เพิ่มบริการ → เพิ่มพนักงาน → แชร์ลิงก์จอง",
+          stepsCta: "ทักมาคุย",
+
+          plansTitle: "แพ็กเกจ & ราคา",
+          plansDesc:
+            "เลือกได้ทั้งรายเดือนหรือรายปี รายปีประหยัดกว่า 50% เมื่อเทียบกับรายเดือนค่ะ",
+          vatNote:
+            "แสดง VAT 21% ให้ดูชัด ๆ (ราคาด้านล่างเป็นราคายังไม่รวม VAT เว้นแต่ระบุไว้)",
+
+          compareTitle: "ภาพรวมสิ่งที่ระบบช่วยได้",
+          compareDesc:
+            "ด้านล่างคือส่วนหลัก ๆ ที่ระบบช่วยดูแล (รายละเอียดจะแตกต่างตามแพ็กเกจค่ะ)",
+
+          area1Title: "Calendar & Bookings",
+          area1Desc:
+            "มุมมอง Day/Week, มุมมองตามพนักงาน, เลื่อน/แก้ไขนัด, สถานะนัด",
+          area2Title: "Setup (บริการ/พนักงาน/ตาราง)",
+          area2Desc: "เพิ่มบริการ, ความสามารถพนักงาน, เวลาเปิด-ปิด, ตารางงาน",
+          area3Title: "Customers (CRM)",
+          area3Desc: "รายชื่อลูกค้า, ประวัติการจอง, โน้ตแบบง่าย ๆ",
+          area4Title: "Payments",
+          area4Desc: "รับชำระออนไลน์, สถานะการชำระเงิน, ช่วยเรื่องใบแจ้งหนี้",
+          area5Title: "Reports & Logs",
+          area5Desc: "รายงานการจอง, บันทึกกิจกรรม, ภาพรวมเพื่อช่วยตัดสินใจ",
+
+          sideBadge: "เลือกไม่ถูกใช่ไหมคะ?",
+          sideTitle: "เดี๋ยวช่วยแนะนำให้ได้นะคะ",
+          sideDesc:
+            "บอกจำนวนพนักงาน จำนวนบริการ และเวลาเปิด-ปิด เดี๋ยวเราช่วยแนะนำแพ็กเกจที่เหมาะให้ค่ะ",
+          sideListTitle: "Workflow ที่ใช้บ่อย",
+          flow1: "ลูกค้าจอง",
+          flow2: "ยืนยัน",
+          flow3: "แจ้งเตือน",
+          flow4: "รับชำระ",
+          sideCta: "ส่งข้อความหาเรา",
+          sideFoot: "เราช่วยเชื่อมกับเว็บเดิมได้ หรือทำเว็บให้ใหม่ได้ค่ะ",
+
+          faqTitle: "คำถามที่พบบ่อย",
+          faqDesc:
+            "ถ้าส่วนไหนยังไม่แน่ใจ ทักมาได้เลยนะคะ เราอธิบายให้แบบง่าย ๆ ค่ะ",
+          faqCta: "เริ่มทดลองใช้ 15 วัน",
+
+          labels: {
+            mostPopular: "แนะนำ",
+            billedMonthly: "คิดเงินรายเดือน",
+            billedYearly: "คิดเงินรายปี",
+            save10: "ประหยัด 50%", // ✅
+            perMonth: "/เดือน",
+            perYear: "/ปี",
+            monthEq: "เฉลี่ยต่อเดือน",
+            subtotalEx: "ยอดรวม (ยังไม่รวม VAT)",
+            vat: "VAT (21%)",
+            totalInc: "ยอดรวม (รวม VAT)",
+            choose: "เริ่มแพ็กเกจนี้",
+            includes: "มีอะไรบ้าง",
+            noteShort: "อัปเกรดได้ตลอดค่ะ ไม่กดดันนะคะ",
+          },
+
+          plans: {
+            junior: {
+              name: "🟢 Junior",
+              tagline: "เหมาะกับร้านเล็กที่กำลังเริ่มต้น",
+              cta: "เริ่มด้วย Junior",
+              features: [
+                { ok: false, label: "อีเมลเตือนนัดอัตโนมัติ" },
+                { ok: true, label: "หน้าเว็บจองออนไลน์ & แดชบอร์ด" },
+                { ok: false, label: "ลิงก์จองแบบโดเมนแบรนด์คุณ (Custom URL)" },
+                { ok: true, label: "ปฏิทินคิว (สูงสุด 35 การจอง/เดือน)" },
+                { ok: true, label: "รายชื่อลูกค้า & ประวัติการจอง" },
+                { ok: true, label: "ตั้งค่าข้อมูลร้าน & เวลาเปิด-ปิด" },
+                { ok: false, label: "ซิงก์ Google Calendar" },
+                { ok: true, label: "เพิ่มได้สูงสุด 5 บริการ (พนักงาน 1 คน)" },
+                { ok: false, label: "หลายผู้ใช้งานหลังบ้าน (Multi-user)" },
+                { ok: true, label: "ตั้งค่ารับชำระเงินออนไลน์" },
+                { ok: false, label: "จัดการแพ็กเกจ/ราคาในระบบ" },
+                { ok: false, label: "โค้ดส่วนลด & โปรโมชัน" },
+                { ok: false, label: "ตารางงานพนักงาน & บริการ" },
+                { ok: false, label: "รายงานการจอง & บันทึกกิจกรรม" },
+                { ok: false, label: "รายงานการชำระเงิน" },
+                { ok: false, label: "Priority support" },
+              ],
+              gentleNote:
+                "เหมาะมากค่ะ ถ้าอยากเริ่มรับจองออนไลน์และมีปฏิทินคิวที่ดูง่าย ๆ",
+            },
+            senior: {
+              name: "⭐ Senior",
+              tagline: "เหมาะกับทีมที่เริ่มโตและอยากได้ระบบช่วยอัตโนมัติ",
+              cta: "เริ่มด้วย Senior",
+              features: [
+                { ok: true, label: "อีเมลเตือนนัดอัตโนมัติ" },
+                { ok: true, label: "หน้าเว็บจองออนไลน์ & แดชบอร์ด" },
+                { ok: false, label: "ลิงก์จองแบบโดเมนแบรนด์คุณ (Custom URL)" },
+                { ok: true, label: "ปฏิทินคิว (สูงสุด 100 การจอง/เดือน)" },
+                { ok: true, label: "รายชื่อลูกค้า & ประวัติการจอง" },
+                { ok: true, label: "ตั้งค่าข้อมูลร้าน & เวลาเปิด-ปิด" },
+                { ok: true, label: "ซิงก์ Google Calendar" },
+                { ok: true, label: "บริการไม่จำกัด & พนักงานสูงสุด 5 คน" },
+                { ok: false, label: "หลายผู้ใช้งานหลังบ้าน (Multi-user)" },
+                { ok: true, label: "ตั้งค่ารับชำระเงินออนไลน์" },
+                { ok: true, label: "จัดการแพ็กเกจ/ราคาในระบบ" },
+                { ok: true, label: "โค้ดส่วนลด & โปรโมชัน" },
+                { ok: true, label: "ตารางงานพนักงาน & บริการ" },
+                { ok: true, label: "รายงานการจอง & บันทึกกิจกรรม" },
+                { ok: false, label: "รายงานการชำระเงิน" },
+                { ok: false, label: "Priority support" },
+              ],
+              gentleNote:
+                "แพ็กนี้จะช่วยเรื่อง “เตือนนัด + จัดคิว” ได้สบายขึ้นมากค่ะ (เหมาะกับร้านที่เริ่มคิวแน่น)",
+            },
+            master: {
+              name: "👑 Master",
+              tagline: "เหมาะกับร้านที่อยากได้ฟีเจอร์ครบและคุมได้ละเอียด",
+              cta: "เริ่มด้วย Master",
+              features: [
+                { ok: true, label: "อีเมลเตือนนัดอัตโนมัติ" },
+                { ok: true, label: "หน้าเว็บจองออนไลน์ & แดชบอร์ด" },
+                { ok: true, label: "ลิงก์จองแบบโดเมนแบรนด์คุณ (Custom URL)" },
+                { ok: true, label: "การจองไม่จำกัด" },
+                { ok: true, label: "รายชื่อลูกค้า & ประวัติการจอง" },
+                { ok: true, label: "ตั้งค่าข้อมูลร้าน & เวลาเปิด-ปิด" },
+                { ok: true, label: "ซิงก์ Google Calendar" },
+                { ok: true, label: "บริการไม่จำกัด & พนักงานสูงสุด 9 คน" },
+                { ok: true, label: "หลายผู้ใช้งานหลังบ้าน (Multi-user)" },
+                { ok: true, label: "ตั้งค่ารับชำระเงินออนไลน์" },
+                { ok: true, label: "จัดการแพ็กเกจ/ราคาในระบบ" },
+                { ok: true, label: "โค้ดส่วนลด & โปรโมชัน" },
+                { ok: true, label: "ตารางงานพนักงาน & บริการ" },
+                { ok: true, label: "รายงานการจอง & บันทึกกิจกรรม" },
+                { ok: true, label: "รายงานการชำระเงิน" },
+                { ok: true, label: "Priority support" },
+              ],
+              gentleNote:
+                "เหมาะมากค่ะ ถ้าต้องการรายงานละเอียด มีหลายผู้ใช้ และอยากได้ลิงก์จองที่เป็นแบรนด์ของตัวเอง",
+            },
+          },
+
+          faqs: [
+            {
+              q: "มีทดลองใช้ไหมคะ?",
+              a: "มีค่ะ คุณสามารถเริ่มทดลองใช้ 15 วันได้เลย ถ้าต้องการให้ช่วยตั้งค่า ทักมาได้เลยนะคะ",
+            },
+            {
+              q: "สลับรายเดือน/รายปีได้ไหมคะ?",
+              a: "ได้ค่ะ เปลี่ยนรอบบิลภายหลังได้ รายปีจะประหยัดกว่า 50% เมื่อเทียบกับรายเดือนค่ะ",
+            },
+            {
+              q: "รองรับ Email ไหมคะ?",
+              a: "รองรับค่ะ สามารถส่งยืนยันการจองและแจ้งเตือนแบบสุภาพผ่าน Email",
+            },
+            {
+              q: "เชื่อมกับเว็บไซต์เดิมได้ไหมคะ?",
+              a: "ได้ค่ะ วางปุ่ม/ลิงก์จองบนเว็บเดิมได้เลย และถ้ายังไม่มีเว็บไซต์ เรารับทำเว็บให้พร้อมเชื่อมระบบจองได้ค่ะ",
+            },
+            {
+              q: "VAT รวมในราคาไหมคะ?",
+              a: "เราแสดงยอดยังไม่รวม VAT, VAT 21% และยอดรวมให้ดูชัด ๆ เพื่อให้คุณตัดสินใจง่ายค่ะ",
+            },
+            {
+              q: "ถ้าร้านโตขึ้นต้องทำยังไงคะ?",
+              a: "อัปเกรดได้ตลอดค่ะ เดี๋ยวเราช่วยแนะนำแพ็กเกจถัดไปให้เมื่อคุณพร้อมนะคะ",
+            },
+          ],
+        },
+
+        nl: {
+          tagline: "Boekingssysteem voor Salon & Massage",
+          navHome: "Home",
+          navSolutions: "Oplossingen",
+          navFeatures: "Functies",
+          navPricing: "Prijzen",
+          navContact: "Contact",
+          navLogin: "Inloggen",
+          navTrial: "Start 15 dagen proef",
+          navTrialShort: "Start 15 dagen proef",
+          navLangTitle: "Taal",
+          footerLine: "Boekingssysteem voor Salon & Massage",
+          privacy: "Privacybeleid",
+          footerRights: "Alle rechten voorbehouden",
+
+          heroBadge: "Eenvoudige prijzen, eerlijk gevoel",
+          heroTitle:
+            "Kies een pakket dat past bij jouw salon of massagepraktijk",
+          heroDesc:
+            "Begin met wat je nu nodig hebt en upgrade wanneer je team groeit. Heb je al een website? Dan koppelen we de boekingslink. Heb je nog geen website? Dan kunnen we er ook één voor je maken.",
+          heroCtaPrimary: "Bekijk pakketten",
+          heroCtaSecondary: "Start 15 dagen proef",
+
+          benefitsTitle: "Voordelen die je snel merkt",
+          benefit1: "Minder adminwerk",
+          benefit2: "Minder no-shows (bevestiging + reminders)",
+          benefit3: "Makkelijker betalen",
+          benefit4: "Duidelijke rapporten en boekingshistorie",
+          notifyNote: "Vriendelijke reminders via e-mail zijn mogelijk.",
+
+          mini1Title: "Kalender & boekingen",
+          mini1Desc: "Je dag overzichtelijk.",
+          mini2Title: "Diensten & personeel",
+          mini2Desc: "Eén keer simpel instellen.",
+          mini3Title: "Betalingen",
+          mini3Desc: "Online of in de zaak.",
+          mini4Title: "Rapporten & logs",
+          mini4Desc: "Altijd helder overzicht.",
+
+          stepsTitle: "Snel starten",
+          stepsSubtitle:
+            "Eenvoudige flow: diensten → personeel → boekingslink delen",
+          stepsCta: "Neem contact op",
+
+          plansTitle: "Pakketten & prijzen",
+          plansDesc:
+            "Kies maandelijks of jaarlijks. Jaarlijks bespaart 50% t.o.v. maandelijks.",
+          vatNote:
+            "BTW wordt getoond als 21%. Prijzen hieronder zijn excl. BTW tenzij anders vermeld.",
+
+          compareTitle: "Wat is inbegrepen (overzicht)",
+          compareDesc:
+            "Dit zijn de hoofdonderdelen. Details verschillen per pakket.",
+
+          area1Title: "Kalender & boekingen",
+          area1Desc:
+            "Dag/week, per medewerker, aanpassen/verplaatsen, status bijhouden.",
+          area2Title: "Diensten & personeel instellen",
+          area2Desc: "Diensten, skills, openingstijden, roosters.",
+          area3Title: "Klanten (CRM)",
+          area3Desc: "Klantenlijst, historie, eenvoudige notities.",
+          area4Title: "Betalingen",
+          area4Desc: "Online betalingen, status, ondersteuning voor facturen.",
+          area5Title: "Rapporten & logs",
+          area5Desc: "Boekingsrapporten, activiteitenlog en helder overzicht.",
+
+          sideBadge: "Hulp bij kiezen?",
+          sideTitle: "Ik help je graag kiezen",
+          sideDesc:
+            "Vertel je aantal medewerkers, diensten en openingstijden — dan adviseer ik vriendelijk het beste pakket.",
+          sideListTitle: "Meest gebruikte workflow",
+          flow1: "Klant boekt",
+          flow2: "Bevestigen",
+          flow3: "Herinneren",
+          flow4: "Betaling",
+          sideCta: "Stuur een bericht",
+          sideFoot:
+            "We koppelen met je website, of bouwen er één als dat nodig is.",
+
+          faqTitle: "FAQ",
+          faqDesc:
+            "Twijfel je ergens over? Stuur gerust een bericht — we leggen het simpel uit.",
+          faqCta: "Start 15 dagen proef",
+
+          labels: {
+            mostPopular: "Aanbevolen",
+            billedMonthly: "Maandelijks",
+            billedYearly: "Jaarlijks",
+            save10: "50% korting", // ✅
+            perMonth: "/maand",
+            perYear: "/jaar",
+            monthEq: "Maandelijks equivalent",
+            subtotalEx: "Subtotaal (excl. BTW)",
+            vat: "BTW (21%)",
+            totalInc: "Totaal (incl. BTW)",
+            choose: "Start dit pakket",
+            includes: "Wat zit erin",
+            noteShort: "Je kunt altijd upgraden. Geen druk.",
+          },
+
+          plans: {
+            junior: {
+              name: "🟢 Junior",
+              tagline: "Voor kleine bedrijven die starten",
+              cta: "Start met Junior",
+              features: [
+                { ok: false, label: "Automatische reminder e-mails" },
+                { ok: true, label: "Online boekingswebsite & dashboard" },
+                { ok: false, label: "Eigen boekingslink (jouw merk-URL)" },
+                {
+                  ok: true,
+                  label: "Boekingskalender (tot 35 boekingen/maand)",
+                },
+                { ok: true, label: "Klantenlijst & boekingshistorie" },
+                { ok: true, label: "Bedrijfsinfo & openingstijden instellen" },
+                { ok: false, label: "Google Calendar sync" },
+                { ok: true, label: "Tot 5 diensten beheren (1 medewerker)" },
+                { ok: false, label: "Multi-user toegang" },
+                { ok: true, label: "Online betalen instellen" },
+                { ok: false, label: "Plannen & prijzen beheren" },
+                { ok: false, label: "Kortingscodes & promoties" },
+                { ok: false, label: "Roosters voor diensten & personeel" },
+                { ok: false, label: "Boekingsrapporten & activiteitenlog" },
+                { ok: false, label: "Betalingsrapporten" },
+                { ok: false, label: "Priority support" },
+              ],
+              gentleNote:
+                "Een fijne start als je vooral een mooie boekingspagina en een duidelijke kalender wilt.",
+            },
+            senior: {
+              name: "⭐ Senior",
+              tagline: "Voor groeiende teams die automatisering willen",
+              cta: "Start met Senior",
+              features: [
+                { ok: true, label: "Automatische reminder e-mails" },
+                { ok: true, label: "Online boekingswebsite & dashboard" },
+                { ok: false, label: "Eigen boekingslink (jouw merk-URL)" },
+                {
+                  ok: true,
+                  label: "Boekingskalender (tot 100 boekingen/maand)",
+                },
+                { ok: true, label: "Klantenlijst & boekingshistorie" },
+                { ok: true, label: "Bedrijfsinfo & openingstijden instellen" },
+                { ok: true, label: "Google Calendar sync" },
+                { ok: true, label: "Onbeperkte diensten & tot 5 medewerkers" },
+                { ok: false, label: "Multi-user toegang" },
+                { ok: true, label: "Online betalen instellen" },
+                { ok: true, label: "Plannen & prijzen beheren" },
+                { ok: true, label: "Kortingscodes & promoties" },
+                { ok: true, label: "Roosters voor diensten & personeel" },
+                { ok: true, label: "Boekingsrapporten & activiteitenlog" },
+                { ok: false, label: "Betalingsrapporten" },
+                { ok: false, label: "Priority support" },
+              ],
+              gentleNote:
+                "Heel prettig als je reminders wilt en je agenda steeds drukker wordt.",
+            },
+            master: {
+              name: "👑 Master",
+              tagline: "Voor gevestigde bedrijven die maximale controle willen",
+              cta: "Start met Master",
+              features: [
+                { ok: true, label: "Automatische reminder e-mails" },
+                { ok: true, label: "Online boekingswebsite & dashboard" },
+                { ok: true, label: "Eigen boekingslink (jouw merk-URL)" },
+                { ok: true, label: "Onbeperkte boekingen" },
+                { ok: true, label: "Klantenlijst & boekingshistorie" },
+                { ok: true, label: "Bedrijfsinfo & openingstijden instellen" },
+                { ok: true, label: "Google Calendar sync" },
+                { ok: true, label: "Onbeperkte diensten & tot 9 medewerkers" },
+                { ok: true, label: "Multi-user toegang" },
+                { ok: true, label: "Online betalen instellen" },
+                { ok: true, label: "Plannen & prijzen beheren" },
+                { ok: true, label: "Kortingscodes & promoties" },
+                { ok: true, label: "Roosters voor diensten & personeel" },
+                { ok: true, label: "Boekingsrapporten & activiteitenlog" },
+                { ok: true, label: "Betalingsrapporten" },
+                { ok: true, label: "Priority support" },
+              ],
+              gentleNote:
+                "Ideaal als je multi-user, branded link en uitgebreidere rapporten nodig hebt.",
+            },
+          },
+
+          faqs: [
+            {
+              q: "Is er een proefperiode?",
+              a: "Ja, je kunt 15 dagen gratis proberen. Als je hulp wilt met de setup, stuur gerust een bericht.",
+            },
+            {
+              q: "Kan ik wisselen tussen maandelijks en jaarlijks?",
+              a: "Ja. Je kunt later aanpassen. Jaarlijks bespaart 50% t.o.v. maandelijks.",
+            },
+            {
+              q: "Ondersteunen jullie e-mail meldingen?",
+              a: "Ja. Bevestigingen en vriendelijke reminders kunnen via e-mail.",
+            },
+            {
+              q: "Kunnen jullie koppelen met mijn bestaande website?",
+              a: "Ja. Je plaatst eenvoudig een boekingsknop/link. Heb je nog geen site? Dan bouwen we er één voor je.",
+            },
+            {
+              q: "Zit BTW in de prijs?",
+              a: "We tonen subtotaal (excl. BTW), BTW (21%) en totaal (incl. BTW) zodat het duidelijk blijft.",
+            },
+            {
+              q: "Wat als mijn team groeit?",
+              a: "Je kunt op elk moment upgraden. Ik help je graag bij de volgende stap.",
+            },
+          ],
+        },
+      };
+
+      function setLangLabel(lang) {
+        const label = lang === "en" ? "EN" : lang === "th" ? "TH" : "NL";
+        if (langLabelDesktop) langLabelDesktop.textContent = label;
+        if (langLabelMobile) langLabelMobile.textContent = label;
+      }
+
+      function moneyEUR(n) {
+        return "€" + Number(n).toFixed(2);
+      }
+
+      function calcForPlan(monthlyExVat, billingMode) {
+        if (billingMode === "annual") {
+          const subtotal = monthlyExVat * 12 * (1 - DISCOUNT_ANNUAL);
+          const vat = subtotal * VAT_RATE;
+          const total = subtotal + vat;
+          const perMonthEq = subtotal / 12;
+          return { subtotal, vat, total, perMonthEq };
+        } else {
+          const subtotal = monthlyExVat;
+          const vat = subtotal * VAT_RATE;
+          const total = subtotal + vat;
+          return { subtotal, vat, total };
+        }
+      }
+
+      function iconOk() {
+        return `
+          <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+            ✓
+          </span>
+        `;
+      }
+      function iconNo() {
+        return `
+          <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500">
+            –
+          </span>
+        `;
+      }
+
+      function renderPlans() {
+        const lang = localStorage.getItem(LANG_STORAGE_KEY) || "en";
+        const pack = dict[lang] || dict.en;
+
+        const root = document.getElementById("planCards");
+        if (!root) return;
+
+        const order = ["junior", "senior", "master"];
+
+        root.innerHTML = order
+          .map((key) => {
+            const meta = PRICING[key];
+            const p = pack.plans[key];
+            const c = calcForPlan(meta.monthlyExVat, currentBilling);
+
+            const isAnnual = currentBilling === "annual";
+            const badge = meta.highlight
+              ? `<div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                   <span>★</span><span>${pack.labels.mostPopular}</span>
+                 </div>`
+              : "";
+
+            const priceLine = isAnnual
+              ? `<div class="mt-4">
+                   <div class="flex items-baseline justify-between gap-3">
+                     <div class="text-3xl font-bold tracking-tight">${moneyEUR(
+                       c.subtotal
+                     )}<span class="text-sm font-semibold text-slate-600"> ${
+                  pack.labels.perYear
+                }</span></div>
+                     <div class="text-xs font-semibold text-primary rounded-full bg-primary/10 px-3 py-1">${
+                       pack.labels.save10
+                     }</div>
+                   </div>
+                   <div class="mt-2 text-sm text-slate-600">
+                     <span class="font-semibold text-slate-900">${
+                       pack.labels.monthEq
+                     }:</span>
+                     ${moneyEUR(c.perMonthEq)} ${pack.labels.perMonth}
+                   </div>
+                   <div class="mt-1 text-xs text-slate-500">${
+                     pack.labels.billedYearly
+                   }</div>
+                 </div>`
+              : `<div class="mt-4">
+                   <div class="text-3xl font-bold tracking-tight">${moneyEUR(
+                     meta.monthlyExVat
+                   )}<span class="text-sm font-semibold text-slate-600"> ${
+                  pack.labels.perMonth
+                }</span></div>
+                   <div class="mt-1 text-xs text-slate-500">${
+                     pack.labels.billedMonthly
+                   }</div>
+                 </div>`;
+
+            const breakdown = `
+                <div class="mt-4 rounded-2xl border bg-white p-4 text-sm">
+                  <div class="flex items-center justify-between gap-3">
+                    <span class="text-slate-600">${
+                      pack.labels.subtotalEx
+                    }</span>
+                    <span class="font-semibold">${moneyEUR(c.subtotal)}</span>
+                  </div>
+                  <div class="mt-2 flex items-center justify-between gap-3">
+                    <span class="text-slate-600">${pack.labels.vat}</span>
+                    <span class="font-semibold">${moneyEUR(c.vat)}</span>
+                  </div>
+                  <div class="mt-2 flex items-center justify-between gap-3 border-t pt-2">
+                    <span class="text-slate-900 font-semibold">${
+                      pack.labels.totalInc
+                    }</span>
+                    <span class="text-slate-900 font-bold">${moneyEUR(
+                      c.total
+                    )}</span>
+                  </div>
+                </div>`;
+
+            const features = p.features
+              .map(
+                (f) => `
+                <li class="flex gap-2 text-sm text-slate-700">
+                  ${f.ok ? iconOk() : iconNo()}
+                  <span>${f.label}</span>
+                </li>
+              `
+              )
+              .join("");
+
+            const cardClass = meta.highlight
+              ? "rounded-3xl border-2 border-primary bg-white p-6 shadow-sm"
+              : "rounded-3xl border bg-white p-6 shadow-sm";
+
+            const ctaClass =
+              "inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95";
+
+            return `
+              <article class="${cardClass}">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <div class="text-sm font-semibold text-slate-900">${p.name}</div>
+                    <div class="mt-1 text-sm text-slate-600">${p.tagline}</div>
+                  </div>
+                  ${badge}
+                </div>
+
+                ${priceLine}
+                ${breakdown}
+
+                <div class="mt-5">
+                  <div class="text-sm font-semibold text-slate-900">${pack.labels.includes}</div>
+                  <ul class="mt-3 grid gap-2">${features}</ul>
+
+                  <div class="mt-4 rounded-2xl bg-primary/5 p-4 text-sm text-slate-700">
+                    <div class="font-semibold text-slate-900">${pack.labels.noteShort}</div>
+                    <div class="mt-1">${p.gentleNote}</div>
+                  </div>
+
+                  <div class="mt-4">
+                    <!-- ✅ was /trial, now /payment -->
+                    <a href="/payment" class="${ctaClass}">${p.cta}</a>
+                  </div>
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+      }
+
+      function renderFaq() {
+        const lang = localStorage.getItem(LANG_STORAGE_KEY) || "en";
+        const pack = dict[lang] || dict.en;
+        const root = document.getElementById("faqList");
+        if (!root) return;
+
+        root.innerHTML = pack.faqs
+          .map(
+            (item) => `
+            <div class="rounded-3xl border bg-white p-6">
+              <div class="text-sm font-semibold text-slate-900">${item.q}</div>
+              <div class="mt-2 text-sm text-slate-600 leading-relaxed">${item.a}</div>
+            </div>
+          `
+          )
+          .join("");
+      }
+
+      function applyLang(lang) {
+        const pack = dict[lang] || dict.en;
+
+        // text nodes
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (pack[key]) el.textContent = pack[key];
+        });
+
+        // Update billing toggle labels by language (✅ 50%)
+        btnMonthly.textContent =
+          lang === "th"
+            ? "รายเดือน"
+            : lang === "nl"
+            ? "Maandelijks"
+            : "Monthly";
+        btnAnnual.textContent =
+          lang === "th"
+            ? "รายปี (ลด 50%)"
+            : lang === "nl"
+            ? "Jaarlijks (50% korting)"
+            : "Annual (save 50%)";
+
+        setLangLabel(lang);
+        localStorage.setItem(LANG_STORAGE_KEY, lang);
+        closeLangMenus();
+
+        renderPlans();
+        renderFaq();
+
+        // ✅ keep active menu highlight after text changes
+        applyActiveNav();
+      }
+
+      // click language options
+      function bindLangButtons(container) {
+        if (!container) return;
+        container.querySelectorAll("[data-lang]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const lang = btn.getAttribute("data-lang");
+            applyLang(lang);
+          });
+        });
+      }
+      bindLangButtons(langMenuDesktop);
+      bindLangButtons(langMenuMobile);
+
+      // Init
+      const savedLang = localStorage.getItem(LANG_STORAGE_KEY) || "en";
+      setBillingUI(currentBilling); // also renders
+      applyLang(savedLang);
+
+      // ✅ Active nav on load
+      applyActiveNav();
+
+      // Footer year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

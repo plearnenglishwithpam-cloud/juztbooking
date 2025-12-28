@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solutions | juztbooking</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: { colors: { primary: "#9F4884" } },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="text-slate-900">
+    <!-- Gradient background -->
+    <div
+      class="min-h-screen bg-gradient-to-b from-white via-primary/5 to-white"
+    >
+      <!-- Decorative blobs -->
+      <div
+        class="pointer-events-none fixed -left-28 top-10 h-80 w-80 rounded-full bg-primary/15 blur-3xl"
+      ></div>
+      <div
+        class="pointer-events-none fixed -right-28 top-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl"
+      ></div>
+
+      <!-- Top bar -->
+      <div class="sticky top-0 z-40 border-b bg-white/75 backdrop-blur">
+        <div
+          class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
+        >
+          <!-- Brand -->
+          <a href="/" class="flex items-center gap-3">
+            <img
+              src="/assets/logo-juztbooking.png"
+              alt="juztbooking"
+              class="h-12 rounded-xl object-cover"
+            />
+          </a>
+
+          <!-- Desktop nav -->
+          <div class="hidden items-center gap-2 md:flex">
+            <!-- ✅ Home -->
+            <a
+              href="/"
+              data-navlink
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navHome"
+              >Home</a
+            >
+
+            <a
+              href="/solutions"
+              data-navlink
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navSolutions"
+              >Solutions</a
+            >
+            <a
+              href="/features"
+              data-navlink
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navFeatures"
+              >Features</a
+            >
+            <a
+              href="/pricing"
+              data-navlink
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navPricing"
+              >Pricing</a
+            >
+            <a
+              href="/contact"
+              data-navlink
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navContact"
+              >Contact</a
+            >
+
+            <!-- Language dropdown -->
+            <div class="relative">
+              <button
+                id="langBtnDesktop"
+                class="inline-flex items-center gap-2 rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                type="button"
+              >
+                <span id="langLabelDesktop">EN</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-4 w-4 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
+                  />
+                </svg>
+              </button>
+
+              <div
+                id="langMenuDesktop"
+                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-white shadow-lg"
+                role="menu"
+              >
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="en"
+                  role="menuitem"
+                  type="button"
+                >
+                  English (EN)
+                </button>
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="th"
+                  role="menuitem"
+                  type="button"
+                >
+                  ไทย (TH)
+                </button>
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="nl"
+                  role="menuitem"
+                  type="button"
+                >
+                  Nederlands (NL)
+                </button>
+              </div>
+            </div>
+
+            <a
+              href="/login"
+              class="ml-1 inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navLogin"
+              >Login</a
+            >
+            <a
+              href="/trial"
+              class="inline-flex items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+              data-i18n="navTrial"
+              >Start 15-day trial</a
+            >
+          </div>
+
+          <!-- Mobile / Tablet -->
+          <div class="flex items-center gap-2 md:hidden">
+            <a
+              href="/trial"
+              class="inline-flex items-center justify-center rounded-2xl bg-primary px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
+              data-i18n="navTrialShort"
+              >Start 15-day trial</a
+            >
+            <button
+              id="menuBtn"
+              type="button"
+              class="inline-flex items-center justify-center rounded-2xl border bg-white p-2.5 hover:bg-slate-50"
+              aria-label="Open menu"
+              aria-controls="mobileMenu"
+              aria-expanded="false"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="h-5 w-5 fill-slate-800"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 6.5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile drawer overlay -->
+      <div
+        id="menuOverlay"
+        class="fixed inset-0 z-50 hidden bg-slate-900/40 backdrop-blur-sm"
+      ></div>
+
+      <!-- Mobile drawer -->
+      <aside
+        id="mobileMenu"
+        class="fixed right-0 top-0 z-50 h-full w-[86%] max-w-sm translate-x-full border-l bg-white shadow-xl transition-transform duration-200"
+        aria-label="Mobile navigation"
+      >
+        <div class="flex items-center justify-between border-b px-4 py-3">
+          <div class="flex items-center gap-3">
+            <img
+              src="/assets/logo-juztbooking.png"
+              alt="juztbooking"
+              class="h-12 rounded-xl object-cover"
+            />
+          </div>
+
+          <button
+            id="menuCloseBtn"
+            type="button"
+            class="inline-flex items-center justify-center rounded-2xl border bg-white p-2.5 hover:bg-slate-50"
+            aria-label="Close menu"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              class="h-5 w-5 fill-slate-800"
+              aria-hidden="true"
+            >
+              <path
+                d="M18.3 5.71a1 1 0 0 1 0 1.41L13.41 12l4.89 4.88a1 1 0 1 1-1.41 1.42L12 13.41l-4.88 4.89a1 1 0 1 1-1.42-1.41L10.59 12 5.7 7.12A1 1 0 1 1 7.12 5.7L12 10.59l4.88-4.89a1 1 0 0 1 1.42.01z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="px-4 py-4">
+          <!-- ✅ Home -->
+          <a
+            href="/"
+            data-navlink
+            class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navHome"
+            >Home</a
+          >
+
+          <a
+            href="/solutions"
+            data-navlink
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navSolutions"
+            >Solutions</a
+          >
+          <a
+            href="/features"
+            data-navlink
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navFeatures"
+            >Features</a
+          >
+          <a
+            href="/pricing"
+            data-navlink
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navPricing"
+            >Pricing</a
+          >
+          <a
+            href="/contact"
+            data-navlink
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navContact"
+            >Contact</a
+          >
+
+          <a
+            href="/trial"
+            class="mt-3 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
+            data-i18n="navTrial"
+            >Start 15-day trial</a
+          >
+          <a
+            href="/login"
+            class="mt-2 inline-flex w-full items-center justify-center rounded-2xl border px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            data-i18n="navLogin"
+            >Login</a
+          >
+
+          <!-- Language dropdown (mobile) -->
+          <div class="mt-5 rounded-3xl border bg-white p-4">
+            <div
+              class="text-xs font-semibold text-slate-600"
+              data-i18n="navLangTitle"
+            >
+              Language
+            </div>
+
+            <div class="relative mt-2">
+              <button
+                id="langBtnMobile"
+                class="inline-flex w-full items-center justify-between rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                type="button"
+              >
+                <span id="langLabelMobile">EN</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-4 w-4 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
+                  />
+                </svg>
+              </button>
+
+              <div
+                id="langMenuMobile"
+                class="mt-2 hidden overflow-hidden rounded-2xl border bg-white shadow-lg"
+                role="menu"
+              >
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="en"
+                  role="menuitem"
+                  type="button"
+                >
+                  English (EN)
+                </button>
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="th"
+                  role="menuitem"
+                  type="button"
+                >
+                  ไทย (TH)
+                </button>
+                <button
+                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="nl"
+                  role="menuitem"
+                  type="button"
+                >
+                  Nederlands (NL)
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Hero -->
+      <header class="relative">
+        <div
+          class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-4 py-12 md:grid-cols-2 md:py-16"
+        >
+          <div>
+            <div
+              class="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-sm text-slate-700"
+            >
+              <span class="inline-block h-2 w-2 rounded-full bg-primary"></span>
+              <span data-i18n="heroBadge"
+                >Solutions for real booking businesses</span
+              >
+            </div>
+
+            <h1
+              class="mt-4 text-3xl font-bold tracking-tight md:text-5xl"
+              data-i18n="heroTitle"
+            >
+              One calm booking flow for Salon & Massage
+            </h1>
+
+            <p class="mt-4 text-slate-600 md:text-lg" data-i18n="heroDesc">
+              I’ll help you keep schedules tidy, reduce no-shows, and make
+              payments easier — without making things feel complicated. Your
+              customers can choose the time, service, and preferred staff
+              member.
+            </p>
+
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#choose"
+                class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95"
+                data-i18n="heroCtaPrimary"
+              >
+                See use cases
+              </a>
+
+              <a
+                href="/trial"
+                class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-white/60"
+                data-i18n="heroCtaSecondary"
+              >
+                Start 15-day trial
+              </a>
+            </div>
+
+            <div class="mt-6 rounded-2xl border bg-white p-4">
+              <div
+                class="text-sm font-semibold text-slate-900"
+                data-i18n="flowTitle"
+              >
+                Most common workflow
+              </div>
+              <ol class="mt-2 grid gap-2 text-sm text-slate-600">
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >1</span
+                  >
+                  <span data-i18n="flow1">Customer books</span>
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >2</span
+                  >
+                  <span data-i18n="flow2">Confirm</span>
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >3</span
+                  >
+                  <span data-i18n="flow3">Remind</span>
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >4</span
+                  >
+                  <span data-i18n="flow4">Payment</span>
+                </li>
+              </ol>
+
+              <div class="mt-3 text-xs text-slate-500" data-i18n="notifyNote">
+                Gentle reminders can be sent via Email.
+              </div>
+            </div>
+
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span
+                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
+                data-i18n="benefit1"
+                >Reduce admin work</span
+              >
+              <span
+                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
+                data-i18n="benefit2"
+                >Reduce no-show</span
+              >
+              <span
+                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
+                data-i18n="benefit3"
+                >Easier payments</span
+              >
+              <span
+                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
+                data-i18n="benefit4"
+                >Clear reports</span
+              >
+            </div>
+          </div>
+
+          <div class="relative">
+            <div
+              class="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/10 via-white to-primary/5"
+            ></div>
+
+            <div class="rounded-[2rem] border bg-white p-4 shadow-sm">
+              <img
+                src="/assets/solutions-hero-illustration.png"
+                alt="Solutions illustration"
+                class="h-[340px] w-full rounded-[1.5rem] object-cover md:h-[420px]"
+              />
+
+              <div class="mt-4 grid grid-cols-2 gap-3">
+                <div class="rounded-2xl border bg-white p-3">
+                  <div
+                    class="text-xs font-semibold text-slate-900"
+                    data-i18n="mini1Title"
+                  >
+                    Choose staff
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="mini1Desc"
+                  >
+                    Customers pick their favorite.
+                  </div>
+                </div>
+                <div class="rounded-2xl border bg-white p-3">
+                  <div
+                    class="text-xs font-semibold text-slate-900"
+                    data-i18n="mini2Title"
+                  >
+                    Cleaner calendar
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="mini2Desc"
+                  >
+                    Less double booking.
+                  </div>
+                </div>
+                <div class="rounded-2xl border bg-white p-3">
+                  <div
+                    class="text-xs font-semibold text-slate-900"
+                    data-i18n="mini3Title"
+                  >
+                    Friendly reminders
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="mini3Desc"
+                  >
+                    Fewer no-shows.
+                  </div>
+                </div>
+                <div class="rounded-2xl border bg-white p-3">
+                  <div
+                    class="text-xs font-semibold text-slate-900"
+                    data-i18n="mini4Title"
+                  >
+                    Simple payments
+                  </div>
+                  <div
+                    class="mt-1 text-xs text-slate-600"
+                    data-i18n="mini4Desc"
+                  >
+                    Online or in store.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Choose -->
+      <section id="choose" class="border-t bg-white/60">
+        <div class="mx-auto max-w-6xl px-4 py-12">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <h2
+                class="text-2xl font-bold tracking-tight md:text-3xl"
+                data-i18n="chooseTitle"
+              >
+                Pick your use case
+              </h2>
+              <p class="mt-2 text-slate-600" data-i18n="chooseDesc">
+                Two common business types we support really well: Hair & Beauty
+                (Salon) and Spa & Massage.
+              </p>
+            </div>
+
+            <div class="hidden md:block">
+              <a
+                href="/pricing"
+                class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                data-i18n="chooseCta"
+                >See pricing</a
+              >
+            </div>
+          </div>
+
+          <div class="mt-8 grid gap-4 md:grid-cols-2">
+            <!-- Salon card -->
+            <a
+              href="#salon"
+              class="group rounded-3xl border bg-white p-6 shadow-sm hover:shadow-md"
+            >
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <div
+                    class="font-bold text-slate-900"
+                    data-i18n="salonCardTitle"
+                  >
+                    Salon (Hair & Beauty)
+                  </div>
+                  <div
+                    class="mt-2 text-sm text-slate-600"
+                    data-i18n="salonCardDesc"
+                  >
+                    Manage staff schedules, recurring clients, and longer
+                    services like color + cut.
+                  </div>
+                </div>
+                <div
+                  class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="h-6 w-6 fill-current"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M7 2a2 2 0 0 1 2 2v1h6V4a2 2 0 0 1 4 0v3a3 3 0 0 1-3 3h-1.2l1.9 9.5A2 2 0 0 1 14.74 22H9.26a2 2 0 0 1-1.96-2.5L9.2 10H8a3 3 0 0 1-3-3V4a2 2 0 0 1 2-2zm2 6h6a1 1 0 0 0 1-1V4a0 0 0 0 0 0 0v2H8V4a0 0 0 0 0 0 0v3a1 1 0 0 0 1 1z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="mt-4 text-xs font-semibold text-primary">
+                <span data-i18n="jumpToSalon">Jump to salon story →</span>
+              </div>
+            </a>
+
+            <!-- Massage card -->
+            <a
+              href="#massage"
+              class="group rounded-3xl border bg-white p-6 shadow-sm hover:shadow-md"
+            >
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <div
+                    class="font-bold text-slate-900"
+                    data-i18n="massageCardTitle"
+                  >
+                    Spa & Massage
+                  </div>
+                  <div
+                    class="mt-2 text-sm text-slate-600"
+                    data-i18n="massageCardDesc"
+                  >
+                    Let customers pick massage type, duration, and therapist —
+                    with reminders to reduce no-shows.
+                  </div>
+                </div>
+                <div
+                  class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="h-6 w-6 fill-current"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M7 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm10 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zM3 21a6 6 0 0 1 12 0v1H3v-1zm14 1v-1a7.9 7.9 0 0 0-1.1-4 5 5 0 0 1 8.1 4v1h-7z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="mt-4 text-xs font-semibold text-primary">
+                <span data-i18n="jumpToMassage">Jump to massage story →</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Salon detail -->
+      <section id="salon" class="border-t bg-white">
+        <div class="mx-auto max-w-6xl px-4 py-12">
+          <div class="grid gap-8 md:grid-cols-2 md:items-center">
+            <div>
+              <div
+                class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary"
+              >
+                <span>Salon</span>
+                <span class="text-primary/70">•</span>
+                <span data-i18n="salonBadge">Hair & Beauty</span>
+              </div>
+
+              <h2
+                class="mt-4 text-2xl font-bold tracking-tight md:text-4xl"
+                data-i18n="salonTitle"
+              >
+                Manage staff schedules & recurring clients
+              </h2>
+
+              <p class="mt-3 text-slate-600 md:text-lg" data-i18n="salonDesc">
+                In a salon, services can be longer and may need the right
+                stylist. juztbooking helps you keep the day clean, so you can
+                focus on clients kindly.
+              </p>
+
+              <div class="mt-6 grid gap-4">
+                <div class="rounded-3xl border bg-white p-6">
+                  <div
+                    class="text-sm font-semibold text-slate-900"
+                    data-i18n="salonPainTitle"
+                  >
+                    Common pain points
+                  </div>
+                  <ul class="mt-3 grid gap-2 text-sm text-slate-700">
+                    <li class="flex gap-2">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                        >✓</span
+                      >
+                      <span data-i18n="salonPain1"
+                        >Double bookings when multiple stylists share a busy
+                        day</span
+                      >
+                    </li>
+                    <li class="flex gap-2">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                        >✓</span
+                      >
+                      <span data-i18n="salonPain2"
+                        >Clients want a specific stylist (and a specific
+                        time)</span
+                      >
+                    </li>
+                    <li class="flex gap-2">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                        >✓</span
+                      >
+                      <span data-i18n="salonPain3"
+                        >Long services like color + cut are hard to plan
+                        neatly</span
+                      >
+                    </li>
+                    <li class="flex gap-2">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                        >✓</span
+                      >
+                      <span data-i18n="salonPain4"
+                        >No-shows hurt your schedule and your mood</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="rounded-3xl bg-primary/5 p-6">
+                  <div
+                    class="text-sm font-semibold text-slate-900"
+                    data-i18n="salonFlowTitle"
+                  >
+                    Recommended workflow
+                  </div>
+                  <div class="mt-3 grid gap-3 text-sm text-slate-700">
+                    <div class="flex gap-3">
+                      <span
+                        class="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-white text-primary font-bold"
+                        >1</span
+                      >
+                      <div>
+                        <div class="font-semibold" data-i18n="salonFlow1T">
+                          Customer books
+                        </div>
+                        <div class="text-slate-600" data-i18n="salonFlow1D">
+                          Customer chooses service (e.g., Cut / Color /
+                          Blow-dry), time, and stylist.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex gap-3">
+                      <span
+                        class="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-white text-primary font-bold"
+                        >2</span
+                      >
+                      <div>
+                        <div class="font-semibold" data-i18n="salonFlow2T">
+                          Confirm
+                        </div>
+                        <div class="text-slate-600" data-i18n="salonFlow2D">
+                          You review the request quickly and confirm with one
+                          click.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex gap-3">
+                      <span
+                        class="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-white text-primary font-bold"
+                        >3</span
+                      >
+                      <div>
+                        <div class="font-semibold" data-i18n="salonFlow3T">
+                          Remind
+                        </div>
+                        <div class="text-slate-600" data-i18n="salonFlow3D">
+                          Friendly reminders via Email help reduce no-shows.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex gap-3">
+                      <span
+                        class="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-white text-primary font-bold"
+                        >4</span
+                      >
+                      <div>
+                        <div class="font-semibold" data-i18n="salonFlow4T">
+                          Payment
+                        </div>
+                        <div class="text-slate-600" data-i18n="salonFlow4D">
+                          Accept online payments or pay in store, and keep
+                          records tidy.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="/trial"
+                  class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:opacity-95"
+                  data-i18n="salonCtaPrimary"
+                >
+                  Start 15-day trial
+                </a>
+                <a
+                  href="/contact"
+                  class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                  data-i18n="salonCtaSecondary"
+                >
+                  Talk to us
+                </a>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div
+                class="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/10 via-white to-primary/5"
+              ></div>
+              <div class="rounded-[2rem] border bg-white p-4 shadow-sm">
+                <img
+                  src="/assets/solution-salon-case.png"
+                  alt="Salon use case"
+                  class="h-[320px] w-full rounded-[1.5rem] object-cover md:h-[440px]"
+                />
+
+                <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                  <div class="rounded-2xl border bg-white p-4">
+                    <div
+                      class="text-sm font-semibold text-slate-900"
+                      data-i18n="salonHi1T"
+                    >
+                      Calendar view per staff
+                    </div>
+                    <div
+                      class="mt-1 text-sm text-slate-600"
+                      data-i18n="salonHi1D"
+                    >
+                      See each stylist’s day clearly.
+                    </div>
+                  </div>
+                  <div class="rounded-2xl border bg-white p-4">
+                    <div
+                      class="text-sm font-semibold text-slate-900"
+                      data-i18n="salonHi2T"
+                    >
+                      Services & staff mapping
+                    </div>
+                    <div
+                      class="mt-1 text-sm text-slate-600"
+                      data-i18n="salonHi2D"
+                    >
+                      Only show stylists who can do that service.
+                    </div>
+                  </div>
+                  <div class="rounded-2xl border bg-white p-4">
+                    <div
+                      class="text-sm font-semibold text-slate-900"
+                      data-i18n="salonHi3T"
+                    >
+                      Customer history
+                    </div>
+                    <div
+                      class="mt-1 text-sm text-slate-600"
+                      data-i18n="salonHi3D"
+                    >
+                      Notes like color formula or preferences.
+                    </div>
+                  </div>
+                  <div class="rounded-2xl border bg-white p-4">
+                    <div
+                      class="text-sm font-semibold text-slate-900"
+                      data-i18n="salonHi4T"
+                    >
+                      Split payments (optional)
+                    </div>
+                    <div
+                      class="mt-1 text-sm text-slate-600"
+                      data-i18n="salonHi4D"
+                    >
+                      Helpful when a service involves more than one staff
+                      member.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 rounded-3xl bg-primary/5 p-5">
+                  <div
+                    class="text-sm font-semibold text-slate-900"
+                    data-i18n="salonExampleTitle"
+                  >
+                    Example booking
+                  </div>
+                  <div
+                    class="mt-2 text-sm text-slate-700"
+                    data-i18n="salonExampleDesc"
+                  >
+                    “Color + Cut (120 min)” with Stylist “Mila”, Saturday 14:00.
+                    The system blocks the right time and keeps the calendar
+                    clean.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Salon feature modules -->
+          <div class="mt-10 rounded-[2rem] border bg-white p-6 md:p-8">
+            <div class="flex items-end justify-between gap-4">
+              <div>
+                <h3
+                  class="text-xl font-bold tracking-tight md:text-2xl"
+                  data-i18n="modulesTitle"
+                >
+                  Features that support the salon flow
+                </h3>
+                <p class="mt-2 text-slate-600" data-i18n="modulesDesc">
+                  You set it up once, and daily bookings feel calmer.
+                </p>
+              </div>
+              <div class="hidden md:block">
+                <a
+                  href="/features"
+                  class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                  data-i18n="modulesCta"
+                  >See all features</a
+                >
+              </div>
+            </div>
+
+            <div class="mt-6 grid gap-4 md:grid-cols-2">
+              <div class="rounded-3xl border bg-white p-6">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <div class="font-bold text-slate-900" data-i18n="m1Title">
+                      Calendar & Bookings
+                    </div>
+                    <div class="mt-2 text-sm text-slate-600" data-i18n="m1Desc">
+                      Day/week view with statuses like confirmed, cancelled,
+                      no-show, arrived.
+                    </div>
+                  </div>
+                  <div
+                    class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="h-6 w-6 fill-current"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M7 2a1 1 0 0 1 1 1v1h8V3a1 1 0 1 1 2 0v1h1a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h1V3a1 1 0 0 1 1-1zm12 8H5v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9zM6 6a1 1 0 0 0-1 1v1h14V7a1 1 0 0 0-1-1H6z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                <ul class="mt-4 grid gap-2 text-sm text-slate-700">
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="m1B1"
+                      >View per staff member (resources)</span
+                    >
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="m1B2"
+                      >Create/edit/move/cancel bookings</span
+                    >
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="m1B3"
+                      >Block breaks, holidays, and closed times</span
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div class="rounded-3xl border bg-white p-6">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <div class="font-bold text-slate-900" data-i18n="m2Title">
+                      Services & Staff Setup
+                    </div>
+                    <div class="mt-2 text-sm text-slate-600" data-i18n="m2Desc">
+                      Add services, durations, prices, and who can do what.
+                    </div>
+                  </div>
+                  <div
+                    class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="h-6 w-6 fill-current"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2a5 5 0 0 1 5 5v1h1a3 3 0 0 1 3 3v7a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-7a3 3 0 0 1 3-3h1V7a5 5 0 0 1 5-5zm3 6V7a3 3 0 0 0-6 0v1h6z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                <ul class="mt-4 grid gap-2 text-sm text-slate-700">
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="m2B1"
+                      >Service name, price, duration, description</span
+                    >
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="m2B2">Staff profiles and skills</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="m2B3"
+                      >Opening hours, breaks, and scheduling rules</span
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div class="rounded-3xl border bg-white p-6">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <div class="font-bold text-slate-900" data-i18n="m3Title">
+                      Payments
+                    </div>
+                    <div class="mt-2 text-sm text-slate-600" data-i18n="m3Desc">
+                      Get paid easily and keep payment status clear.
+                    </div>
+                  </div>
+                  <div
+                    class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="h-6 w-6 fill-current"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M3 6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6zm3-1a1 1 0 0 0-1 1v1h14V6a1 1 0 0 0-1-1H6zm13 6H5v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                <ul class="mt-4 grid gap-2 text-sm text-slate-700">
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="m3B1"
+                      >Online payment setup (optional)</span
+                    >
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="m3B2">Cash / card / online tracking</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="m3B3">Outstanding balance follow-up</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="rounded-3xl border bg-white p-6">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <div class="font-bold text-slate-900" data-i18n="m4Title">
+                      Reports & Logs
+                    </div>
+                    <div class="mt-2 text-sm text-slate-600" data-i18n="m4Desc">
+                      See bookings and sales clearly, and review activity when
+                      needed.
+                    </div>
+                  </div>
+                  <div
+                    class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="h-6 w-6 fill-current"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M4 19a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1zM7 10a1 1 0 0 1 1 1v5H6v-5a1 1 0 0 1 1-1zm5-4a1 1 0 0 1 1 1v9h-2V7a1 1 0 0 1 1-1zm5 2a1 1 0 0 1 1 1v7h-2V9a1 1 0 0 1 1-1z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                <ul class="mt-4 grid gap-2 text-sm text-slate-700">
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="m4B1"
+                      >Booking report (filter by day/service/staff)</span
+                    >
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="m4B2"
+                      >Transaction history & VAT overview (package
+                      dependent)</span
+                    >
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="m4B3">Activity logs for review</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mt-6 rounded-3xl bg-primary/5 p-6">
+              <div
+                class="text-sm font-semibold text-slate-900"
+                data-i18n="setupStepsTitle"
+              >
+                Easy setup steps
+              </div>
+              <ol class="mt-3 grid gap-2 text-sm text-slate-700">
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary font-bold"
+                    >1</span
+                  >
+                  <span data-i18n="setupStep1"
+                    >Add services (price / duration)</span
+                  >
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary font-bold"
+                    >2</span
+                  >
+                  <span data-i18n="setupStep2">Add staff & opening hours</span>
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary font-bold"
+                    >3</span
+                  >
+                  <span data-i18n="setupStep3"
+                    >Share booking link & manage calendar</span
+                  >
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Massage detail -->
+      <section id="massage" class="border-t bg-white/60">
+        <div class="mx-auto max-w-6xl px-4 py-12">
+          <div class="grid gap-8 md:grid-cols-2 md:items-center">
+            <div class="order-2 md:order-1">
+              <div
+                class="absolute -inset-6 -z-10 hidden rounded-[2rem] bg-gradient-to-br from-primary/10 via-white to-primary/5 md:block"
+              ></div>
+
+              <div class="rounded-[2rem] border bg-white p-4 shadow-sm">
+                <img
+                  src="/assets/solution-massage-case.png"
+                  alt="Massage use case"
+                  class="h-[320px] w-full rounded-[1.5rem] object-cover md:h-[440px]"
+                />
+
+                <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                  <div class="rounded-2xl border bg-white p-4">
+                    <div
+                      class="text-sm font-semibold text-slate-900"
+                      data-i18n="massageHi1T"
+                    >
+                      Service types & duration
+                    </div>
+                    <div
+                      class="mt-1 text-sm text-slate-600"
+                      data-i18n="massageHi1D"
+                    >
+                      Thai, oil, aroma — 60/90/120 minutes.
+                    </div>
+                  </div>
+                  <div class="rounded-2xl border bg-white p-4">
+                    <div
+                      class="text-sm font-semibold text-slate-900"
+                      data-i18n="massageHi2T"
+                    >
+                      Therapist preference
+                    </div>
+                    <div
+                      class="mt-1 text-sm text-slate-600"
+                      data-i18n="massageHi2D"
+                    >
+                      Customers choose who they feel comfortable with.
+                    </div>
+                  </div>
+                  <div class="rounded-2xl border bg-white p-4">
+                    <div
+                      class="text-sm font-semibold text-slate-900"
+                      data-i18n="massageHi3T"
+                    >
+                      Status tracking
+                    </div>
+                    <div
+                      class="mt-1 text-sm text-slate-600"
+                      data-i18n="massageHi3D"
+                    >
+                      Arrived / confirmed / no-show — simple and clear.
+                    </div>
+                  </div>
+                  <div class="rounded-2xl border bg-white p-4">
+                    <div
+                      class="text-sm font-semibold text-slate-900"
+                      data-i18n="massageHi4T"
+                    >
+                      Deposit option (package dependent)
+                    </div>
+                    <div
+                      class="mt-1 text-sm text-slate-600"
+                      data-i18n="massageHi4D"
+                    >
+                      Helps protect busy hours.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 rounded-3xl bg-primary/5 p-5">
+                  <div
+                    class="text-sm font-semibold text-slate-900"
+                    data-i18n="massageExampleTitle"
+                  >
+                    Example booking
+                  </div>
+                  <div
+                    class="mt-2 text-sm text-slate-700"
+                    data-i18n="massageExampleDesc"
+                  >
+                    “Aroma Oil Massage (90 min)” with Therapist “Nina”,
+                    Wednesday 18:30. A reminder goes out automatically before
+                    the appointment.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="order-1 md:order-2">
+              <div
+                class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary"
+              >
+                <span>Massage</span>
+                <span class="text-primary/70">•</span>
+                <span data-i18n="massageBadge">Spa & Wellness</span>
+              </div>
+
+              <h2
+                class="mt-4 text-2xl font-bold tracking-tight md:text-4xl"
+                data-i18n="massageTitle"
+              >
+                Let customers choose the service and therapist, calmly
+              </h2>
+
+              <p class="mt-3 text-slate-600 md:text-lg" data-i18n="massageDesc">
+                For massage businesses, no-shows can be painful. With a clear
+                calendar and friendly reminders, you can protect your peak hours
+                and keep the day smooth.
+              </p>
+
+              <div class="mt-6 rounded-3xl border bg-white p-6">
+                <div
+                  class="text-sm font-semibold text-slate-900"
+                  data-i18n="massagePainTitle"
+                >
+                  Common pain points
+                </div>
+                <ul class="mt-3 grid gap-2 text-sm text-slate-700">
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="massagePain1"
+                      >Customers forget appointments — especially evenings and
+                      weekends</span
+                    >
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="massagePain2"
+                      >Customers want specific massage types and durations</span
+                    >
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="massagePain3"
+                      >Therapist preference matters for comfort and repeat
+                      visits</span
+                    >
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="massagePain4"
+                      >Manual payment tracking takes time</span
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-4 rounded-3xl bg-white p-6">
+                <div
+                  class="text-sm font-semibold text-slate-900"
+                  data-i18n="massageFlowTitle"
+                >
+                  Recommended workflow
+                </div>
+
+                <div class="mt-3 grid gap-3 text-sm text-slate-700">
+                  <div class="flex items-start gap-3">
+                    <span
+                      class="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-primary/10 text-primary font-bold"
+                      >1</span
+                    >
+                    <div>
+                      <div class="font-semibold" data-i18n="massageFlow1T">
+                        Customer books
+                      </div>
+                      <div class="text-slate-600" data-i18n="massageFlow1D">
+                        Customer chooses Thai / Oil / Aroma, duration, and
+                        therapist.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3">
+                    <span
+                      class="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-primary/10 text-primary font-bold"
+                      >2</span
+                    >
+                    <div>
+                      <div class="font-semibold" data-i18n="massageFlow2T">
+                        Confirm
+                      </div>
+                      <div class="text-slate-600" data-i18n="massageFlow2D">
+                        Confirm instantly, and the slot is locked on the
+                        calendar.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3">
+                    <span
+                      class="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-primary/10 text-primary font-bold"
+                      >3</span
+                    >
+                    <div>
+                      <div class="font-semibold" data-i18n="massageFlow3T">
+                        Remind & re-confirm
+                      </div>
+                      <div class="text-slate-600" data-i18n="massageFlow3D">
+                        Send friendly reminders via Email to reduce no-shows.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3">
+                    <span
+                      class="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-primary/10 text-primary font-bold"
+                      >4</span
+                    >
+                    <div>
+                      <div class="font-semibold" data-i18n="massageFlow4T">
+                        Payment
+                      </div>
+                      <div class="text-slate-600" data-i18n="massageFlow4D">
+                        Take payment online or in store, and keep a clear
+                        record.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="/trial"
+                  class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:opacity-95"
+                  data-i18n="massageCtaPrimary"
+                >
+                  Start 15-day trial
+                </a>
+                <a
+                  href="/contact"
+                  class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                  data-i18n="massageCtaSecondary"
+                >
+                  Talk to us
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Small note -->
+          <div class="mt-10 grid gap-4 md:grid-cols-3">
+            <div class="rounded-3xl border bg-white p-6 md:col-span-2">
+              <h3 class="text-lg font-bold" data-i18n="supportTitle">
+                Good to know
+              </h3>
+              <p class="mt-2 text-sm text-slate-600" data-i18n="supportDesc">
+                If you already have a website, you can add a “Book now” button
+                and link to juztbooking. If you don’t have a website, we can
+                build a lovely one for you and connect the booking flow.
+              </p>
+
+              <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                <div class="rounded-2xl bg-primary/5 p-4">
+                  <div
+                    class="text-sm font-semibold text-slate-900"
+                    data-i18n="support1T"
+                  >
+                    Works with your brand
+                  </div>
+                  <div
+                    class="mt-1 text-sm text-slate-700"
+                    data-i18n="support1D"
+                  >
+                    You can share a booking link, and place it on your website
+                    and social pages.
+                  </div>
+                </div>
+                <div class="rounded-2xl bg-primary/5 p-4">
+                  <div
+                    class="text-sm font-semibold text-slate-900"
+                    data-i18n="support2T"
+                  >
+                    Clear for your team
+                  </div>
+                  <div
+                    class="mt-1 text-sm text-slate-700"
+                    data-i18n="support2D"
+                  >
+                    Calendar view, customer history, and simple payments — in
+                    one place.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <aside class="rounded-3xl border bg-white p-6">
+              <div
+                class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary"
+              >
+                <span data-i18n="ctaBadge">Ready when you are</span>
+              </div>
+              <h3 class="mt-3 text-lg font-bold" data-i18n="ctaTitle">
+                Try juztbooking for 15 days
+              </h3>
+              <p class="mt-2 text-sm text-slate-600" data-i18n="ctaDesc">
+                Start with a simple setup. If you want, our team can guide you
+                kindly.
+              </p>
+              <a
+                href="/trial"
+                class="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+                data-i18n="ctaPrimary"
+                >Start 15-day trial</a
+              >
+              <a
+                href="/contact"
+                class="mt-2 inline-flex w-full items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                data-i18n="ctaSecondary"
+                >Message us</a
+              >
+              <div class="mt-2 text-xs text-slate-500" data-i18n="ctaFoot">
+                Annual billing saves 10% compared to monthly.
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="border-t bg-white/70 backdrop-blur">
+        <div class="mx-auto max-w-6xl px-4 py-10">
+          <div
+            class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
+          >
+            <div class="flex items-center gap-3">
+              <img
+                src="/assets/logo-juztbooking.png"
+                alt="juztbooking"
+                class="h-12 rounded-xl object-cover"
+              />
+              <div>
+                <div class="font-semibold">juztbooking</div>
+                <div class="text-sm text-slate-600" data-i18n="footerLine">
+                  Booking system for Salon & Massage
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3">
+              <a
+                href="/privacy-policy"
+                class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                data-i18n="privacy"
+                >Privacy Policy</a
+              >
+
+              <a
+                class="rounded-xl p-2 hover:bg-slate-50"
+                href="https://www.facebook.com/juztbooking"
+                aria-label="Facebook"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                class="rounded-xl p-2 hover:bg-slate-50"
+                href="https://www.x.com/juztbooking"
+                aria-label="X"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M18.9 2H22l-6.77 7.73L23 22h-6.17l-4.83-7.06L5.9 22H2.8l7.25-8.29L1 2h6.32l4.37 6.41L18.9 2zm-1.08 18h1.71L7.23 3.9H5.4L17.82 20z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                class="rounded-xl p-2 hover:bg-slate-50"
+                href="https://www.instragram.com/juztbooking"
+                aria-label="Instagram"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4.5A5.5 5.5 0 1 1 6.5 14 5.5 5.5 0 0 1 12 8.5zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5zM18 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-6 text-xs text-slate-500">
+            © <span id="year"></span> juztbooking.
+            <span data-i18n="footerRights">All rights reserved.</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // ---------------------------
+      // Mobile menu controls
+      // ---------------------------
+      const menuBtn = document.getElementById("menuBtn");
+      const menuOverlay = document.getElementById("menuOverlay");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuCloseBtn = document.getElementById("menuCloseBtn");
+
+      const openMenu = () => {
+        menuOverlay.classList.remove("hidden");
+        mobileMenu.classList.remove("translate-x-full");
+        menuBtn?.setAttribute("aria-expanded", "true");
+        document.body.classList.add("overflow-hidden");
+      };
+
+      const closeMenu = () => {
+        mobileMenu.classList.add("translate-x-full");
+        menuOverlay.classList.add("hidden");
+        menuBtn?.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("overflow-hidden");
+      };
+
+      menuBtn?.addEventListener("click", openMenu);
+      menuCloseBtn?.addEventListener("click", closeMenu);
+      menuOverlay?.addEventListener("click", closeMenu);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+
+      // ---------------------------
+      // Language dropdown controls
+      // ---------------------------
+      const langBtnDesktop = document.getElementById("langBtnDesktop");
+      const langMenuDesktop = document.getElementById("langMenuDesktop");
+      const langLabelDesktop = document.getElementById("langLabelDesktop");
+
+      const langBtnMobile = document.getElementById("langBtnMobile");
+      const langMenuMobile = document.getElementById("langMenuMobile");
+      const langLabelMobile = document.getElementById("langLabelMobile");
+
+      function toggleMenu(btn, menu) {
+        const isOpen = !menu.classList.contains("hidden");
+        if (isOpen) {
+          menu.classList.add("hidden");
+          btn.setAttribute("aria-expanded", "false");
+        } else {
+          menu.classList.remove("hidden");
+          btn.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      function closeLangMenus() {
+        langMenuDesktop?.classList.add("hidden");
+        langBtnDesktop?.setAttribute("aria-expanded", "false");
+        langMenuMobile?.classList.add("hidden");
+        langBtnMobile?.setAttribute("aria-expanded", "false");
+      }
+
+      langBtnDesktop?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleMenu(langBtnDesktop, langMenuDesktop);
+      });
+
+      langBtnMobile?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleMenu(langBtnMobile, langMenuMobile);
+      });
+
+      document.addEventListener("click", () => closeLangMenus());
+
+      // ---------------------------
+      // ✅ Active menu (PC / Mobile / Tablet) - same as Home
+      // ---------------------------
+      function normalizePath(p) {
+        if (!p) return "/";
+        p = p.split("?")[0].split("#")[0];
+        if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
+        return p;
+      }
+
+      function applyActiveNav() {
+        const currentPath = normalizePath(window.location.pathname);
+
+        document.querySelectorAll("a[data-navlink]").forEach((a) => {
+          const href = a.getAttribute("href") || "";
+          if (!href.startsWith("/")) return;
+
+          const linkPath = normalizePath(href);
+          const isActive = linkPath === currentPath;
+
+          // Active style
+          a.classList.toggle("bg-primary/10", isActive);
+          a.classList.toggle("text-primary", isActive);
+          a.classList.toggle("ring-1", isActive);
+          a.classList.toggle("ring-primary/20", isActive);
+          a.classList.toggle("hover:bg-primary/10", isActive);
+
+          // Inactive style
+          a.classList.toggle("hover:bg-slate-50", !isActive);
+
+          // A11y
+          if (isActive) a.setAttribute("aria-current", "page");
+          else a.removeAttribute("aria-current");
+        });
+      }
+
+      // ---------------------------
+      // i18n dictionary (EN default)
+      // ---------------------------
+      const dict = {
+        en: {
+          tagline: "Booking system for Salon & Massage",
+          navHome: "Home",
+          navSolutions: "Solutions",
+          navFeatures: "Features",
+          navPricing: "Pricing",
+          navContact: "Contact",
+          navLogin: "Login",
+          navTrial: "Start 15-day trial",
+          navTrialShort: "Start 15-day trial",
+          navLangTitle: "Language",
+
+          heroBadge: "Solutions for real booking businesses",
+          heroTitle: "One calm booking flow for Salon & Massage",
+          heroDesc:
+            "I’ll help you keep schedules tidy, reduce no-shows, and make payments easier — without making things feel complicated. Your customers can choose the time, service, and preferred staff member.",
+          heroCtaPrimary: "See use cases",
+          heroCtaSecondary: "Start 15-day trial",
+
+          flowTitle: "Most common workflow",
+          flow1: "Customer books",
+          flow2: "Confirm",
+          flow3: "Remind",
+          flow4: "Payment",
+          notifyNote: "Gentle reminders can be sent via Email.",
+
+          benefit1: "Reduce admin work",
+          benefit2: "Reduce no-show",
+          benefit3: "Easier payments",
+          benefit4: "Clear reports",
+
+          mini1Title: "Choose staff",
+          mini1Desc: "Customers pick their favorite.",
+          mini2Title: "Cleaner calendar",
+          mini2Desc: "Less double booking.",
+          mini3Title: "Friendly reminders",
+          mini3Desc: "Fewer no-shows.",
+          mini4Title: "Simple payments",
+          mini4Desc: "Online or in store.",
+
+          chooseTitle: "Pick your use case",
+          chooseDesc:
+            "Two common business types we support really well: Hair & Beauty (Salon) and Spa & Massage.",
+          chooseCta: "See pricing",
+
+          salonCardTitle: "Salon (Hair & Beauty)",
+          salonCardDesc:
+            "Manage staff schedules, recurring clients, and longer services like color + cut.",
+          massageCardTitle: "Spa & Massage",
+          massageCardDesc:
+            "Let customers pick massage type, duration, and therapist — with reminders to reduce no-shows.",
+          jumpToSalon: "Jump to salon story →",
+          jumpToMassage: "Jump to massage story →",
+
+          salonBadge: "Hair & Beauty",
+          salonTitle: "Manage staff schedules & recurring clients",
+          salonDesc:
+            "In a salon, services can be longer and may need the right stylist. juztbooking helps you keep the day clean, so you can focus on clients kindly.",
+          salonPainTitle: "Common pain points",
+          salonPain1: "Double bookings when multiple stylists share a busy day",
+          salonPain2: "Clients want a specific stylist (and a specific time)",
+          salonPain3: "Long services like color + cut are hard to plan neatly",
+          salonPain4: "No-shows hurt your schedule and your mood",
+
+          salonFlowTitle: "Recommended workflow",
+          salonFlow1T: "Customer books",
+          salonFlow1D:
+            "Customer chooses service (e.g., Cut / Color / Blow-dry), time, and stylist.",
+          salonFlow2T: "Confirm",
+          salonFlow2D:
+            "You review the request quickly and confirm with one click.",
+          salonFlow3T: "Remind",
+          salonFlow3D: "Friendly reminders via Email help reduce no-shows.",
+          salonFlow4T: "Payment",
+          salonFlow4D:
+            "Accept online payments or pay in store, and keep records tidy.",
+
+          salonCtaPrimary: "Start 15-day trial",
+          salonCtaSecondary: "Talk to us",
+
+          salonHi1T: "Calendar view per staff",
+          salonHi1D: "See each stylist’s day clearly.",
+          salonHi2T: "Services & staff mapping",
+          salonHi2D: "Only show stylists who can do that service.",
+          salonHi3T: "Customer history",
+          salonHi3D: "Notes like color formula or preferences.",
+          salonHi4T: "Split payments (optional)",
+          salonHi4D:
+            "Helpful when a service involves more than one staff member.",
+          salonExampleTitle: "Example booking",
+          salonExampleDesc:
+            "“Color + Cut (120 min)” with Stylist “Mila”, Saturday 14:00. The system blocks the right time and keeps the calendar clean.",
+
+          modulesTitle: "Features that support the salon flow",
+          modulesDesc: "You set it up once, and daily bookings feel calmer.",
+          modulesCta: "See all features",
+
+          m1Title: "Calendar & Bookings",
+          m1Desc:
+            "Day/week view with statuses like confirmed, cancelled, no-show, arrived.",
+          m1B1: "View per staff member (resources)",
+          m1B2: "Create/edit/move/cancel bookings",
+          m1B3: "Block breaks, holidays, and closed times",
+
+          m2Title: "Services & Staff Setup",
+          m2Desc: "Add services, durations, prices, and who can do what.",
+          m2B1: "Service name, price, duration, description",
+          m2B2: "Staff profiles and skills",
+          m2B3: "Opening hours, breaks, and scheduling rules",
+
+          m3Title: "Payments",
+          m3Desc: "Get paid easily and keep payment status clear.",
+          m3B1: "Online payment setup (optional)",
+          m3B2: "Cash / card / online tracking",
+          m3B3: "Outstanding balance follow-up",
+
+          m4Title: "Reports & Logs",
+          m4Desc:
+            "See bookings and sales clearly, and review activity when needed.",
+          m4B1: "Booking report (filter by day/service/staff)",
+          m4B2: "Transaction history & VAT overview (package dependent)",
+          m4B3: "Activity logs for review",
+
+          setupStepsTitle: "Easy setup steps",
+          setupStep1: "Add services (price / duration)",
+          setupStep2: "Add staff & opening hours",
+          setupStep3: "Share booking link & manage calendar",
+
+          massageBadge: "Spa & Wellness",
+          massageTitle:
+            "Let customers choose the service and therapist, calmly",
+          massageDesc:
+            "For massage businesses, no-shows can be painful. With a clear calendar and friendly reminders, you can protect your peak hours and keep the day smooth.",
+          massagePainTitle: "Common pain points",
+          massagePain1:
+            "Customers forget appointments — especially evenings and weekends",
+          massagePain2: "Customers want specific massage types and durations",
+          massagePain3:
+            "Therapist preference matters for comfort and repeat visits",
+          massagePain4: "Manual payment tracking takes time",
+
+          massageFlowTitle: "Recommended workflow",
+          massageFlow1T: "Customer books",
+          massageFlow1D:
+            "Customer chooses Thai / Oil / Aroma, duration, and therapist.",
+          massageFlow2T: "Confirm",
+          massageFlow2D:
+            "Confirm instantly, and the slot is locked on the calendar.",
+          massageFlow3T: "Remind & re-confirm",
+          massageFlow3D:
+            "Send friendly reminders via Email to reduce no-shows.",
+          massageFlow4T: "Payment",
+          massageFlow4D:
+            "Take payment online or in store, and keep a clear record.",
+
+          massageCtaPrimary: "Start 15-day trial",
+          massageCtaSecondary: "Talk to us",
+
+          massageHi1T: "Service types & duration",
+          massageHi1D: "Thai, oil, aroma — 60/90/120 minutes.",
+          massageHi2T: "Therapist preference",
+          massageHi2D: "Customers choose who they feel comfortable with.",
+          massageHi3T: "Status tracking",
+          massageHi3D: "Arrived / confirmed / no-show — simple and clear.",
+          massageHi4T: "Deposit option (package dependent)",
+          massageHi4D: "Helps protect busy hours.",
+          massageExampleTitle: "Example booking",
+          massageExampleDesc:
+            "“Aroma Oil Massage (90 min)” with Therapist “Nina”, Wednesday 18:30. A reminder goes out automatically before the appointment.",
+
+          supportTitle: "Good to know",
+          supportDesc:
+            "If you already have a website, you can add a “Book now” button and link to juztbooking. If you don’t have a website, we can build a lovely one for you and connect the booking flow.",
+          support1T: "Works with your brand",
+          support1D:
+            "You can share a booking link, and place it on your website and social pages.",
+          support2T: "Clear for your team",
+          support2D:
+            "Calendar view, customer history, and simple payments — in one place.",
+
+          ctaBadge: "Ready when you are",
+          ctaTitle: "Try juztbooking for 15 days",
+          ctaDesc:
+            "Start with a simple setup. If you want, our team can guide you kindly.",
+          ctaPrimary: "Start 15-day trial",
+          ctaSecondary: "Message us",
+          ctaFoot: "Annual billing saves 10% compared to monthly.",
+
+          footerLine: "Booking system for Salon & Massage",
+          privacy: "Privacy Policy",
+          footerRights: "All rights reserved.",
+        },
+
+        th: {
+          tagline: "ระบบจองคิวสำหรับ Salon & ร้านนวด",
+          navHome: "หน้าแรก",
+          navSolutions: "โซลูชัน",
+          navFeatures: "ฟีเจอร์",
+          navPricing: "แพ็กเกจ",
+          navContact: "ติดต่อ",
+          navLogin: "เข้าสู่ระบบ",
+          navTrial: "ทดลองใช้ 15 วัน",
+          navTrialShort: "ทดลองใช้ 15 วัน",
+          navLangTitle: "ภาษา",
+
+          heroBadge: "โซลูชันสำหรับธุรกิจจองคิวจริง ๆ",
+          heroTitle: "Flow จองคิวแบบสบาย ๆ สำหรับ Salon & ร้านนวด",
+          heroDesc:
+            "เดี๋ยวเราช่วยให้ตารางคิวเป็นระเบียบ ลด no-show และทำให้เก็บเงินง่ายขึ้นค่ะ โดยลูกค้าสามารถเลือกเวลา บริการ และพนักงานที่ต้องการได้เลย",
+          heroCtaPrimary: "ดูตัวอย่างการใช้งาน",
+          heroCtaSecondary: "เริ่มทดลองใช้ 15 วัน",
+
+          flowTitle: "Workflow ที่ใช้บ่อย",
+          flow1: "ลูกค้าจอง",
+          flow2: "ยืนยัน",
+          flow3: "แจ้งเตือน",
+          flow4: "รับชำระ",
+          notifyNote: "รองรับการแจ้งเตือนผ่าน Email",
+
+          benefit1: "ลดงานแอดมิน",
+          benefit2: "ลด no-show",
+          benefit3: "เก็บเงินง่ายขึ้น",
+          benefit4: "รายงานชัดขึ้น",
+
+          mini1Title: "เลือกพนักงานได้",
+          mini1Desc: "ลูกค้าเลือกคนโปรดได้เลยค่ะ",
+          mini2Title: "ปฏิทินดูง่าย",
+          mini2Desc: "ลดการชนคิว",
+          mini3Title: "เตือนนัดแบบสุภาพ",
+          mini3Desc: "ช่วยลด no-show",
+          mini4Title: "ชำระเงินง่าย",
+          mini4Desc: "ออนไลน์หรือหน้าร้าน",
+
+          chooseTitle: "เลือกเคสที่ตรงกับร้านของคุณ",
+          chooseDesc:
+            "สองกลุ่มที่เราช่วยได้ดีมากคือ Salon (ทำผม/เสริมสวย) และร้านนวด/สปาค่ะ",
+          chooseCta: "ดูราคาแพ็กเกจ",
+
+          salonCardTitle: "Salon (Hair & Beauty)",
+          salonCardDesc:
+            "ช่วยจัดคิวพนักงาน ลูกค้าประจำ และบริการที่ใช้เวลานาน เช่น ทำสี + ตัด",
+          massageCardTitle: "Spa & Massage (ร้านนวด)",
+          massageCardDesc:
+            "ให้ลูกค้าเลือกประเภทนวด ระยะเวลา และหมอนวด พร้อมระบบเตือนนัดเพื่อลด no-show",
+          jumpToSalon: "ไปที่เคสร้านทำผม →",
+          jumpToMassage: "ไปที่เคสร้านนวด →",
+
+          salonBadge: "Hair & Beauty",
+          salonTitle: "จัดตารางพนักงาน และดูแลลูกค้าประจำได้ง่ายขึ้น",
+          salonDesc:
+            "ร้านทำผมมักมีบริการที่ใช้เวลานาน และต้องใช้ช่างที่เหมาะกับงาน ระบบจะช่วยจัดคิวให้เป็นระเบียบ เพื่อให้คุณโฟกัสกับการดูแลลูกค้าได้เต็มที่ค่ะ",
+          salonPainTitle: "ปัญหาที่เจอบ่อย",
+          salonPain1: "คิวชนกันเวลามีพนักงานหลายคน",
+          salonPain2: "ลูกค้าอยากได้ช่างคนเดิมและเวลาที่ต้องการ",
+          salonPain3: "บริการยาว ๆ เช่น ทำสี + ตัด วางคิวยาก",
+          salonPain4: "no-show ทำให้เสียเวลาและเสียอารมณ์",
+
+          salonFlowTitle: "Workflow ที่แนะนำ",
+          salonFlow1T: "ลูกค้าจอง",
+          salonFlow1D:
+            "เลือกบริการ (เช่น ตัด/ทำสี/ไดร์) เวลา และช่างที่ต้องการ",
+          salonFlow2T: "ยืนยัน",
+          salonFlow2D: "ตรวจเร็ว ๆ แล้วกดยืนยันได้เลยค่ะ",
+          salonFlow3T: "แจ้งเตือน",
+          salonFlow3D: "ส่งเตือนผ่าน Email ช่วยลด no-show",
+          salonFlow4T: "รับชำระ",
+          salonFlow4D: "รับเงินออนไลน์หรือหน้าร้าน และเก็บประวัติให้เรียบร้อย",
+
+          salonCtaPrimary: "เริ่มทดลองใช้ 15 วัน",
+          salonCtaSecondary: "ทักมาคุย",
+
+          salonHi1T: "ปฏิทินแยกตามพนักงาน",
+          salonHi1D: "เห็นคิวของช่างแต่ละคนชัด ๆ",
+          salonHi2T: "จับคู่บริการกับช่าง",
+          salonHi2D: "แสดงเฉพาะช่างที่ทำบริการนั้นได้",
+          salonHi3T: "ประวัติลูกค้า",
+          salonHi3D: "จดโน้ต เช่น สี/ความชอบได้ค่ะ",
+          salonHi4T: "แบ่งชำระ (ถ้าต้องการ)",
+          salonHi4D: "เหมาะเมื่อมีหลายคนช่วยในบริการเดียว",
+          salonExampleTitle: "ตัวอย่างการจอง",
+          salonExampleDesc:
+            "“ทำสี + ตัด (120 นาที)” กับช่าง “Mila” วันเสาร์ 14:00 ระบบจะกันเวลาให้พอดี และทำให้ปฏิทินดูสะอาดค่ะ",
+
+          modulesTitle: "ฟีเจอร์ที่ช่วยให้ร้านทำผมทำงานสบายขึ้น",
+          modulesDesc:
+            "ตั้งค่าครั้งเดียว แล้วการจองในแต่ละวันจะเป็นระเบียบขึ้นมากค่ะ",
+          modulesCta: "ดูฟีเจอร์ทั้งหมด",
+
+          m1Title: "Calendar & Bookings",
+          m1Desc:
+            "มุมมอง Day/Week พร้อมสถานะ เช่น confirmed, cancelled, no-show, arrived",
+          m1B1: "ดูคิวตามพนักงานได้",
+          m1B2: "สร้าง/แก้ไข/เลื่อน/ยกเลิกนัด",
+          m1B3: "บล็อกพัก/วันหยุด/เวลาไม่รับบริการ",
+
+          m2Title: "Services & Staff Setup",
+          m2Desc: "เพิ่มบริการ ราคา ระยะเวลา และกำหนดว่าใครทำอะไรได้",
+          m2B1: "ชื่อบริการ ราคา ระยะเวลา คำอธิบาย",
+          m2B2: "โปรไฟล์และความสามารถพนักงาน",
+          m2B3: "เวลาเปิด-ปิด พัก และกฎการรับคิว",
+
+          m3Title: "Payments",
+          m3Desc: "เก็บเงินง่ายขึ้น และสถานะการชำระชัดเจน",
+          m3B1: "ตั้งค่ารับชำระออนไลน์ (ถ้าต้องการ)",
+          m3B2: "ติดตามเงินสด/บัตร/ออนไลน์",
+          m3B3: "ดูยอดค้างและติดตามได้",
+
+          m4Title: "Reports & Logs",
+          m4Desc: "ดูรายงานชัด ๆ และตรวจสอบย้อนหลังได้เมื่อจำเป็น",
+          m4B1: "รายงานการจอง (กรองตามวัน/บริการ/พนักงาน)",
+          m4B2: "ประวัติการชำระ/ภาพรวม VAT (ตามแพ็กเกจ)",
+          m4B3: "บันทึกกิจกรรมเพื่อย้อนดูได้",
+
+          setupStepsTitle: "เริ่มใช้งาน 3 ขั้นตอน",
+          setupStep1: "เพิ่มบริการ (ราคา/ระยะเวลา)",
+          setupStep2: "เพิ่มพนักงาน & เวลาเปิด-ปิด",
+          setupStep3: "แชร์ลิงก์จอง & จัดการคิวในปฏิทิน",
+
+          massageBadge: "Spa & Wellness",
+          massageTitle: "ให้ลูกค้าเลือกบริการและหมอนวดได้แบบสบาย ๆ",
+          massageDesc:
+            "ร้านนวดเจอปัญหา no-show ได้บ่อยค่ะ ปฏิทินที่ชัด + การเตือนนัดแบบสุภาพ จะช่วยปกป้องช่วงเวลาทองของร้านได้",
+          massagePainTitle: "ปัญหาที่เจอบ่อย",
+          massagePain1: "ลูกค้าลืมนัด โดยเฉพาะช่วงเย็น/สุดสัปดาห์",
+          massagePain2: "ลูกค้าอยากเลือกประเภทนวดและระยะเวลา",
+          massagePain3: "ลูกค้าอยากเลือกหมอนวดที่คุ้นเคย",
+          massagePain4: "สรุปการชำระเงินด้วยมือใช้เวลามาก",
+
+          massageFlowTitle: "Workflow ที่แนะนำ",
+          massageFlow1T: "ลูกค้าจอง",
+          massageFlow1D: "เลือกนวดไทย/น้ำมัน/อโรม่า ระยะเวลา และหมอนวด",
+          massageFlow2T: "ยืนยัน",
+          massageFlow2D: "กดยืนยันแล้วคิวจะล็อกไว้ในปฏิทินค่ะ",
+          massageFlow3T: "เตือนนัดและยืนยันซ้ำ",
+          massageFlow3D: "ส่งเตือนผ่าน Email เพื่อลด no-show",
+          massageFlow4T: "รับชำระ",
+          massageFlow4D:
+            "รับเงินออนไลน์หรือหน้าร้าน และเก็บประวัติให้เรียบร้อย",
+
+          massageCtaPrimary: "เริ่มทดลองใช้ 15 วัน",
+          massageCtaSecondary: "ทักมาคุย",
+
+          massageHi1T: "บริการและระยะเวลา",
+          massageHi1D: "ไทย/น้ำมัน/อโรม่า — 60/90/120 นาที",
+          massageHi2T: "เลือกหมอนวด",
+          massageHi2D: "ลูกค้าเลือกคนที่สบายใจได้ค่ะ",
+          massageHi3T: "สถานะคิวชัดเจน",
+          massageHi3D: "arrived / confirmed / no-show — ดูง่าย",
+          massageHi4T: "มัดจำ (ตามแพ็กเกจ)",
+          massageHi4D: "ช่วยกันช่วงเวลาที่คิวแน่น",
+          massageExampleTitle: "ตัวอย่างการจอง",
+          massageExampleDesc:
+            "“อโรม่า (90 นาที)” กับหมอนวด “Nina” วันพุธ 18:30 ระบบจะส่งเตือนนัดอัตโนมัติก่อนถึงเวลา",
+
+          supportTitle: "เพิ่มเติมเล็กน้อยค่ะ",
+          supportDesc:
+            "ถ้ามีเว็บไซต์อยู่แล้ว สามารถใส่ปุ่ม “Book now” แล้วลิงก์เข้าระบบได้เลยค่ะ และถ้ายังไม่มีเว็บไซต์ ทีมงานสามารถทำเว็บให้และเชื่อมระบบจองให้ได้ค่ะ",
+          support1T: "ใช้กับแบรนด์ของคุณได้",
+          support1D: "แชร์ลิงก์จอง และวางบนเว็บไซต์/โซเชียลได้เลย",
+          support2T: "ทีมงานเห็นภาพรวม",
+          support2D: "ปฏิทิน ประวัติลูกค้า และการชำระเงิน — อยู่ในที่เดียว",
+
+          ctaBadge: "พร้อมเมื่อไหร่ก็เริ่มได้ค่ะ",
+          ctaTitle: "ทดลองใช้ juztbooking 15 วัน",
+          ctaDesc:
+            "เริ่มตั้งค่าง่าย ๆ ก่อนก็ได้ค่ะ ถ้าอยากให้ช่วย เดี๋ยวทีมงานแนะนำให้แบบสุภาพนะคะ",
+          ctaPrimary: "เริ่มทดลองใช้ 15 วัน",
+          ctaSecondary: "ส่งข้อความหาเรา",
+          ctaFoot: "รายปีประหยัดกว่า 10% เมื่อเทียบกับรายเดือนค่ะ",
+
+          footerLine: "ระบบจองคิวสำหรับ Salon & ร้านนวด",
+          privacy: "Privacy Policy",
+          footerRights: "สงวนลิขสิทธิ์",
+        },
+
+        nl: {
+          tagline: "Boekingssysteem voor Salon & Massage",
+          navHome: "Home",
+          navSolutions: "Oplossingen",
+          navFeatures: "Functies",
+          navPricing: "Prijzen",
+          navContact: "Contact",
+          navLogin: "Inloggen",
+          navTrial: "Start 15 dagen proef",
+          navTrialShort: "Start 15 dagen proef",
+          navLangTitle: "Taal",
+
+          heroBadge: "Oplossingen voor echte boekingsbedrijven",
+          heroTitle: "Eén rustige boekingsflow voor Salon & Massage",
+          heroDesc:
+            "Ik help je agenda netjes te houden, no-shows te verlagen en betalingen makkelijker te maken — zonder dat het ingewikkeld voelt. Klanten kiezen tijd, dienst en hun favoriete medewerker.",
+          heroCtaPrimary: "Bekijk use cases",
+          heroCtaSecondary: "Start 15 dagen proef",
+
+          flowTitle: "Meest gebruikte workflow",
+          flow1: "Klant boekt",
+          flow2: "Bevestigen",
+          flow3: "Herinneren",
+          flow4: "Betaling",
+          notifyNote: "Vriendelijke reminders via e-mail zijn mogelijk.",
+
+          benefit1: "Minder adminwerk",
+          benefit2: "Minder no-shows",
+          benefit3: "Makkelijker betalen",
+          benefit4: "Duidelijke rapporten",
+
+          mini1Title: "Medewerker kiezen",
+          mini1Desc: "Klanten kiezen hun favoriet.",
+          mini2Title: "Rustige kalender",
+          mini2Desc: "Minder dubbele boekingen.",
+          mini3Title: "Vriendelijke reminders",
+          mini3Desc: "Minder no-shows.",
+          mini4Title: "Simpel betalen",
+          mini4Desc: "Online of in de zaak.",
+
+          chooseTitle: "Kies jouw use case",
+          chooseDesc:
+            "Twee typen die we heel goed ondersteunen: Hair & Beauty (Salon) en Spa & Massage.",
+          chooseCta: "Bekijk prijzen",
+
+          salonCardTitle: "Salon (Hair & Beauty)",
+          salonCardDesc:
+            "Beheer roosters, vaste klanten en langere behandelingen zoals kleur + knippen.",
+          massageCardTitle: "Spa & Massage",
+          massageCardDesc:
+            "Klanten kiezen massage, duur en therapeut — met reminders tegen no-shows.",
+          jumpToSalon: "Ga naar salon verhaal →",
+          jumpToMassage: "Ga naar massage verhaal →",
+
+          salonBadge: "Hair & Beauty",
+          salonTitle: "Beheer roosters & vaste klanten",
+          salonDesc:
+            "In een salon duren behandelingen soms langer en wil je de juiste stylist. juztbooking helpt je dag netjes te houden, zodat je rustig voor klanten kunt zorgen.",
+          salonPainTitle: "Veelvoorkomende pijnpunten",
+          salonPain1:
+            "Dubbele boekingen bij drukke dagen met meerdere stylisten",
+          salonPain2: "Klanten willen een specifieke stylist (en tijd)",
+          salonPain3:
+            "Lange behandelingen zoals kleur + knippen plannen lastig",
+          salonPain4: "No-shows verstoren je dag",
+
+          salonFlowTitle: "Aanbevolen workflow",
+          salonFlow1T: "Klant boekt",
+          salonFlow1D:
+            "Ze kiest dienst (bijv. Knippen / Kleuren / Föhnen), tijd en stylist.",
+          salonFlow2T: "Bevestigen",
+          salonFlow2D: "Je controleert kort en bevestigt met één klik.",
+          salonFlow3T: "Herinneren",
+          salonFlow3D: "Reminders via e-mail helpen no-shows verlagen.",
+          salonFlow4T: "Betaling",
+          salonFlow4D: "Online of in de zaak betalen, met nette registratie.",
+
+          salonCtaPrimary: "Start 15 dagen proef",
+          salonCtaSecondary: "Neem contact op",
+
+          salonHi1T: "Kalender per medewerker",
+          salonHi1D: "Zie de dag per stylist duidelijk.",
+          salonHi2T: "Diensten & skills",
+          salonHi2D: "Toon alleen medewerkers die die dienst kunnen doen.",
+          salonHi3T: "Klantgeschiedenis",
+          salonHi3D: "Notities zoals voorkeuren of kleurformule.",
+          salonHi4T: "Gesplitste betaling (optioneel)",
+          salonHi4D: "Handig bij meerdere medewerkers.",
+          salonExampleTitle: "Voorbeeldboeking",
+          salonExampleDesc:
+            "“Kleur + Knippen (120 min)” met Stylist “Mila”, zaterdag 14:00. Het systeem blokkeert de juiste tijd en houdt de kalender schoon.",
+
+          modulesTitle: "Functies die de salonflow ondersteunen",
+          modulesDesc: "Eén keer instellen en je dag voelt rustiger.",
+          modulesCta: "Bekijk alle functies",
+
+          m1Title: "Kalender & boekingen",
+          m1Desc:
+            "Dag/week met statussen: bevestigd, geannuleerd, no-show, aangekomen.",
+          m1B1: "Weergave per medewerker (resources)",
+          m1B2: "Boekingen aanmaken/bewerken/verplaatsen/annuleren",
+          m1B3: "Pauzes, vakanties en sluiting blokkeren",
+
+          m2Title: "Diensten & personeel instellen",
+          m2Desc: "Diensten, duur, prijs en wie wat kan.",
+          m2B1: "Naam, prijs, duur, omschrijving",
+          m2B2: "Profielen en skills",
+          m2B3: "Openingstijden, pauzes en regels",
+
+          m3Title: "Betalingen",
+          m3Desc: "Makkelijk innen met duidelijke status.",
+          m3B1: "Online betalen instellen (optioneel)",
+          m3B2: "Contant / kaart / online volgen",
+          m3B3: "Openstaande bedragen opvolgen",
+
+          m4Title: "Rapporten & logs",
+          m4Desc: "Helder overzicht en terugkijken wanneer nodig.",
+          m4B1: "Boekingsrapport (filter op dag/dienst/medewerker)",
+          m4B2: "Transactiehistorie & BTW-overzicht (afhankelijk van pakket)",
+          m4B3: "Activity logs",
+
+          setupStepsTitle: "Eenvoudige stappen",
+          setupStep1: "Diensten toevoegen (prijs / duur)",
+          setupStep2: "Personeel & openingstijden toevoegen",
+          setupStep3: "Boekingslink delen & kalender beheren",
+
+          massageBadge: "Spa & Wellness",
+          massageTitle: "Laat klanten dienst en therapeut kiezen, rustig",
+          massageDesc:
+            "Bij massage zijn no-shows extra vervelend. Met een duidelijke kalender en vriendelijke reminders bescherm je je piekuren.",
+          massagePainTitle: "Veelvoorkomende pijnpunten",
+          massagePain1:
+            "Klanten vergeten afspraken — vooral avonden en weekends",
+          massagePain2: "Keuze in type massage en duur",
+          massagePain3: "Therapeut-voorkeur is belangrijk voor vertrouwen",
+          massagePain4: "Handmatige betalingsoverzichten kosten tijd",
+
+          massageFlowTitle: "Aanbevolen workflow",
+          massageFlow1T: "Klant boekt",
+          massageFlow1D: "Ze kiest Thai / Oil / Aroma, duur en therapeut.",
+          massageFlow2T: "Bevestigen",
+          massageFlow2D: "Bevestig direct en de plek is vastgelegd.",
+          massageFlow3T: "Herinneren & opnieuw bevestigen",
+          massageFlow3D: "Reminders via e-mail verlagen no-shows.",
+          massageFlow4T: "Betaling",
+          massageFlow4D:
+            "Online of in de zaak betalen, met duidelijke registratie.",
+
+          massageCtaPrimary: "Start 15 dagen proef",
+          massageCtaSecondary: "Neem contact op",
+
+          massageHi1T: "Diensten & duur",
+          massageHi1D: "Thai, oil, aroma — 60/90/120 minuten.",
+          massageHi2T: "Therapeut-voorkeur",
+          massageHi2D: "Klanten kiezen wie prettig voelt.",
+          massageHi3T: "Status bijhouden",
+          massageHi3D: "Aangekomen / bevestigd / no-show — simpel.",
+          massageHi4T: "Aanbetaling (pakket afhankelijk)",
+          massageHi4D: "Beschermt drukke uren.",
+          massageExampleTitle: "Voorbeeldboeking",
+          massageExampleDesc:
+            "“Aroma Oil Massage (90 min)” met Therapeut “Nina”, woensdag 18:30. Een reminder gaat automatisch uit vóór de afspraak.",
+
+          supportTitle: "Goed om te weten",
+          supportDesc:
+            "Heb je al een website? Voeg een “Book now” knop toe en link naar juztbooking. Geen website? Dan bouwen we er één en koppelen we het boeken.",
+          support1T: "Werkt met je merk",
+          support1D: "Deel je boekingslink en zet hem op je site en socials.",
+          support2T: "Helder voor je team",
+          support2D: "Kalender, klantgeschiedenis en betalingen — op één plek.",
+
+          ctaBadge: "Klaar wanneer jij wilt",
+          ctaTitle: "Probeer juztbooking 15 dagen",
+          ctaDesc:
+            "Start met een simpele setup. Wil je hulp? We begeleiden je vriendelijk.",
+          ctaPrimary: "Start 15 dagen proef",
+          ctaSecondary: "Stuur een bericht",
+          ctaFoot: "Jaarlijks bespaart 10% t.o.v. maandelijks.",
+
+          footerLine: "Boekingssysteem voor Salon & Massage",
+          privacy: "Privacybeleid",
+          footerRights: "Alle rechten voorbehouden",
+        },
+      };
+
+      const LANG_STORAGE_KEY = "juztbooking_lang";
+
+      function setLangLabel(lang) {
+        const label = lang === "en" ? "EN" : lang === "th" ? "TH" : "NL";
+        if (langLabelDesktop) langLabelDesktop.textContent = label;
+        if (langLabelMobile) langLabelMobile.textContent = label;
+      }
+
+      function applyLang(lang) {
+        const pack = dict[lang] || dict.en;
+
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (pack[key]) el.textContent = pack[key];
+        });
+
+        setLangLabel(lang);
+        localStorage.setItem(LANG_STORAGE_KEY, lang);
+        closeLangMenus();
+
+        // ✅ keep active menu highlight after language changes
+        applyActiveNav();
+      }
+
+      function bindLangButtons(container) {
+        if (!container) return;
+        container.querySelectorAll("[data-lang]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const lang = btn.getAttribute("data-lang");
+            applyLang(lang);
+          });
+        });
+      }
+      bindLangButtons(langMenuDesktop);
+      bindLangButtons(langMenuMobile);
+
+      // Default language EN
+      const saved = localStorage.getItem(LANG_STORAGE_KEY) || "en";
+      applyLang(saved);
+
+      // ✅ Active nav on load
+      applyActiveNav();
+
+      // Footer year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
