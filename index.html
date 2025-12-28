@@ -45,8 +45,8 @@
             />
           </a>
 
-          <!-- Desktop nav -->
-          <div class="hidden items-center gap-2 md:flex">
+          <!-- Desktop nav (✅ show only on LG+) -->
+          <div class="hidden items-center gap-2 lg:flex">
             <a
               href="/"
               data-navlink
@@ -84,7 +84,7 @@
               >Contact</a
             >
 
-            <!-- Language dropdown -->
+            <!-- Language dropdown (Desktop) -->
             <div class="relative">
               <button
                 id="langBtnDesktop"
@@ -93,7 +93,10 @@
                 aria-expanded="false"
                 type="button"
               >
-                <span id="langLabelDesktop">EN</span>
+                <span
+                  id="langLabelDesktop"
+                  class="inline-flex items-center gap-2"
+                ></span>
                 <svg
                   viewBox="0 0 24 24"
                   class="h-4 w-4 fill-slate-700"
@@ -111,28 +114,46 @@
                 role="menu"
               >
                 <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
                   data-lang="en"
                   role="menuitem"
                   type="button"
                 >
-                  English (EN)
+                  <img
+                    src="/assets/en.svg"
+                    alt="English"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>English (EN)</span>
                 </button>
                 <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
                   data-lang="th"
                   role="menuitem"
                   type="button"
                 >
-                  ไทย (TH)
+                  <img
+                    src="/assets/th.svg"
+                    alt="Thai"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>ไทย (TH)</span>
                 </button>
                 <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
                   data-lang="nl"
                   role="menuitem"
                   type="button"
                 >
-                  Nederlands (NL)
+                  <img
+                    src="/assets/nl.svg"
+                    alt="Dutch"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>Nederlands (NL)</span>
                 </button>
               </div>
             </div>
@@ -151,8 +172,83 @@
             >
           </div>
 
-          <!-- Mobile / Tablet -->
-          <div class="flex items-center gap-2 md:hidden">
+          <!-- Mobile / Tablet (✅ now for < LG, including tablet) -->
+          <div class="flex items-center gap-2 lg:hidden">
+            <!-- Language dropdown (Mobile top) -->
+            <div class="relative">
+              <button
+                id="langBtnMobile"
+                class="inline-flex items-center gap-2 rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                type="button"
+                aria-label="Change language"
+              >
+                <span
+                  id="langLabelMobile"
+                  class="inline-flex items-center gap-2"
+                ></span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-4 w-4 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
+                  />
+                </svg>
+              </button>
+
+              <div
+                id="langMenuMobile"
+                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-white shadow-lg"
+                role="menu"
+              >
+                <button
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="en"
+                  role="menuitem"
+                  type="button"
+                >
+                  <img
+                    src="/assets/en.svg"
+                    alt="English"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>English (EN)</span>
+                </button>
+                <button
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="th"
+                  role="menuitem"
+                  type="button"
+                >
+                  <img
+                    src="/assets/th.svg"
+                    alt="Thai"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>ไทย (TH)</span>
+                </button>
+                <button
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="nl"
+                  role="menuitem"
+                  type="button"
+                >
+                  <img
+                    src="/assets/nl.svg"
+                    alt="Dutch"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>Nederlands (NL)</span>
+                </button>
+              </div>
+            </div>
+
             <a
               href="/trial"
               class="inline-flex items-center justify-center rounded-2xl bg-primary px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
@@ -270,68 +366,6 @@
             data-i18n="navLogin"
             >Login</a
           >
-
-          <!-- Language dropdown (mobile) -->
-          <div class="mt-5 rounded-3xl border bg-white p-4">
-            <div
-              class="text-xs font-semibold text-slate-600"
-              data-i18n="navLangTitle"
-            >
-              Language
-            </div>
-
-            <div class="relative mt-2">
-              <button
-                id="langBtnMobile"
-                class="inline-flex w-full items-center justify-between rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                aria-haspopup="menu"
-                aria-expanded="false"
-                type="button"
-              >
-                <span id="langLabelMobile">EN</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  class="h-4 w-4 fill-slate-700"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
-                  />
-                </svg>
-              </button>
-
-              <div
-                id="langMenuMobile"
-                class="mt-2 hidden overflow-hidden rounded-2xl border bg-white shadow-lg"
-                role="menu"
-              >
-                <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="en"
-                  role="menuitem"
-                  type="button"
-                >
-                  English (EN)
-                </button>
-                <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="th"
-                  role="menuitem"
-                  type="button"
-                >
-                  ไทย (TH)
-                </button>
-                <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="nl"
-                  role="menuitem"
-                  type="button"
-                >
-                  Nederlands (NL)
-                </button>
-              </div>
-            </div>
-          </div>
         </nav>
       </aside>
 
@@ -558,36 +592,59 @@
       </header>
 
       <!-- ✅ WHY CHOOSE US -->
-      <section class="border-t bg-white/60">
-        <div class="mx-auto max-w-6xl px-4 py-12">
-          <div class="flex items-end justify-between gap-4">
-            <div>
+      <section
+        class="relative border-t bg-gradient-to-b from-white via-primary/10 to-white"
+      >
+        <div class="pointer-events-none absolute inset-0">
+          <div
+            class="absolute left-1/2 top-12 h-72 w-72 -translate-x-1/2 rounded-full bg-primary/15 blur-3xl"
+          ></div>
+        </div>
+
+        <div class="relative mx-auto max-w-6xl px-4 py-14">
+          <div
+            class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
+          >
+            <div class="max-w-2xl">
+              <div
+                class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/80 px-3 py-1 text-sm font-semibold text-primary shadow-sm"
+              >
+                <span
+                  class="inline-block h-2 w-2 rounded-full bg-primary"
+                ></span>
+                <span data-i18n="whyBadge">Why it feels easy</span>
+              </div>
+
               <h2
-                class="text-2xl font-bold tracking-tight md:text-3xl"
+                class="mt-4 text-3xl font-bold tracking-tight md:text-4xl"
                 data-i18n="whyTitle"
               >
                 Why choose juztbooking
               </h2>
-              <p class="mt-2 text-slate-600" data-i18n="whyDesc">
+              <p class="mt-2 text-slate-700 md:text-lg" data-i18n="whyDesc">
                 Built for massage businesses — easy for owners, easy for
                 customers.
               </p>
             </div>
+
             <div class="hidden md:block">
               <a
                 href="/contact"
-                class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                class="inline-flex items-center justify-center rounded-2xl border bg-white/80 px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:bg-white"
                 data-i18n="whyCta"
                 >Talk to us</a
               >
             </div>
           </div>
 
-          <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <article class="rounded-3xl border bg-white p-6 shadow-sm">
+          <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <!-- 1 -->
+            <article
+              class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
+            >
               <div class="flex items-start gap-3">
                 <span
-                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-bold"
+                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary text-white font-extrabold shadow-sm"
                   >1</span
                 >
                 <div>
@@ -604,10 +661,13 @@
               </div>
             </article>
 
-            <article class="rounded-3xl border bg-white p-6 shadow-sm">
+            <!-- 2 -->
+            <article
+              class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
+            >
               <div class="flex items-start gap-3">
                 <span
-                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-bold"
+                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-extrabold"
                   >2</span
                 >
                 <div>
@@ -615,19 +675,23 @@
                     class="text-sm font-semibold text-slate-900"
                     data-i18n="why2Title"
                   >
-                    Thai language interface
+                    Multi-language support
                   </div>
                   <div class="mt-1 text-sm text-slate-600" data-i18n="why2Desc">
-                    Menus + explanations in Thai, so staff don’t get confused.
+                    Switch languages easily so staff and customers feel
+                    comfortable.
                   </div>
                 </div>
               </div>
             </article>
 
-            <article class="rounded-3xl border bg-white p-6 shadow-sm">
+            <!-- 3 -->
+            <article
+              class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
+            >
               <div class="flex items-start gap-3">
                 <span
-                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-bold"
+                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-extrabold"
                   >3</span
                 >
                 <div>
@@ -645,10 +709,13 @@
               </div>
             </article>
 
-            <article class="rounded-3xl border bg-white p-6 shadow-sm">
+            <!-- 4 -->
+            <article
+              class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
+            >
               <div class="flex items-start gap-3">
                 <span
-                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-bold"
+                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-extrabold"
                   >4</span
                 >
                 <div>
@@ -666,32 +733,14 @@
               </div>
             </article>
 
-            <article class="rounded-3xl border bg-white p-6 shadow-sm">
+            <!-- 5 -->
+            <article
+              class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
+            >
               <div class="flex items-start gap-3">
                 <span
-                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-bold"
+                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-extrabold"
                   >5</span
-                >
-                <div>
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="why5Title"
-                  >
-                    No commission fees
-                  </div>
-                  <div class="mt-1 text-sm text-slate-600" data-i18n="why5Desc">
-                    We don’t take a percentage from your services. Your revenue
-                    stays yours.
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="rounded-3xl border bg-white p-6 shadow-sm">
-              <div class="flex items-start gap-3">
-                <span
-                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-bold"
-                  >6</span
                 >
                 <div>
                   <div
@@ -708,32 +757,14 @@
               </div>
             </article>
 
-            <article class="rounded-3xl border bg-white p-6 shadow-sm">
+            <!-- 6 -->
+            <article
+              class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
+            >
               <div class="flex items-start gap-3">
                 <span
-                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-bold"
-                  >7</span
-                >
-                <div>
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="why7Title"
-                  >
-                    Google Calendar + payments
-                  </div>
-                  <div class="mt-1 text-sm text-slate-600" data-i18n="why7Desc">
-                    Sync with your calendar, accept cash/card/online (higher
-                    plans).
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article class="rounded-3xl border bg-white p-6 shadow-sm">
-              <div class="flex items-start gap-3">
-                <span
-                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-bold"
-                  >8</span
+                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-extrabold"
+                  >6</span
                 >
                 <div>
                   <div
@@ -751,7 +782,9 @@
             </article>
           </div>
 
-          <div class="mt-8 rounded-3xl border bg-white p-6">
+          <div
+            class="mt-10 rounded-3xl border bg-white/90 p-6 shadow-sm backdrop-blur"
+          >
             <div
               class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center"
             >
@@ -763,10 +796,16 @@
                     >Designed for calm, smooth days</span
                   >
                 </div>
-                <h3 class="mt-3 text-lg font-bold" data-i18n="whyStripTitle">
+                <h3
+                  class="mt-3 text-lg font-bold md:text-xl"
+                  data-i18n="whyStripTitle"
+                >
                   Less admin, fewer mistakes, more bookings
                 </h3>
-                <p class="mt-2 text-sm text-slate-600" data-i18n="whyStripDesc">
+                <p
+                  class="mt-2 text-sm text-slate-700 md:text-base"
+                  data-i18n="whyStripDesc"
+                >
                   Your booking flow becomes clear — customers book themselves,
                   and you stay in control.
                 </p>
@@ -780,7 +819,7 @@
                 >
                 <a
                   href="/pricing"
-                  class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                  class="inline-flex items-center justify-center rounded-2xl border bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
                   data-i18n="whyStripSecondary"
                   >See pricing</a
                 >
@@ -1223,110 +1262,6 @@
 
     <script>
       // ---------------------------
-      // Mobile menu controls
-      // ---------------------------
-      const menuBtn = document.getElementById("menuBtn");
-      const menuOverlay = document.getElementById("menuOverlay");
-      const mobileMenu = document.getElementById("mobileMenu");
-      const menuCloseBtn = document.getElementById("menuCloseBtn");
-
-      const openMenu = () => {
-        menuOverlay.classList.remove("hidden");
-        mobileMenu.classList.remove("translate-x-full");
-        menuBtn?.setAttribute("aria-expanded", "true");
-        document.body.classList.add("overflow-hidden");
-      };
-
-      const closeMenu = () => {
-        mobileMenu.classList.add("translate-x-full");
-        menuOverlay.classList.add("hidden");
-        menuBtn?.setAttribute("aria-expanded", "false");
-        document.body.classList.remove("overflow-hidden");
-      };
-
-      menuBtn?.addEventListener("click", openMenu);
-      menuCloseBtn?.addEventListener("click", closeMenu);
-      menuOverlay?.addEventListener("click", closeMenu);
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeMenu();
-      });
-
-      // ---------------------------
-      // Language dropdown controls
-      // ---------------------------
-      const langBtnDesktop = document.getElementById("langBtnDesktop");
-      const langMenuDesktop = document.getElementById("langMenuDesktop");
-      const langLabelDesktop = document.getElementById("langLabelDesktop");
-
-      const langBtnMobile = document.getElementById("langBtnMobile");
-      const langMenuMobile = document.getElementById("langMenuMobile");
-      const langLabelMobile = document.getElementById("langLabelMobile");
-
-      function toggleMenu(btn, menu) {
-        if (!btn || !menu) return;
-        const isOpen = !menu.classList.contains("hidden");
-        if (isOpen) {
-          menu.classList.add("hidden");
-          btn.setAttribute("aria-expanded", "false");
-        } else {
-          menu.classList.remove("hidden");
-          btn.setAttribute("aria-expanded", "true");
-        }
-      }
-
-      function closeLangMenus() {
-        langMenuDesktop?.classList.add("hidden");
-        langBtnDesktop?.setAttribute("aria-expanded", "false");
-        langMenuMobile?.classList.add("hidden");
-        langBtnMobile?.setAttribute("aria-expanded", "false");
-      }
-
-      langBtnDesktop?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleMenu(langBtnDesktop, langMenuDesktop);
-      });
-
-      langBtnMobile?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleMenu(langBtnMobile, langMenuMobile);
-      });
-
-      document.addEventListener("click", () => closeLangMenus());
-
-      // ---------------------------
-      // ✅ Active menu (PC / Mobile / Tablet)
-      // ---------------------------
-      function normalizePath(p) {
-        if (!p) return "/";
-        p = p.split("?")[0].split("#")[0];
-        if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
-        return p;
-      }
-
-      function applyActiveNav() {
-        const currentPath = normalizePath(window.location.pathname);
-
-        document.querySelectorAll("a[data-navlink]").forEach((a) => {
-          const href = a.getAttribute("href") || "";
-          if (!href.startsWith("/")) return;
-
-          const linkPath = normalizePath(href);
-          const isActive = linkPath === currentPath;
-
-          a.classList.toggle("bg-primary/10", isActive);
-          a.classList.toggle("text-primary", isActive);
-          a.classList.toggle("ring-1", isActive);
-          a.classList.toggle("ring-primary/20", isActive);
-          a.classList.toggle("hover:bg-primary/10", isActive);
-
-          a.classList.toggle("hover:bg-slate-50", !isActive);
-
-          if (isActive) a.setAttribute("aria-current", "page");
-          else a.removeAttribute("aria-current");
-        });
-      }
-
-      // ---------------------------
       // ✅ i18n dictionary (EN / TH / NL)
       // ---------------------------
       const dict = {
@@ -1377,6 +1312,7 @@
           connectCta: "Talk to us",
 
           // WHY
+          whyBadge: "Why it feels easy",
           whyTitle: "Why choose juztbooking",
           whyDesc:
             "Built for massage businesses — easy for owners, easy for customers.",
@@ -1384,23 +1320,18 @@
           why1Title: "Super easy to start",
           why1Desc:
             "Simple signup + simple dashboard — even if you’re not techy.",
-          why2Title: "Thai language interface",
+          why2Title: "Multi-language support",
           why2Desc:
-            "Menus + explanations in Thai, so staff don’t get confused.",
+            "Switch languages easily so staff and customers feel comfortable.",
           why3Title: "Customers book on mobile",
           why3Desc:
             "Customers choose service, therapist, date & time — the system prevents double bookings.",
           why4Title: "Branded booking link",
           why4Desc:
             "Your own booking page + dashboard, with a custom link on your domain.",
-          why5Title: "No commission fees",
-          why5Desc:
-            "We don’t take a percentage from your services. Your revenue stays yours.",
           why6Title: "We help you set up",
           why6Desc:
             "Our team helps configure services, staff, hours, and booking flow — ready to use.",
-          why7Title: "Google Calendar + payments",
-          why7Desc: "Sync with your calendar, accept cash/card/online.",
           why8Title: "Reports & activity logs",
           why8Desc:
             "Track bookings, changes, and performance — so you can improve with confidence.",
@@ -1621,25 +1552,23 @@
           connectCta: "คุยกับเรา",
 
           // WHY
+          whyBadge: "ทำไมถึงใช้ง่าย",
           whyTitle: "ทำไมต้องเลือกใช้ juztbooking",
           whyDesc: "ออกแบบมาเพื่อร้านนวด — เจ้าของร้านใช้ง่าย ลูกค้าจองสบาย",
           whyCta: "คุยกับเรา",
           why1Title: "สมัครและใช้งานง่ายมาก",
           why1Desc: "แดชบอร์ดเข้าใจง่าย คนไม่ถนัดเทคโนโลยีก็เริ่มได้ทันที",
-          why2Title: "รองรับภาษาไทย",
-          why2Desc: "เมนูและคำอธิบายเป็นภาษาไทย ลดความสับสนของทีมงาน",
+          why2Title: "รองรับหลายภาษา",
+          why2Desc:
+            "สลับภาษาได้ง่าย ให้ทีมงานและลูกค้ารู้สึกคุ้นเคยในการใช้งาน",
           why3Title: "ลูกค้าจองเองบนมือถือ",
           why3Desc:
             "ลูกค้าเลือกบริการ/หมอนวด/วันเวลาเอง ระบบกันคิวซ้ำให้อัตโนมัติ",
           why4Title: "มีเว็บจอง + ลิงก์แบรนด์ร้าน",
-          why4Desc: "มีหน้าเว็บจองและแดชบอร์ดจัดการ พร้อมลิงก์จองในโดเมนร้าน ",
-          why5Title: "ไม่มีหักเปอร์เซ็นต์ค่าบริการ",
-          why5Desc: "เราไม่คิดคอมมิชชั่นจากบริการ รายได้เป็นของร้านเต็ม ๆ",
+          why4Desc: "มีหน้าเว็บจองและแดชบอร์ดจัดการ พร้อมลิงก์จองในโดเมนร้าน",
           why6Title: "ทีมงานช่วยตั้งค่าจนพร้อมใช้",
           why6Desc:
             "ช่วยเซ็ตบริการ พนักงาน เวลาเปิด-ปิด และโฟลว์การจอง ให้พร้อมเริ่ม",
-          why7Title: "ซิงค์ Google Calendar + รองรับชำระเงิน",
-          why7Desc: "ซิงค์กับปฏิทินส่วนตัว และตั้งค่าชำระเงินสด/บัตร/ออนไลน์ ",
           why8Title: "รายงานและบันทึกกิจกรรม",
           why8Desc:
             "ติดตามการจอง การเปลี่ยนแปลง และภาพรวมธุรกิจ เพื่อวิเคราะห์ต่อได้ง่าย",
@@ -1848,6 +1777,7 @@
           connectCta: "Neem contact op",
 
           // WHY
+          whyBadge: "Waarom het makkelijk voelt",
           whyTitle: "Waarom juztbooking",
           whyDesc:
             "Gemaakt voor massagesalons — makkelijk voor eigenaar, makkelijk voor klant.",
@@ -1855,24 +1785,18 @@
           why1Title: "Supereenvoudig starten",
           why1Desc:
             "Eenvoudige aanmelding + duidelijk dashboard — ook zonder technische kennis.",
-          why2Title: "Thaise interface",
+          why2Title: "Meertalige ondersteuning",
           why2Desc:
-            "Menu’s en uitleg in het Thai zodat je team niet in de war raakt.",
+            "Schakel snel van taal zodat team en klanten zich direct thuis voelen.",
           why3Title: "Klanten boeken mobiel",
           why3Desc:
             "Klant kiest dienst, medewerker, datum & tijd — geen dubbele boekingen.",
           why4Title: "Branded boekingslink",
           why4Desc:
             "Eigen boekingspagina + dashboard, en custom link op je domein.",
-          why5Title: "Geen commissie",
-          why5Desc:
-            "We nemen geen percentage van je omzet. Alles blijft van jou.",
           why6Title: "Wij helpen met setup",
           why6Desc:
             "We helpen diensten, personeel, tijden en flow instellen — klaar voor gebruik.",
-          why7Title: "Google Calendar + betalingen",
-          why7Desc:
-            "Synchroniseer je agenda en accepteer contant/kaart/online.",
           why8Title: "Rapporten & logs",
           why8Desc:
             "Volg boekingen en wijzigingen zodat je met vertrouwen kunt verbeteren.",
@@ -2059,11 +1983,37 @@
 
       const LANG_STORAGE_KEY = "juztbooking_lang";
 
-      function setLangLabel(lang) {
-        const label = lang === "en" ? "EN" : lang === "th" ? "TH" : "NL";
-        if (langLabelDesktop) langLabelDesktop.textContent = label;
-        if (langLabelMobile) langLabelMobile.textContent = label;
-        document.documentElement.setAttribute("lang", lang);
+      // ---------------------------
+      // ✅ Active menu (PC / Mobile / Tablet)
+      // ---------------------------
+      function normalizePath(p) {
+        if (!p) return "/";
+        p = p.split("?")[0].split("#")[0];
+        if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
+        return p;
+      }
+
+      function applyActiveNav() {
+        const currentPath = normalizePath(window.location.pathname);
+
+        document.querySelectorAll("a[data-navlink]").forEach((a) => {
+          const href = a.getAttribute("href") || "";
+          if (!href.startsWith("/")) return;
+
+          const linkPath = normalizePath(href);
+          const isActive = linkPath === currentPath;
+
+          a.classList.toggle("bg-primary/10", isActive);
+          a.classList.toggle("text-primary", isActive);
+          a.classList.toggle("ring-1", isActive);
+          a.classList.toggle("ring-primary/20", isActive);
+          a.classList.toggle("hover:bg-primary/10", isActive);
+
+          a.classList.toggle("hover:bg-slate-50", !isActive);
+
+          if (isActive) a.setAttribute("aria-current", "page");
+          else a.removeAttribute("aria-current");
+        });
       }
 
       // ---------------------------
@@ -2271,6 +2221,79 @@
       homeBtnAnnual?.addEventListener("click", () => setBillingUI("annual"));
 
       // ---------------------------
+      // ✅ Language dropdown controls + flag images (SVG)
+      // ---------------------------
+      const langBtnDesktop = document.getElementById("langBtnDesktop");
+      const langMenuDesktop = document.getElementById("langMenuDesktop");
+      const langLabelDesktop = document.getElementById("langLabelDesktop");
+
+      const langBtnMobile = document.getElementById("langBtnMobile");
+      const langMenuMobile = document.getElementById("langMenuMobile");
+      const langLabelMobile = document.getElementById("langLabelMobile");
+
+      const FLAG_IMG = {
+        en: "/assets/en.svg",
+        th: "/assets/th.svg",
+        nl: "/assets/nl.svg",
+      };
+
+      // ✅ NEW: language names for button label (name + flag)
+      const LANG_NAMES = {
+        en: "English",
+        th: "ไทย",
+        nl: "Nederlands",
+      };
+
+      function closeLangMenus() {
+        langMenuDesktop?.classList.add("hidden");
+        langBtnDesktop?.setAttribute("aria-expanded", "false");
+        langMenuMobile?.classList.add("hidden");
+        langBtnMobile?.setAttribute("aria-expanded", "false");
+      }
+
+      function toggleLangMenu(btn, menu) {
+        if (!btn || !menu) return;
+        const isOpen = !menu.classList.contains("hidden");
+
+        closeLangMenus();
+
+        if (!isOpen) {
+          menu.classList.remove("hidden");
+          btn.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      // ✅ UPDATED: show "Language name + flag" on the button
+      function setLangLabel(lang) {
+        const src = FLAG_IMG[lang] || FLAG_IMG.en;
+        const name = LANG_NAMES[lang] || LANG_NAMES.en;
+
+        const html = `
+          <img src="${src}" alt="${name}" class="h-5 w-5 rounded-sm" onerror="this.remove();" />
+          <span class="text-sm font-semibold">${name}</span>
+        `;
+
+        if (langLabelDesktop) langLabelDesktop.innerHTML = html;
+        if (langLabelMobile) langLabelMobile.innerHTML = html;
+        document.documentElement.setAttribute("lang", lang);
+      }
+
+      langBtnDesktop?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleLangMenu(langBtnDesktop, langMenuDesktop);
+      });
+
+      langBtnMobile?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleLangMenu(langBtnMobile, langMenuMobile);
+      });
+
+      document.addEventListener("click", () => closeLangMenus());
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLangMenus();
+      });
+
+      // ---------------------------
       // ✅ applyLang (Home + packages)
       // ---------------------------
       function applyLang(lang) {
@@ -2312,7 +2335,39 @@
       bindLangButtons(langMenuDesktop);
       bindLangButtons(langMenuMobile);
 
+      // ---------------------------
+      // Mobile menu controls
+      // ---------------------------
+      const menuBtn = document.getElementById("menuBtn");
+      const menuOverlay = document.getElementById("menuOverlay");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuCloseBtn = document.getElementById("menuCloseBtn");
+
+      const openMenu = () => {
+        closeLangMenus(); // ✅ prevent overlap
+        menuOverlay.classList.remove("hidden");
+        mobileMenu.classList.remove("translate-x-full");
+        menuBtn?.setAttribute("aria-expanded", "true");
+        document.body.classList.add("overflow-hidden");
+      };
+
+      const closeMenu = () => {
+        mobileMenu.classList.add("translate-x-full");
+        menuOverlay.classList.add("hidden");
+        menuBtn?.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("overflow-hidden");
+      };
+
+      menuBtn?.addEventListener("click", openMenu);
+      menuCloseBtn?.addEventListener("click", closeMenu);
+      menuOverlay?.addEventListener("click", closeMenu);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+
+      // ---------------------------
       // Init
+      // ---------------------------
       const saved = localStorage.getItem(LANG_STORAGE_KEY) || "en";
       setBillingUI(currentBilling, false);
       applyLang(saved);
