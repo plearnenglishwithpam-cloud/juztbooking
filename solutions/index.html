@@ -43,9 +43,8 @@
             />
           </a>
 
-          <!-- Desktop nav (✅ show on LG+ only) -->
+          <!-- Desktop nav (✅ show only on LG+) -->
           <div class="hidden items-center gap-2 lg:flex">
-            <!-- ✅ Home -->
             <a
               href="/"
               data-navlink
@@ -83,7 +82,7 @@
               >Contact</a
             >
 
-            <!-- Language dropdown (Desktop) -->
+            <!-- ✅ Language dropdown (Desktop) - same as Home -->
             <div class="relative">
               <button
                 id="langBtnDesktop"
@@ -93,12 +92,9 @@
                 type="button"
               >
                 <span
-                  id="langFlagDesktop"
-                  class="text-base leading-none"
-                  aria-hidden="true"
-                  >🇬🇧</span
-                >
-                <span id="langLabelDesktop">EN</span>
+                  id="langLabelDesktop"
+                  class="inline-flex items-center gap-2"
+                ></span>
                 <svg
                   viewBox="0 0 24 24"
                   class="h-4 w-4 fill-slate-700"
@@ -121,10 +117,13 @@
                   role="menuitem"
                   type="button"
                 >
-                  <span class="text-base leading-none" aria-hidden="true"
-                    >🇬🇧</span
-                  >
-                  <span>English (EN)</span>
+                  <img
+                    src="/assets/en.svg"
+                    alt="English"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>EN</span>
                 </button>
                 <button
                   class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
@@ -132,10 +131,13 @@
                   role="menuitem"
                   type="button"
                 >
-                  <span class="text-base leading-none" aria-hidden="true"
-                    >🇹🇭</span
-                  >
-                  <span>ไทย (TH)</span>
+                  <img
+                    src="/assets/th.svg"
+                    alt="Thai"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>TH</span>
                 </button>
                 <button
                   class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
@@ -143,10 +145,13 @@
                   role="menuitem"
                   type="button"
                 >
-                  <span class="text-base leading-none" aria-hidden="true"
-                    >🇳🇱</span
-                  >
-                  <span>Nederlands (NL)</span>
+                  <img
+                    src="/assets/nl.svg"
+                    alt="Dutch"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>NL</span>
                 </button>
               </div>
             </div>
@@ -165,8 +170,83 @@
             >
           </div>
 
-          <!-- Mobile / Tablet (✅ show up to MD, hide on LG+) -->
+          <!-- ✅ Mobile / Tablet (same as Home) -->
           <div class="flex items-center gap-2 lg:hidden">
+            <!-- Language dropdown (Mobile top) -->
+            <div class="relative">
+              <button
+                id="langBtnMobile"
+                class="inline-flex items-center gap-2 rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                type="button"
+                aria-label="Change language"
+              >
+                <span
+                  id="langLabelMobile"
+                  class="inline-flex items-center gap-2"
+                ></span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-4 w-4 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
+                  />
+                </svg>
+              </button>
+
+              <div
+                id="langMenuMobile"
+                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-white shadow-lg"
+                role="menu"
+              >
+                <button
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="en"
+                  role="menuitem"
+                  type="button"
+                >
+                  <img
+                    src="/assets/en.svg"
+                    alt="English"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>EN</span>
+                </button>
+                <button
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="th"
+                  role="menuitem"
+                  type="button"
+                >
+                  <img
+                    src="/assets/th.svg"
+                    alt="Thai"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>TH</span>
+                </button>
+                <button
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="nl"
+                  role="menuitem"
+                  type="button"
+                >
+                  <img
+                    src="/assets/nl.svg"
+                    alt="Dutch"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>NL</span>
+                </button>
+              </div>
+            </div>
+
             <a
               href="/trial"
               class="inline-flex items-center justify-center rounded-2xl bg-primary px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
@@ -201,7 +281,7 @@
         class="fixed inset-0 z-50 hidden bg-slate-900/40 backdrop-blur-sm"
       ></div>
 
-      <!-- Mobile drawer (✅ used for Mobile + Tablet) -->
+      <!-- ✅ Mobile drawer (same as Home: no language block inside drawer) -->
       <aside
         id="mobileMenu"
         class="fixed right-0 top-0 z-50 h-full w-[86%] max-w-sm translate-x-full border-l bg-white shadow-xl transition-transform duration-200"
@@ -234,87 +314,7 @@
           </button>
         </div>
 
-        <!-- ✅ Language moved to TOP of menu (more visible) -->
-        <div class="border-b px-4 py-4">
-          <div
-            class="text-xs font-semibold text-slate-600"
-            data-i18n="navLangTitle"
-          >
-            Language
-          </div>
-
-          <div class="relative mt-2">
-            <button
-              id="langBtnMobile"
-              class="inline-flex w-full items-center justify-between rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              aria-haspopup="menu"
-              aria-expanded="false"
-              type="button"
-            >
-              <span class="inline-flex items-center gap-2">
-                <span
-                  id="langFlagMobile"
-                  class="text-base leading-none"
-                  aria-hidden="true"
-                  >🇬🇧</span
-                >
-                <span id="langLabelMobile">EN</span>
-              </span>
-              <svg
-                viewBox="0 0 24 24"
-                class="h-4 w-4 fill-slate-700"
-                aria-hidden="true"
-              >
-                <path
-                  d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
-                />
-              </svg>
-            </button>
-
-            <div
-              id="langMenuMobile"
-              class="mt-2 hidden overflow-hidden rounded-2xl border bg-white shadow-lg"
-              role="menu"
-            >
-              <button
-                class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
-                data-lang="en"
-                role="menuitem"
-                type="button"
-              >
-                <span class="text-base leading-none" aria-hidden="true"
-                  >🇬🇧</span
-                >
-                <span>English (EN)</span>
-              </button>
-              <button
-                class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
-                data-lang="th"
-                role="menuitem"
-                type="button"
-              >
-                <span class="text-base leading-none" aria-hidden="true"
-                  >🇹🇭</span
-                >
-                <span>ไทย (TH)</span>
-              </button>
-              <button
-                class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
-                data-lang="nl"
-                role="menuitem"
-                type="button"
-              >
-                <span class="text-base leading-none" aria-hidden="true"
-                  >🇳🇱</span
-                >
-                <span>Nederlands (NL)</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
         <nav class="px-4 py-4">
-          <!-- ✅ Home -->
           <a
             href="/"
             data-navlink
@@ -1327,115 +1327,7 @@
 
     <script>
       // ---------------------------
-      // Mobile menu controls
-      // ---------------------------
-      const menuBtn = document.getElementById("menuBtn");
-      const menuOverlay = document.getElementById("menuOverlay");
-      const mobileMenu = document.getElementById("mobileMenu");
-      const menuCloseBtn = document.getElementById("menuCloseBtn");
-
-      const openMenu = () => {
-        menuOverlay.classList.remove("hidden");
-        mobileMenu.classList.remove("translate-x-full");
-        menuBtn?.setAttribute("aria-expanded", "true");
-        document.body.classList.add("overflow-hidden");
-      };
-
-      const closeMenu = () => {
-        mobileMenu.classList.add("translate-x-full");
-        menuOverlay.classList.add("hidden");
-        menuBtn?.setAttribute("aria-expanded", "false");
-        document.body.classList.remove("overflow-hidden");
-      };
-
-      menuBtn?.addEventListener("click", openMenu);
-      menuCloseBtn?.addEventListener("click", closeMenu);
-      menuOverlay?.addEventListener("click", closeMenu);
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeMenu();
-      });
-
-      // ---------------------------
-      // Language dropdown controls
-      // ---------------------------
-      const langBtnDesktop = document.getElementById("langBtnDesktop");
-      const langMenuDesktop = document.getElementById("langMenuDesktop");
-      const langLabelDesktop = document.getElementById("langLabelDesktop");
-      const langFlagDesktop = document.getElementById("langFlagDesktop");
-
-      const langBtnMobile = document.getElementById("langBtnMobile");
-      const langMenuMobile = document.getElementById("langMenuMobile");
-      const langLabelMobile = document.getElementById("langLabelMobile");
-      const langFlagMobile = document.getElementById("langFlagMobile");
-
-      function toggleMenu(btn, menu) {
-        const isOpen = !menu.classList.contains("hidden");
-        if (isOpen) {
-          menu.classList.add("hidden");
-          btn.setAttribute("aria-expanded", "false");
-        } else {
-          menu.classList.remove("hidden");
-          btn.setAttribute("aria-expanded", "true");
-        }
-      }
-
-      function closeLangMenus() {
-        langMenuDesktop?.classList.add("hidden");
-        langBtnDesktop?.setAttribute("aria-expanded", "false");
-        langMenuMobile?.classList.add("hidden");
-        langBtnMobile?.setAttribute("aria-expanded", "false");
-      }
-
-      langBtnDesktop?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleMenu(langBtnDesktop, langMenuDesktop);
-      });
-
-      langBtnMobile?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleMenu(langBtnMobile, langMenuMobile);
-      });
-
-      document.addEventListener("click", () => closeLangMenus());
-
-      // ---------------------------
-      // ✅ Active menu (PC / Mobile / Tablet)
-      // ---------------------------
-      function normalizePath(p) {
-        if (!p) return "/";
-        p = p.split("?")[0].split("#")[0];
-        if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
-        return p;
-      }
-
-      function applyActiveNav() {
-        const currentPath = normalizePath(window.location.pathname);
-
-        document.querySelectorAll("a[data-navlink]").forEach((a) => {
-          const href = a.getAttribute("href") || "";
-          if (!href.startsWith("/")) return;
-
-          const linkPath = normalizePath(href);
-          const isActive = linkPath === currentPath;
-
-          // Active style
-          a.classList.toggle("bg-primary/10", isActive);
-          a.classList.toggle("text-primary", isActive);
-          a.classList.toggle("ring-1", isActive);
-          a.classList.toggle("ring-primary/20", isActive);
-          a.classList.toggle("hover:bg-primary/10", isActive);
-
-          // Inactive style
-          a.classList.toggle("hover:bg-slate-50", !isActive);
-
-          // A11y
-          if (isActive) a.setAttribute("aria-current", "page");
-          else a.removeAttribute("aria-current");
-        });
-      }
-
-      // ---------------------------
-      // i18n dictionary (EN default)
+      // ✅ i18n dictionary (EN / TH / NL)
       // ---------------------------
       const dict = {
         en: {
@@ -1695,43 +1587,43 @@
           m2Title: "Services & Therapists Setup",
           m2Desc: "เพิ่มประเภทนวด ระยะเวลา ราคา และกำหนดว่าใครทำอะไรได้",
           m2B1: "ชื่อบริการ ราคา ระยะเวลา คำอธิบาย",
-          m2B2: "โปรไฟล์และความสามารถหมอนวด",
-          m2B3: "เวลาเปิด-ปิด พัก และกฎการรับคิว",
+          m2B2: "โปรไฟล์หมอนวดและทักษะ",
+          m2B3: "เวลาเปิด-ปิด เวลาพัก กติกาการจอง",
 
           m3Title: "Payments",
-          m3Desc: "เก็บเงินง่ายขึ้น และสถานะการชำระชัดเจน",
-          m3B1: "ตั้งค่ามัดจำ/รับชำระออนไลน์ (ถ้าต้องการ)",
+          m3Desc: "เก็บเงินง่าย และสถานะการชำระเงินชัดเจน",
+          m3B1: "ตั้งค่ามัดจำ/ชำระเงินออนไลน์ (เลือกได้)",
           m3B2: "ติดตามเงินสด/บัตร/ออนไลน์",
-          m3B3: "ดูยอดค้างและติดตามได้",
+          m3B3: "ติดตามยอดค้างชำระ",
 
           m4Title: "Reports & Logs",
-          m4Desc: "ดูรายงานชัด ๆ และตรวจสอบย้อนหลังได้เมื่อจำเป็น",
+          m4Desc: "ดูการจองและยอดขายชัด ๆ และย้อนดูการใช้งานได้เมื่อจำเป็น",
           m4B1: "รายงานการจอง (กรองตามวัน/บริการ/หมอนวด)",
-          m4B2: "ภาพรวมรายการชำระ (ตามแพ็กเกจ)",
-          m4B3: "บันทึกกิจกรรมเพื่อย้อนดูได้",
+          m4B2: "สรุปประวัติธุรกรรม (ตามแพ็กเกจ)",
+          m4B3: "บันทึกกิจกรรมเพื่อรีวิว",
 
-          setupStepsTitle: "เริ่มใช้งาน 3 ขั้นตอน",
-          setupStep1: "เพิ่มบริการ (ราคา/ระยะเวลา)",
+          setupStepsTitle: "ขั้นตอนการตั้งค่าง่าย ๆ",
+          setupStep1: "เพิ่มบริการ (ราคา / ระยะเวลา)",
           setupStep2: "เพิ่มหมอนวด & เวลาเปิด-ปิด",
-          setupStep3: "แชร์ลิงก์จอง & จัดการคิวในปฏิทิน",
+          setupStep3: "แชร์ลิงก์จอง & จัดการปฏิทิน",
 
-          supportTitle: "เพิ่มเติมเล็กน้อยค่ะ",
+          supportTitle: "ควรรู้ไว้",
           supportDesc:
-            "ถ้ามีเว็บไซต์อยู่แล้ว สามารถใส่ปุ่ม “Book now” แล้วลิงก์เข้าระบบได้เลยค่ะ และถ้ายังไม่มีเว็บไซต์ ทีมงานสามารถทำเว็บให้และเชื่อมระบบจองให้ได้ค่ะ",
-          support1T: "ใช้กับแบรนด์ของคุณได้",
-          support1D: "แชร์ลิงก์จอง และวางบนเว็บไซต์/โซเชียลได้เลย",
-          support2T: "ทีมงานเห็นภาพรวม",
-          support2D: "ปฏิทิน ประวัติลูกค้า และการชำระเงิน — อยู่ในที่เดียว",
+            "ถ้ามีเว็บไซต์อยู่แล้ว สามารถเพิ่มปุ่ม “จองเลย” แล้วลิงก์ไปที่ juztbooking ได้เลย ถ้ายังไม่มีเว็บไซต์ เราช่วยทำเว็บใหม่ให้สวย ๆ และเชื่อมระบบจองให้ครบได้ค่ะ",
+          support1T: "เข้ากับแบรนด์ร้าน",
+          support1D: "แชร์ลิงก์จองไปไว้บนเว็บไซต์และโซเชียลของร้านได้ทันที",
+          support2T: "ทีมงานเห็นภาพเดียวกัน",
+          support2D: "ปฏิทินคิว ประวัติลูกค้า และการชำระเงิน — อยู่ที่เดียว",
 
-          ctaBadge: "พร้อมเมื่อไหร่ก็เริ่มได้ค่ะ",
-          ctaTitle: "ทดลองใช้ juztbooking 15 วัน",
+          ctaBadge: "พร้อมเมื่อไหร่ก็เริ่มได้",
+          ctaTitle: "ลองใช้ juztbooking 15 วัน",
           ctaDesc:
-            "เริ่มตั้งค่าง่าย ๆ ก่อนก็ได้ค่ะ ถ้าอยากให้ช่วย เดี๋ยวทีมงานแนะนำให้แบบสุภาพนะคะ",
+            "เริ่มจากการตั้งค่าแบบง่าย ๆ ถ้าต้องการ ทีมงานช่วยแนะนำได้ค่ะ",
           ctaPrimary: "เริ่มทดลองใช้ 15 วัน",
-          ctaSecondary: "ส่งข้อความหาเรา",
-          ctaFoot: "รายปีประหยัดกว่า 10% เมื่อเทียบกับรายเดือนค่ะ",
+          ctaSecondary: "ทักหาเรา",
+          ctaFoot: "รายปีประหยัด 10% เมื่อเทียบกับรายเดือน",
 
-          footerLine: "ระบบจองคิวสำหรับร้านนวด & สปา",
+          footerLine: "ระบบจองคิวสำหรับ Spa & ร้านนวด",
           privacy: "Privacy Policy",
           footerRights: "สงวนลิขสิทธิ์",
         },
@@ -1750,7 +1642,7 @@
           heroBadge: "Oplossingen voor massagebedrijven",
           heroTitle: "Rustige boekingsflow voor Spa & Massage",
           heroDesc:
-            "Houd je agenda netjes, verlaag no-shows en maak betalen eenvoudiger. Klanten kiezen tijd, dienst, duur en hun favoriete therapeut — zonder heen-en-weer berichten.",
+            "Houd je agenda overzichtelijk, verminder no-shows en maak betalen eenvoudiger. Klanten kiezen tijd, dienst, duur en favoriete therapeut — zonder heen-en-weer.",
           heroCtaPrimary: "Bekijk de flow",
           heroCtaSecondary: "Start 15 dagen proef",
 
@@ -1758,57 +1650,60 @@
           flow1: "Klant boekt",
           flow2: "Bevestigen",
           flow3: "Herinneren",
-          flow4: "Betaling",
-          notifyNote: "Vriendelijke reminders via e-mail zijn mogelijk.",
+          flow4: "Betalen",
+          notifyNote: "Vriendelijke herinneringen via e-mail.",
 
           benefit1: "Minder no-shows",
-          benefit2: "Rustige kalender",
+          benefit2: "Nettere agenda",
           benefit3: "Therapeut kiezen",
           benefit4: "Betalingen & rapporten",
 
-          mini1Title: "Therapeut kiezen",
-          mini1Desc: "Klanten kiezen wie ze prefereren.",
-          mini2Title: "Duur opties",
-          mini2Desc: "60/90/120 minuten, duidelijke slots.",
+          mini1Title: "Kies therapeut",
+          mini1Desc: "Klanten kiezen wie ze willen.",
+          mini2Title: "Duur-opties",
+          mini2Desc: "60/90/120 minuten, heldere slots.",
           mini3Title: "Vriendelijke reminders",
           mini3Desc: "Minder no-shows.",
-          mini4Title: "Simpel betalen",
+          mini4Title: "Eenvoudig betalen",
           mini4Desc: "Online of in de zaak.",
 
           chooseTitle: "Gemaakt voor Spa & Massage",
           chooseDesc:
-            "Ontworpen voor piekuren, therapeut-voorkeuren en heldere tijdblokken.",
+            "Voor studio’s met piekuren, voorkeur voor therapeuten en duidelijke tijdblokken.",
           chooseCta: "Bekijk prijzen",
-          choosePrimary: "Bekijk massage flow",
+          choosePrimary: "Bekijk massageflow",
 
           pill1T: "Duidelijke tijdblokken",
-          pill1D: "60/90/120 minuten past netjes in je kalender.",
+          pill1D: "Diensten van 60/90/120 minuten passen netjes in je agenda.",
           pill2T: "Therapeut-voorkeur",
-          pill2D: "Laat klanten kiezen wie prettig voelt.",
+          pill2D: "Laat klanten kiezen met wie ze zich prettig voelen.",
           pill3T: "Minder no-shows",
-          pill3D: "Bevestiging + e-mail reminders beschermen piekuren.",
+          pill3D: "Bevestiging + e-mail reminders beschermen je piekuren.",
 
           massageBadge: "Spa & Wellness",
-          massageTitle: "Laat klanten dienst en therapeut kiezen, rustig",
+          massageTitle: "Laat klanten rustig dienst en therapeut kiezen",
           massageDesc:
-            "Bij massage zijn no-shows extra vervelend. Met een duidelijke kalender en vriendelijke reminders bescherm je je piekuren.",
-          massagePainTitle: "Veelvoorkomende pijnpunten",
+            "No-shows kunnen pijnlijk zijn. Met een heldere agenda en vriendelijke reminders bescherm je piekuren en blijft de dag soepel.",
+          massagePainTitle: "Veelvoorkomende knelpunten",
           massagePain1:
-            "Klanten vergeten afspraken — vooral avonden en weekends",
-          massagePain2: "Keuze in type massage en duur",
-          massagePain3: "Therapeut-voorkeur is belangrijk voor vertrouwen",
-          massagePain4: "Handmatige betalingsoverzichten kosten tijd",
+            "Klanten vergeten afspraken — vooral ’s avonds en in het weekend",
+          massagePain2: "Klanten willen specifieke types massage en duur",
+          massagePain3:
+            "Therapeut-voorkeur is belangrijk voor comfort en herhaalbezoek",
+          massagePain4: "Handmatige betalingstracking kost tijd",
 
           massageFlowTitle: "Aanbevolen workflow",
           massageFlow1T: "Klant boekt",
-          massageFlow1D: "Ze kiest Thai / Oil / Aroma, duur en therapeut.",
+          massageFlow1D: "Klant kiest Thai / Oil / Aroma, duur en therapeut.",
           massageFlow2T: "Bevestigen",
-          massageFlow2D: "Bevestig direct en de plek is vastgelegd.",
-          massageFlow3T: "Herinneren & opnieuw bevestigen",
-          massageFlow3D: "Reminders via e-mail verlagen no-shows.",
-          massageFlow4T: "Betaling",
+          massageFlow2D:
+            "Direct bevestigen; het tijdslot wordt vastgezet in de agenda.",
+          massageFlow3T: "Herinneren & herbevestigen",
+          massageFlow3D:
+            "Stuur vriendelijke e-mail reminders om no-shows te verminderen.",
+          massageFlow4T: "Betalen",
           massageFlow4D:
-            "Online of in de zaak betalen, met duidelijke registratie.",
+            "Betaal online of in de zaak en houd alles netjes bij.",
 
           massageCtaPrimary: "Start 15 dagen proef",
           massageCtaSecondary: "Neem contact op",
@@ -1816,63 +1711,66 @@
           massageHi1T: "Diensten & duur",
           massageHi1D: "Thai, oil, aroma — 60/90/120 minuten.",
           massageHi2T: "Therapeut-voorkeur",
-          massageHi2D: "Klanten kiezen wie prettig voelt.",
-          massageHi3T: "Status bijhouden",
-          massageHi3D: "Aangekomen / bevestigd / no-show — simpel.",
-          massageHi4T: "Aanbetaling (pakket afhankelijk)",
+          massageHi2D: "Klanten kiezen wie ze prettig vinden.",
+          massageHi3T: "Status-tracking",
+          massageHi3D: "Arrived / confirmed / no-show — helder en simpel.",
+          massageHi4T: "Aanbetaling (afhankelijk van pakket)",
           massageHi4D: "Beschermt drukke uren.",
           massageExampleTitle: "Voorbeeldboeking",
           massageExampleDesc:
-            "“Aroma Oil Massage (90 min)” met Therapeut “Nina”, woensdag 18:30. Een reminder gaat automatisch uit vóór de afspraak.",
+            "“Aroma Oil Massage (90 min)” met therapeut “Nina”, woensdag 18:30. Er gaat automatisch een reminder uit voor de afspraak.",
 
-          modulesTitle: "Functies voor massage studio’s",
-          modulesDesc: "Eén keer instellen en je dag voelt rustiger.",
+          modulesTitle: "Features die massagesalons ondersteunen",
+          modulesDesc:
+            "Eenmalig instellen, en dagelijkse boekingen voelen rustiger.",
           modulesCta: "Bekijk alle functies",
 
-          m1Title: "Kalender & boekingen",
+          m1Title: "Agenda & boekingen",
           m1Desc:
-            "Dag/week met statussen: bevestigd, geannuleerd, no-show, aangekomen.",
-          m1B1: "Weergave per therapeut (resources)",
-          m1B2: "Boekingen aanmaken/bewerken/verplaatsen/annuleren",
-          m1B3: "Pauzes, vakanties en sluiting blokkeren",
+            "Dag/week-overzicht met statussen zoals confirmed, cancelled, no-show, arrived.",
+          m1B1: "Bekijk per therapeut (resources)",
+          m1B2: "Boekingen maken/bewerken/verplaatsen/annuleren",
+          m1B3: "Pauzes, feestdagen en gesloten tijden blokkeren",
 
           m2Title: "Diensten & therapeuten instellen",
-          m2Desc: "Massage types, duur, prijs en wie wat kan.",
-          m2B1: "Naam, prijs, duur, omschrijving",
-          m2B2: "Profielen en skills",
-          m2B3: "Openingstijden, pauzes en regels",
+          m2Desc: "Voeg massagetypes, duur, prijzen toe en wie wat kan doen.",
+          m2B1: "Naam, prijs, duur, beschrijving",
+          m2B2: "Therapeut-profielen en skills",
+          m2B3: "Openingstijden, pauzes, boekingsregels",
 
           m3Title: "Betalingen",
-          m3Desc: "Makkelijk innen met duidelijke status.",
-          m3B1: "Aanbetaling / online betalen (optioneel)",
-          m3B2: "Contant / kaart / online volgen",
-          m3B3: "Openstaande bedragen opvolgen",
+          m3Desc: "Word makkelijk betaald en houd betalingsstatus helder.",
+          m3B1: "Aanbetaling / online betaling (optioneel)",
+          m3B2: "Contant / kaart / online tracking",
+          m3B3: "Openstaande saldo opvolgen",
 
           m4Title: "Rapporten & logs",
-          m4Desc: "Helder overzicht en terugkijken wanneer nodig.",
+          m4Desc:
+            "Bekijk boekingen en omzet duidelijk en controleer activiteiten wanneer nodig.",
           m4B1: "Boekingsrapport (filter op dag/dienst/therapeut)",
-          m4B2: "Transactieoverzicht (pakket afhankelijk)",
-          m4B3: "Activity logs",
+          m4B2: "Transactie-overzicht (afhankelijk van pakket)",
+          m4B3: "Activiteitenlog om te reviewen",
 
-          setupStepsTitle: "Eenvoudige stappen",
+          setupStepsTitle: "Eenvoudige setup-stappen",
           setupStep1: "Diensten toevoegen (prijs / duur)",
           setupStep2: "Therapeuten & openingstijden toevoegen",
-          setupStep3: "Boekingslink delen & kalender beheren",
+          setupStep3: "Boekingslink delen & agenda beheren",
 
           supportTitle: "Goed om te weten",
           supportDesc:
-            "Heb je al een website? Voeg een “Book now” knop toe en link naar juztbooking. Geen website? Dan bouwen we er één en koppelen we het boeken.",
+            "Heb je al een website? Voeg een “Boek nu”-knop toe en link naar juztbooking. Geen website? Dan kunnen wij een mooie site bouwen en de boekingsflow koppelen.",
           support1T: "Werkt met je merk",
-          support1D: "Deel je boekingslink en zet hem op je site en socials.",
+          support1D: "Deel je boekingslink op je website en socials.",
           support2T: "Helder voor je team",
-          support2D: "Kalender, klantgeschiedenis en betalingen — op één plek.",
+          support2D:
+            "Agenda, klantgeschiedenis en betalingen — alles op één plek.",
 
-          ctaBadge: "Klaar wanneer jij wilt",
+          ctaBadge: "Klaar wanneer jij klaar bent",
           ctaTitle: "Probeer juztbooking 15 dagen",
           ctaDesc:
-            "Start met een simpele setup. Wil je hulp? We begeleiden je vriendelijk.",
+            "Start eenvoudig. Als je wilt, helpt ons team je vriendelijk op weg.",
           ctaPrimary: "Start 15 dagen proef",
-          ctaSecondary: "Stuur een bericht",
+          ctaSecondary: "Stuur ons een bericht",
           ctaFoot: "Jaarlijks bespaart 10% t.o.v. maandelijks.",
 
           footerLine: "Boekingssysteem voor Spa & Massage",
@@ -1883,56 +1781,181 @@
 
       const LANG_STORAGE_KEY = "juztbooking_lang";
 
-      function langMeta(lang) {
-        // You can swap 🇬🇧 to 🇺🇸 if you prefer.
-        if (lang === "th") return { label: "TH", flag: "🇹🇭" };
-        if (lang === "nl") return { label: "NL", flag: "🇳🇱" };
-        return { label: "EN", flag: "🇬🇧" };
+      // ---------------------------
+      // ✅ Active menu (PC / Mobile / Tablet)
+      // ---------------------------
+      function normalizePath(p) {
+        if (!p) return "/";
+        p = p.split("?")[0].split("#")[0];
+        if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
+        return p;
+      }
+
+      function applyActiveNav() {
+        const currentPath = normalizePath(window.location.pathname);
+
+        document.querySelectorAll("a[data-navlink]").forEach((a) => {
+          const href = a.getAttribute("href") || "";
+          if (!href.startsWith("/")) return;
+
+          const linkPath = normalizePath(href);
+          const isActive = linkPath === currentPath;
+
+          a.classList.toggle("bg-primary/10", isActive);
+          a.classList.toggle("text-primary", isActive);
+          a.classList.toggle("ring-1", isActive);
+          a.classList.toggle("ring-primary/20", isActive);
+          a.classList.toggle("hover:bg-primary/10", isActive);
+
+          a.classList.toggle("hover:bg-slate-50", !isActive);
+
+          if (isActive) a.setAttribute("aria-current", "page");
+          else a.removeAttribute("aria-current");
+        });
+      }
+
+      // ---------------------------
+      // ✅ Language dropdown controls + flag images (SVG) - same as Home
+      // ---------------------------
+      const langBtnDesktop = document.getElementById("langBtnDesktop");
+      const langMenuDesktop = document.getElementById("langMenuDesktop");
+      const langLabelDesktop = document.getElementById("langLabelDesktop");
+
+      const langBtnMobile = document.getElementById("langBtnMobile");
+      const langMenuMobile = document.getElementById("langMenuMobile");
+      const langLabelMobile = document.getElementById("langLabelMobile");
+
+      const FLAG_IMG = {
+        en: "/assets/en.svg",
+        th: "/assets/th.svg",
+        nl: "/assets/nl.svg",
+      };
+
+      const LANG_NAMES = {
+        en: "EN",
+        th: "TH",
+        nl: "NL",
+      };
+
+      function closeLangMenus() {
+        langMenuDesktop?.classList.add("hidden");
+        langBtnDesktop?.setAttribute("aria-expanded", "false");
+        langMenuMobile?.classList.add("hidden");
+        langBtnMobile?.setAttribute("aria-expanded", "false");
+      }
+
+      function toggleLangMenu(btn, menu) {
+        if (!btn || !menu) return;
+        const isOpen = !menu.classList.contains("hidden");
+
+        closeLangMenus();
+
+        if (!isOpen) {
+          menu.classList.remove("hidden");
+          btn.setAttribute("aria-expanded", "true");
+        }
       }
 
       function setLangLabel(lang) {
-        const meta = langMeta(lang);
+        const src = FLAG_IMG[lang] || FLAG_IMG.en;
+        const name = LANG_NAMES[lang] || LANG_NAMES.en;
 
-        if (langLabelDesktop) langLabelDesktop.textContent = meta.label;
-        if (langFlagDesktop) langFlagDesktop.textContent = meta.flag;
+        const html = `
+          <img src="${src}" alt="${name}" class="h-5 w-5 rounded-sm" onerror="this.remove();" />
+          <span class="text-sm font-semibold">${name}</span>
+        `;
 
-        if (langLabelMobile) langLabelMobile.textContent = meta.label;
-        if (langFlagMobile) langFlagMobile.textContent = meta.flag;
+        if (langLabelDesktop) langLabelDesktop.innerHTML = html;
+        if (langLabelMobile) langLabelMobile.innerHTML = html;
+        document.documentElement.setAttribute("lang", lang);
       }
 
+      langBtnDesktop?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleLangMenu(langBtnDesktop, langMenuDesktop);
+      });
+
+      langBtnMobile?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleLangMenu(langBtnMobile, langMenuMobile);
+      });
+
+      document.addEventListener("click", () => closeLangMenus());
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLangMenus();
+      });
+
+      // ---------------------------
+      // ✅ applyLang
+      // ---------------------------
       function applyLang(lang) {
         const pack = dict[lang] || dict.en;
 
         document.querySelectorAll("[data-i18n]").forEach((el) => {
           const key = el.getAttribute("data-i18n");
-          if (pack[key]) el.textContent = pack[key];
+          const value = pack[key] ?? dict.en[key];
+          if (value) el.textContent = value;
         });
 
         setLangLabel(lang);
         localStorage.setItem(LANG_STORAGE_KEY, lang);
         closeLangMenus();
 
-        // ✅ keep active menu highlight after language changes
+        // keep active nav highlight
         applyActiveNav();
       }
 
       function bindLangButtons(container) {
         if (!container) return;
         container.querySelectorAll("[data-lang]").forEach((btn) => {
-          btn.addEventListener("click", () => {
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
             const lang = btn.getAttribute("data-lang");
             applyLang(lang);
           });
         });
       }
+
       bindLangButtons(langMenuDesktop);
       bindLangButtons(langMenuMobile);
 
-      // Default language EN
+      // ---------------------------
+      // ✅ Mobile menu controls (same as Home)
+      // ---------------------------
+      const menuBtn = document.getElementById("menuBtn");
+      const menuOverlay = document.getElementById("menuOverlay");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuCloseBtn = document.getElementById("menuCloseBtn");
+
+      const openMenu = () => {
+        closeLangMenus(); // ✅ prevent overlap
+        menuOverlay.classList.remove("hidden");
+        mobileMenu.classList.remove("translate-x-full");
+        menuBtn?.setAttribute("aria-expanded", "true");
+        document.body.classList.add("overflow-hidden");
+      };
+
+      const closeMenu = () => {
+        mobileMenu.classList.add("translate-x-full");
+        menuOverlay.classList.add("hidden");
+        menuBtn?.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("overflow-hidden");
+      };
+
+      menuBtn?.addEventListener("click", openMenu);
+      menuCloseBtn?.addEventListener("click", closeMenu);
+      menuOverlay?.addEventListener("click", closeMenu);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+
+      // ---------------------------
+      // Init
+      // ---------------------------
       const saved = localStorage.getItem(LANG_STORAGE_KEY) || "en";
       applyLang(saved);
 
-      // ✅ Active nav on load
+      // Active nav on load
       applyActiveNav();
 
       // Footer year

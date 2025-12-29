@@ -45,9 +45,8 @@
             />
           </a>
 
-          <!-- Desktop nav -->
-          <div class="hidden items-center gap-2 md:flex">
-            <!-- ✅ Home -->
+          <!-- Desktop nav (✅ same as Home: show only on LG+) -->
+          <div class="hidden items-center gap-2 lg:flex">
             <a
               href="/"
               data-navlink
@@ -85,7 +84,7 @@
               >Contact</a
             >
 
-            <!-- Language dropdown -->
+            <!-- Language dropdown (Desktop) -->
             <div class="relative">
               <button
                 id="langBtnDesktop"
@@ -94,7 +93,10 @@
                 aria-expanded="false"
                 type="button"
               >
-                <span id="langLabelDesktop">EN</span>
+                <span
+                  id="langLabelDesktop"
+                  class="inline-flex items-center gap-2"
+                ></span>
                 <svg
                   viewBox="0 0 24 24"
                   class="h-4 w-4 fill-slate-700"
@@ -112,28 +114,46 @@
                 role="menu"
               >
                 <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
                   data-lang="en"
                   role="menuitem"
                   type="button"
                 >
-                  English (EN)
+                  <img
+                    src="/assets/en.svg"
+                    alt="English"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>EN</span>
                 </button>
                 <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
                   data-lang="th"
                   role="menuitem"
                   type="button"
                 >
-                  ไทย (TH)
+                  <img
+                    src="/assets/th.svg"
+                    alt="Thai"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>TH</span>
                 </button>
                 <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
                   data-lang="nl"
                   role="menuitem"
                   type="button"
                 >
-                  Nederlands (NL)
+                  <img
+                    src="/assets/nl.svg"
+                    alt="Dutch"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>NL</span>
                 </button>
               </div>
             </div>
@@ -152,8 +172,83 @@
             >
           </div>
 
-          <!-- Mobile / Tablet -->
-          <div class="flex items-center gap-2 md:hidden">
+          <!-- Mobile / Tablet (✅ same as Home: < LG) -->
+          <div class="flex items-center gap-2 lg:hidden">
+            <!-- Language dropdown (Mobile top) -->
+            <div class="relative">
+              <button
+                id="langBtnMobile"
+                class="inline-flex items-center gap-2 rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                type="button"
+                aria-label="Change language"
+              >
+                <span
+                  id="langLabelMobile"
+                  class="inline-flex items-center gap-2"
+                ></span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-4 w-4 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
+                  />
+                </svg>
+              </button>
+
+              <div
+                id="langMenuMobile"
+                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-white shadow-lg"
+                role="menu"
+              >
+                <button
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="en"
+                  role="menuitem"
+                  type="button"
+                >
+                  <img
+                    src="/assets/en.svg"
+                    alt="English"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>EN</span>
+                </button>
+                <button
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="th"
+                  role="menuitem"
+                  type="button"
+                >
+                  <img
+                    src="/assets/th.svg"
+                    alt="Thai"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>TH</span>
+                </button>
+                <button
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="nl"
+                  role="menuitem"
+                  type="button"
+                >
+                  <img
+                    src="/assets/nl.svg"
+                    alt="Dutch"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>NL</span>
+                </button>
+              </div>
+            </div>
+
             <a
               href="/trial"
               class="inline-flex items-center justify-center rounded-2xl bg-primary px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
@@ -199,14 +294,8 @@
             <img
               src="/assets/logo-juztbooking.png"
               alt="juztbooking"
-              class="h-9 w-9 rounded-xl object-cover"
+              class="h-12 rounded-xl object-cover"
             />
-            <div class="leading-tight">
-              <div class="font-semibold tracking-tight">juztbooking</div>
-              <div class="text-xs text-slate-500" data-i18n="tagline">
-                Booking system for Salon & Massage
-              </div>
-            </div>
           </div>
 
           <button
@@ -228,7 +317,6 @@
         </div>
 
         <nav class="px-4 py-4">
-          <!-- ✅ Home -->
           <a
             href="/"
             data-navlink
@@ -278,68 +366,6 @@
             data-i18n="navLogin"
             >Login</a
           >
-
-          <!-- Language dropdown (mobile) -->
-          <div class="mt-5 rounded-3xl border bg-white p-4">
-            <div
-              class="text-xs font-semibold text-slate-600"
-              data-i18n="navLangTitle"
-            >
-              Language
-            </div>
-
-            <div class="relative mt-2">
-              <button
-                id="langBtnMobile"
-                class="inline-flex w-full items-center justify-between rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                aria-haspopup="menu"
-                aria-expanded="false"
-                type="button"
-              >
-                <span id="langLabelMobile">EN</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  class="h-4 w-4 fill-slate-700"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
-                  />
-                </svg>
-              </button>
-
-              <div
-                id="langMenuMobile"
-                class="mt-2 hidden overflow-hidden rounded-2xl border bg-white shadow-lg"
-                role="menu"
-              >
-                <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="en"
-                  role="menuitem"
-                  type="button"
-                >
-                  English (EN)
-                </button>
-                <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="th"
-                  role="menuitem"
-                  type="button"
-                >
-                  ไทย (TH)
-                </button>
-                <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="nl"
-                  role="menuitem"
-                  type="button"
-                >
-                  Nederlands (NL)
-                </button>
-              </div>
-            </div>
-          </div>
         </nav>
       </aside>
 
@@ -946,7 +972,7 @@
       // Pricing + Billing toggle
       // ---------------------------
       const VAT_RATE = 0.21;
-      const DISCOUNT_ANNUAL = 0.5; // ✅ was 0.1 (10%), now 50%
+      const DISCOUNT_ANNUAL = 0.5; // ✅ 50%
 
       const PRICING = {
         junior: { monthlyExVat: 19.95, highlight: false },
@@ -1083,7 +1109,7 @@
             mostPopular: "Recommended",
             billedMonthly: "Billed monthly",
             billedYearly: "Billed yearly",
-            save10: "Save 50%", // ✅ label key kept, text updated
+            save10: "Save 50%",
             perMonth: "/month",
             perYear: "/year",
             monthEq: "Monthly equivalent",
@@ -1299,7 +1325,7 @@
             mostPopular: "แนะนำ",
             billedMonthly: "คิดเงินรายเดือน",
             billedYearly: "คิดเงินรายปี",
-            save10: "ประหยัด 50%", // ✅
+            save10: "ประหยัด 50%",
             perMonth: "/เดือน",
             perYear: "/ปี",
             monthEq: "เฉลี่ยต่อเดือน",
@@ -1505,7 +1531,7 @@
             mostPopular: "Aanbevolen",
             billedMonthly: "Maandelijks",
             billedYearly: "Jaarlijks",
-            save10: "50% korting", // ✅
+            save10: "50% korting",
             perMonth: "/maand",
             perYear: "/jaar",
             monthEq: "Maandelijks equivalent",
@@ -1630,10 +1656,24 @@
         },
       };
 
+      function langBadgeHTML(lang) {
+        const code = lang === "en" ? "EN" : lang === "th" ? "TH" : "NL";
+        const flag = lang === "en" ? "en" : lang === "th" ? "th" : "nl";
+        return `
+          <img
+            src="/assets/${flag}.svg"
+            alt="${code}"
+            class="h-5 w-5 rounded-sm"
+            onerror="this.remove();"
+          />
+          <span>${code}</span>
+        `;
+      }
+
       function setLangLabel(lang) {
-        const label = lang === "en" ? "EN" : lang === "th" ? "TH" : "NL";
-        if (langLabelDesktop) langLabelDesktop.textContent = label;
-        if (langLabelMobile) langLabelMobile.textContent = label;
+        const html = langBadgeHTML(lang);
+        if (langLabelDesktop) langLabelDesktop.innerHTML = html;
+        if (langLabelMobile) langLabelMobile.innerHTML = html;
       }
 
       function moneyEUR(n) {

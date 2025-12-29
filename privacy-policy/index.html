@@ -45,34 +45,46 @@
             />
           </a>
 
-          <!-- Desktop nav -->
-          <div class="hidden items-center gap-2 md:flex">
+          <!-- Desktop nav (✅ same as Home: show only on LG+) -->
+          <div class="hidden items-center gap-2 lg:flex">
+            <a
+              href="/"
+              data-navlink
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              data-i18n="navHome"
+              >Home</a
+            >
+
             <a
               href="/solutions"
+              data-navlink
               class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
               data-i18n="navSolutions"
               >Solutions</a
             >
             <a
               href="/features"
+              data-navlink
               class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
               data-i18n="navFeatures"
               >Features</a
             >
             <a
               href="/pricing"
+              data-navlink
               class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
               data-i18n="navPricing"
               >Pricing</a
             >
             <a
               href="/contact"
+              data-navlink
               class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
               data-i18n="navContact"
               >Contact</a
             >
 
-            <!-- Language dropdown -->
+            <!-- Language dropdown (Desktop) -->
             <div class="relative">
               <button
                 id="langBtnDesktop"
@@ -81,7 +93,10 @@
                 aria-expanded="false"
                 type="button"
               >
-                <span id="langLabelDesktop">EN</span>
+                <span
+                  id="langLabelDesktop"
+                  class="inline-flex items-center gap-2"
+                ></span>
                 <svg
                   viewBox="0 0 24 24"
                   class="h-4 w-4 fill-slate-700"
@@ -99,28 +114,46 @@
                 role="menu"
               >
                 <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
                   data-lang="en"
                   role="menuitem"
                   type="button"
                 >
-                  English (EN)
+                  <img
+                    src="/assets/en.svg"
+                    alt="English"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>EN</span>
                 </button>
                 <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
                   data-lang="th"
                   role="menuitem"
                   type="button"
                 >
-                  ไทย (TH)
+                  <img
+                    src="/assets/th.svg"
+                    alt="Thai"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>TH</span>
                 </button>
                 <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
                   data-lang="nl"
                   role="menuitem"
                   type="button"
                 >
-                  Nederlands (NL)
+                  <img
+                    src="/assets/nl.svg"
+                    alt="Dutch"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>NL</span>
                 </button>
               </div>
             </div>
@@ -139,8 +172,83 @@
             >
           </div>
 
-          <!-- Mobile / Tablet -->
-          <div class="flex items-center gap-2 md:hidden">
+          <!-- Mobile / Tablet (✅ same as Home: < LG) -->
+          <div class="flex items-center gap-2 lg:hidden">
+            <!-- Language dropdown (Mobile top) -->
+            <div class="relative">
+              <button
+                id="langBtnMobile"
+                class="inline-flex items-center gap-2 rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                type="button"
+                aria-label="Change language"
+              >
+                <span
+                  id="langLabelMobile"
+                  class="inline-flex items-center gap-2"
+                ></span>
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-4 w-4 fill-slate-700"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
+                  />
+                </svg>
+              </button>
+
+              <div
+                id="langMenuMobile"
+                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-white shadow-lg"
+                role="menu"
+              >
+                <button
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="en"
+                  role="menuitem"
+                  type="button"
+                >
+                  <img
+                    src="/assets/en.svg"
+                    alt="English"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>EN</span>
+                </button>
+                <button
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="th"
+                  role="menuitem"
+                  type="button"
+                >
+                  <img
+                    src="/assets/th.svg"
+                    alt="Thai"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>TH</span>
+                </button>
+                <button
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  data-lang="nl"
+                  role="menuitem"
+                  type="button"
+                >
+                  <img
+                    src="/assets/nl.svg"
+                    alt="Dutch"
+                    class="h-5 w-5 rounded-sm"
+                    onerror="this.remove();"
+                  />
+                  <span>NL</span>
+                </button>
+              </div>
+            </div>
+
             <a
               href="/trial"
               class="inline-flex items-center justify-center rounded-2xl bg-primary px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
@@ -186,14 +294,8 @@
             <img
               src="/assets/logo-juztbooking.png"
               alt="juztbooking"
-              class="h-9 w-9 rounded-xl object-cover"
+              class="h-12 rounded-xl object-cover"
             />
-            <div class="leading-tight">
-              <div class="font-semibold tracking-tight">juztbooking</div>
-              <div class="text-xs text-slate-500" data-i18n="tagline">
-                Booking system for Salon & Massage
-              </div>
-            </div>
           </div>
 
           <button
@@ -216,25 +318,37 @@
 
         <nav class="px-4 py-4">
           <a
-            href="/solutions"
+            href="/"
+            data-navlink
             class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            data-i18n="navHome"
+            >Home</a
+          >
+
+          <a
+            href="/solutions"
+            data-navlink
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
             data-i18n="navSolutions"
             >Solutions</a
           >
           <a
             href="/features"
+            data-navlink
             class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
             data-i18n="navFeatures"
             >Features</a
           >
           <a
             href="/pricing"
+            data-navlink
             class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
             data-i18n="navPricing"
             >Pricing</a
           >
           <a
             href="/contact"
+            data-navlink
             class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
             data-i18n="navContact"
             >Contact</a
@@ -251,76 +365,6 @@
             class="mt-2 inline-flex w-full items-center justify-center rounded-2xl border px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
             data-i18n="navLogin"
             >Login</a
-          >
-
-          <!-- Language dropdown (mobile) -->
-          <div class="mt-5 rounded-3xl border bg-white p-4">
-            <div
-              class="text-xs font-semibold text-slate-600"
-              data-i18n="navLangTitle"
-            >
-              Language
-            </div>
-
-            <div class="relative mt-2">
-              <button
-                id="langBtnMobile"
-                class="inline-flex w-full items-center justify-between rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                aria-haspopup="menu"
-                aria-expanded="false"
-                type="button"
-              >
-                <span id="langLabelMobile">EN</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  class="h-4 w-4 fill-slate-700"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
-                  />
-                </svg>
-              </button>
-
-              <div
-                id="langMenuMobile"
-                class="mt-2 hidden overflow-hidden rounded-2xl border bg-white shadow-lg"
-                role="menu"
-              >
-                <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="en"
-                  role="menuitem"
-                  type="button"
-                >
-                  English (EN)
-                </button>
-                <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="th"
-                  role="menuitem"
-                  type="button"
-                >
-                  ไทย (TH)
-                </button>
-                <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="nl"
-                  role="menuitem"
-                  type="button"
-                >
-                  Nederlands (NL)
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <a
-            href="/privacy-policy"
-            class="mt-5 block rounded-2xl bg-primary/10 px-4 py-3 text-sm font-semibold text-primary"
-            aria-current="page"
-            data-i18n="privacy"
-            >Privacy Policy</a
           >
         </nav>
       </aside>
@@ -674,6 +718,39 @@
 
     <script>
       // ---------------------------
+      // ✅ Active menu (PC / Mobile / Tablet) - same as Home
+      // ---------------------------
+      function normalizePath(p) {
+        if (!p) return "/";
+        p = p.split("?")[0].split("#")[0];
+        if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
+        return p;
+      }
+
+      function applyActiveNav() {
+        const currentPath = normalizePath(window.location.pathname);
+
+        document.querySelectorAll("a[data-navlink]").forEach((a) => {
+          const href = a.getAttribute("href") || "";
+          if (!href.startsWith("/")) return;
+
+          const linkPath = normalizePath(href);
+          const isActive = linkPath === currentPath;
+
+          a.classList.toggle("bg-primary/10", isActive);
+          a.classList.toggle("text-primary", isActive);
+          a.classList.toggle("ring-1", isActive);
+          a.classList.toggle("ring-primary/20", isActive);
+          a.classList.toggle("hover:bg-primary/10", isActive);
+
+          a.classList.toggle("hover:bg-slate-50", !isActive);
+
+          if (isActive) a.setAttribute("aria-current", "page");
+          else a.removeAttribute("aria-current");
+        });
+      }
+
+      // ---------------------------
       // Mobile menu controls
       // ---------------------------
       const menuBtn = document.getElementById("menuBtn");
@@ -682,6 +759,7 @@
       const menuCloseBtn = document.getElementById("menuCloseBtn");
 
       const openMenu = () => {
+        closeLangMenus(); // ✅ prevent overlap
         menuOverlay.classList.remove("hidden");
         mobileMenu.classList.remove("translate-x-full");
         menuBtn?.setAttribute("aria-expanded", "true");
@@ -701,47 +779,6 @@
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closeMenu();
       });
-
-      // ---------------------------
-      // Language dropdown controls
-      // ---------------------------
-      const langBtnDesktop = document.getElementById("langBtnDesktop");
-      const langMenuDesktop = document.getElementById("langMenuDesktop");
-      const langLabelDesktop = document.getElementById("langLabelDesktop");
-
-      const langBtnMobile = document.getElementById("langBtnMobile");
-      const langMenuMobile = document.getElementById("langMenuMobile");
-      const langLabelMobile = document.getElementById("langLabelMobile");
-
-      function toggleMenu(btn, menu) {
-        const isOpen = !menu.classList.contains("hidden");
-        if (isOpen) {
-          menu.classList.add("hidden");
-          btn.setAttribute("aria-expanded", "false");
-        } else {
-          menu.classList.remove("hidden");
-          btn.setAttribute("aria-expanded", "true");
-        }
-      }
-
-      function closeLangMenus() {
-        langMenuDesktop?.classList.add("hidden");
-        langBtnDesktop?.setAttribute("aria-expanded", "false");
-        langMenuMobile?.classList.add("hidden");
-        langBtnMobile?.setAttribute("aria-expanded", "false");
-      }
-
-      langBtnDesktop?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleMenu(langBtnDesktop, langMenuDesktop);
-      });
-
-      langBtnMobile?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleMenu(langBtnMobile, langMenuMobile);
-      });
-
-      document.addEventListener("click", () => closeLangMenus());
 
       // ---------------------------
       // ✅ Policy spacing helper (CDN does not include Typography plugin)
@@ -788,6 +825,7 @@
       const dict = {
         en: {
           tagline: "Booking system for Salon & Massage",
+          navHome: "Home",
           navSolutions: "Solutions",
           navFeatures: "Features",
           navPricing: "Pricing",
@@ -795,7 +833,6 @@
           navLogin: "Login",
           navTrial: "Start 15-day trial",
           navTrialShort: "Start 15-day trial",
-          navLangTitle: "Language",
           privacy: "Privacy Policy",
           footerLine: "Booking system for Salon & Massage",
           footerRights: "All rights reserved.",
@@ -947,6 +984,7 @@
 
         th: {
           tagline: "ระบบจองคิวสำหรับ Salon & ร้านนวด",
+          navHome: "หน้าแรก",
           navSolutions: "โซลูชัน",
           navFeatures: "ฟีเจอร์",
           navPricing: "แพ็กเกจ",
@@ -954,7 +992,6 @@
           navLogin: "เข้าสู่ระบบ",
           navTrial: "ทดลองใช้ 15 วัน",
           navTrialShort: "ทดลองใช้ 15 วัน",
-          navLangTitle: "ภาษา",
           privacy: "นโยบายความเป็นส่วนตัว",
           footerLine: "ระบบจองคิวสำหรับ Salon & ร้านนวด",
           footerRights: "สงวนลิขสิทธิ์",
@@ -1098,6 +1135,7 @@
 
         nl: {
           tagline: "Boekingssysteem voor Salon & Massage",
+          navHome: "Home",
           navSolutions: "Oplossingen",
           navFeatures: "Functies",
           navPricing: "Prijzen",
@@ -1105,7 +1143,6 @@
           navLogin: "Inloggen",
           navTrial: "Start 15 dagen proef",
           navTrialShort: "Start 15 dagen proef",
-          navLangTitle: "Taal",
           privacy: "Privacybeleid",
           footerLine: "Boekingssysteem voor Salon & Massage",
           footerRights: "Alle rechten voorbehouden",
@@ -1238,40 +1275,109 @@
 
       const LANG_STORAGE_KEY = "juztbooking_lang";
 
-      function setLangLabel(lang) {
-        const label = lang === "en" ? "EN" : lang === "th" ? "TH" : "NL";
-        if (langLabelDesktop) langLabelDesktop.textContent = label;
-        if (langLabelMobile) langLabelMobile.textContent = label;
+      // ---------------------------
+      // ✅ Language dropdown controls + flag images (SVG) - same as Home
+      // ---------------------------
+      const langBtnDesktop = document.getElementById("langBtnDesktop");
+      const langMenuDesktop = document.getElementById("langMenuDesktop");
+      const langLabelDesktop = document.getElementById("langLabelDesktop");
+
+      const langBtnMobile = document.getElementById("langBtnMobile");
+      const langMenuMobile = document.getElementById("langMenuMobile");
+      const langLabelMobile = document.getElementById("langLabelMobile");
+
+      const FLAG_IMG = {
+        en: "/assets/en.svg",
+        th: "/assets/th.svg",
+        nl: "/assets/nl.svg",
+      };
+
+      const LANG_NAMES = { en: "EN", th: "TH", nl: "NL" };
+
+      function closeLangMenus() {
+        langMenuDesktop?.classList.add("hidden");
+        langBtnDesktop?.setAttribute("aria-expanded", "false");
+        langMenuMobile?.classList.add("hidden");
+        langBtnMobile?.setAttribute("aria-expanded", "false");
       }
 
+      function toggleLangMenu(btn, menu) {
+        if (!btn || !menu) return;
+        const isOpen = !menu.classList.contains("hidden");
+
+        closeLangMenus();
+
+        if (!isOpen) {
+          menu.classList.remove("hidden");
+          btn.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      function setLangLabel(lang) {
+        const src = FLAG_IMG[lang] || FLAG_IMG.en;
+        const name = LANG_NAMES[lang] || LANG_NAMES.en;
+
+        const html = `
+          <img src="${src}" alt="${name}" class="h-5 w-5 rounded-sm" onerror="this.remove();" />
+          <span class="text-sm font-semibold">${name}</span>
+        `;
+
+        if (langLabelDesktop) langLabelDesktop.innerHTML = html;
+        if (langLabelMobile) langLabelMobile.innerHTML = html;
+        document.documentElement.setAttribute("lang", lang);
+      }
+
+      langBtnDesktop?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleLangMenu(langBtnDesktop, langMenuDesktop);
+      });
+
+      langBtnMobile?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleLangMenu(langBtnMobile, langMenuMobile);
+      });
+
+      document.addEventListener("click", () => closeLangMenus());
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLangMenus();
+      });
+
+      // ---------------------------
+      // ✅ applyLang
+      // ---------------------------
       function applyLang(lang) {
         const pack = dict[lang] || dict.en;
 
         // text nodes
         document.querySelectorAll("[data-i18n]").forEach((el) => {
           const key = el.getAttribute("data-i18n");
-          if (pack[key]) el.textContent = pack[key];
+          const value = pack[key] ?? dict.en[key];
+          if (value) el.textContent = value;
         });
 
         // HTML blocks
         document.querySelectorAll("[data-i18n-html]").forEach((el) => {
           const key = el.getAttribute("data-i18n-html");
-          if (pack[key]) el.innerHTML = pack[key];
+          const value = pack[key] ?? dict.en[key];
+          if (value) el.innerHTML = value;
         });
 
-        // ✅ apply spacing after rendering
+        // ✅ apply spacing after rendering policy HTML
         stylePolicyBody();
 
         setLangLabel(lang);
         localStorage.setItem(LANG_STORAGE_KEY, lang);
         closeLangMenus();
+
+        // keep active nav highlight
+        applyActiveNav();
       }
 
-      // click language options
       function bindLangButtons(container) {
         if (!container) return;
         container.querySelectorAll("[data-lang]").forEach((btn) => {
-          btn.addEventListener("click", () => {
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
             const lang = btn.getAttribute("data-lang");
             applyLang(lang);
           });
@@ -1280,9 +1386,12 @@
       bindLangButtons(langMenuDesktop);
       bindLangButtons(langMenuMobile);
 
-      // default language EN
+      // ---------------------------
+      // Init
+      // ---------------------------
       const saved = localStorage.getItem(LANG_STORAGE_KEY) || "en";
       applyLang(saved);
+      applyActiveNav();
 
       // Footer year
       document.getElementById("year").textContent = new Date().getFullYear();
