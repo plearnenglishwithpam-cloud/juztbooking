@@ -43,8 +43,8 @@
             />
           </a>
 
-          <!-- Desktop nav -->
-          <div class="hidden items-center gap-2 md:flex">
+          <!-- Desktop nav (✅ show on LG+ only) -->
+          <div class="hidden items-center gap-2 lg:flex">
             <!-- ✅ Home -->
             <a
               href="/"
@@ -83,7 +83,7 @@
               >Contact</a
             >
 
-            <!-- Language dropdown -->
+            <!-- Language dropdown (Desktop) -->
             <div class="relative">
               <button
                 id="langBtnDesktop"
@@ -92,6 +92,12 @@
                 aria-expanded="false"
                 type="button"
               >
+                <span
+                  id="langFlagDesktop"
+                  class="text-base leading-none"
+                  aria-hidden="true"
+                  >🇬🇧</span
+                >
                 <span id="langLabelDesktop">EN</span>
                 <svg
                   viewBox="0 0 24 24"
@@ -110,28 +116,37 @@
                 role="menu"
               >
                 <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
                   data-lang="en"
                   role="menuitem"
                   type="button"
                 >
-                  English (EN)
+                  <span class="text-base leading-none" aria-hidden="true"
+                    >🇬🇧</span
+                  >
+                  <span>English (EN)</span>
                 </button>
                 <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
                   data-lang="th"
                   role="menuitem"
                   type="button"
                 >
-                  ไทย (TH)
+                  <span class="text-base leading-none" aria-hidden="true"
+                    >🇹🇭</span
+                  >
+                  <span>ไทย (TH)</span>
                 </button>
                 <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
                   data-lang="nl"
                   role="menuitem"
                   type="button"
                 >
-                  Nederlands (NL)
+                  <span class="text-base leading-none" aria-hidden="true"
+                    >🇳🇱</span
+                  >
+                  <span>Nederlands (NL)</span>
                 </button>
               </div>
             </div>
@@ -150,8 +165,8 @@
             >
           </div>
 
-          <!-- Mobile / Tablet -->
-          <div class="flex items-center gap-2 md:hidden">
+          <!-- Mobile / Tablet (✅ show up to MD, hide on LG+) -->
+          <div class="flex items-center gap-2 lg:hidden">
             <a
               href="/trial"
               class="inline-flex items-center justify-center rounded-2xl bg-primary px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
@@ -186,7 +201,7 @@
         class="fixed inset-0 z-50 hidden bg-slate-900/40 backdrop-blur-sm"
       ></div>
 
-      <!-- Mobile drawer -->
+      <!-- Mobile drawer (✅ used for Mobile + Tablet) -->
       <aside
         id="mobileMenu"
         class="fixed right-0 top-0 z-50 h-full w-[86%] max-w-sm translate-x-full border-l bg-white shadow-xl transition-transform duration-200"
@@ -217,6 +232,85 @@
               />
             </svg>
           </button>
+        </div>
+
+        <!-- ✅ Language moved to TOP of menu (more visible) -->
+        <div class="border-b px-4 py-4">
+          <div
+            class="text-xs font-semibold text-slate-600"
+            data-i18n="navLangTitle"
+          >
+            Language
+          </div>
+
+          <div class="relative mt-2">
+            <button
+              id="langBtnMobile"
+              class="inline-flex w-full items-center justify-between rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              aria-haspopup="menu"
+              aria-expanded="false"
+              type="button"
+            >
+              <span class="inline-flex items-center gap-2">
+                <span
+                  id="langFlagMobile"
+                  class="text-base leading-none"
+                  aria-hidden="true"
+                  >🇬🇧</span
+                >
+                <span id="langLabelMobile">EN</span>
+              </span>
+              <svg
+                viewBox="0 0 24 24"
+                class="h-4 w-4 fill-slate-700"
+                aria-hidden="true"
+              >
+                <path
+                  d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
+                />
+              </svg>
+            </button>
+
+            <div
+              id="langMenuMobile"
+              class="mt-2 hidden overflow-hidden rounded-2xl border bg-white shadow-lg"
+              role="menu"
+            >
+              <button
+                class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                data-lang="en"
+                role="menuitem"
+                type="button"
+              >
+                <span class="text-base leading-none" aria-hidden="true"
+                  >🇬🇧</span
+                >
+                <span>English (EN)</span>
+              </button>
+              <button
+                class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                data-lang="th"
+                role="menuitem"
+                type="button"
+              >
+                <span class="text-base leading-none" aria-hidden="true"
+                  >🇹🇭</span
+                >
+                <span>ไทย (TH)</span>
+              </button>
+              <button
+                class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                data-lang="nl"
+                role="menuitem"
+                type="button"
+              >
+                <span class="text-base leading-none" aria-hidden="true"
+                  >🇳🇱</span
+                >
+                <span>Nederlands (NL)</span>
+              </button>
+            </div>
+          </div>
         </div>
 
         <nav class="px-4 py-4">
@@ -270,68 +364,6 @@
             data-i18n="navLogin"
             >Login</a
           >
-
-          <!-- Language dropdown (mobile) -->
-          <div class="mt-5 rounded-3xl border bg-white p-4">
-            <div
-              class="text-xs font-semibold text-slate-600"
-              data-i18n="navLangTitle"
-            >
-              Language
-            </div>
-
-            <div class="relative mt-2">
-              <button
-                id="langBtnMobile"
-                class="inline-flex w-full items-center justify-between rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                aria-haspopup="menu"
-                aria-expanded="false"
-                type="button"
-              >
-                <span id="langLabelMobile">EN</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  class="h-4 w-4 fill-slate-700"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
-                  />
-                </svg>
-              </button>
-
-              <div
-                id="langMenuMobile"
-                class="mt-2 hidden overflow-hidden rounded-2xl border bg-white shadow-lg"
-                role="menu"
-              >
-                <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="en"
-                  role="menuitem"
-                  type="button"
-                >
-                  English (EN)
-                </button>
-                <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="th"
-                  role="menuitem"
-                  type="button"
-                >
-                  ไทย (TH)
-                </button>
-                <button
-                  class="w-full px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="nl"
-                  role="menuitem"
-                  type="button"
-                >
-                  Nederlands (NL)
-                </button>
-              </div>
-            </div>
-          </div>
         </nav>
       </aside>
 
@@ -1329,10 +1361,12 @@
       const langBtnDesktop = document.getElementById("langBtnDesktop");
       const langMenuDesktop = document.getElementById("langMenuDesktop");
       const langLabelDesktop = document.getElementById("langLabelDesktop");
+      const langFlagDesktop = document.getElementById("langFlagDesktop");
 
       const langBtnMobile = document.getElementById("langBtnMobile");
       const langMenuMobile = document.getElementById("langMenuMobile");
       const langLabelMobile = document.getElementById("langLabelMobile");
+      const langFlagMobile = document.getElementById("langFlagMobile");
 
       function toggleMenu(btn, menu) {
         const isOpen = !menu.classList.contains("hidden");
@@ -1849,10 +1883,21 @@
 
       const LANG_STORAGE_KEY = "juztbooking_lang";
 
+      function langMeta(lang) {
+        // You can swap 🇬🇧 to 🇺🇸 if you prefer.
+        if (lang === "th") return { label: "TH", flag: "🇹🇭" };
+        if (lang === "nl") return { label: "NL", flag: "🇳🇱" };
+        return { label: "EN", flag: "🇬🇧" };
+      }
+
       function setLangLabel(lang) {
-        const label = lang === "en" ? "EN" : lang === "th" ? "TH" : "NL";
-        if (langLabelDesktop) langLabelDesktop.textContent = label;
-        if (langLabelMobile) langLabelMobile.textContent = label;
+        const meta = langMeta(lang);
+
+        if (langLabelDesktop) langLabelDesktop.textContent = meta.label;
+        if (langFlagDesktop) langFlagDesktop.textContent = meta.flag;
+
+        if (langLabelMobile) langLabelMobile.textContent = meta.label;
+        if (langFlagMobile) langFlagMobile.textContent = meta.flag;
       }
 
       function applyLang(lang) {
