@@ -17,6 +17,11 @@
       };
     </script>
   </head>
+  <style>
+    .lang-force-hide {
+      display: none !important;
+    }
+  </style>
 
   <body class="text-slate-900">
     <!-- Gradient background -->
@@ -638,7 +643,6 @@
           </div>
 
           <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <!-- 1 -->
             <article
               class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
             >
@@ -661,7 +665,6 @@
               </div>
             </article>
 
-            <!-- 2 -->
             <article
               class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
             >
@@ -685,7 +688,6 @@
               </div>
             </article>
 
-            <!-- 3 -->
             <article
               class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
             >
@@ -709,7 +711,6 @@
               </div>
             </article>
 
-            <!-- 4 -->
             <article
               class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
             >
@@ -733,7 +734,6 @@
               </div>
             </article>
 
-            <!-- 5 -->
             <article
               class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
             >
@@ -757,7 +757,6 @@
               </div>
             </article>
 
-            <!-- 6 -->
             <article
               class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
             >
@@ -1152,8 +1151,877 @@
             VAT is shown at 21%. Prices below are excl. VAT unless stated.
           </div>
 
-          <!-- Cards rendered by JS -->
-          <div id="homePlanCards" class="mt-8 grid gap-4 md:grid-cols-3"></div>
+          <!-- Cards rendered by HTML (features list is static; prices updated by JS) -->
+          <div id="homePlanCards" class="mt-8 grid gap-4 md:grid-cols-3">
+            <!-- Junior -->
+            <article
+              class="rounded-3xl border bg-white p-6 shadow-sm"
+              data-plan="junior"
+            >
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <div
+                    class="text-sm font-semibold text-slate-900"
+                    data-i18n="homePricing.plans.junior.name"
+                  >
+                    🟢 Junior
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <div class="flex items-baseline justify-between gap-3">
+                  <div class="text-3xl font-bold tracking-tight">
+                    <span id="plan-junior-price">€0.00</span
+                    ><span
+                      id="plan-junior-price-suffix"
+                      class="text-sm font-semibold text-slate-600"
+                    >
+                      /month</span
+                    >
+                  </div>
+
+                  <div
+                    id="plan-junior-save"
+                    class="hidden text-xs font-semibold text-primary rounded-full bg-primary/10 px-3 py-1"
+                    data-i18n="homePricing.labels.save10"
+                  >
+                    Save 50%
+                  </div>
+                </div>
+
+                <div
+                  id="plan-junior-monthEqRow"
+                  class="hidden mt-2 text-sm text-slate-600"
+                >
+                  <span
+                    class="font-semibold text-slate-900"
+                    data-i18n="homePricing.labels.monthEq"
+                    >Monthly equivalent</span
+                  >:
+                  <span id="plan-junior-monthEq">€0.00</span>
+                  <span data-i18n="homePricing.labels.perMonth">/month</span>
+                </div>
+
+                <div
+                  id="plan-junior-billed"
+                  class="mt-1 text-xs text-slate-500"
+                >
+                  Billed monthly
+                </div>
+              </div>
+
+              <div class="mt-4 rounded-2xl border bg-white p-4 text-sm">
+                <div class="flex items-center justify-between gap-3">
+                  <span
+                    class="text-slate-600"
+                    data-i18n="homePricing.labels.subtotalEx"
+                    >Subtotal (excl. VAT)</span
+                  >
+                  <span id="plan-junior-subtotal" class="font-semibold"
+                    >€0.00</span
+                  >
+                </div>
+                <div class="mt-2 flex items-center justify-between gap-3">
+                  <span
+                    class="text-slate-600"
+                    data-i18n="homePricing.labels.vat"
+                    >VAT (21%)</span
+                  >
+                  <span id="plan-junior-vat" class="font-semibold">€0.00</span>
+                </div>
+                <div
+                  class="mt-2 flex items-center justify-between gap-3 border-t pt-2"
+                >
+                  <span
+                    class="text-slate-900 font-semibold"
+                    data-i18n="homePricing.labels.totalInc"
+                    >Total (incl. VAT)</span
+                  >
+                  <span id="plan-junior-total" class="text-slate-900 font-bold"
+                    >€0.00</span
+                  >
+                </div>
+              </div>
+
+              <div class="mt-5">
+                <div
+                  class="text-sm font-semibold text-slate-900"
+                  data-i18n="homePricing.labels.includes"
+                >
+                  What’s included
+                </div>
+                <ul class="mt-3 grid gap-2">
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.junior.features.1.label"
+                      >Online booking website & dashboard</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.junior.features.3.label"
+                      >Booking calendar (up to 35 bookings / month)</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.junior.features.4.label"
+                      >Client list & booking history</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.junior.features.5.label"
+                      >Business info & opening hours setup</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.junior.features.7.label"
+                      >Manage up to 5 services (1 staff member)</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.junior.features.9.label"
+                      >Online payment setup</span
+                    >
+                  </li>
+                </ul>
+
+                <div class="mt-5 border-t pt-4">
+                  <div
+                    class="text-sm font-semibold text-slate-900"
+                    data-i18n="homePricing.labels.notIncluded"
+                  >
+                    Not included
+                  </div>
+                  <ul class="mt-3 grid gap-2">
+                    <li class="flex gap-2 text-sm text-slate-700">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                        >–</span
+                      >
+                      <span
+                        data-i18n="homePricing.plans.junior.features.0.label"
+                        >Automatic booking reminder emails</span
+                      >
+                    </li>
+                    <li class="flex gap-2 text-sm text-slate-700">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                        >–</span
+                      >
+                      <span
+                        data-i18n="homePricing.plans.junior.features.2.label"
+                        >Custom booking link (your brand URL)</span
+                      >
+                    </li>
+                    <li class="flex gap-2 text-sm text-slate-700">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                        >–</span
+                      >
+                      <span
+                        data-i18n="homePricing.plans.junior.features.6.label"
+                        >Google Calendar sync</span
+                      >
+                    </li>
+                    <li class="flex gap-2 text-sm text-slate-700">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                        >–</span
+                      >
+                      <span
+                        data-i18n="homePricing.plans.junior.features.8.label"
+                        >Multi-user access</span
+                      >
+                    </li>
+                    <li class="flex gap-2 text-sm text-slate-700">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                        >–</span
+                      >
+                      <span
+                        data-i18n="homePricing.plans.junior.features.10.label"
+                        >Plans & pricing management</span
+                      >
+                    </li>
+                    <li class="flex gap-2 text-sm text-slate-700">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                        >–</span
+                      >
+                      <span
+                        data-i18n="homePricing.plans.junior.features.11.label"
+                        >Discount codes & promotions</span
+                      >
+                    </li>
+                    <li class="flex gap-2 text-sm text-slate-700">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                        >–</span
+                      >
+                      <span
+                        data-i18n="homePricing.plans.junior.features.12.label"
+                        >Staff & service scheduling</span
+                      >
+                    </li>
+                    <li class="flex gap-2 text-sm text-slate-700">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                        >–</span
+                      >
+                      <span
+                        data-i18n="homePricing.plans.junior.features.13.label"
+                        >Booking reports & activity logs</span
+                      >
+                    </li>
+                    <li class="flex gap-2 text-sm text-slate-700">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                        >–</span
+                      >
+                      <span
+                        data-i18n="homePricing.plans.junior.features.14.label"
+                        >Payment reports</span
+                      >
+                    </li>
+                    <li class="flex gap-2 text-sm text-slate-700">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                        >–</span
+                      >
+                      <span
+                        data-i18n="homePricing.plans.junior.features.15.label"
+                        >Priority support</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="hidden md:block h-[24px]" data-lang-show="nl"></div>
+                <div class="hidden md:block h-[4px]" data-lang-show="th"></div>
+                <div class="hidden md:block h-[4px]" data-lang-show="en"></div>
+
+                <div
+                  class="mt-4 rounded-2xl bg-primary/5 p-4 text-sm text-slate-700"
+                >
+                  <div
+                    class="font-semibold text-slate-900"
+                    data-i18n="homePricing.labels.noteShort"
+                  >
+                    You can upgrade anytime. No pressure.
+                  </div>
+                  <div
+                    class="mt-1"
+                    data-i18n="homePricing.plans.junior.gentleNote"
+                  >
+                    A sweet starting point…
+                  </div>
+                </div>
+
+                <div class="mt-4">
+                  <a
+                    href="/payment"
+                    class="inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
+                    data-i18n="homePricing.plans.junior.cta"
+                    >Start with Junior</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Senior (highlight) -->
+            <article
+              class="rounded-3xl border-2 border-primary bg-white p-6 shadow-sm"
+              data-plan="senior"
+            >
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <div
+                    class="text-sm font-semibold text-slate-900"
+                    data-i18n="homePricing.plans.senior.name"
+                  >
+                    ⭐ Senior
+                  </div>
+                </div>
+
+                <div
+                  class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >
+                  <span>★</span>
+                  <span data-i18n="homePricing.labels.mostPopular"
+                    >Recommended</span
+                  >
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <div class="flex items-baseline justify-between gap-3">
+                  <div class="text-3xl font-bold tracking-tight">
+                    <span id="plan-senior-price">€0.00</span
+                    ><span
+                      id="plan-senior-price-suffix"
+                      class="text-sm font-semibold text-slate-600"
+                    >
+                      /month</span
+                    >
+                  </div>
+
+                  <div
+                    id="plan-senior-save"
+                    class="hidden text-xs font-semibold text-primary rounded-full bg-primary/10 px-3 py-1"
+                    data-i18n="homePricing.labels.save10"
+                  >
+                    Save 50%
+                  </div>
+                </div>
+
+                <div
+                  id="plan-senior-monthEqRow"
+                  class="hidden mt-2 text-sm text-slate-600"
+                >
+                  <span
+                    class="font-semibold text-slate-900"
+                    data-i18n="homePricing.labels.monthEq"
+                    >Monthly equivalent</span
+                  >:
+                  <span id="plan-senior-monthEq">€0.00</span>
+                  <span data-i18n="homePricing.labels.perMonth">/month</span>
+                </div>
+
+                <div
+                  id="plan-senior-billed"
+                  class="mt-1 text-xs text-slate-500"
+                >
+                  Billed monthly
+                </div>
+              </div>
+
+              <div class="mt-4 rounded-2xl border bg-white p-4 text-sm">
+                <div class="flex items-center justify-between gap-3">
+                  <span
+                    class="text-slate-600"
+                    data-i18n="homePricing.labels.subtotalEx"
+                    >Subtotal (excl. VAT)</span
+                  >
+                  <span id="plan-senior-subtotal" class="font-semibold"
+                    >€0.00</span
+                  >
+                </div>
+                <div class="mt-2 flex items-center justify-between gap-3">
+                  <span
+                    class="text-slate-600"
+                    data-i18n="homePricing.labels.vat"
+                    >VAT (21%)</span
+                  >
+                  <span id="plan-senior-vat" class="font-semibold">€0.00</span>
+                </div>
+                <div
+                  class="mt-2 flex items-center justify-between gap-3 border-t pt-2"
+                >
+                  <span
+                    class="text-slate-900 font-semibold"
+                    data-i18n="homePricing.labels.totalInc"
+                    >Total (incl. VAT)</span
+                  >
+                  <span id="plan-senior-total" class="text-slate-900 font-bold"
+                    >€0.00</span
+                  >
+                </div>
+              </div>
+
+              <div class="mt-5">
+                <div
+                  class="text-sm font-semibold text-slate-900"
+                  data-i18n="homePricing.labels.includes"
+                >
+                  What’s included
+                </div>
+                <ul class="mt-3 grid gap-2">
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.senior.features.0.label"
+                      >Automatic booking reminder emails</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.senior.features.1.label"
+                      >Online booking website & dashboard</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.senior.features.3.label"
+                      >Booking calendar (up to 100 bookings / month)</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.senior.features.4.label"
+                      >Client list & booking history</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.senior.features.5.label"
+                      >Business info & opening hours setup</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.senior.features.6.label"
+                      >Google Calendar sync</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.senior.features.7.label"
+                      >Unlimited services & up to 5 staff members</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.senior.features.9.label"
+                      >Online payment setup</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.senior.features.10.label"
+                      >Plans & pricing management</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.senior.features.11.label"
+                      >Discount codes & promotions</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.senior.features.12.label"
+                      >Staff & service scheduling</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.senior.features.13.label"
+                      >Booking reports & activity logs</span
+                    >
+                  </li>
+                </ul>
+
+                <div class="mt-5 border-t pt-4">
+                  <div
+                    class="text-sm font-semibold text-slate-900"
+                    data-i18n="homePricing.labels.notIncluded"
+                  >
+                    Not included
+                  </div>
+                  <ul class="mt-3 grid gap-2">
+                    <li class="flex gap-2 text-sm text-slate-700">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                        >–</span
+                      >
+                      <span
+                        data-i18n="homePricing.plans.senior.features.2.label"
+                        >Custom booking link (your brand URL)</span
+                      >
+                    </li>
+                    <li class="flex gap-2 text-sm text-slate-700">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                        >–</span
+                      >
+                      <span
+                        data-i18n="homePricing.plans.senior.features.8.label"
+                        >Multi-user access</span
+                      >
+                    </li>
+                    <li class="flex gap-2 text-sm text-slate-700">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                        >–</span
+                      >
+                      <span
+                        data-i18n="homePricing.plans.senior.features.14.label"
+                        >Payment reports</span
+                      >
+                    </li>
+                    <li class="flex gap-2 text-sm text-slate-700">
+                      <span
+                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                        >–</span
+                      >
+                      <span
+                        data-i18n="homePricing.plans.senior.features.15.label"
+                        >Priority support</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div
+                  class="mt-4 rounded-2xl bg-primary/5 p-4 text-sm text-slate-700"
+                >
+                  <div
+                    class="font-semibold text-slate-900"
+                    data-i18n="homePricing.labels.noteShort"
+                  >
+                    You can upgrade anytime. No pressure.
+                  </div>
+                  <div
+                    class="mt-1"
+                    data-i18n="homePricing.plans.senior.gentleNote"
+                  >
+                    Perfect when you want reminders…
+                  </div>
+                </div>
+
+                <div class="mt-4">
+                  <a
+                    href="/payment"
+                    class="inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
+                    data-i18n="homePricing.plans.senior.cta"
+                    >Start with Senior</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- Master -->
+            <article
+              class="rounded-3xl border bg-white p-6 shadow-sm"
+              data-plan="master"
+            >
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <div
+                    class="text-sm font-semibold text-slate-900"
+                    data-i18n="homePricing.plans.master.name"
+                  >
+                    👑 Master
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <div class="flex items-baseline justify-between gap-3">
+                  <div class="text-3xl font-bold tracking-tight">
+                    <span id="plan-master-price">€0.00</span
+                    ><span
+                      id="plan-master-price-suffix"
+                      class="text-sm font-semibold text-slate-600"
+                    >
+                      /month</span
+                    >
+                  </div>
+
+                  <div
+                    id="plan-master-save"
+                    class="hidden text-xs font-semibold text-primary rounded-full bg-primary/10 px-3 py-1"
+                    data-i18n="homePricing.labels.save10"
+                  >
+                    Save 50%
+                  </div>
+                </div>
+
+                <div
+                  id="plan-master-monthEqRow"
+                  class="hidden mt-2 text-sm text-slate-600"
+                >
+                  <span
+                    class="font-semibold text-slate-900"
+                    data-i18n="homePricing.labels.monthEq"
+                    >Monthly equivalent</span
+                  >:
+                  <span id="plan-master-monthEq">€0.00</span>
+                  <span data-i18n="homePricing.labels.perMonth">/month</span>
+                </div>
+
+                <div
+                  id="plan-master-billed"
+                  class="mt-1 text-xs text-slate-500"
+                >
+                  Billed monthly
+                </div>
+              </div>
+
+              <div class="mt-4 rounded-2xl border bg-white p-4 text-sm">
+                <div class="flex items-center justify-between gap-3">
+                  <span
+                    class="text-slate-600"
+                    data-i18n="homePricing.labels.subtotalEx"
+                    >Subtotal (excl. VAT)</span
+                  >
+                  <span id="plan-master-subtotal" class="font-semibold"
+                    >€0.00</span
+                  >
+                </div>
+                <div class="mt-2 flex items-center justify-between gap-3">
+                  <span
+                    class="text-slate-600"
+                    data-i18n="homePricing.labels.vat"
+                    >VAT (21%)</span
+                  >
+                  <span id="plan-master-vat" class="font-semibold">€0.00</span>
+                </div>
+                <div
+                  class="mt-2 flex items-center justify-between gap-3 border-t pt-2"
+                >
+                  <span
+                    class="text-slate-900 font-semibold"
+                    data-i18n="homePricing.labels.totalInc"
+                    >Total (incl. VAT)</span
+                  >
+                  <span id="plan-master-total" class="text-slate-900 font-bold"
+                    >€0.00</span
+                  >
+                </div>
+              </div>
+
+              <div class="mt-5">
+                <div
+                  class="text-sm font-semibold text-slate-900"
+                  data-i18n="homePricing.labels.includes"
+                >
+                  What’s included
+                </div>
+                <ul class="mt-3 grid gap-2">
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.master.features.0.label"
+                      >Automatic booking reminder emails</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.master.features.1.label"
+                      >Online booking website & dashboard</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.master.features.2.label"
+                      >Custom booking link (your brand URL)</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.master.features.3.label"
+                      >Unlimited bookings</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.master.features.4.label"
+                      >Client list & booking history</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.master.features.5.label"
+                      >Business info & opening hours setup</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.master.features.6.label"
+                      >Google Calendar sync</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.master.features.7.label"
+                      >Unlimited services & up to 9 staff members</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.master.features.8.label"
+                      >Multi-user access</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.master.features.9.label"
+                      >Online payment setup</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.master.features.10.label"
+                      >Plans & pricing management</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.master.features.11.label"
+                      >Discount codes & promotions</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.master.features.12.label"
+                      >Staff & service scheduling</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.master.features.13.label"
+                      >Booking reports & activity logs</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.master.features.14.label"
+                      >Payment reports</span
+                    >
+                  </li>
+                  <li class="flex gap-2 text-sm text-slate-700">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                      >✓</span
+                    >
+                    <span data-i18n="homePricing.plans.master.features.15.label"
+                      >Priority support</span
+                    >
+                  </li>
+                </ul>
+                <div class="hidden md:block h-[64px]" data-lang-show="th"></div>
+                <div class="hidden md:block h-[84px]" data-lang-show="en"></div>
+                <div class="hidden md:block h-[84px]" data-lang-show="nl"></div>
+                <div
+                  class="mt-4 rounded-2xl bg-primary/5 p-4 text-sm text-slate-700"
+                >
+                  <div
+                    class="font-semibold text-slate-900"
+                    data-i18n="homePricing.labels.noteShort"
+                  >
+                    You can upgrade anytime. No pressure.
+                  </div>
+                  <div
+                    class="mt-1"
+                    data-i18n="homePricing.plans.master.gentleNote"
+                  >
+                    Ideal when you want deeper reporting…
+                  </div>
+                </div>
+
+                <div class="mt-4">
+                  <a
+                    href="/payment"
+                    class="inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
+                    data-i18n="homePricing.plans.master.cta"
+                    >Start with Master</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
 
           <div class="mt-6 flex flex-col gap-3 sm:flex-row">
             <a
@@ -1297,14 +2165,14 @@
           step3: "Share your booking link and manage bookings in the calendar",
           notifyNote: "Friendly notifications can be sent via Email.",
 
-          mini1Title: "Calendar & bookings",
-          mini1Desc: "No double bookings.",
-          mini2Title: "Services & staff",
-          mini2Desc: "Simple setup once.",
-          mini3Title: "Payments",
-          mini3Desc: "Cash, card, or online.",
-          mini4Title: "Reports & logs",
-          mini4Desc: "Clear overview anytime.",
+          mini1Title: "Easy to use",
+          mini1Desc: "Start fast—no technical skills needed.",
+          mini2Title: "Thai language ready",
+          mini2Desc: "Comfortable for Thai staff & customers.",
+          mini3Title: "Easy data migration",
+          mini3Desc: "Import services, staff, and clients in minutes.",
+          mini4Title: "Helpful support team",
+          mini4Desc: "We help with setup and ongoing questions.",
 
           connectTitle: "Connect to your website",
           connectDesc:
@@ -1407,12 +2275,12 @@
               vat: "VAT (21%)",
               totalInc: "Total (incl. VAT)",
               includes: "What’s included",
+              notIncluded: "Not included",
               noteShort: "You can upgrade anytime. No pressure.",
             },
             plans: {
               junior: {
                 name: "🟢 Junior",
-                tagline: "Best for small businesses getting started",
                 cta: "Start with Junior",
                 gentleNote:
                   "A sweet starting point when you want a simple online booking page and a tidy calendar.",
@@ -1443,7 +2311,6 @@
               },
               senior: {
                 name: "⭐ Senior",
-                tagline: "Best for growing teams that need automation",
                 cta: "Start with Senior",
                 gentleNote:
                   "Perfect when you want reminders + a smooth calendar, and you’re starting to handle a busier schedule.",
@@ -1474,8 +2341,6 @@
               },
               master: {
                 name: "👑 Master",
-                tagline:
-                  "Best for established businesses that want full control",
                 cta: "Start with Master",
                 gentleNote:
                   "Ideal when you want deeper reporting, multi-user access, and a branded booking link for your business.",
@@ -1537,14 +2402,14 @@
           step3: "แชร์ลิงก์จอง และจัดการคิวในปฏิทิน",
           notifyNote: "ส่งการแจ้งเตือนแบบเป็นมิตรผ่าน Email ได้",
 
-          mini1Title: "ปฏิทิน & การจอง",
-          mini1Desc: "ไม่ชนคิวซ้ำ",
-          mini2Title: "บริการ & พนักงาน",
-          mini2Desc: "ตั้งค่าง่ายครั้งเดียว",
-          mini3Title: "การชำระเงิน",
-          mini3Desc: "เงินสด/บัตร/ออนไลน์",
-          mini4Title: "รายงาน & บันทึก",
-          mini4Desc: "ดูภาพรวมได้ทุกเมื่อ",
+          mini1Title: "ใช้งานง่าย",
+          mini1Desc: "เริ่มได้ทันที ไม่ต้องมีพื้นฐาน",
+          mini2Title: "รองรับภาษาไทย",
+          mini2Desc: "ทีมงานและลูกค้าใช้งานได้สบาย",
+          mini3Title: "ย้ายข้อมูลง่าย",
+          mini3Desc: "นำเข้าลูกค้า/บริการ/พนักงานได้ไว",
+          mini4Title: "มีทีมงานช่วยเหลือ",
+          mini4Desc: "ช่วยตั้งค่าและตอบคำถามเมื่อมีปัญหา",
 
           connectTitle: "เชื่อมกับเว็บไซต์ของคุณ",
           connectDesc:
@@ -1642,12 +2507,12 @@
               vat: "VAT (21%)",
               totalInc: "ยอดรวม (รวม VAT)",
               includes: "มีอะไรบ้าง",
+              notIncluded: "ไม่มีในแพ็กนี้",
               noteShort: "อัปเกรดได้ตลอดค่ะ ไม่กดดันนะคะ",
             },
             plans: {
               junior: {
                 name: "🟢 Junior",
-                tagline: "เหมาะกับร้านเล็กที่กำลังเริ่มต้น",
                 cta: "เริ่มด้วย Junior",
                 gentleNote:
                   "เหมาะมากค่ะ ถ้าอยากเริ่มรับจองออนไลน์และมีปฏิทินคิวที่ดูง่าย ๆ",
@@ -1675,7 +2540,6 @@
               },
               senior: {
                 name: "⭐ Senior",
-                tagline: "เหมาะกับทีมที่เริ่มโตและอยากได้ระบบช่วยอัตโนมัติ",
                 cta: "เริ่มด้วย Senior",
                 gentleNote:
                   "แพ็กนี้จะช่วยเรื่อง “เตือนนัด + จัดคิว” ได้สบายขึ้นมากค่ะ",
@@ -1703,7 +2567,6 @@
               },
               master: {
                 name: "👑 Master",
-                tagline: "เหมาะกับร้านที่อยากได้ฟีเจอร์ครบและคุมได้ละเอียด",
                 cta: "เริ่มด้วย Master",
                 gentleNote:
                   "เหมาะมากค่ะ ถ้าต้องการรายงานละเอียด มีหลายผู้ใช้ และอยากได้ลิงก์จองที่เป็นแบรนด์ของตัวเอง",
@@ -1762,14 +2625,14 @@
           step3: "Boekingslink delen en boekingen beheren in de kalender",
           notifyNote: "Vriendelijke meldingen via e-mail.",
 
-          mini1Title: "Agenda & boekingen",
-          mini1Desc: "Geen dubbele boekingen.",
-          mini2Title: "Diensten & personeel",
-          mini2Desc: "Eenmalig simpel instellen.",
-          mini3Title: "Betalingen",
-          mini3Desc: "Contant, kaart of online.",
-          mini4Title: "Rapporten & logs",
-          mini4Desc: "Altijd helder overzicht.",
+          mini1Title: "Makkelijk in gebruik",
+          mini1Desc: "Snel starten, geen technische kennis nodig.",
+          mini2Title: "Ondersteunt Thai",
+          mini2Desc: "Fijn voor Thai team en klanten.",
+          mini3Title: "Data migratie is simpel",
+          mini3Desc: "Importeer klanten, diensten en personeel in minuten.",
+          mini4Title: "Support team staat klaar",
+          mini4Desc: "Hulp bij setup en vragen wanneer nodig.",
 
           connectTitle: "Koppel aan je website",
           connectDesc:
@@ -1876,15 +2739,15 @@
               vat: "BTW (21%)",
               totalInc: "Totaal (incl. BTW)",
               includes: "Wat zit erin",
+              notIncluded: "Niet inbegrepen",
               noteShort: "Je kunt altijd upgraden. Geen druk.",
             },
             plans: {
               junior: {
                 name: "🟢 Junior",
-                tagline: "Voor kleine bedrijven die starten",
                 cta: "Start met Junior",
                 gentleNote:
-                  "Een fijne start als je vooral een mooie boekingspagina en een duidelijke kalender wilt.",
+                  "Een fijne start met een mooie boekingspagina en duidelijke kalender.",
                 features: [
                   { ok: false, label: "Automatische reminder e-mails" },
                   { ok: true, label: "Online boekingswebsite & dashboard" },
@@ -1912,7 +2775,6 @@
               },
               senior: {
                 name: "⭐ Senior",
-                tagline: "Voor groeiende teams die automatisering willen",
                 cta: "Start met Senior",
                 gentleNote:
                   "Heel prettig als je reminders wilt en je agenda steeds drukker wordt.",
@@ -1946,8 +2808,6 @@
               },
               master: {
                 name: "👑 Master",
-                tagline:
-                  "Voor gevestigde bedrijven die maximale controle willen",
                 cta: "Start met Master",
                 gentleNote:
                   "Ideaal als je multi-user, branded link en uitgebreidere rapporten nodig hebt.",
@@ -2069,131 +2929,61 @@
         `;
       }
 
+      // ✅ UPDATED: Sort features (✓ first, then –) + split sections
       function renderHomePlans() {
         const lang = localStorage.getItem(LANG_STORAGE_KEY) || "en";
         const pack = dict[lang] || dict.en;
         const hp = pack.homePricing || dict.en.homePricing;
+        const labels = hp.labels || dict.en.homePricing.labels;
 
-        const root = document.getElementById("homePlanCards");
-        if (!root) return;
-
+        const isAnnual = currentBilling === "annual";
         const order = ["junior", "senior", "master"];
 
-        root.innerHTML = order
-          .map((key) => {
-            const meta = PRICING_META[key];
-            const p = hp.plans[key];
-            const c = calcForPlan(meta.monthlyExVat, currentBilling);
-            const isAnnual = currentBilling === "annual";
+        order.forEach((key) => {
+          const meta = PRICING_META[key];
+          if (!meta) return;
 
-            const badge = meta.highlight
-              ? `<div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                   <span>★</span><span>${hp.labels.mostPopular}</span>
-                 </div>`
-              : "";
+          const c = calcForPlan(meta.monthlyExVat, currentBilling);
 
-            const priceLine = isAnnual
-              ? `<div class="mt-4">
-                   <div class="flex items-baseline justify-between gap-3">
-                     <div class="text-3xl font-bold tracking-tight">${moneyEUR(
-                       c.subtotal
-                     )}<span class="text-sm font-semibold text-slate-600"> ${
-                  hp.labels.perYear
-                }</span></div>
-                     <div class="text-xs font-semibold text-primary rounded-full bg-primary/10 px-3 py-1">${
-                       hp.labels.save10
-                     }</div>
-                   </div>
-                   <div class="mt-2 text-sm text-slate-600">
-                     <span class="font-semibold text-slate-900">${
-                       hp.labels.monthEq
-                     }:</span>
-                     ${moneyEUR(c.perMonthEq)} ${hp.labels.perMonth}
-                   </div>
-                   <div class="mt-1 text-xs text-slate-500">${
-                     hp.labels.billedYearly
-                   }</div>
-                 </div>`
-              : `<div class="mt-4">
-                   <div class="text-3xl font-bold tracking-tight">${moneyEUR(
-                     meta.monthlyExVat
-                   )}<span class="text-sm font-semibold text-slate-600"> ${
-                  hp.labels.perMonth
-                }</span></div>
-                   <div class="mt-1 text-xs text-slate-500">${
-                     hp.labels.billedMonthly
-                   }</div>
-                 </div>`;
+          const priceEl = document.getElementById(`plan-${key}-price`);
+          const suffixEl = document.getElementById(`plan-${key}-price-suffix`);
+          const saveEl = document.getElementById(`plan-${key}-save`);
+          const monthEqRow = document.getElementById(`plan-${key}-monthEqRow`);
+          const monthEqEl = document.getElementById(`plan-${key}-monthEq`);
+          const billedEl = document.getElementById(`plan-${key}-billed`);
 
-            const breakdown = `
-              <div class="mt-4 rounded-2xl border bg-white p-4 text-sm">
-                <div class="flex items-center justify-between gap-3">
-                  <span class="text-slate-600">${hp.labels.subtotalEx}</span>
-                  <span class="font-semibold">${moneyEUR(c.subtotal)}</span>
-                </div>
-                <div class="mt-2 flex items-center justify-between gap-3">
-                  <span class="text-slate-600">${hp.labels.vat}</span>
-                  <span class="font-semibold">${moneyEUR(c.vat)}</span>
-                </div>
-                <div class="mt-2 flex items-center justify-between gap-3 border-t pt-2">
-                  <span class="text-slate-900 font-semibold">${
-                    hp.labels.totalInc
-                  }</span>
-                  <span class="text-slate-900 font-bold">${moneyEUR(
-                    c.total
-                  )}</span>
-                </div>
-              </div>
-            `;
+          const subtotalEl = document.getElementById(`plan-${key}-subtotal`);
+          const vatEl = document.getElementById(`plan-${key}-vat`);
+          const totalEl = document.getElementById(`plan-${key}-total`);
 
-            const features = (p.features || [])
-              .map(
-                (f) => `
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    ${f.ok ? iconOk() : iconNo()}
-                    <span>${f.label}</span>
-                  </li>
-                `
-              )
-              .join("");
+          if (priceEl) {
+            priceEl.textContent = isAnnual
+              ? moneyEUR(c.subtotal)
+              : moneyEUR(meta.monthlyExVat);
+          }
 
-            const cardClass = meta.highlight
-              ? "rounded-3xl border-2 border-primary bg-white p-6 shadow-sm"
-              : "rounded-3xl border bg-white p-6 shadow-sm";
+          if (suffixEl) {
+            suffixEl.textContent = isAnnual
+              ? ` ${labels.perYear}`
+              : ` ${labels.perMonth}`;
+          }
 
-            return `
-              <article class="${cardClass}">
-                <div class="flex items-start justify-between gap-3">
-                  <div>
-                    <div class="text-sm font-semibold text-slate-900">${p.name}</div>
-                    <div class="mt-1 text-sm text-slate-600">${p.tagline}</div>
-                  </div>
-                  ${badge}
-                </div>
+          if (saveEl) saveEl.classList.toggle("hidden", !isAnnual);
 
-                ${priceLine}
-                ${breakdown}
+          if (monthEqRow) monthEqRow.classList.toggle("hidden", !isAnnual);
+          if (monthEqEl && isAnnual)
+            monthEqEl.textContent = moneyEUR(c.perMonthEq);
 
-                <div class="mt-5">
-                  <div class="text-sm font-semibold text-slate-900">${hp.labels.includes}</div>
-                  <ul class="mt-3 grid gap-2">${features}</ul>
+          if (billedEl) {
+            billedEl.textContent = isAnnual
+              ? labels.billedYearly
+              : labels.billedMonthly;
+          }
 
-                  <div class="mt-4 rounded-2xl bg-primary/5 p-4 text-sm text-slate-700">
-                    <div class="font-semibold text-slate-900">${hp.labels.noteShort}</div>
-                    <div class="mt-1">${p.gentleNote}</div>
-                  </div>
-
-                  <div class="mt-4">
-                    <a
-                      href="/payment"
-                      class="inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
-                    >${p.cta}</a>
-                  </div>
-                </div>
-              </article>
-            `;
-          })
-          .join("");
+          if (subtotalEl) subtotalEl.textContent = moneyEUR(c.subtotal);
+          if (vatEl) vatEl.textContent = moneyEUR(c.vat);
+          if (totalEl) totalEl.textContent = moneyEUR(c.total);
+        });
       }
 
       function setBillingUI(mode, shouldRender = true) {
@@ -2237,7 +3027,6 @@
         nl: "/assets/nl.svg",
       };
 
-      // ✅ NEW: language names for button label (name + flag)
       const LANG_NAMES = {
         en: "EN",
         th: "TH",
@@ -2263,7 +3052,6 @@
         }
       }
 
-      // ✅ UPDATED: show "Language name + flag" on the button
       function setLangLabel(lang) {
         const src = FLAG_IMG[lang] || FLAG_IMG.en;
         const name = LANG_NAMES[lang] || LANG_NAMES.en;
@@ -2293,19 +3081,48 @@
         if (e.key === "Escape") closeLangMenus();
       });
 
+      function applyLangVisibility(lang) {
+        const l = (lang || "").toLowerCase();
+
+        document.querySelectorAll("[data-lang-show]").forEach((el) => {
+          const allow = (el.getAttribute("data-lang-show") || "")
+            .split(",")
+            .map((s) => s.trim().toLowerCase())
+            .filter(Boolean);
+
+          const shouldShow = allow.includes(l);
+
+          // ✅ ถ้าไม่ใช่ภาษาที่อนุญาต → บังคับซ่อนแบบ !important (ชนะ md:block)
+          el.classList.toggle("lang-force-hide", !shouldShow);
+        });
+      }
       // ---------------------------
       // ✅ applyLang (Home + packages)
       // ---------------------------
       function applyLang(lang) {
         const pack = dict[lang] || dict.en;
 
+        function getByPath(obj, path) {
+          return String(path)
+            .split(".")
+            .reduce((acc, part) => (acc != null ? acc[part] : undefined), obj);
+        }
+
         document.querySelectorAll("[data-i18n]").forEach((el) => {
           const key = el.getAttribute("data-i18n");
-          const value = pack[key] ?? dict.en[key];
-          if (value) el.textContent = value;
+          if (!key) return;
+
+          const isPath = key.includes(".");
+          const value = isPath ? getByPath(pack, key) : pack[key];
+          const fallback = isPath ? getByPath(dict.en, key) : dict.en[key];
+          const finalValue = value ?? fallback;
+
+          if (finalValue === undefined || finalValue === null) return;
+          if (typeof finalValue === "object") return;
+
+          el.textContent = String(finalValue);
         });
 
-        // update labels of billing toggle by language
         const hp = pack.homePricing || dict.en.homePricing;
         if (homeBtnMonthly) homeBtnMonthly.textContent = hp.billing.monthly;
         if (homeBtnAnnual) homeBtnAnnual.textContent = hp.billing.annual;
@@ -2313,11 +3130,8 @@
         setLangLabel(lang);
         localStorage.setItem(LANG_STORAGE_KEY, lang);
         closeLangMenus();
-
-        // keep active nav highlight
+        applyLangVisibility(lang);
         applyActiveNav();
-
-        // render packages
         renderHomePlans();
       }
 
@@ -2344,7 +3158,7 @@
       const menuCloseBtn = document.getElementById("menuCloseBtn");
 
       const openMenu = () => {
-        closeLangMenus(); // ✅ prevent overlap
+        closeLangMenus();
         menuOverlay.classList.remove("hidden");
         mobileMenu.classList.remove("translate-x-full");
         menuBtn?.setAttribute("aria-expanded", "true");
@@ -2372,10 +3186,7 @@
       setBillingUI(currentBilling, false);
       applyLang(saved);
 
-      // Active nav on load
       applyActiveNav();
-
-      // Footer year
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
