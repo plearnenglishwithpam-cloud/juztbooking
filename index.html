@@ -1,9 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="th" class="bg-[#FAF2FF]">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>juztbooking | Booking system for Salon & Massage</title>
+    <title>juztbooking | ระบบจองคิวสำหรับ Salon & ร้านนวด</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,3154 +17,1262 @@
       tailwind.config = {
         theme: {
           extend: {
-            colors: { primary: "#9F4884" },
+            colors: {
+              primary: "#481A54",
+              secondary: "#5A3D93",
+              accent: "#C2508B",
+            },
+            boxShadow: {
+              soft: "0 10px 30px rgba(0,0,0,0.08)",
+            },
           },
         },
       };
     </script>
+
+    <style>
+      /* กันพวก selection ดูสวยขึ้นนิดนึง */
+      ::selection {
+        background: rgba(194, 80, 139, 0.25);
+      }
+    </style>
   </head>
-  <style>
-    .lang-force-hide {
-      display: none !important;
-    }
-  </style>
 
-  <body class="text-slate-900">
-    <!-- Gradient background -->
-    <div
-      class="min-h-screen bg-gradient-to-b from-white via-primary/5 to-white"
-    >
-      <!-- Decorative blobs -->
+  <body class="bg-[#FAF2FF] text-slate-900 font-[Prompt]">
+    <!-- BG Decorations -->
+    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
       <div
-        class="pointer-events-none fixed -left-28 top-10 h-80 w-80 rounded-full bg-primary/15 blur-3xl"
+        class="absolute -left-32 top-10 h-[420px] w-[420px] rounded-full bg-accent/20 blur-3xl"
       ></div>
       <div
-        class="pointer-events-none fixed -right-28 top-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl"
+        class="absolute -right-32 top-20 h-[520px] w-[520px] rounded-full bg-secondary/20 blur-3xl"
       ></div>
-
-      <!-- Top bar -->
-      <div class="sticky top-0 z-40 border-b bg-white/75 backdrop-blur">
-        <div
-          class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
-        >
-          <!-- Brand -->
-          <a href="/" class="flex items-center gap-3">
-            <img
-              src="/assets/logo-juztbooking.png"
-              alt="juztbooking"
-              class="h-12 rounded-xl object-cover"
-            />
-          </a>
-
-          <!-- Desktop nav (✅ show only on LG+) -->
-          <div class="hidden items-center gap-2 lg:flex">
-            <a
-              href="/"
-              data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              data-i18n="navHome"
-              >Home</a
-            >
-
-            <a
-              href="/solutions"
-              data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              data-i18n="navSolutions"
-              >Solutions</a
-            >
-            <a
-              href="/features"
-              data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              data-i18n="navFeatures"
-              >Features</a
-            >
-            <a
-              href="/pricing"
-              data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              data-i18n="navPricing"
-              >Pricing</a
-            >
-            <a
-              href="/contact"
-              data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              data-i18n="navContact"
-              >Contact</a
-            >
-
-            <!-- Language dropdown (Desktop) -->
-            <div class="relative">
-              <button
-                id="langBtnDesktop"
-                class="inline-flex items-center gap-2 rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                aria-haspopup="menu"
-                aria-expanded="false"
-                type="button"
-              >
-                <span
-                  id="langLabelDesktop"
-                  class="inline-flex items-center gap-2"
-                ></span>
-                <svg
-                  viewBox="0 0 24 24"
-                  class="h-4 w-4 fill-slate-700"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
-                  />
-                </svg>
-              </button>
-
-              <div
-                id="langMenuDesktop"
-                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-white shadow-lg"
-                role="menu"
-              >
-                <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="en"
-                  role="menuitem"
-                  type="button"
-                >
-                  <img
-                    src="/assets/en.svg"
-                    alt="English"
-                    class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
-                  />
-                  <span>EN</span>
-                </button>
-                <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="th"
-                  role="menuitem"
-                  type="button"
-                >
-                  <img
-                    src="/assets/th.svg"
-                    alt="Thai"
-                    class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
-                  />
-                  <span>TH</span>
-                </button>
-                <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="nl"
-                  role="menuitem"
-                  type="button"
-                >
-                  <img
-                    src="/assets/nl.svg"
-                    alt="Dutch"
-                    class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
-                  />
-                  <span>NL</span>
-                </button>
-              </div>
-            </div>
-
-            <a
-              href="/login"
-              class="ml-1 inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              data-i18n="navLogin"
-              >Login</a
-            >
-            <a
-              href="/trial"
-              class="inline-flex items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
-              data-i18n="navTrial"
-              >Start 15-day trial</a
-            >
-          </div>
-
-          <!-- Mobile / Tablet (✅ now for < LG, including tablet) -->
-          <div class="flex items-center gap-2 lg:hidden">
-            <!-- Language dropdown (Mobile top) -->
-            <div class="relative">
-              <button
-                id="langBtnMobile"
-                class="inline-flex items-center gap-2 rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                aria-haspopup="menu"
-                aria-expanded="false"
-                type="button"
-                aria-label="Change language"
-              >
-                <span
-                  id="langLabelMobile"
-                  class="inline-flex items-center gap-2"
-                ></span>
-                <svg
-                  viewBox="0 0 24 24"
-                  class="h-4 w-4 fill-slate-700"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
-                  />
-                </svg>
-              </button>
-
-              <div
-                id="langMenuMobile"
-                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-white shadow-lg"
-                role="menu"
-              >
-                <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="en"
-                  role="menuitem"
-                  type="button"
-                >
-                  <img
-                    src="/assets/en.svg"
-                    alt="English"
-                    class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
-                  />
-                  <span>EN</span>
-                </button>
-                <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="th"
-                  role="menuitem"
-                  type="button"
-                >
-                  <img
-                    src="/assets/th.svg"
-                    alt="Thai"
-                    class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
-                  />
-                  <span>TH</span>
-                </button>
-                <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="nl"
-                  role="menuitem"
-                  type="button"
-                >
-                  <img
-                    src="/assets/nl.svg"
-                    alt="Dutch"
-                    class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
-                  />
-                  <span>NL</span>
-                </button>
-              </div>
-            </div>
-
-            <a
-              href="/trial"
-              class="inline-flex items-center justify-center rounded-2xl bg-primary px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
-              data-i18n="navTrialShort"
-              >Start 15-day trial</a
-            >
-            <button
-              id="menuBtn"
-              type="button"
-              class="inline-flex items-center justify-center rounded-2xl border bg-white p-2.5 hover:bg-slate-50"
-              aria-label="Open menu"
-              aria-controls="mobileMenu"
-              aria-expanded="false"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                class="h-5 w-5 fill-slate-800"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 6.5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mobile drawer overlay -->
       <div
-        id="menuOverlay"
-        class="fixed inset-0 z-50 hidden bg-slate-900/40 backdrop-blur-sm"
+        class="absolute left-1/2 top-[620px] h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl"
       ></div>
+    </div>
 
-      <!-- Mobile drawer -->
-      <aside
-        id="mobileMenu"
-        class="fixed right-0 top-0 z-50 h-full w-[86%] max-w-sm translate-x-full border-l bg-white shadow-xl transition-transform duration-200"
-        aria-label="Mobile navigation"
+    <!-- Topbar -->
+    <header class="sticky top-0 z-50 bg-[#FAF2FF] backdrop-blur">
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
       >
-        <div class="flex items-center justify-between border-b px-4 py-3">
-          <div class="flex items-center gap-3">
-            <img
-              src="/assets/logo-juztbooking.png"
-              alt="juztbooking"
-              class="h-12 rounded-xl object-cover"
-            />
-          </div>
+        <!-- Brand -->
+        <a href="/" class="flex items-center gap-3">
+          <img
+            src="/assets/logo-juztbooking.png"
+            alt="juztbooking"
+            class="h-10"
+            onerror="this.style.display = 'none'"
+          />
+        </a>
 
-          <button
-            id="menuCloseBtn"
-            type="button"
-            class="inline-flex items-center justify-center rounded-2xl border bg-white p-2.5 hover:bg-slate-50"
-            aria-label="Close menu"
+        <!-- Desktop Nav -->
+        <nav class="hidden items-center gap-2 lg:flex">
+          <a
+            href="/"
+            class="rounded-2xl px-3 py-2 text-sm font-semibold text-primary bg-primary/10"
+            >หน้าหลัก</a
           >
-            <svg
-              viewBox="0 0 24 24"
-              class="h-5 w-5 fill-slate-800"
-              aria-hidden="true"
-            >
+          <a
+            href="/solutions"
+            class="rounded-2xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            >โซลูชัน</a
+          >
+          <a
+            href="/features"
+            class="rounded-2xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            >ฟีเจอร์</a
+          >
+          <a
+            href="/pricing"
+            class="rounded-2xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            >ราคา</a
+          >
+          <a
+            href="/contact"
+            class="rounded-2xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            >ติดต่อเรา</a
+          >
+
+          <a
+            href="/login"
+            class="ml-2 inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            >เข้าสู่ระบบ</a
+          >
+          <a
+            href="/trial"
+            class="inline-flex items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+            >ทดลองใช้ 15 วัน</a
+          >
+        </nav>
+
+        <!-- Mobile -->
+        <div class="flex items-center gap-2 lg:hidden">
+          <a
+            href="/trial"
+            class="inline-flex items-center justify-center rounded-2xl bg-primary px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
+            >ทดลองใช้</a
+          >
+          <button
+            id="menuBtn"
+            class="inline-flex items-center justify-center rounded-2xl border bg-[#FAF2FF] p-2.5 hover:bg-slate-50"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            <svg viewBox="0 0 24 24" class="h-5 w-5 fill-slate-800">
               <path
-                d="M18.3 5.71a1 1 0 0 1 0 1.41L13.41 12l4.89 4.88a1 1 0 1 1-1.41 1.42L12 13.41l-4.88 4.89a1 1 0 1 1-1.42-1.41L10.59 12 5.7 7.12A1 1 0 1 1 7.12 5.7L12 10.59l4.88-4.89a1 1 0 0 1 1.42.01z"
+                d="M4 6.5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
               />
             </svg>
           </button>
         </div>
+      </div>
+    </header>
 
-        <nav class="px-4 py-4">
-          <a
-            href="/"
-            data-navlink
-            class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            data-i18n="navHome"
-            >Home</a
-          >
+    <!-- Mobile Drawer -->
+    <div
+      id="menuOverlay"
+      class="fixed inset-0 z-50 hidden bg-slate-900/40 backdrop-blur-sm"
+    ></div>
 
-          <a
-            href="/solutions"
-            data-navlink
-            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            data-i18n="navSolutions"
-            >Solutions</a
+    <aside
+      id="mobileMenu"
+      class="fixed right-0 top-0 z-50 h-full w-[86%] max-w-sm translate-x-full border-l bg-[#FAF2FF] shadow-xl transition-transform duration-200"
+    >
+      <div class="flex items-center justify-between border-b px-4 py-3">
+        <div class="flex items-center gap-3">
+          <div
+            class="grid h-10 w-10 place-items-center rounded-2xl bg-primary text-white font-semibold"
           >
-          <a
-            href="/features"
-            data-navlink
-            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            data-i18n="navFeatures"
-            >Features</a
-          >
-          <a
-            href="/pricing"
-            data-navlink
-            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            data-i18n="navPricing"
-            >Pricing</a
-          >
-          <a
-            href="/contact"
-            data-navlink
-            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            data-i18n="navContact"
-            >Contact</a
-          >
+            JZ
+          </div>
+          <div>
+            <div class="text-sm font-extrabold text-primary">juztbooking</div>
+            <div class="text-xs text-slate-500">เมนูหลัก</div>
+          </div>
+        </div>
 
+        <button
+          id="menuCloseBtn"
+          class="inline-flex items-center justify-center rounded-2xl border bg-[#FAF2FF] p-2.5 hover:bg-slate-50"
+          aria-label="Close menu"
+        >
+          <svg viewBox="0 0 24 24" class="h-5 w-5 fill-slate-800">
+            <path
+              d="M18.3 5.71a1 1 0 0 1 0 1.41L13.41 12l4.89 4.88a1 1 0 1 1-1.41 1.42L12 13.41l-4.88 4.89a1 1 0 1 1-1.42-1.41L10.59 12 5.7 7.12A1 1 0 1 1 7.12 5.7L12 10.59l4.88-4.89a1 1 0 0 1 1.42.01z"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="px-4 py-4">
+        <a
+          href="/"
+          class="block rounded-2xl bg-primary/10 px-4 py-3 text-sm font-semibold text-primary"
+          >หน้าหลัก</a
+        >
+        <a
+          href="/solutions"
+          class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+          >โซลูชัน</a
+        >
+        <a
+          href="/features"
+          class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+          >ฟีเจอร์</a
+        >
+        <a
+          href="/pricing"
+          class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+          >ราคา</a
+        >
+        <a
+          href="/contact"
+          class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+          >ติดต่อเรา</a
+        >
+
+        <a
+          href="/trial"
+          class="mt-3 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
+          >ทดลองใช้ 15 วัน</a
+        >
+        <a
+          href="/login"
+          class="mt-2 inline-flex w-full items-center justify-center rounded-2xl border px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+          >เข้าสู่ระบบ</a
+        >
+      </nav>
+    </aside>
+
+    <!-- HERO (Full Screen / Colorful Curved) -->
+    <section class="relative overflow-hidden text-white bg-[#491258]">
+      <!-- Hero Background (Layered Gradient Blobs like reference) -->
+      <div class="pointer-events-none absolute inset-0">
+        <!-- วงซ้ายหลัง -->
+        <div
+          class="absolute left-[10%] top-[-10%] h-[520px] w-[520px] rounded-full opacity-20 blur-[0px]"
+          style="
+            background: radial-gradient(
+              circle at 35% 25%,
+              rgba(255, 94, 160, 0.55) 0%,
+              rgba(255, 94, 160, 0.25) 35%,
+              rgba(120, 90, 255, 0.25) 70%
+            );
+          "
+        ></div>
+
+        <!-- วงกลาง (ใหญ่สุด) -->
+        <!-- <div
+          class="absolute left-[30%] top-[-6%] h-[640px] w-[640px] rounded-full opacity-55 blur-[0px]"
+          style="
+            background: radial-gradient(
+              circle at 35% 25%,
+              rgba(255, 94, 160, 0.65) 0%,
+              rgba(255, 94, 160, 0.25) 40%,
+              rgba(120, 90, 255, 0.35) 75%,
+              rgba(120, 90, 255, 0.08) 100%
+            );
+          "
+        ></div> -->
+
+        <!-- วงขวาหน้า -->
+        <div
+          class="absolute right-[-18%] top-[-12%] h-[720px] w-[720px] rounded-full opacity-30 blur-[0px]"
+          style="
+            background: radial-gradient(
+              circle at 35% 25%,
+              rgba(255, 94, 160, 0.6) 0%,
+              rgba(255, 94, 160, 0.18) 38%,
+              rgba(120, 90, 255, 0.35) 78%
+            );
+          "
+        ></div>
+
+        <!-- เงานุ่มด้านล่างให้เนียน -->
+      </div>
+
+      <!-- Soft layered blobs (เหมือนภาพที่ 2) -->
+
+      <!-- Content -->
+      <div
+        class="relative mx-auto flex min-h-[88vh] max-w-6xl flex-col items-center px-4 py-14"
+      >
+        <!-- Title -->
+        <h1
+          class="md:mt-4 lg:mt-6 text-center text-4xl font-semibold md:text-4xl lg:text-6xl font-semibold tracking-wide"
+        >
+          <span
+            >ระบบจองคิวที่เข้าใจร้าน
+            <span class="lg:text-[70px] text-[#D53A79]">Salon</span> จริง
+            ๆ</span
+          >
+        </h1>
+
+        <!-- Desc -->
+        <p
+          class="mt-3 md:mt-4 max-w-4xl md:max-w-5xl text-center text-base text-white/80 text-sm md:text-xl lg:text-[20px]"
+        >
+          juztbooking คือระบบจองคิวสำหรับร้าน Salon โดยเฉพาะ ใช้งานง่าย
+          สมัครไม่ยุ่งยาก ลูกค้าจองเองผ่านมือถือ ระบบจัดการคิวให้อัตโนมัติ
+          เหมือนมีผู้ช่วยดูแลทั้งวัน
+        </p>
+
+        <!-- CTA -->
+        <div class="mt-8 grid grid-cols-2 gap-3">
           <a
             href="/trial"
-            class="mt-3 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
-            data-i18n="navTrial"
-            >Start 15-day trial</a
+            class="inline-flex items-center justify-center rounded-2xl bg-[#D53A79] px-6 py-3 text-md font-semibold text-white shadow-soft hover:opacity-95"
           >
+            ทดลองใช้ 15 วัน
+          </a>
+
           <a
             href="/login"
-            class="mt-2 inline-flex w-full items-center justify-center rounded-2xl border px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-            data-i18n="navLogin"
-            >Login</a
+            class="inline-flex items-center justify-center rounded-2xl border border-white/30 bg-[#FAF2FF]/10 px-6 py-3 text-md font-normal text-white hover:bg-[#FAF2FF]/15"
           >
-        </nav>
-      </aside>
+            เข้าสู่ระบบ
+          </a>
+        </div>
 
-      <!-- HERO -->
-      <header class="relative">
-        <div
-          class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-4 py-12 md:grid-cols-2 md:py-16"
-        >
-          <div>
-            <div
-              class="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-sm text-slate-700"
-            >
-              <span class="inline-block h-2 w-2 rounded-full bg-primary"></span>
-              <span data-i18n="heroBadge"
-                >A calm, friendly booking experience</span
-              >
+        <!-- Trust Row -->
+        <div class="mt-7 w-full">
+          <div
+            class="mx-auto max-w-xl justify-center gap-4 text-center text-sm text-white/85 sm:col sm:flex-row sm:gap-6"
+          >
+            <div class="inline-flex items-center gap-2">
+              <div>✓</div>
+              <span>ไม่ต้องใช้บัตรเครดิต</span>
             </div>
 
-            <h1
-              class="mt-4 text-3xl font-bold tracking-tight md:text-5xl"
-              data-i18n="heroTitle"
-            >
-              Simple booking for massage shops
-            </h1>
-
-            <p class="mt-4 text-slate-600 md:text-lg" data-i18n="heroDesc">
-              Let customers book by themselves — clear, calm, and organised.
-            </p>
-
-            <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="/trial"
-                class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95"
-                data-i18n="heroCtaPrimary"
-              >
-                Start 15-day trial
-              </a>
-              <a
-                href="/pricing"
-                class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-white/60"
-                data-i18n="heroCtaSecondary"
-              >
-                See pricing
-              </a>
-              <a
-                href="/login"
-                class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-white/60"
-                data-i18n="heroCtaLogin"
-              >
-                Login
-              </a>
+            <div class="inline-flex items-center gap-2 translate-x-4">
+              <div>✓</div>
+              <span>เริ่มใช้งานได้ทันที</span>
             </div>
 
-            <div class="mt-6 flex flex-wrap gap-2 text-xs">
-              <span
-                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
-                data-i18n="benefit1"
-                >Reduce admin work</span
-              >
-              <span
-                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
-                data-i18n="benefit2"
-                >Reduce no-show</span
-              >
-              <span
-                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
-                data-i18n="benefit3"
-                >Easier payments</span
-              >
-              <span
-                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
-                data-i18n="benefit4"
-                >Clear reports</span
-              >
-              <span
-                class="rounded-full bg-white px-3 py-1 font-semibold text-slate-700 ring-1 ring-slate-200"
-                data-i18n="annualNote"
-                >Annual billing saves 50%</span
-              >
-            </div>
-
-            <div class="mt-6 rounded-2xl border bg-white p-4">
-              <div
-                class="text-sm font-semibold text-slate-900"
-                data-i18n="stepsTitle"
-              >
-                Getting started is easy
-              </div>
-              <ol class="mt-2 grid gap-2 text-sm text-slate-600">
-                <li class="flex gap-2">
-                  <span
-                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                    >1</span
-                  >
-                  <span data-i18n="step1"
-                    >Add services (price and duration)</span
-                  >
-                </li>
-                <li class="flex gap-2">
-                  <span
-                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                    >2</span
-                  >
-                  <span data-i18n="step2">Add staff and opening hours</span>
-                </li>
-                <li class="flex gap-2">
-                  <span
-                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                    >3</span
-                  >
-                  <span data-i18n="step3"
-                    >Share your booking link and manage bookings in the
-                    calendar</span
-                  >
-                </li>
-              </ol>
-              <div class="mt-3 text-xs text-slate-500" data-i18n="notifyNote">
-                Friendly notifications can be sent via Email.
-              </div>
+            <div class="inline-flex items-center gap-2 translate-x-8">
+              <div>✓</div>
+              <span>ทีมช่วยตั้งค่าให้ฟรี</span>
             </div>
           </div>
+        </div>
 
-          <div class="relative">
-            <div
-              class="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/10 via-white to-primary/5"
-            ></div>
-
-            <div class="rounded-[2rem] border bg-white p-4 shadow-sm">
+        <!-- Big Preview Card -->
+        <div class="my-6 md:my-10 w-full">
+          <div>
+            <div class>
               <img
-                src="/assets/home-hero-illustration.png"
-                alt="juztbooking dashboard preview"
-                class="h-[340px] w-full rounded-[1.5rem] object-cover md:h-[420px]"
+                src="/assets/hero.webp"
+                alt="Dashboard Preview"
+                class="w-full object-cover"
+                onerror="this.style.display = 'none'"
               />
 
-              <div class="mt-4 grid grid-cols-2 gap-3">
-                <div class="rounded-2xl border bg-white p-3">
-                  <div
-                    class="text-xs font-semibold text-slate-900"
-                    data-i18n="mini1Title"
-                  >
-                    Calendar & bookings
-                  </div>
-                  <div
-                    class="mt-1 text-xs text-slate-600"
-                    data-i18n="mini1Desc"
-                  >
-                    No double bookings.
-                  </div>
-                </div>
-                <div class="rounded-2xl border bg-white p-3">
-                  <div
-                    class="text-xs font-semibold text-slate-900"
-                    data-i18n="mini2Title"
-                  >
-                    Services & staff
-                  </div>
-                  <div
-                    class="mt-1 text-xs text-slate-600"
-                    data-i18n="mini2Desc"
-                  >
-                    Simple setup once.
-                  </div>
-                </div>
-                <div class="rounded-2xl border bg-white p-3">
-                  <div
-                    class="text-xs font-semibold text-slate-900"
-                    data-i18n="mini3Title"
-                  >
-                    Payments
-                  </div>
-                  <div
-                    class="mt-1 text-xs text-slate-600"
-                    data-i18n="mini3Desc"
-                  >
-                    Cash, card, or online.
-                  </div>
-                </div>
-                <div class="rounded-2xl border bg-white p-3">
-                  <div
-                    class="text-xs font-semibold text-slate-900"
-                    data-i18n="mini4Title"
-                  >
-                    Reports & logs
-                  </div>
-                  <div
-                    class="mt-1 text-xs text-slate-600"
-                    data-i18n="mini4Desc"
-                  >
-                    Clear overview anytime.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-4 rounded-[2rem] border bg-white p-4">
-              <div class="flex items-center justify-between gap-3">
-                <div class="flex-1 min-w-0">
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="connectTitle"
-                  >
-                    Connect to your website
-                  </div>
-                  <div
-                    class="mt-1 text-xs text-slate-600"
-                    data-i18n="connectDesc"
-                  >
-                    Add a “Book now” button to your current site — or let us
-                    build a new one for you.
-                  </div>
-                </div>
-
-                <a
-                  href="/contact"
-                  class="shrink-0 whitespace-nowrap inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                  data-i18n="connectCta"
-                >
-                  Talk to us
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <!-- ✅ WHY CHOOSE US -->
-      <section
-        class="relative border-t bg-gradient-to-b from-white via-primary/10 to-white"
-      >
-        <div class="pointer-events-none absolute inset-0">
-          <div
-            class="absolute left-1/2 top-12 h-72 w-72 -translate-x-1/2 rounded-full bg-primary/15 blur-3xl"
-          ></div>
-        </div>
-
-        <div class="relative mx-auto max-w-6xl px-4 py-14">
-          <div
-            class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
-          >
-            <div class="max-w-2xl">
+              <!-- fallback ถ้ารูปหาย -->
               <div
-                class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/80 px-3 py-1 text-sm font-semibold text-primary shadow-sm"
+                class="grid place-items-center rounded-[1.2rem] bg-[#FAF2FF]/10 py-14 text-center text-white/90 md:py-24"
+                id="heroFallback"
+                style="display: none"
               >
-                <span
-                  class="inline-block h-2 w-2 rounded-full bg-primary"
-                ></span>
-                <span data-i18n="whyBadge">Why it feels easy</span>
+                <div class="max-w-lg px-6">
+                  <div class="text-2xl font-semibold">
+                    ตัวอย่างหน้าปฏิทินการจอง
+                  </div>
+                  <div class="mt-2 text-sm text-white/70">
+                    (ใส่รูปจาก <b>/assets/home-hero-illustration.png</b> ได้เลย)
+                  </div>
+                </div>
               </div>
 
-              <h2
-                class="mt-4 text-3xl font-bold tracking-tight md:text-4xl"
-                data-i18n="whyTitle"
-              >
-                Why choose juztbooking
-              </h2>
-              <p class="mt-2 text-slate-700 md:text-lg" data-i18n="whyDesc">
-                Built for massage businesses — easy for owners, easy for
-                customers.
-              </p>
-            </div>
+              <!-- Tags -->
+              <!-- <div class="mt-7 flex flex-wrap justify-center gap-2 text-xs">
+                <span
+                  class="rounded-full bg-[#FAF2FF]/10 px-3 py-1 font-semibold text-white/95 ring-1 ring-white/20"
+                  >ลดงานแอดมิน</span
+                >
+                <span
+                  class="rounded-full bg-[#FAF2FF]/10 px-3 py-1 font-semibold text-white/95 ring-1 ring-white/20"
+                  >ลด no-show</span
+                >
+                <span
+                  class="rounded-full bg-[#FAF2FF]/10 px-3 py-1 font-semibold text-white/95 ring-1 ring-white/20"
+                  >ชำระเงินง่ายขึ้น</span
+                >
+                <span
+                  class="rounded-full bg-[#FAF2FF]/10 px-3 py-1 font-semibold text-white/95 ring-1 ring-white/20"
+                  >รายงานชัดขึ้น</span
+                >
+                <span
+                  class="rounded-full bg-[#FAF2FF]/10 px-3 py-1 font-semibold text-white/95 ring-1 ring-white/20"
+                  >รายปีประหยัด 50%</span
+                >
+              </div> -->
 
-            <div class="hidden md:block">
-              <a
-                href="/contact"
-                class="inline-flex items-center justify-center rounded-2xl border bg-white/80 px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:bg-white"
-                data-i18n="whyCta"
-                >Talk to us</a
-              >
+              <!-- Mini Cards -->
+              <div class="mt-4 grid grid-cols-2 gap-2 md:grid-cols-4">
+                <div
+                  class="text-center rounded-2xl border border-white/15 bg-[#FAF2FF]/10 p-3"
+                >
+                  <div class="text-sm md:text-md font-medium">ใช้งานง่าย</div>
+                  <div class="mt-1 text-xs md:text-sm text-white/70">
+                    เริ่มได้ทันที ไม่ต้องมีพื้นฐาน
+                  </div>
+                </div>
+                <div
+                  class="text-center rounded-2xl border border-white/15 bg-[#FAF2FF]/10 p-3"
+                >
+                  <div class="text-sm md:text-md font-medium">
+                    รองรับภาษาไทย
+                  </div>
+                  <div class="mt-1 text-xs md:text-sm text-white/70">
+                    ทีมงานใช้งานได้สบาย
+                  </div>
+                </div>
+                <div
+                  class="text-center rounded-2xl border border-white/15 bg-[#FAF2FF]/10 p-3"
+                >
+                  <div class="text-sm md:text-md font-medium">
+                    ย้ายข้อมูลง่าย
+                  </div>
+                  <div class="mt-1 text-xs md:text-sm text-white/70">
+                    ย้ายข้อมูลเดิมมาเข้าระบบง่าย
+                  </div>
+                </div>
+                <div
+                  class="text-center rounded-2xl border border-white/15 bg-[#FAF2FF]/10 p-3"
+                >
+                  <div class="text-sm md:text-md font-medium">
+                    มีทีมช่วยเหลือ
+                  </div>
+                  <div class="mt-1 text-xs md:text-sm text-white/70">
+                    ตอบคำถามเมื่อมีปัญหา
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <article
-              class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <div class="flex items-start gap-3">
-                <span
-                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary text-white font-extrabold shadow-sm"
-                  >1</span
-                >
-                <div>
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="why1Title"
-                  >
-                    Super easy to start
-                  </div>
-                  <div class="mt-1 text-sm text-slate-600" data-i18n="why1Desc">
-                    Simple signup + simple dashboard — even if you’re not techy.
-                  </div>
-                </div>
-              </div>
-            </article>
+        <!-- (ถ้ามีส่วน “เชื่อมกับเว็บไซต์ของคุณ” / “เริ่มใช้งานง่ายมาก” ให้คงไว้ด้านล่างได้เหมือนเดิม) -->
+      </div>
 
-            <article
-              class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <div class="flex items-start gap-3">
-                <span
-                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-extrabold"
-                  >2</span
-                >
-                <div>
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="why2Title"
-                  >
-                    Multi-language support
-                  </div>
-                  <div class="mt-1 text-sm text-slate-600" data-i18n="why2Desc">
-                    Switch languages easily so staff and customers feel
-                    comfortable.
-                  </div>
-                </div>
-              </div>
-            </article>
+      <!-- Curved bottom wave (ทำให้โค้งแบบ Salonized) -->
+      <div class="absolute bottom-0 left-0 right-0">
+        <svg
+          viewBox="0 0 1440 120"
+          class="h-[100px] w-full"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,64 C240,130 480,130 720,78 C960,26 1200,10 1440,36 L1440,120 L0,120 Z"
+            fill="#FAF2FF"
+          ></path>
+        </svg>
+      </div>
+    </section>
 
-            <article
-              class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <div class="flex items-start gap-3">
-                <span
-                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-extrabold"
-                  >3</span
-                >
-                <div>
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="why3Title"
-                  >
-                    Customers book on mobile
-                  </div>
-                  <div class="mt-1 text-sm text-slate-600" data-i18n="why3Desc">
-                    Customers choose service, therapist, date & time — the
-                    system prevents double bookings.
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article
-              class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <div class="flex items-start gap-3">
-                <span
-                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-extrabold"
-                  >4</span
-                >
-                <div>
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="why4Title"
-                  >
-                    Branded booking link
-                  </div>
-                  <div class="mt-1 text-sm text-slate-600" data-i18n="why4Desc">
-                    Your own booking page + dashboard, with a custom link on
-                    your domain.
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article
-              class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <div class="flex items-start gap-3">
-                <span
-                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-extrabold"
-                  >5</span
-                >
-                <div>
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="why6Title"
-                  >
-                    We help you set up
-                  </div>
-                  <div class="mt-1 text-sm text-slate-600" data-i18n="why6Desc">
-                    Our team helps configure services, staff, hours, and booking
-                    flow — ready to use.
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article
-              class="rounded-3xl border bg-white/85 p-6 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <div class="flex items-start gap-3">
-                <span
-                  class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10 text-primary font-extrabold"
-                  >6</span
-                >
-                <div>
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="why8Title"
-                  >
-                    Reports & activity logs
-                  </div>
-                  <div class="mt-1 text-sm text-slate-600" data-i18n="why8Desc">
-                    Track bookings, changes, and performance — so you can
-                    improve with confidence.
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-
+    <!-- TRUST STRIP -->
+    <section class="">
+      <div class="mx-auto max-w-6xl px-4 py-6 md:py-20">
+        <div class="text-center">
           <div
-            class="mt-10 rounded-3xl border bg-white/90 p-6 shadow-sm backdrop-blur"
+            class="text-[20px] md:text-[28px] lg:text-5xl font-semibold text-[#D53A79]"
           >
-            <div
-              class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center"
-            >
+            ลูกค้าจองง่ายขึ้น ร้านทำงานเบาขึ้น
+          </div>
+          <div
+            class="mt-3 text-sm md:text-2xl text-slate-600 md:max-w-4xl mx-auto text-center"
+          >
+            เมื่อเริ่มใช้งาน JuztBooking
+            ระบบจะสร้างหน้าเว็บจองสำหรับร้านของคุณโดยอัตโนมัติ
+            ลูกค้าสามารถจองคิวได้ตลอด 24 ชม. ช่วยลดการโทรและข้อความในการนัดหมาย
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLOW (Full screen section) -->
+    <section
+      class="relative bg-gradient-to-b from-white via-primary/5 to-white"
+    >
+      <div class="mx-auto max-w-6xl px-4 py-16">
+        <div class="text-center">
+          <h2
+            class="mt-4 text-3xl font-semibold tracking-wide md:text-[45px] font-semibold"
+          >
+            ขั้นตอนการจองที่ลูกค้าเข้าใจทันที
+          </h2>
+        </div>
+
+        <div class="mt-8">
+          <img src="./assets/step-booking.webp" alt="" />
+        </div>
+
+        <div class="mt-10 flex justify-center">
+          <a
+            href="/trial"
+            class="inline-flex items-center justify-center rounded-2xl bg-primary px-6 py-3 text-md font-semibold text-white shadow-soft hover:opacity-95"
+          >
+            ลองใช้งานจริง 15 วัน
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY (Clean Cards) -->
+    <section class="border-t bg-background">
+      <div class="mx-auto max-w-6xl px-4 py-16">
+        <div class="text-center">
+          <div
+            class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-[#FAF2FF]/80 px-4 py-1 text-md font-semibold text-[#B91774]"
+          >
+            ทำไมต้องเลือกเรา
+          </div>
+          <h2
+            class="mt-8 text-3xl font-semibold tracking-tight md:text-4xl text-primary"
+          >
+            เพราะร้าน Salon ต้องการ “ระบบที่เข้าใจหน้างาน”
+          </h2>
+          <p class="mt-2 text-primary">
+            เราทำให้มันง่ายขึ้นแบบไม่ต้องมีทีมแอดมินเยอะ
+          </p>
+        </div>
+
+        <div
+          class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3 text-primary"
+        >
+          <article
+            class="rounded-[2rem] border bg-[#FAF2FF] p-6 shadow-soft min-h-[250px]"
+          >
+            <div class="flex flex-col items-center text-center gap-3">
               <div>
-                <div
-                  class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary"
-                >
-                  <span data-i18n="whyStripBadge"
-                    >Designed for calm, smooth days</span
-                  >
+                <div class="flex justify-center mt-5 h-20">
+                  <img src="./assets/icon-home1.svg" alt="" />
                 </div>
-                <h3
-                  class="mt-3 text-lg font-bold md:text-xl"
-                  data-i18n="whyStripTitle"
-                >
-                  Less admin, fewer mistakes, more bookings
-                </h3>
-                <p
-                  class="mt-2 text-sm text-slate-700 md:text-base"
-                  data-i18n="whyStripDesc"
-                >
-                  Your booking flow becomes clear — customers book themselves,
-                  and you stay in control.
-                </p>
-              </div>
-              <div class="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
-                <a
-                  href="/trial"
-                  class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:opacity-95"
-                  data-i18n="whyStripPrimary"
-                  >Start 15-day trial</a
-                >
-                <a
-                  href="/pricing"
-                  class="inline-flex items-center justify-center rounded-2xl border bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                  data-i18n="whyStripSecondary"
-                  >See pricing</a
-                >
+                <div class="text-sm font-semibold mt-5 text-xl text-[#B91774]">
+                  ใช้งานง่ายมาก
+                </div>
+                <div class="mt-1 text-md text-primary">
+                  เจ้าของร้านไม่ถนัดเทคก็เริ่มได้
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </article>
 
-      <!-- ✅ MASSAGE USE CASE ONLY -->
-      <section class="border-t bg-white/60">
-        <div class="mx-auto max-w-6xl px-4 py-12">
-          <div class="flex items-end justify-between gap-4">
-            <div>
-              <h2
-                class="text-2xl font-bold tracking-tight md:text-3xl"
-                data-i18n="useTitle"
-              >
-                Built for massage shops
-              </h2>
-              <p class="mt-2 text-slate-600" data-i18n="useDesc">
-                Fix the real daily pain points: no-shows, messy schedules, and
-                too much admin.
-              </p>
+          <article class="rounded-[2rem] border bg-[#FAF2FF] p-6 shadow-soft">
+            <div class="flex flex-col items-center text-center gap-3">
+              <div class="flex justify-center mt-5 h-20">
+                <img src="./assets/icon-home2.svg" alt="" />
+              </div>
+              <div>
+                <div class="text-sm font-semibold mt-5 text-xl text-[#B91774]">
+                  รองรับหลายภาษา
+                </div>
+                <div class="mt-1 text-md text-primary">
+                  เหมาะกับทีมไทยในยุโรป + ลูกค้าท้องถิ่น
+                </div>
+              </div>
             </div>
-            <div class="hidden md:block">
-              <a
-                href="/features"
-                class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                data-i18n="useCta"
-                >See features</a
-              >
-            </div>
-          </div>
+          </article>
 
-          <div class="mt-8 grid gap-4 md:grid-cols-1">
-            <article class="rounded-3xl border bg-white p-6 shadow-sm">
-              <div class="flex items-start gap-4">
-                <img
-                  src="/assets/home-usecase-massage.png"
-                  alt="Massage use case"
-                  class="h-24 w-24 rounded-3xl object-cover"
-                />
-                <div class="flex-1">
-                  <div
-                    class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary"
-                  >
-                    <span data-i18n="massageBadge">Massage</span>
-                  </div>
-                  <h3 class="mt-3 text-lg font-bold" data-i18n="massageTitle">
-                    Reduce no-shows and keep the calendar clean
-                  </h3>
-                  <p
-                    class="mt-2 text-sm text-slate-600"
-                    data-i18n="massageDesc"
-                  >
-                    Great for busy shops with many slots, multiple therapists,
-                    walk-ins, and weekend peaks.
-                  </p>
-                </div>
-              </div>
-
-              <div class="mt-6 grid gap-3 md:grid-cols-2">
-                <div class="rounded-2xl border bg-white p-4">
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="massagePainTitle"
-                  >
-                    Common pain points
-                  </div>
-                  <ul class="mt-2 grid gap-2 text-sm text-slate-700">
-                    <li class="flex gap-2">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                        >✓</span
-                      >
-                      <span data-i18n="massagePain1"
-                        >Last-minute cancellations and no-shows</span
-                      >
-                    </li>
-                    <li class="flex gap-2">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                        >✓</span
-                      >
-                      <span data-i18n="massagePain2"
-                        >Overbooking / double bookings across therapists</span
-                      >
-                    </li>
-                    <li class="flex gap-2">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                        >✓</span
-                      >
-                      <span data-i18n="massagePain3"
-                        >Hard to manage opening hours, breaks, holidays</span
-                      >
-                    </li>
-                    <li class="flex gap-2">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                        >✓</span
-                      >
-                      <span data-i18n="massagePain4"
-                        >Too many chats to confirm bookings manually</span
-                      >
-                    </li>
-                    <li class="flex gap-2">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                        >✓</span
-                      >
-                      <span data-i18n="massagePain5"
-                        >Payments & tracking feel messy (who paid, how,
-                        when)</span
-                      >
-                    </li>
-                    <li class="flex gap-2">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                        >✓</span
-                      >
-                      <span data-i18n="massagePain6"
-                        >Difficult to see customer history and repeat
-                        visits</span
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="rounded-2xl border bg-white p-4">
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="massageFlowTitle"
-                  >
-                    Recommended flow
-                  </div>
-                  <ol class="mt-2 grid gap-2 text-sm text-slate-700">
-                    <li class="flex gap-2">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                        >1</span
-                      >
-                      <span data-i18n="massageFlow1"
-                        >Customer chooses massage type + therapist + time</span
-                      >
-                    </li>
-                    <li class="flex gap-2">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                        >2</span
-                      >
-                      <span data-i18n="massageFlow2"
-                        >System checks availability and confirms instantly</span
-                      >
-                    </li>
-                    <li class="flex gap-2">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                        >3</span
-                      >
-                      <span data-i18n="massageFlow3"
-                        >Send a friendly reminder via Email</span
-                      >
-                    </li>
-                    <li class="flex gap-2">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                        >4</span
-                      >
-                      <span data-i18n="massageFlow4"
-                        >Take payment (cash/card/online) and mark status</span
-                      >
-                    </li>
-                    <li class="flex gap-2">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                        >5</span
-                      >
-                      <span data-i18n="massageFlow5"
-                        >Review reports and improve schedules weekly</span
-                      >
-                    </li>
-                  </ol>
-                </div>
-              </div>
-
-              <div class="mt-6 rounded-2xl bg-primary/5 p-4">
-                <div
-                  class="text-sm font-semibold text-slate-900"
-                  data-i18n="massageHighlightTitle"
-                >
-                  Feature highlights
-                </div>
-                <div
-                  class="mt-2 grid gap-2 text-sm text-slate-700 sm:grid-cols-2"
-                >
-                  <div class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="massageH1"
-                      >Day/week calendar with clean layout</span
-                    >
-                  </div>
-                  <div class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="massageH2"
-                      >Opening hours, breaks, holidays</span
-                    >
-                  </div>
-                  <div class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="massageH3"
-                      >Payment tracking + status control</span
-                    >
-                  </div>
-                  <div class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="massageH4">Clear booking reports</span>
-                  </div>
-                  <div class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="massageH5"
-                      >Services + therapist scheduling</span
-                    >
-                  </div>
-                  <div class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="massageH6"
-                      >Promotions & discount codes (plans)</span
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-6 rounded-3xl border bg-white p-6">
-                <div
-                  class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary"
-                >
-                  <span data-i18n="ctaStripBadge">Ready when you are</span>
-                </div>
-                <h3 class="mt-3 text-lg font-bold" data-i18n="ctaStripTitle">
-                  Try it for 15 days — start taking bookings with ease
-                </h3>
-                <p class="mt-2 text-sm text-slate-600" data-i18n="ctaStripDesc">
-                  Our team will help you get set up smoothly—then you can decide
-                  with confidence.
-                </p>
-
-                <div
-                  class="mt-4 flex w-full flex-col gap-2 sm:w-auto sm:flex-row"
-                >
-                  <a
-                    href="/trial"
-                    class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:opacity-95"
-                    data-i18n="ctaStripPrimary"
-                    >Start 15-day trial</a
-                  >
-                  <a
-                    href="/contact"
-                    class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                    data-i18n="ctaStripSecondary"
-                    >Message us</a
-                  >
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- ✅ PACKAGES (Inserted into Home) -->
-      <section id="home-plans" class="border-t bg-white/60">
-        <div class="mx-auto max-w-6xl px-4 py-12">
-          <div
-            class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end"
+          <article
+            class="rounded-[2rem] border bg-[#FAF2FF] p-6 shadow-soft min-h-[250px]"
           >
-            <div>
-              <h2
-                class="text-2xl font-bold tracking-tight md:text-3xl"
-                data-i18n="homePlansTitle"
-              >
-                Packages & pricing
-              </h2>
-              <p class="mt-2 text-slate-600" data-i18n="homePlansDesc">
-                Choose monthly or yearly billing. Yearly saves 50% compared to
-                monthly.
-              </p>
-            </div>
-
-            <!-- Billing toggle -->
-            <div class="rounded-3xl border bg-white p-2">
-              <div class="flex items-center gap-2">
-                <button
-                  id="homeBtnMonthly"
-                  type="button"
-                  class="rounded-2xl px-4 py-2 text-sm font-semibold"
-                >
-                  Monthly
-                </button>
-                <button
-                  id="homeBtnAnnual"
-                  type="button"
-                  class="rounded-2xl px-4 py-2 text-sm font-semibold"
-                >
-                  Annual (save 50%)
-                </button>
+            <div class="flex flex-col items-center text-center gap-3">
+              <div class="flex justify-center mt-5 h-20">
+                <img src="./assets/icon-home3.svg" alt="" />
+              </div>
+              <div>
+                <div class="text-sm font-semibold mt-5 text-xl text-[#B91774]">
+                  ลูกค้าจองเองบนมือถือ
+                </div>
+                <div class="mt-1 text-md text-primary">
+                  ลดแชท ลดการคอนเฟิร์มซ้ำ
+                </div>
               </div>
             </div>
+          </article>
+
+          <article class="rounded-[2rem] border bg-[#FAF2FF] p-6 shadow-soft">
+            <div class="flex flex-col items-center text-center gap-3">
+              <div class="flex justify-center mt-5 h-20">
+                <img src="./assets/icon-home4.svg" alt="" />
+              </div>
+              <div>
+                <div class="text-sm font-semibold mt-5 text-xl text-[#B91774]">
+                  มีเว็บจอง + ลิงก์ร้าน
+                </div>
+                <div class="mt-1 text-md text-primary">
+                  ได้เว็บจองแบบแบรนด์ร้าน ไม่หลุดไปเว็บอื่น
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-[2rem] border bg-[#FAF2FF] p-6 shadow-soft">
+            <div class="flex flex-col items-center text-center gap-3">
+              <div class="flex justify-center mt-5 h-20">
+                <img src="./assets/icon-home5.svg" alt="" />
+              </div>
+              <div>
+                <div class="text-sm font-semibold mt-5 text-xl text-[#B91774]">
+                  ทีมเราช่วยตั้งค่าให้
+                </div>
+                <div class="mt-1 text-md text-primary">
+                  ช่วยเซ็ตข้อมูลให้พร้อมใช้งาน
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="rounded-[2rem] border bg-[#FAF2FF] p-6 shadow-soft">
+            <div class="flex flex-col items-center text-center gap-3">
+              <div class="flex justify-center mt-5 h-20">
+                <img src="./assets/icon-home6.svg" alt="" />
+              </div>
+              <div>
+                <div class="text-sm font-semibold mt-5 text-xl text-[#B91774]">
+                  รายงานและบันทึกกิจกรรม
+                </div>
+                <div class="mt-1 text-md text-primary">
+                  รู้ว่าวันไหนขายดี ลูกค้าใหม่เยอะเท่าไหร่
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- USE CASE -->
+    <section
+      class="border-t bg-gradient-to-b from-white via-secondary/5 to-white"
+    >
+      <div class="mx-auto max-w-6xl px-4 py-16">
+        <div class="text-center">
+          <div
+            class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-[#FAF2FF]/80 px-4 py-1 text-sm font-semibold text-[#B91774]"
+          >
+            โฟกัสร้านนวดเป็นหลัก
+          </div>
+          <h2 class="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
+            ลด no-show และทำให้ตารางคิว “สะอาดขึ้นมาก”
+          </h2>
+          <p class="mt-2 text-slate-600">
+            แก้ปัญหาหน้างานจริง: ตารางวุ่น, คิวซ้อน, ลูกค้าทักแชทเยอะ,
+            แอดมินหนัก
+          </p>
+        </div>
+
+        <div class="mt-10 rounded-[2rem] border bg-primary p-6 shadow-soft">
+          <div class="grid gap-4 lg:grid-cols-2">
+            <div class="rounded-[1.5rem] border bg-[#FAF2FF] p-5">
+              <div class="text-sm font-extrabold text-[#B91774]">
+                ปัญหาที่เจอบ่อย
+              </div>
+              <ul class="mt-3 grid gap-2 text-sm text-slate-700">
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#B91774]/30 text-primary"
+                    >✓</span
+                  >
+                  ยกเลิกนาทีสุดท้าย / no-show
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#B91774]/30 text-primary"
+                    >✓</span
+                  >
+                  คิวซ้อนหลายพนักงาน / เช็คคิวพลาด
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#B91774]/30 text-primary"
+                    >✓</span
+                  >
+                  ปรับเวลาเปิด-ปิด / เวลาพัก / วันหยุดยาก
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#B91774]/30 text-primary"
+                    >✓</span
+                  >
+                  แชทเยอะ เพราะต้องคอนเฟิร์มเองตลอด
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#B91774]/30 text-primary"
+                    >✓</span
+                  >
+                  เงินสด/บัตร/ออนไลน์ รวมกันแล้วตามยาก
+                </li>
+              </ul>
+            </div>
+
+            <div class="rounded-[1.5rem] border bg-[#FAF2FF] p-5">
+              <div class="text-sm font-extrabold text-[#B91774]">
+                สิ่งที่ระบบช่วยได้
+              </div>
+              <ul class="mt-3 grid gap-2 text-sm text-slate-700">
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#B91774]/30 text-secondary"
+                    >✓</span
+                  >
+                  ลูกค้าจองเอง → ร้านได้คิวแบบชัดเจน
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#B91774]/30 text-secondary"
+                    >✓</span
+                  >
+                  กันคิวซ้ำอัตโนมัติ (ลดความพลาด)
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#B91774]/30 text-secondary"
+                    >✓</span
+                  >
+                  แจ้งเตือนลูกค้าผ่านอีเมลแบบสุภาพ
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#B91774]/30 text-secondary"
+                    >✓</span
+                  >
+                  ดูสถานะการจ่ายเงินได้ในคิวเดียวกัน
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#B91774]/30 text-secondary"
+                    >✓</span
+                  >
+                  รายงานยอดจอง + ประวัติลูกค้า + บันทึกกิจกรรม
+                </li>
+              </ul>
+            </div>
           </div>
 
-          <div class="mt-3 text-xs text-slate-500" data-i18n="homeVatNote">
-            VAT is shown at 21%. Prices below are excl. VAT unless stated.
-          </div>
-
-          <!-- Cards rendered by HTML (features list is static; prices updated by JS) -->
-          <div id="homePlanCards" class="mt-8 grid gap-4 md:grid-cols-3">
-            <!-- Junior -->
-            <article
-              class="rounded-3xl border bg-white p-6 shadow-sm"
-              data-plan="junior"
-            >
-              <div class="flex items-start justify-between gap-3">
-                <div>
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="homePricing.plans.junior.name"
-                  >
-                    🟢 Junior
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-4">
-                <div class="flex items-baseline justify-between gap-3">
-                  <div class="text-3xl font-bold tracking-tight">
-                    <span id="plan-junior-price">€0.00</span
-                    ><span
-                      id="plan-junior-price-suffix"
-                      class="text-sm font-semibold text-slate-600"
-                    >
-                      /month</span
-                    >
-                  </div>
-
-                  <div
-                    id="plan-junior-save"
-                    class="hidden text-xs font-semibold text-primary rounded-full bg-primary/10 px-3 py-1"
-                    data-i18n="homePricing.labels.save10"
-                  >
-                    Save 50%
-                  </div>
-                </div>
-
-                <div
-                  id="plan-junior-monthEqRow"
-                  class="hidden mt-2 text-sm text-slate-600"
-                >
-                  <span
-                    class="font-semibold text-slate-900"
-                    data-i18n="homePricing.labels.monthEq"
-                    >Monthly equivalent</span
-                  >:
-                  <span id="plan-junior-monthEq">€0.00</span>
-                  <span data-i18n="homePricing.labels.perMonth">/month</span>
-                </div>
-
-                <div
-                  id="plan-junior-billed"
-                  class="mt-1 text-xs text-slate-500"
-                >
-                  Billed monthly
-                </div>
-              </div>
-
-              <div class="mt-4 rounded-2xl border bg-white p-4 text-sm">
-                <div class="flex items-center justify-between gap-3">
-                  <span
-                    class="text-slate-600"
-                    data-i18n="homePricing.labels.subtotalEx"
-                    >Subtotal (excl. VAT)</span
-                  >
-                  <span id="plan-junior-subtotal" class="font-semibold"
-                    >€0.00</span
-                  >
-                </div>
-                <div class="mt-2 flex items-center justify-between gap-3">
-                  <span
-                    class="text-slate-600"
-                    data-i18n="homePricing.labels.vat"
-                    >VAT (21%)</span
-                  >
-                  <span id="plan-junior-vat" class="font-semibold">€0.00</span>
-                </div>
-                <div
-                  class="mt-2 flex items-center justify-between gap-3 border-t pt-2"
-                >
-                  <span
-                    class="text-slate-900 font-semibold"
-                    data-i18n="homePricing.labels.totalInc"
-                    >Total (incl. VAT)</span
-                  >
-                  <span id="plan-junior-total" class="text-slate-900 font-bold"
-                    >€0.00</span
-                  >
-                </div>
-              </div>
-
-              <div class="mt-5">
-                <div
-                  class="text-sm font-semibold text-slate-900"
-                  data-i18n="homePricing.labels.includes"
-                >
-                  What’s included
-                </div>
-                <ul class="mt-3 grid gap-2">
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.junior.features.1.label"
-                      >Online booking website & dashboard</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.junior.features.3.label"
-                      >Booking calendar (up to 35 bookings / month)</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.junior.features.4.label"
-                      >Client list & booking history</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.junior.features.5.label"
-                      >Business info & opening hours setup</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.junior.features.7.label"
-                      >Manage up to 5 services (1 staff member)</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.junior.features.9.label"
-                      >Online payment setup</span
-                    >
-                  </li>
-                </ul>
-
-                <div class="mt-5 border-t pt-4">
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="homePricing.labels.notIncluded"
-                  >
-                    Not included
-                  </div>
-                  <ul class="mt-3 grid gap-2">
-                    <li class="flex gap-2 text-sm text-slate-700">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
-                        >–</span
-                      >
-                      <span
-                        data-i18n="homePricing.plans.junior.features.0.label"
-                        >Automatic booking reminder emails</span
-                      >
-                    </li>
-                    <li class="flex gap-2 text-sm text-slate-700">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
-                        >–</span
-                      >
-                      <span
-                        data-i18n="homePricing.plans.junior.features.2.label"
-                        >Custom booking link (your brand URL)</span
-                      >
-                    </li>
-                    <li class="flex gap-2 text-sm text-slate-700">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
-                        >–</span
-                      >
-                      <span
-                        data-i18n="homePricing.plans.junior.features.6.label"
-                        >Google Calendar sync</span
-                      >
-                    </li>
-                    <li class="flex gap-2 text-sm text-slate-700">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
-                        >–</span
-                      >
-                      <span
-                        data-i18n="homePricing.plans.junior.features.8.label"
-                        >Multi-user access</span
-                      >
-                    </li>
-                    <li class="flex gap-2 text-sm text-slate-700">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
-                        >–</span
-                      >
-                      <span
-                        data-i18n="homePricing.plans.junior.features.10.label"
-                        >Plans & pricing management</span
-                      >
-                    </li>
-                    <li class="flex gap-2 text-sm text-slate-700">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
-                        >–</span
-                      >
-                      <span
-                        data-i18n="homePricing.plans.junior.features.11.label"
-                        >Discount codes & promotions</span
-                      >
-                    </li>
-                    <li class="flex gap-2 text-sm text-slate-700">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
-                        >–</span
-                      >
-                      <span
-                        data-i18n="homePricing.plans.junior.features.12.label"
-                        >Staff & service scheduling</span
-                      >
-                    </li>
-                    <li class="flex gap-2 text-sm text-slate-700">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
-                        >–</span
-                      >
-                      <span
-                        data-i18n="homePricing.plans.junior.features.13.label"
-                        >Booking reports & activity logs</span
-                      >
-                    </li>
-                    <li class="flex gap-2 text-sm text-slate-700">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
-                        >–</span
-                      >
-                      <span
-                        data-i18n="homePricing.plans.junior.features.14.label"
-                        >Payment reports</span
-                      >
-                    </li>
-                    <li class="flex gap-2 text-sm text-slate-700">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
-                        >–</span
-                      >
-                      <span
-                        data-i18n="homePricing.plans.junior.features.15.label"
-                        >Priority support</span
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <div class="hidden md:block h-[24px]" data-lang-show="nl"></div>
-                <div class="hidden md:block h-[4px]" data-lang-show="th"></div>
-                <div class="hidden md:block h-[4px]" data-lang-show="en"></div>
-
-                <div
-                  class="mt-4 rounded-2xl bg-primary/5 p-4 text-sm text-slate-700"
-                >
-                  <div
-                    class="font-semibold text-slate-900"
-                    data-i18n="homePricing.labels.noteShort"
-                  >
-                    You can upgrade anytime. No pressure.
-                  </div>
-                  <div
-                    class="mt-1"
-                    data-i18n="homePricing.plans.junior.gentleNote"
-                  >
-                    A sweet starting point…
-                  </div>
-                </div>
-
-                <div class="mt-4">
-                  <a
-                    href="/payment"
-                    class="inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
-                    data-i18n="homePricing.plans.junior.cta"
-                    >Start with Junior</a
-                  >
-                </div>
-              </div>
-            </article>
-
-            <!-- Senior (highlight) -->
-            <article
-              class="rounded-3xl border-2 border-primary bg-white p-6 shadow-sm"
-              data-plan="senior"
-            >
-              <div class="flex items-start justify-between gap-3">
-                <div>
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="homePricing.plans.senior.name"
-                  >
-                    ⭐ Senior
-                  </div>
-                </div>
-
-                <div
-                  class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
-                >
-                  <span>★</span>
-                  <span data-i18n="homePricing.labels.mostPopular"
-                    >Recommended</span
-                  >
-                </div>
-              </div>
-
-              <div class="mt-4">
-                <div class="flex items-baseline justify-between gap-3">
-                  <div class="text-3xl font-bold tracking-tight">
-                    <span id="plan-senior-price">€0.00</span
-                    ><span
-                      id="plan-senior-price-suffix"
-                      class="text-sm font-semibold text-slate-600"
-                    >
-                      /month</span
-                    >
-                  </div>
-
-                  <div
-                    id="plan-senior-save"
-                    class="hidden text-xs font-semibold text-primary rounded-full bg-primary/10 px-3 py-1"
-                    data-i18n="homePricing.labels.save10"
-                  >
-                    Save 50%
-                  </div>
-                </div>
-
-                <div
-                  id="plan-senior-monthEqRow"
-                  class="hidden mt-2 text-sm text-slate-600"
-                >
-                  <span
-                    class="font-semibold text-slate-900"
-                    data-i18n="homePricing.labels.monthEq"
-                    >Monthly equivalent</span
-                  >:
-                  <span id="plan-senior-monthEq">€0.00</span>
-                  <span data-i18n="homePricing.labels.perMonth">/month</span>
-                </div>
-
-                <div
-                  id="plan-senior-billed"
-                  class="mt-1 text-xs text-slate-500"
-                >
-                  Billed monthly
-                </div>
-              </div>
-
-              <div class="mt-4 rounded-2xl border bg-white p-4 text-sm">
-                <div class="flex items-center justify-between gap-3">
-                  <span
-                    class="text-slate-600"
-                    data-i18n="homePricing.labels.subtotalEx"
-                    >Subtotal (excl. VAT)</span
-                  >
-                  <span id="plan-senior-subtotal" class="font-semibold"
-                    >€0.00</span
-                  >
-                </div>
-                <div class="mt-2 flex items-center justify-between gap-3">
-                  <span
-                    class="text-slate-600"
-                    data-i18n="homePricing.labels.vat"
-                    >VAT (21%)</span
-                  >
-                  <span id="plan-senior-vat" class="font-semibold">€0.00</span>
-                </div>
-                <div
-                  class="mt-2 flex items-center justify-between gap-3 border-t pt-2"
-                >
-                  <span
-                    class="text-slate-900 font-semibold"
-                    data-i18n="homePricing.labels.totalInc"
-                    >Total (incl. VAT)</span
-                  >
-                  <span id="plan-senior-total" class="text-slate-900 font-bold"
-                    >€0.00</span
-                  >
-                </div>
-              </div>
-
-              <div class="mt-5">
-                <div
-                  class="text-sm font-semibold text-slate-900"
-                  data-i18n="homePricing.labels.includes"
-                >
-                  What’s included
-                </div>
-                <ul class="mt-3 grid gap-2">
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.senior.features.0.label"
-                      >Automatic booking reminder emails</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.senior.features.1.label"
-                      >Online booking website & dashboard</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.senior.features.3.label"
-                      >Booking calendar (up to 100 bookings / month)</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.senior.features.4.label"
-                      >Client list & booking history</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.senior.features.5.label"
-                      >Business info & opening hours setup</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.senior.features.6.label"
-                      >Google Calendar sync</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.senior.features.7.label"
-                      >Unlimited services & up to 5 staff members</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.senior.features.9.label"
-                      >Online payment setup</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.senior.features.10.label"
-                      >Plans & pricing management</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.senior.features.11.label"
-                      >Discount codes & promotions</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.senior.features.12.label"
-                      >Staff & service scheduling</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.senior.features.13.label"
-                      >Booking reports & activity logs</span
-                    >
-                  </li>
-                </ul>
-
-                <div class="mt-5 border-t pt-4">
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="homePricing.labels.notIncluded"
-                  >
-                    Not included
-                  </div>
-                  <ul class="mt-3 grid gap-2">
-                    <li class="flex gap-2 text-sm text-slate-700">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
-                        >–</span
-                      >
-                      <span
-                        data-i18n="homePricing.plans.senior.features.2.label"
-                        >Custom booking link (your brand URL)</span
-                      >
-                    </li>
-                    <li class="flex gap-2 text-sm text-slate-700">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
-                        >–</span
-                      >
-                      <span
-                        data-i18n="homePricing.plans.senior.features.8.label"
-                        >Multi-user access</span
-                      >
-                    </li>
-                    <li class="flex gap-2 text-sm text-slate-700">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
-                        >–</span
-                      >
-                      <span
-                        data-i18n="homePricing.plans.senior.features.14.label"
-                        >Payment reports</span
-                      >
-                    </li>
-                    <li class="flex gap-2 text-sm text-slate-700">
-                      <span
-                        class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
-                        >–</span
-                      >
-                      <span
-                        data-i18n="homePricing.plans.senior.features.15.label"
-                        >Priority support</span
-                      >
-                    </li>
-                  </ul>
-                </div>
-
-                <div
-                  class="mt-4 rounded-2xl bg-primary/5 p-4 text-sm text-slate-700"
-                >
-                  <div
-                    class="font-semibold text-slate-900"
-                    data-i18n="homePricing.labels.noteShort"
-                  >
-                    You can upgrade anytime. No pressure.
-                  </div>
-                  <div
-                    class="mt-1"
-                    data-i18n="homePricing.plans.senior.gentleNote"
-                  >
-                    Perfect when you want reminders…
-                  </div>
-                </div>
-
-                <div class="mt-4">
-                  <a
-                    href="/payment"
-                    class="inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
-                    data-i18n="homePricing.plans.senior.cta"
-                    >Start with Senior</a
-                  >
-                </div>
-              </div>
-            </article>
-
-            <!-- Master -->
-            <article
-              class="rounded-3xl border bg-white p-6 shadow-sm"
-              data-plan="master"
-            >
-              <div class="flex items-start justify-between gap-3">
-                <div>
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="homePricing.plans.master.name"
-                  >
-                    👑 Master
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-4">
-                <div class="flex items-baseline justify-between gap-3">
-                  <div class="text-3xl font-bold tracking-tight">
-                    <span id="plan-master-price">€0.00</span
-                    ><span
-                      id="plan-master-price-suffix"
-                      class="text-sm font-semibold text-slate-600"
-                    >
-                      /month</span
-                    >
-                  </div>
-
-                  <div
-                    id="plan-master-save"
-                    class="hidden text-xs font-semibold text-primary rounded-full bg-primary/10 px-3 py-1"
-                    data-i18n="homePricing.labels.save10"
-                  >
-                    Save 50%
-                  </div>
-                </div>
-
-                <div
-                  id="plan-master-monthEqRow"
-                  class="hidden mt-2 text-sm text-slate-600"
-                >
-                  <span
-                    class="font-semibold text-slate-900"
-                    data-i18n="homePricing.labels.monthEq"
-                    >Monthly equivalent</span
-                  >:
-                  <span id="plan-master-monthEq">€0.00</span>
-                  <span data-i18n="homePricing.labels.perMonth">/month</span>
-                </div>
-
-                <div
-                  id="plan-master-billed"
-                  class="mt-1 text-xs text-slate-500"
-                >
-                  Billed monthly
-                </div>
-              </div>
-
-              <div class="mt-4 rounded-2xl border bg-white p-4 text-sm">
-                <div class="flex items-center justify-between gap-3">
-                  <span
-                    class="text-slate-600"
-                    data-i18n="homePricing.labels.subtotalEx"
-                    >Subtotal (excl. VAT)</span
-                  >
-                  <span id="plan-master-subtotal" class="font-semibold"
-                    >€0.00</span
-                  >
-                </div>
-                <div class="mt-2 flex items-center justify-between gap-3">
-                  <span
-                    class="text-slate-600"
-                    data-i18n="homePricing.labels.vat"
-                    >VAT (21%)</span
-                  >
-                  <span id="plan-master-vat" class="font-semibold">€0.00</span>
-                </div>
-                <div
-                  class="mt-2 flex items-center justify-between gap-3 border-t pt-2"
-                >
-                  <span
-                    class="text-slate-900 font-semibold"
-                    data-i18n="homePricing.labels.totalInc"
-                    >Total (incl. VAT)</span
-                  >
-                  <span id="plan-master-total" class="text-slate-900 font-bold"
-                    >€0.00</span
-                  >
-                </div>
-              </div>
-
-              <div class="mt-5">
-                <div
-                  class="text-sm font-semibold text-slate-900"
-                  data-i18n="homePricing.labels.includes"
-                >
-                  What’s included
-                </div>
-                <ul class="mt-3 grid gap-2">
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.master.features.0.label"
-                      >Automatic booking reminder emails</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.master.features.1.label"
-                      >Online booking website & dashboard</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.master.features.2.label"
-                      >Custom booking link (your brand URL)</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.master.features.3.label"
-                      >Unlimited bookings</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.master.features.4.label"
-                      >Client list & booking history</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.master.features.5.label"
-                      >Business info & opening hours setup</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.master.features.6.label"
-                      >Google Calendar sync</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.master.features.7.label"
-                      >Unlimited services & up to 9 staff members</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.master.features.8.label"
-                      >Multi-user access</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.master.features.9.label"
-                      >Online payment setup</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.master.features.10.label"
-                      >Plans & pricing management</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.master.features.11.label"
-                      >Discount codes & promotions</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.master.features.12.label"
-                      >Staff & service scheduling</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.master.features.13.label"
-                      >Booking reports & activity logs</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.master.features.14.label"
-                      >Payment reports</span
-                    >
-                  </li>
-                  <li class="flex gap-2 text-sm text-slate-700">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="homePricing.plans.master.features.15.label"
-                      >Priority support</span
-                    >
-                  </li>
-                </ul>
-                <div class="hidden md:block h-[64px]" data-lang-show="th"></div>
-                <div class="hidden md:block h-[84px]" data-lang-show="en"></div>
-                <div class="hidden md:block h-[84px]" data-lang-show="nl"></div>
-                <div
-                  class="mt-4 rounded-2xl bg-primary/5 p-4 text-sm text-slate-700"
-                >
-                  <div
-                    class="font-semibold text-slate-900"
-                    data-i18n="homePricing.labels.noteShort"
-                  >
-                    You can upgrade anytime. No pressure.
-                  </div>
-                  <div
-                    class="mt-1"
-                    data-i18n="homePricing.plans.master.gentleNote"
-                  >
-                    Ideal when you want deeper reporting…
-                  </div>
-                </div>
-
-                <div class="mt-4">
-                  <a
-                    href="/payment"
-                    class="inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
-                    data-i18n="homePricing.plans.master.cta"
-                    >Start with Master</a
-                  >
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+          <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-end">
             <a
-              href="/pricing"
-              class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              data-i18n="homePlansSeeAll"
+              href="/features"
+              class="inline-flex items-center justify-center rounded-2xl border px-6 py-3 text-sm font-semibold text-white hover:opacity-50 hover:bg-slate-80"
+              >ดูฟีเจอร์ทั้งหมด</a
             >
-              See full pricing details
-            </a>
             <a
               href="/trial"
-              class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:opacity-95"
-              data-i18n="homePlansCta"
+              class="inline-flex items-center justify-center rounded-2xl border px-6 py-3 text-sm font-semibold text-white hover:opacity-50 hover:bg-slate-80"
+              >เริ่มทดลองใช้ 15 วัน</a
             >
-              Start 15-day trial
-            </a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Footer -->
-      <footer class="border-t bg-white/70 backdrop-blur">
-        <div class="mx-auto max-w-6xl px-4 py-10">
+    <!-- PRICING -->
+    <section class="border-t bg-[#FAF2FF]">
+      <div class="mx-auto max-w-6xl px-4 py-16" id="pricing">
+        <div class="text-center">
           <div
-            class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
+            class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-[#FAF2FF]/80 px-4 py-1 text-sm font-semibold text-primary"
           >
-            <div class="flex items-center gap-3">
+            แพ็กเกจราคา
+          </div>
+          <h2 class="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
+            เลือกแพ็กเกจที่เหมาะกับขนาดร้าน
+          </h2>
+          <p class="mt-2 text-slate-600">
+            ช่วงเริ่มต้นเราโฟกัสร้านนวดไทยในเนเธอร์แลนด์เป็นหลัก
+            แต่ระบบรองรับซาลอนอื่น ๆ ได้ด้วย
+          </p>
+        </div>
+
+        <!-- Plans -->
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+          <!-- Junior -->
+          <article
+            class="overflow-hidden rounded-[2rem] border bg-[#FAF2FF] shadow-soft"
+          >
+            <!-- Header เต็มการ์ด -->
+            <div class="relative h-[305px] w-full">
               <img
-                src="/assets/logo-juztbooking.png"
-                alt="juztbooking"
-                class="h-12 rounded-xl object-cover"
+                src="./assets/price-header.webp"
+                alt=""
+                class="absolute inset-0 h-full w-full object-cover"
               />
-              <div>
-                <div class="font-semibold">juztbooking</div>
-                <div class="text-sm text-slate-600" data-i18n="footerLine">
-                  Booking system for Salon & Massage
+
+              <!-- ข้อความอยู่บนรูป -->
+              <div class="relative z-10 h-full px-7 pt-8 text-center">
+                <div class="flex justify-center">
+                  <img src="./assets/icon-junior.svg" alt="" class="h-20" />
+                </div>
+
+                <div class="mt-3 text-2xl font-semibold text-black">Junior</div>
+
+                <div class="mt-2 text-4xl font-semibold text-[#B91774]">
+                  <span id="priceJunior">€19.95</span>
+                  <span class="text-sm font-semibold text-[#B91774]"
+                    >/เดือน</span
+                  >
+                </div>
+
+                <div class="mt-1 text-sm text-slate-800">
+                  ราคานี้ยังไม่รวม VAT
                 </div>
               </div>
             </div>
 
-            <div class="flex flex-wrap items-center gap-3">
-              <a
-                href="/privacy-policy"
-                class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                data-i18n="privacy"
-                >Privacy Policy</a
+            <!-- Body -->
+            <div class="px-7 pb-7">
+              <div
+                class="mt-5 text-center text-xl font-semibold text-[#B91774]"
+                id="metaJunior"
               >
+                เหมาะสำหรับร้านเล็ก
+              </div>
+
+              <ul class="mt-6 grid gap-2 text-sm text-slate-700">
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  จำกัดการจองที่ 60 จอง
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  เว็บไซต์จองออนไลน์
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  ประวัติการชำระเงิน
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  ประวัติการใช้งานลูกค้า
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  ระบบจัดการลูกค้า
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  ระบบจัดการร้าน/บริการ/พนักงาน
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  รองรับการชำระออนไลน์
+                </li>
+              </ul>
 
               <a
-                class="rounded-xl p-2 hover:bg-slate-50"
-                href="https://www.facebook.com/juztbooking"
+                href="/trial"
+                class="mt-10 mb-3 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:opacity-95"
+              >
+                เริ่มทดลองใช้
+              </a>
+            </div>
+          </article>
+
+          <!-- Senior -->
+          <article
+            class="overflow-hidden rounded-[2rem] border bg-[#FAF2FF] shadow-soft"
+          >
+            <div class="relative h-[305px] w-full">
+              <img
+                src="./assets/price-header.webp"
+                alt=""
+                class="absolute inset-0 h-full w-full object-cover"
+              />
+              <div class="relative z-10 h-full px-7 pt-8 text-center">
+                <div class="flex justify-center">
+                  <img src="./assets/icon-senior.svg" alt="" class="h-20" />
+                </div>
+
+                <div class="text-2xl font-semibold text-black">Senior</div>
+
+                <div class="mt-2 text-4xl font-semibold text-[#B91774]">
+                  <span id="priceSenior">€39.95</span>
+                  <span class="text-sm font-semibold text-[#B91774]"
+                    >/เดือน</span
+                  >
+                </div>
+
+                <div class="mt-1 text-sm text-slate-800">
+                  ราคานี้ยังไม่รวม VAT
+                </div>
+              </div>
+            </div>
+
+            <div class="px-7 pb-7">
+              <div
+                class="mt-5 text-center text-xl font-semibold text-[#B91774]"
+                id="metaSenior"
+              >
+                เหมาะสำหรับร้านกลาง
+              </div>
+
+              <ul class="mt-6 grid gap-2 text-sm text-slate-700">
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  ไม่จำกัดการจอง
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  รองรับพนักงาน 5 คน
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  อีเมลแจ้งเตือนการจอง
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  จัดการตารางเวลาพนักงาน
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  จัดการตารางเวลาบริการ
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  ระบบโค้ดส่วนลด / โปรโมชั่น
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  รายงานการจอง
+                </li>
+              </ul>
+
+              <a
+                href="/trial"
+                class="mt-10 mb-3 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:opacity-95"
+              >
+                เริ่มทดลองใช้
+              </a>
+            </div>
+          </article>
+
+          <!-- Master -->
+          <article
+            class="overflow-hidden rounded-[2rem] border bg-[#FAF2FF] shadow-soft"
+          >
+            <div class="relative h-[305px] w-full">
+              <img
+                src="./assets/price-header.webp"
+                alt=""
+                class="absolute inset-0 h-full w-full object-cover"
+              />
+              <div class="relative z-10 h-full px-7 pt-8 text-center">
+                <div class="flex justify-center">
+                  <img src="./assets/icon-master.svg" alt="" class="h-20" />
+                </div>
+
+                <div class="text-2xl font-semibold text-black">Master</div>
+
+                <div class="mt-2 text-4xl font-semibold text-[#B91774]">
+                  <span id="priceMaster">€49.95</span>
+                  <span class="text-sm font-semibold text-[#B91774]"
+                    >/เดือน</span
+                  >
+                </div>
+
+                <div class="mt-1 text-sm text-slate-800">
+                  ราคานี้ยังไม่รวม VAT
+                </div>
+              </div>
+            </div>
+
+            <div class="px-7 pb-7">
+              <div
+                class="mt-5 text-center text-xl font-semibold text-[#B91774]"
+                id="metaMaster"
+              >
+                ทุก Senior ฟีเจอร์
+              </div>
+
+              <ul class="mt-6 grid gap-2 text-sm text-slate-700">
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  รวมทุกฟังก์ชันของระบบ
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  ลิงก์เว็บไซต์เป็นชื่อร้าน
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  ผู้ใช้งานหลายคนในระบบ
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  รองรับพนักงานสูงสุด 9 คน
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  รายงานยอดขาย
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  รายการธุรกรรมการชำระเงิน
+                </li>
+                <li class="flex gap-2">
+                  <span
+                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    >✓</span
+                  >
+                  รายงานภาพรวม VAT
+                </li>
+              </ul>
+
+              <a
+                href="/trial"
+                class="mt-10 mb-3 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:opacity-95"
+              >
+                เริ่มทดลองใช้
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-center">
+          <a
+            href="/pricing"
+            class="inline-flex items-center justify-center rounded-2xl border border-[#B91774] px-6 py-3 text-sm font-semibold text-[#B91774] hover:bg-slate-50"
+          >
+            ดูรายละเอียดราคาเต็ม
+          </a>
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center rounded-2xl bg-[#B91774] px-6 py-3 text-sm font-semibold text-white hover:opacity-95"
+          >
+            ขอใบเสนอราคา / ปรึกษา
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA STRIP -->
+    <section class="border-t bg-primary">
+      <div class="mx-auto max-w-6xl px-4 py-14 text-white">
+        <div class="text-center">
+          <div
+            class="inline-flex items-center gap-2 rounded-full bg-[#FAF2FF]/15 px-4 py-1 text-sm"
+          >
+            พร้อมเมื่อไหร่ก็เริ่มได้
+          </div>
+          <h2 class="mt-8 text-3xl font-semibold tracking-tight md:text-3xl">
+            ตั้งค่าระบบให้พร้อมใช้งานได้ใน “ไม่กี่นาที”
+          </h2>
+          <p class="mt-2 text-white/80">
+            เราช่วยพาเริ่มตั้งค่าให้ครบ แล้วค่อยตัดสินใจก็ได้
+          </p>
+
+          <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <a
+              href="/trial"
+              class="inline-flex items-center justify-center rounded-2xl bg-[#FAF2FF] px-7 py-3 text-sm font-semibold text-primary hover:opacity-95"
+            >
+              เริ่มทดลองใช้ 15 วัน
+            </a>
+            <a
+              href="/contact"
+              class="inline-flex items-center justify-center rounded-2xl border border-white/30 bg-[#FAF2FF]/10 px-7 py-3 text-sm font-semibold text-white hover:bg-[#FAF2FF]/15"
+            >
+              ทักหาเรา
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#080A12] border-t border-purple-100">
+      <div class="mx-auto max-w-6xl px-4 py-14">
+        <!-- Top grid -->
+        <div class="grid gap-10 md:grid-cols-4">
+          <!-- Brand -->
+          <div class="md:col-span-2">
+            <div class="flex items-center gap-3">
+              <div
+                class="grid h-12 w-12 place-items-center rounded-2xl text-white font-semibold"
+              >
+                <img src="./assets/j-logo.svg" alt="" />
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-white">juztbooking</div>
+                <div class="text-sm text-white">
+                  ระบบจองคิวสำหรับ Salon & ร้านนวด
+                </div>
+              </div>
+            </div>
+
+            <p class="mt-4 text-sm text-white leading-relaxed">
+              ช่วยให้ร้านจัดการคิว ลูกค้า และพนักงานได้ง่ายขึ้น
+              ตั้งแต่จองออนไลน์ ไปจนถึงรายงานและการชำระเงิน
+              เหมาะกับร้านเล็กถึงร้านที่มีหลายสาขา
+            </p>
+
+            <!-- Social -->
+            <div class="mt-5 flex flex-wrap items-center gap-2">
+              <a
+                href="https://www.facebook.com/profile.php?id=61585810976713"
+                class="inline-flex items-center gap-2 rounded-xl border border-purple-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
                 aria-label="Facebook"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  class="h-5 w-5 fill-slate-700"
-                  aria-hidden="true"
-                >
+                <svg viewBox="0 0 24 24" class="h-4 w-4 fill-slate-700">
                   <path
                     d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"
                   />
                 </svg>
+                Facebook
               </a>
 
               <a
-                class="rounded-xl p-2 hover:bg-slate-50"
-                href="https://www.x.com/juztbooking"
-                aria-label="X"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  class="h-5 w-5 fill-slate-700"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M18.9 2H22l-6.77 7.73L23 22h-6.17l-4.83-7.06L5.9 22H2.8l7.25-8.29L1 2h6.32l4.37 6.41L18.9 2zm-1.08 18h1.71L7.23 3.9H5.4L17.82 20z"
-                  />
-                </svg>
-              </a>
-
-              <a
-                class="rounded-xl p-2 hover:bg-slate-50"
-                href="https://www.instagram.com/juztbooking"
+                href="https://www.instagram.com/juztbooking/?fbclid=IwY2xjawPxmyxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAEwAAEe5v5lRSrrLk3mlyUPv_nZN2n6hlo7VJEKBj9SBofjbnAsYy6afPGIRMl2V6c_aem_2HOXQYqem7G1DWZe3oCuig"
+                class="inline-flex items-center gap-2 rounded-xl border border-purple-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
                 aria-label="Instagram"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  class="h-5 w-5 fill-slate-700"
-                  aria-hidden="true"
-                >
+                <svg viewBox="0 0 24 24" class="h-4 w-4 fill-slate-700">
                   <path
-                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4.5A5.5 5.5 0 1 1 6.5 14 5.5 5.5 0 0 1 12 8.5zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5zM18 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"
+                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"
                   />
                 </svg>
+                Instagram
+              </a>
+
+              <a
+                href="https://www.tiktok.com/@juztbooking.system?is_from_webapp=1&sender_device=pc"
+                class="inline-flex items-center gap-2 rounded-xl border border-purple-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                aria-label="TikTok"
+              >
+                <svg viewBox="0 0 24 24" class="h-4 w-4 fill-slate-700">
+                  <path
+                    d="M16.5 2c.4 2.7 2.1 4.6 4.5 5v3.1c-1.7.1-3.3-.4-4.5-1.4V16c0 3.4-2.8 6-6.2 6A6.2 6.2 0 0 1 4 15.8c0-3.3 2.7-6 6.2-6 .5 0 1 .1 1.5.2v3.4c-.5-.2-1-.3-1.5-.3-1.6 0-2.9 1.2-2.9 2.7 0 1.6 1.3 2.9 2.9 2.9 1.7 0 3.1-1.3 3.1-3.3V2h3.2z"
+                  />
+                </svg>
+                TikTok
               </a>
             </div>
           </div>
 
-          <div class="mt-6 text-xs text-slate-500">
-            © <span id="year"></span> juztbooking.
-            <span data-i18n="footerRights">All rights reserved.</span>
+          <!-- Quick links -->
+          <div>
+            <div class="text-sm font-extrabold text-white">เมนู</div>
+            <ul class="mt-4 space-y-2 text-sm">
+              <li>
+                <a href="/pricing" class="text-white hover:text-primary"
+                  >ราคาแพ็กเกจ</a
+                >
+              </li>
+              <li>
+                <a href="/features" class="text-white hover:text-primary"
+                  >ฟีเจอร์ทั้งหมด</a
+                >
+              </li>
+              <li>
+                <a href="/trial" class="text-white hover:text-primary"
+                  >ทดลองใช้</a
+                >
+              </li>
+            </ul>
+
+            <ul class="mt-2 space-y-2 text-sm">
+              <li>
+                <a href="/privacy-policy" class="text-white hover:text-primary"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="/terms" class="text-white hover:text-primary"
+                  >Terms of Service</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Support / Contact -->
+          <div>
+            <div class="text-sm font-extrabold text-white">ติดต่อ</div>
+            <ul class="mt-4 space-y-2 text-sm text-white">
+              <li>
+                อีเมล:
+                <a
+                  class="hover:text-primary"
+                  href="mailto:admin@juztbooking.com"
+                  >admin@juztbooking.com</a
+                >
+              </li>
+              <li>เวลาให้บริการ: จ.- ศ. 10:00 - 18:00</li>
+            </ul>
+
+            <a
+              href="/trial"
+              class="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-black text-white hover:opacity-95"
+            >
+              เริ่มทดลองใช้
+            </a>
           </div>
         </div>
-      </footer>
-    </div>
 
+        <!-- Bottom bar -->
+        <div
+          class="mt-12 flex flex-col gap-3 border-t border-purple-100 pt-6 md:flex-row md:items-center md:justify-between"
+        >
+          <div class="text-xs text-white">
+            © <span id="year"></span> juztbooking. สงวนลิขสิทธิ์
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <a
+              href="/privacy-policy"
+              class="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-slate-800"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="/terms"
+              class="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-slate-800"
+            >
+              Terms
+            </a>
+            <a
+              href="/contact"
+              class="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-slate-800"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS -->
     <script>
-      // ---------------------------
-      // ✅ i18n dictionary (EN / TH / NL)
-      // ---------------------------
-      const dict = {
-        en: {
-          tagline: "Booking system for Salon & Massage",
-          navHome: "Home",
-          navSolutions: "Solutions",
-          navFeatures: "Features",
-          navPricing: "Pricing",
-          navContact: "Contact",
-          navLogin: "Login",
-          navTrial: "Start 15-day trial",
-          navTrialShort: "Start 15-day trial",
-          navLangTitle: "Language",
-
-          heroBadge: "A calm, friendly booking experience",
-          heroTitle: "Simple booking for massage shops",
-          heroDesc:
-            "juztbooking is a booking system made for massage shops Easy to start and simple to use, even without technical experience. Customers book on their phone, choosing a service, therapist, and time. The system manages the schedule automatically — no double bookings, no stress.",
-          heroCtaPrimary: "Start 15-day trial",
-          heroCtaSecondary: "See pricing",
-          heroCtaLogin: "Login",
-
-          benefit1: "Reduce admin work",
-          benefit2: "Reduce no-show",
-          benefit3: "Easier payments",
-          benefit4: "Clear reports",
-          annualNote: "Annual billing saves 50%",
-
-          stepsTitle: "Getting started is easy",
-          step1: "Add services (price and duration)",
-          step2: "Add staff and opening hours",
-          step3: "Share your booking link and manage bookings in the calendar",
-          notifyNote: "Friendly notifications can be sent via Email.",
-
-          mini1Title: "Easy to use",
-          mini1Desc: "Start fast—no technical skills needed.",
-          mini2Title: "Thai language ready",
-          mini2Desc: "Comfortable for Thai staff & customers.",
-          mini3Title: "Easy data migration",
-          mini3Desc: "Import services, staff, and clients in minutes.",
-          mini4Title: "Helpful support team",
-          mini4Desc: "We help with setup and ongoing questions.",
-
-          connectTitle: "Connect to your website",
-          connectDesc:
-            "Add a “Book now” button to your current site — or let us build a new one for you.",
-          connectCta: "Talk to us",
-
-          // WHY
-          whyBadge: "Why it feels easy",
-          whyTitle: "Why choose juztbooking",
-          whyDesc:
-            "Built for massage businesses — easy for owners, easy for customers.",
-          whyCta: "Talk to us",
-          why1Title: "Super easy to start",
-          why1Desc:
-            "Simple signup + simple dashboard — even if you’re not techy.",
-          why2Title: "Multi-language support",
-          why2Desc:
-            "Switch languages easily so staff and customers feel comfortable.",
-          why3Title: "Customers book on mobile",
-          why3Desc:
-            "Customers choose service, therapist, date & time — the system prevents double bookings.",
-          why4Title: "Branded booking link",
-          why4Desc:
-            "Your own booking page + dashboard, with a custom link on your domain.",
-          why6Title: "We help you set up",
-          why6Desc:
-            "Our team helps configure services, staff, hours, and booking flow — ready to use.",
-          why8Title: "Reports & activity logs",
-          why8Desc:
-            "Track bookings, changes, and performance — so you can improve with confidence.",
-          whyStripBadge: "Designed for calm, smooth days",
-          whyStripTitle: "Less admin, fewer mistakes, more bookings",
-          whyStripDesc:
-            "Your booking flow becomes clear — customers book themselves, and you stay in control.",
-          whyStripPrimary: "Start 15-day trial",
-          whyStripSecondary: "See pricing",
-
-          // USE CASE
-          useTitle: "Built for massage shops",
-          useDesc:
-            "Fix the real daily pain points: no-shows, messy schedules, and too much admin.",
-          useCta: "See features",
-
-          massageBadge: "Massage",
-          massageTitle: "Reduce no-shows and keep the calendar clean",
-          massageDesc:
-            "Great for busy shops with many slots, multiple therapists, walk-ins, and weekend peaks.",
-          massagePainTitle: "Common pain points",
-          massagePain1: "Last-minute cancellations and no-shows",
-          massagePain2: "Overbooking / double bookings across therapists",
-          massagePain3: "Hard to manage opening hours, breaks, holidays",
-          massagePain4: "Too many chats to confirm bookings manually",
-          massagePain5: "Payments & tracking feel messy (who paid, how, when)",
-          massagePain6: "Difficult to see customer history and repeat visits",
-          massageFlowTitle: "Recommended flow",
-          massageFlow1: "Customer chooses massage type + therapist + time",
-          massageFlow2: "System checks availability and confirms instantly",
-          massageFlow3: "Send a friendly reminder via Email",
-          massageFlow4: "Take payment (cash/card/online) and mark status",
-          massageFlow5: "Review reports and improve schedules weekly",
-          massageHighlightTitle: "Feature highlights",
-          massageH1: "Day/week calendar with clean layout",
-          massageH2: "Opening hours, breaks, holidays",
-          massageH3: "Payment tracking + status control",
-          massageH4: "Clear booking reports",
-          massageH5: "Services + therapist scheduling",
-          massageH6: "Promotions & discount codes (plans)",
-
-          ctaStripBadge: "Ready when you are",
-          ctaStripTitle: "Try it for 15 days — start taking bookings with ease",
-          ctaStripDesc:
-            "Our team will help you get set up smoothly—then you can decide with confidence.",
-          ctaStripPrimary: "Start 15-day trial",
-          ctaStripSecondary: "Message us",
-
-          footerLine: "Booking system for Salon & Massage",
-          privacy: "Privacy Policy",
-          footerRights: "All rights reserved.",
-
-          // ✅ Home packages section
-          homePlansTitle: "Packages & pricing",
-          homePlansDesc:
-            "Choose monthly or yearly billing. Yearly saves 50% compared to monthly.",
-          homeVatNote:
-            "VAT is shown at 21%. Prices below are excl. VAT unless stated.",
-          homePlansSeeAll: "See full pricing details",
-          homePlansCta: "Start 15-day trial",
-
-          homePricing: {
-            billing: { monthly: "Monthly", annual: "Annual (save 50%)" },
-            labels: {
-              mostPopular: "Recommended",
-              billedMonthly: "Billed monthly",
-              billedYearly: "Billed yearly",
-              save10: "Save 50%",
-              perMonth: "/month",
-              perYear: "/year",
-              monthEq: "Monthly equivalent",
-              subtotalEx: "Subtotal (excl. VAT)",
-              vat: "VAT (21%)",
-              totalInc: "Total (incl. VAT)",
-              includes: "What’s included",
-              notIncluded: "Not included",
-              noteShort: "You can upgrade anytime. No pressure.",
-            },
-            plans: {
-              junior: {
-                name: "🟢 Junior",
-                cta: "Start with Junior",
-                gentleNote:
-                  "A sweet starting point when you want a simple online booking page and a tidy calendar.",
-                features: [
-                  { ok: false, label: "Automatic booking reminder emails" },
-                  { ok: true, label: "Online booking website & dashboard" },
-                  { ok: false, label: "Custom booking link (your brand URL)" },
-                  {
-                    ok: true,
-                    label: "Booking calendar (up to 35 bookings / month)",
-                  },
-                  { ok: true, label: "Client list & booking history" },
-                  { ok: true, label: "Business info & opening hours setup" },
-                  { ok: false, label: "Google Calendar sync" },
-                  {
-                    ok: true,
-                    label: "Manage up to 5 services (1 staff member)",
-                  },
-                  { ok: false, label: "Multi-user access" },
-                  { ok: true, label: "Online payment setup" },
-                  { ok: false, label: "Plans & pricing management" },
-                  { ok: false, label: "Discount codes & promotions" },
-                  { ok: false, label: "Staff & service scheduling" },
-                  { ok: false, label: "Booking reports & activity logs" },
-                  { ok: false, label: "Payment reports" },
-                  { ok: false, label: "Priority support" },
-                ],
-              },
-              senior: {
-                name: "⭐ Senior",
-                cta: "Start with Senior",
-                gentleNote:
-                  "Perfect when you want reminders + a smooth calendar, and you’re starting to handle a busier schedule.",
-                features: [
-                  { ok: true, label: "Automatic booking reminder emails" },
-                  { ok: true, label: "Online booking website & dashboard" },
-                  { ok: false, label: "Custom booking link (your brand URL)" },
-                  {
-                    ok: true,
-                    label: "Booking calendar (up to 100 bookings / month)",
-                  },
-                  { ok: true, label: "Client list & booking history" },
-                  { ok: true, label: "Business info & opening hours setup" },
-                  { ok: true, label: "Google Calendar sync" },
-                  {
-                    ok: true,
-                    label: "Unlimited services & up to 5 staff members",
-                  },
-                  { ok: false, label: "Multi-user access" },
-                  { ok: true, label: "Online payment setup" },
-                  { ok: true, label: "Plans & pricing management" },
-                  { ok: true, label: "Discount codes & promotions" },
-                  { ok: true, label: "Staff & service scheduling" },
-                  { ok: true, label: "Booking reports & activity logs" },
-                  { ok: false, label: "Payment reports" },
-                  { ok: false, label: "Priority support" },
-                ],
-              },
-              master: {
-                name: "👑 Master",
-                cta: "Start with Master",
-                gentleNote:
-                  "Ideal when you want deeper reporting, multi-user access, and a branded booking link for your business.",
-                features: [
-                  { ok: true, label: "Automatic booking reminder emails" },
-                  { ok: true, label: "Online booking website & dashboard" },
-                  { ok: true, label: "Custom booking link (your brand URL)" },
-                  { ok: true, label: "Unlimited bookings" },
-                  { ok: true, label: "Client list & booking history" },
-                  { ok: true, label: "Business info & opening hours setup" },
-                  { ok: true, label: "Google Calendar sync" },
-                  {
-                    ok: true,
-                    label: "Unlimited services & up to 9 staff members",
-                  },
-                  { ok: true, label: "Multi-user access" },
-                  { ok: true, label: "Online payment setup" },
-                  { ok: true, label: "Plans & pricing management" },
-                  { ok: true, label: "Discount codes & promotions" },
-                  { ok: true, label: "Staff & service scheduling" },
-                  { ok: true, label: "Booking reports & activity logs" },
-                  { ok: true, label: "Payment reports" },
-                  { ok: true, label: "Priority support" },
-                ],
-              },
-            },
-          },
-        },
-
-        th: {
-          tagline: "ระบบจองคิวสำหรับ Salon & ร้านนวด",
-          navHome: "หน้าแรก",
-          navSolutions: "โซลูชัน",
-          navFeatures: "ฟีเจอร์",
-          navPricing: "แพ็กเกจ",
-          navContact: "ติดต่อ",
-          navLogin: "เข้าสู่ระบบ",
-          navTrial: "ทดลองใช้ 15 วัน",
-          navTrialShort: "ทดลองใช้ 15 วัน",
-          navLangTitle: "ภาษา",
-
-          heroBadge: "ประสบการณ์จองคิวที่สบาย ๆ และเป็นมิตร",
-          heroTitle: "ระบบจองคิวที่เข้าใจร้านนวดจริง ๆ",
-          heroDesc:
-            "juztbooking คือระบบจองคิวสำหรับร้านนวดโดยเฉพาะ ใช้งานง่าย สมัครไม่ยุ่งยาก แม้ไม่ถนัดเทคโนโลยีก็เริ่มได้ทันที ลูกค้าจองเองผ่านมือถือ เลือกบริการ หมอนวด และวันเวลาได้สะดวก ระบบจัดการคิวให้อัตโนมัติ ไม่ซ้ำ ไม่พลาด เหมือนมีผู้ช่วยดูแลทั้งวัน",
-          heroCtaPrimary: "เริ่มทดลองใช้ 15 วัน",
-          heroCtaSecondary: "ดูแพ็กเกจ",
-          heroCtaLogin: "เข้าสู่ระบบ",
-
-          benefit1: "ลดงานแอดมิน",
-          benefit2: "ลด no-show",
-          benefit3: "ชำระเงินง่ายขึ้น",
-          benefit4: "รายงานชัดขึ้น",
-          annualNote: "รายปีประหยัด 50%",
-
-          stepsTitle: "เริ่มใช้งานง่ายมาก",
-          step1: "เพิ่มบริการ (ราคา และระยะเวลา)",
-          step2: "เพิ่มพนักงาน และเวลาเปิด-ปิด",
-          step3: "แชร์ลิงก์จอง และจัดการคิวในปฏิทิน",
-          notifyNote: "ส่งการแจ้งเตือนแบบเป็นมิตรผ่าน Email ได้",
-
-          mini1Title: "ใช้งานง่าย",
-          mini1Desc: "เริ่มได้ทันที ไม่ต้องมีพื้นฐาน",
-          mini2Title: "รองรับภาษาไทย",
-          mini2Desc: "ทีมงานและลูกค้าใช้งานได้สบาย",
-          mini3Title: "ย้ายข้อมูลง่าย",
-          mini3Desc: "นำเข้าลูกค้า/บริการ/พนักงานได้ไว",
-          mini4Title: "มีทีมงานช่วยเหลือ",
-          mini4Desc: "ช่วยตั้งค่าและตอบคำถามเมื่อมีปัญหา",
-
-          connectTitle: "เชื่อมกับเว็บไซต์ของคุณ",
-          connectDesc:
-            "เพิ่มปุ่ม “จองเลย” ในเว็บเดิมของคุณ — หรือให้เราทำเว็บใหม่ให้ก็ได้",
-          connectCta: "คุยกับเรา",
-
-          // WHY
-          whyBadge: "ทำไมถึงใช้ง่าย",
-          whyTitle: "ทำไมต้องเลือกใช้ juztbooking",
-          whyDesc: "ออกแบบมาเพื่อร้านนวด — เจ้าของร้านใช้ง่าย ลูกค้าจองสบาย",
-          whyCta: "คุยกับเรา",
-          why1Title: "สมัครและใช้งานง่ายมาก",
-          why1Desc: "แดชบอร์ดเข้าใจง่าย คนไม่ถนัดเทคโนโลยีก็เริ่มได้ทันที",
-          why2Title: "รองรับหลายภาษา",
-          why2Desc:
-            "สลับภาษาได้ง่าย ให้ทีมงานและลูกค้ารู้สึกคุ้นเคยในการใช้งาน",
-          why3Title: "ลูกค้าจองเองบนมือถือ",
-          why3Desc:
-            "ลูกค้าเลือกบริการ/หมอนวด/วันเวลาเอง ระบบกันคิวซ้ำให้อัตโนมัติ",
-          why4Title: "มีเว็บจอง + ลิงก์แบรนด์ร้าน",
-          why4Desc: "มีหน้าเว็บจองและแดชบอร์ดจัดการ พร้อมลิงก์จองในโดเมนร้าน",
-          why6Title: "ทีมงานช่วยตั้งค่าจนพร้อมใช้",
-          why6Desc:
-            "ช่วยเซ็ตบริการ พนักงาน เวลาเปิด-ปิด และโฟลว์การจอง ให้พร้อมเริ่ม",
-          why8Title: "รายงานและบันทึกกิจกรรม",
-          why8Desc:
-            "ติดตามการจอง การเปลี่ยนแปลง และภาพรวมธุรกิจ เพื่อวิเคราะห์ต่อได้ง่าย",
-          whyStripBadge: "ออกแบบเพื่อให้วันทำงานนิ่งขึ้น",
-          whyStripTitle: "แอดมินน้อยลง พลาดน้อยลง รับจองได้มากขึ้น",
-          whyStripDesc: "โฟลว์ชัด ลูกค้าจองเอง ร้านคุมได้ครบในระบบเดียว",
-          whyStripPrimary: "เริ่มทดลองใช้ 15 วัน",
-          whyStripSecondary: "ดูแพ็กเกจ",
-
-          // USE CASE
-          useTitle: "ทำมาเพื่อร้านนวดโดยเฉพาะ",
-          useDesc:
-            "แก้ปัญหาหน้างานจริง: no-show, ตารางวุ่น, แชทเยอะ และแอดมินหนัก",
-          useCta: "ดูฟีเจอร์",
-
-          massageBadge: "ร้านนวด",
-          massageTitle: "ลด no-show และทำให้ตารางคิวดูสะอาดขึ้นมาก",
-          massageDesc:
-            "เหมาะกับร้านที่มีหลายช่วงเวลา หลายหมอนวด มี walk-in และคิวแน่นช่วงสุดสัปดาห์",
-          massagePainTitle: "ปัญหาที่พบบ่อย",
-          massagePain1: "ยกเลิกกะทันหัน / no-show",
-          massagePain2: "คิวชนกัน / จองซ้ำระหว่างหมอนวด",
-          massagePain3: "จัดเวลาเปิด-ปิด เวลาพัก วันหยุดยาก",
-          massagePain4: "ต้องตอบแชทเพื่อยืนยันคิวเยอะ",
-          massagePain5:
-            "การเก็บเงินและติดตามสถานะดูวุ่น (ใครจ่ายอะไร เมื่อไหร่)",
-          massagePain6: "ดูประวัติลูกค้าและการกลับมาซ้ำได้ยาก",
-          massageFlowTitle: "โฟลว์ที่แนะนำ",
-          massageFlow1: "ลูกค้าเลือกประเภทนวด + หมอนวด + เวลา",
-          massageFlow2: "ระบบเช็คว่างและยืนยันอัตโนมัติทันที",
-          massageFlow3: "เตือนนัดแบบสุภาพผ่าน Email",
-          massageFlow4: "รับชำระเงิน (สด/บัตร/ออนไลน์) และอัปเดตสถานะ",
-          massageFlow5: "ดูรายงานและปรับตารางให้ดีขึ้นทุกสัปดาห์",
-          massageHighlightTitle: "จุดเด่นของฟีเจอร์",
-          massageH1: "ปฏิทินรายวัน/รายสัปดาห์ ดูง่าย",
-          massageH2: "ตั้งค่าเวลาเปิด-ปิด เวลาพัก วันหยุด",
-          massageH3: "ติดตามการชำระเงิน + คุมสถานะงาน",
-          massageH4: "รายงานการจองชัดเจน",
-          massageH5: "จัดตารางบริการ + หมอนวด",
-          massageH6: "โปรโมชัน & โค้ดส่วนลด (ตามแพ็กเกจ)",
-
-          ctaStripBadge: "พร้อมเมื่อไหร่ก็เริ่มได้",
-          ctaStripTitle: "ลองใช้ 15 วัน — เริ่มรับจองได้แบบสบาย ๆ",
-          ctaStripDesc:
-            "ทีมงานช่วยพาเริ่มตั้งค่าให้ครบ แล้วค่อยตัดสินใจก็ได้ค่ะ",
-          ctaStripPrimary: "เริ่มทดลองใช้ 15 วัน",
-          ctaStripSecondary: "ทักหาเรา",
-
-          footerLine: "ระบบจองคิวสำหรับ Salon & ร้านนวด",
-          privacy: "Privacy Policy",
-          footerRights: "สงวนลิขสิทธิ์",
-
-          homePlansTitle: "แพ็กเกจ & ราคา",
-          homePlansDesc: "เลือกได้ทั้งรายเดือนหรือรายปี (รายปีประหยัดกว่า 50%)",
-          homeVatNote:
-            "แสดง VAT 21% ให้ดูชัด ๆ (ราคาด้านล่างเป็นราคายังไม่รวม VAT)",
-          homePlansSeeAll: "ดูรายละเอียดราคาแบบเต็ม",
-          homePlansCta: "เริ่มทดลองใช้ 15 วัน",
-
-          homePricing: {
-            billing: { monthly: "รายเดือน", annual: "รายปี (ลด 50%)" },
-            labels: {
-              mostPopular: "แนะนำ",
-              billedMonthly: "คิดเงินรายเดือน",
-              billedYearly: "คิดเงินรายปี",
-              save10: "ประหยัด 50%",
-              perMonth: "/เดือน",
-              perYear: "/ปี",
-              monthEq: "เฉลี่ยต่อเดือน",
-              subtotalEx: "ยอดรวม (ยังไม่รวม VAT)",
-              vat: "VAT (21%)",
-              totalInc: "ยอดรวม (รวม VAT)",
-              includes: "มีอะไรบ้าง",
-              notIncluded: "ไม่มีในแพ็กนี้",
-              noteShort: "อัปเกรดได้ตลอดค่ะ ไม่กดดันนะคะ",
-            },
-            plans: {
-              junior: {
-                name: "🟢 Junior",
-                cta: "เริ่มด้วย Junior",
-                gentleNote:
-                  "เหมาะมากค่ะ ถ้าอยากเริ่มรับจองออนไลน์และมีปฏิทินคิวที่ดูง่าย ๆ",
-                features: [
-                  { ok: false, label: "อีเมลเตือนนัดอัตโนมัติ" },
-                  { ok: true, label: "หน้าเว็บจองออนไลน์ & แดชบอร์ด" },
-                  {
-                    ok: false,
-                    label: "ลิงก์จองแบบโดเมนแบรนด์คุณ (Custom URL)",
-                  },
-                  { ok: true, label: "ปฏิทินคิว (สูงสุด 35 การจอง/เดือน)" },
-                  { ok: true, label: "รายชื่อลูกค้า & ประวัติการจอง" },
-                  { ok: true, label: "ตั้งค่าข้อมูลร้าน & เวลาเปิด-ปิด" },
-                  { ok: false, label: "ซิงก์ Google Calendar" },
-                  { ok: true, label: "เพิ่มได้สูงสุด 5 บริการ (พนักงาน 1 คน)" },
-                  { ok: false, label: "หลายผู้ใช้งานหลังบ้าน (Multi-user)" },
-                  { ok: true, label: "ตั้งค่ารับชำระเงินออนไลน์" },
-                  { ok: false, label: "จัดการแพ็กเกจ/ราคาในระบบ" },
-                  { ok: false, label: "โค้ดส่วนลด & โปรโมชัน" },
-                  { ok: false, label: "ตารางงานพนักงาน & บริการ" },
-                  { ok: false, label: "รายงานการจอง & บันทึกกิจกรรม" },
-                  { ok: false, label: "รายงานการชำระเงิน" },
-                  { ok: false, label: "Priority support" },
-                ],
-              },
-              senior: {
-                name: "⭐ Senior",
-                cta: "เริ่มด้วย Senior",
-                gentleNote:
-                  "แพ็กนี้จะช่วยเรื่อง “เตือนนัด + จัดคิว” ได้สบายขึ้นมากค่ะ",
-                features: [
-                  { ok: true, label: "อีเมลเตือนนัดอัตโนมัติ" },
-                  { ok: true, label: "หน้าเว็บจองออนไลน์ & แดชบอร์ด" },
-                  {
-                    ok: false,
-                    label: "ลิงก์จองแบบโดเมนแบรนด์คุณ (Custom URL)",
-                  },
-                  { ok: true, label: "ปฏิทินคิว (สูงสุด 100 การจอง/เดือน)" },
-                  { ok: true, label: "รายชื่อลูกค้า & ประวัติการจอง" },
-                  { ok: true, label: "ตั้งค่าข้อมูลร้าน & เวลาเปิด-ปิด" },
-                  { ok: true, label: "ซิงก์ Google Calendar" },
-                  { ok: true, label: "บริการไม่จำกัด & พนักงานสูงสุด 5 คน" },
-                  { ok: false, label: "หลายผู้ใช้งานหลังบ้าน (Multi-user)" },
-                  { ok: true, label: "ตั้งค่ารับชำระเงินออนไลน์" },
-                  { ok: true, label: "จัดการแพ็กเกจ/ราคาในระบบ" },
-                  { ok: true, label: "โค้ดส่วนลด & โปรโมชัน" },
-                  { ok: true, label: "ตารางงานพนักงาน & บริการ" },
-                  { ok: true, label: "รายงานการจอง & บันทึกกิจกรรม" },
-                  { ok: false, label: "รายงานการชำระเงิน" },
-                  { ok: false, label: "Priority support" },
-                ],
-              },
-              master: {
-                name: "👑 Master",
-                cta: "เริ่มด้วย Master",
-                gentleNote:
-                  "เหมาะมากค่ะ ถ้าต้องการรายงานละเอียด มีหลายผู้ใช้ และอยากได้ลิงก์จองที่เป็นแบรนด์ของตัวเอง",
-                features: [
-                  { ok: true, label: "อีเมลเตือนนัดอัตโนมัติ" },
-                  { ok: true, label: "หน้าเว็บจองออนไลน์ & แดชบอร์ด" },
-                  { ok: true, label: "ลิงก์จองแบบโดเมนแบรนด์คุณ (Custom URL)" },
-                  { ok: true, label: "การจองไม่จำกัด" },
-                  { ok: true, label: "รายชื่อลูกค้า & ประวัติการจอง" },
-                  { ok: true, label: "ตั้งค่าข้อมูลร้าน & เวลาเปิด-ปิด" },
-                  { ok: true, label: "ซิงก์ Google Calendar" },
-                  { ok: true, label: "บริการไม่จำกัด & พนักงานสูงสุด 9 คน" },
-                  { ok: true, label: "หลายผู้ใช้งานหลังบ้าน (Multi-user)" },
-                  { ok: true, label: "ตั้งค่ารับชำระเงินออนไลน์" },
-                  { ok: true, label: "จัดการแพ็กเกจ/ราคาในระบบ" },
-                  { ok: true, label: "โค้ดส่วนลด & โปรโมชัน" },
-                  { ok: true, label: "ตารางงานพนักงาน & บริการ" },
-                  { ok: true, label: "รายงานการจอง & บันทึกกิจกรรม" },
-                  { ok: true, label: "รายงานการชำระเงิน" },
-                  { ok: true, label: "Priority support" },
-                ],
-              },
-            },
-          },
-        },
-
-        nl: {
-          tagline: "Boekingssysteem voor Salon & Massage",
-          navHome: "Home",
-          navSolutions: "Oplossingen",
-          navFeatures: "Functies",
-          navPricing: "Prijzen",
-          navContact: "Contact",
-          navLogin: "Inloggen",
-          navTrial: "Start 15 dagen proef",
-          navTrialShort: "Start 15 dagen proef",
-          navLangTitle: "Taal",
-
-          heroBadge: "Een rustige, vriendelijke boekingservaring",
-          heroTitle: "Eenvoudig boeken voor massagesalons",
-          heroDesc:
-            "juztbooking is een boekingssysteem voor massagesalons Eenvoudig te starten en makkelijk te gebruiken, ook zonder technische kennis. Klanten boeken via hun telefoon en kiezen behandeling, medewerker en tijd. Het systeem regelt de agenda automatisch — geen dubbele boekingen, geen zorgen.",
-          heroCtaPrimary: "Start 15 dagen proef",
-          heroCtaSecondary: "Bekijk prijzen",
-          heroCtaLogin: "Inloggen",
-
-          benefit1: "Minder administratie",
-          benefit2: "Minder no-shows",
-          benefit3: "Makkelijker betalen",
-          benefit4: "Duidelijke rapporten",
-          annualNote: "Jaarlijks 50% korting",
-
-          stepsTitle: "Zo begin je eenvoudig",
-          step1: "Diensten toevoegen (prijs en duur)",
-          step2: "Personeel en openingstijden toevoegen",
-          step3: "Boekingslink delen en boekingen beheren in de kalender",
-          notifyNote: "Vriendelijke meldingen via e-mail.",
-
-          mini1Title: "Makkelijk in gebruik",
-          mini1Desc: "Snel starten, geen technische kennis nodig.",
-          mini2Title: "Ondersteunt Thai",
-          mini2Desc: "Fijn voor Thai team en klanten.",
-          mini3Title: "Data migratie is simpel",
-          mini3Desc: "Importeer klanten, diensten en personeel in minuten.",
-          mini4Title: "Support team staat klaar",
-          mini4Desc: "Hulp bij setup en vragen wanneer nodig.",
-
-          connectTitle: "Koppel aan je website",
-          connectDesc:
-            "Voeg een “Boek nu”-knop toe aan je huidige site — of laat ons een nieuwe site voor je bouwen.",
-          connectCta: "Neem contact op",
-
-          // WHY
-          whyBadge: "Waarom het makkelijk voelt",
-          whyTitle: "Waarom juztbooking",
-          whyDesc:
-            "Gemaakt voor massagesalons — makkelijk voor eigenaar, makkelijk voor klant.",
-          whyCta: "Neem contact op",
-          why1Title: "Supereenvoudig starten",
-          why1Desc:
-            "Eenvoudige aanmelding + duidelijk dashboard — ook zonder technische kennis.",
-          why2Title: "Meertalige ondersteuning",
-          why2Desc:
-            "Schakel snel van taal zodat team en klanten zich direct thuis voelen.",
-          why3Title: "Klanten boeken mobiel",
-          why3Desc:
-            "Klant kiest dienst, medewerker, datum & tijd — geen dubbele boekingen.",
-          why4Title: "Branded boekingslink",
-          why4Desc:
-            "Eigen boekingspagina + dashboard, en custom link op je domein.",
-          why6Title: "Wij helpen met setup",
-          why6Desc:
-            "We helpen diensten, personeel, tijden en flow instellen — klaar voor gebruik.",
-          why8Title: "Rapporten & logs",
-          why8Desc:
-            "Volg boekingen en wijzigingen zodat je met vertrouwen kunt verbeteren.",
-          whyStripBadge: "Voor rustige werkdagen",
-          whyStripTitle: "Minder administratie, minder fouten, meer boekingen",
-          whyStripDesc:
-            "Een duidelijke flow: klanten boeken zelf, jij blijft in controle.",
-          whyStripPrimary: "Start 15 dagen proef",
-          whyStripSecondary: "Bekijk prijzen",
-
-          // USE CASE
-          useTitle: "Gemaakt voor massagesalons",
-          useDesc:
-            "Los echte dagelijkse problemen op: no-shows, rommelige roosters en te veel admin.",
-          useCta: "Bekijk functies",
-
-          massageBadge: "Massage",
-          massageTitle: "Minder no-shows en een nette agenda",
-          massageDesc:
-            "Ideaal voor drukke salons met veel tijdsloten, meerdere therapeuten en piekmomenten.",
-          massagePainTitle: "Veelvoorkomende knelpunten",
-          massagePain1: "Last-minute annuleringen en no-shows",
-          massagePain2: "Overboekingen / dubbele boekingen",
-          massagePain3: "Openingstijden, pauzes en vrije dagen lastig beheren",
-          massagePain4:
-            "Te veel berichten om boekingen handmatig te bevestigen",
-          massagePain5: "Betalingen en tracking voelen rommelig",
-          massagePain6: "Klantgeschiedenis en herhaalbezoeken lastig te zien",
-          massageFlowTitle: "Aanbevolen flow",
-          massageFlow1: "Klant kiest massagetype + therapeut + tijd",
-          massageFlow2:
-            "Systeem controleert beschikbaarheid en bevestigt direct",
-          massageFlow3: "Stuur een vriendelijke reminder via e-mail",
-          massageFlow4: "Betaal (contant/kaart/online) en update status",
-          massageFlow5: "Bekijk rapporten en verbeter roosters wekelijks",
-          massageHighlightTitle: "Feature highlights",
-          massageH1: "Dag-/weekkalender met duidelijke layout",
-          massageH2: "Openingstijden, pauzes, vrije dagen",
-          massageH3: "Betalingen bijhouden + statusbeheer",
-          massageH4: "Duidelijke boekingsrapporten",
-          massageH5: "Diensten + therapeut planning",
-          massageH6: "Promoties & kortingscodes (pakketten)",
-
-          ctaStripBadge: "Klaar wanneer jij klaar bent",
-          ctaStripTitle: "Probeer 15 dagen — begin eenvoudig met boekingen",
-          ctaStripDesc:
-            "Ons team helpt je prettig op weg—daarna kun je rustig beslissen.",
-          ctaStripPrimary: "Start 15 dagen proef",
-          ctaStripSecondary: "Stuur ons een bericht",
-
-          footerLine: "Boekingssysteem voor Salon & Massage",
-          privacy: "Privacybeleid",
-          footerRights: "Alle rechten voorbehouden",
-
-          homePlansTitle: "Pakketten & prijzen",
-          homePlansDesc:
-            "Kies maandelijks of jaarlijks. Jaarlijks bespaart 50% t.o.v. maandelijks.",
-          homeVatNote:
-            "BTW wordt getoond als 21%. Prijzen hieronder zijn excl. BTW tenzij anders vermeld.",
-          homePlansSeeAll: "Bekijk alle prijsdetails",
-          homePlansCta: "Start 15 dagen proef",
-
-          homePricing: {
-            billing: {
-              monthly: "Maandelijks",
-              annual: "Jaarlijks (50% korting)",
-            },
-            labels: {
-              mostPopular: "Aanbevolen",
-              billedMonthly: "Maandelijks",
-              billedYearly: "Jaarlijks",
-              save10: "50% korting",
-              perMonth: "/maand",
-              perYear: "/jaar",
-              monthEq: "Maandelijks equivalent",
-              subtotalEx: "Subtotaal (excl. BTW)",
-              vat: "BTW (21%)",
-              totalInc: "Totaal (incl. BTW)",
-              includes: "Wat zit erin",
-              notIncluded: "Niet inbegrepen",
-              noteShort: "Je kunt altijd upgraden. Geen druk.",
-            },
-            plans: {
-              junior: {
-                name: "🟢 Junior",
-                cta: "Start met Junior",
-                gentleNote:
-                  "Een fijne start met een mooie boekingspagina en duidelijke kalender.",
-                features: [
-                  { ok: false, label: "Automatische reminder e-mails" },
-                  { ok: true, label: "Online boekingswebsite & dashboard" },
-                  { ok: false, label: "Eigen boekingslink (jouw merk-URL)" },
-                  {
-                    ok: true,
-                    label: "Boekingskalender (tot 35 boekingen/maand)",
-                  },
-                  { ok: true, label: "Klantenlijst & boekingshistorie" },
-                  {
-                    ok: true,
-                    label: "Bedrijfsinfo & openingstijden instellen",
-                  },
-                  { ok: false, label: "Google Calendar sync" },
-                  { ok: true, label: "Tot 5 diensten beheren (1 medewerker)" },
-                  { ok: false, label: "Multi-user toegang" },
-                  { ok: true, label: "Online betalen instellen" },
-                  { ok: false, label: "Plannen & prijzen beheren" },
-                  { ok: false, label: "Kortingscodes & promoties" },
-                  { ok: false, label: "Roosters voor diensten & personeel" },
-                  { ok: false, label: "Boekingsrapporten & activiteitenlog" },
-                  { ok: false, label: "Betalingsrapporten" },
-                  { ok: false, label: "Priority support" },
-                ],
-              },
-              senior: {
-                name: "⭐ Senior",
-                cta: "Start met Senior",
-                gentleNote:
-                  "Heel prettig als je reminders wilt en je agenda steeds drukker wordt.",
-                features: [
-                  { ok: true, label: "Automatische reminder e-mails" },
-                  { ok: true, label: "Online boekingswebsite & dashboard" },
-                  { ok: false, label: "Eigen boekingslink (jouw merk-URL)" },
-                  {
-                    ok: true,
-                    label: "Boekingskalender (tot 100 boekingen/maand)",
-                  },
-                  { ok: true, label: "Klantenlijst & boekingshistorie" },
-                  {
-                    ok: true,
-                    label: "Bedrijfsinfo & openingstijden instellen",
-                  },
-                  { ok: true, label: "Google Calendar sync" },
-                  {
-                    ok: true,
-                    label: "Onbeperkte diensten & tot 5 medewerkers",
-                  },
-                  { ok: false, label: "Multi-user toegang" },
-                  { ok: true, label: "Online betalen instellen" },
-                  { ok: true, label: "Plannen & prijzen beheren" },
-                  { ok: true, label: "Kortingscodes & promoties" },
-                  { ok: true, label: "Roosters voor diensten & personeel" },
-                  { ok: true, label: "Boekingsrapporten & activiteitenlog" },
-                  { ok: false, label: "Betalingsrapporten" },
-                  { ok: false, label: "Priority support" },
-                ],
-              },
-              master: {
-                name: "👑 Master",
-                cta: "Start met Master",
-                gentleNote:
-                  "Ideaal als je multi-user, branded link en uitgebreidere rapporten nodig hebt.",
-                features: [
-                  { ok: true, label: "Automatische reminder e-mails" },
-                  { ok: true, label: "Online boekingswebsite & dashboard" },
-                  { ok: true, label: "Eigen boekingslink (jouw merk-URL)" },
-                  { ok: true, label: "Onbeperkte boekingen" },
-                  { ok: true, label: "Klantenlijst & boekingshistorie" },
-                  {
-                    ok: true,
-                    label: "Bedrijfsinfo & openingstijden instellen",
-                  },
-                  { ok: true, label: "Google Calendar sync" },
-                  {
-                    ok: true,
-                    label: "Onbeperkte diensten & tot 9 medewerkers",
-                  },
-                  { ok: true, label: "Multi-user toegang" },
-                  { ok: true, label: "Online betalen instellen" },
-                  { ok: true, label: "Plannen & prijzen beheren" },
-                  { ok: true, label: "Kortingscodes & promoties" },
-                  { ok: true, label: "Roosters voor diensten & personeel" },
-                  { ok: true, label: "Boekingsrapporten & activiteitenlog" },
-                  { ok: true, label: "Betalingsrapporten" },
-                  { ok: true, label: "Priority support" },
-                ],
-              },
-            },
-          },
-        },
-      };
-
-      const LANG_STORAGE_KEY = "juztbooking_lang";
-
-      // ---------------------------
-      // ✅ Active menu (PC / Mobile / Tablet)
-      // ---------------------------
-      function normalizePath(p) {
-        if (!p) return "/";
-        p = p.split("?")[0].split("#")[0];
-        if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
-        return p;
-      }
-
-      function applyActiveNav() {
-        const currentPath = normalizePath(window.location.pathname);
-
-        document.querySelectorAll("a[data-navlink]").forEach((a) => {
-          const href = a.getAttribute("href") || "";
-          if (!href.startsWith("/")) return;
-
-          const linkPath = normalizePath(href);
-          const isActive = linkPath === currentPath;
-
-          a.classList.toggle("bg-primary/10", isActive);
-          a.classList.toggle("text-primary", isActive);
-          a.classList.toggle("ring-1", isActive);
-          a.classList.toggle("ring-primary/20", isActive);
-          a.classList.toggle("hover:bg-primary/10", isActive);
-
-          a.classList.toggle("hover:bg-slate-50", !isActive);
-
-          if (isActive) a.setAttribute("aria-current", "page");
-          else a.removeAttribute("aria-current");
-        });
-      }
-
-      // ---------------------------
-      // ✅ Home Packages logic
-      // ---------------------------
-      const VAT_RATE = 0.21;
-      const DISCOUNT_ANNUAL = 0.5;
-
-      const PRICING_META = {
-        junior: { monthlyExVat: 19.95, highlight: false },
-        senior: { monthlyExVat: 39.95, highlight: true },
-        master: { monthlyExVat: 49.95, highlight: false },
-      };
-
-      const BILLING_STORAGE_KEY = "juztbooking_billing";
-      let currentBilling =
-        localStorage.getItem(BILLING_STORAGE_KEY) || "monthly";
-
-      const homeBtnMonthly = document.getElementById("homeBtnMonthly");
-      const homeBtnAnnual = document.getElementById("homeBtnAnnual");
-
-      function moneyEUR(n) {
-        return "€" + Number(n).toFixed(2);
-      }
-
-      function calcForPlan(monthlyExVat, billingMode) {
-        if (billingMode === "annual") {
-          const subtotal = monthlyExVat * 12 * (1 - DISCOUNT_ANNUAL);
-          const vat = subtotal * VAT_RATE;
-          const total = subtotal + vat;
-          const perMonthEq = subtotal / 12;
-          return { subtotal, vat, total, perMonthEq };
-        } else {
-          const subtotal = monthlyExVat;
-          const vat = subtotal * VAT_RATE;
-          const total = subtotal + vat;
-          return { subtotal, vat, total };
-        }
-      }
-
-      function iconOk() {
-        return `
-          <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-            ✓
-          </span>
-        `;
-      }
-      function iconNo() {
-        return `
-          <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500">
-            –
-          </span>
-        `;
-      }
-
-      // ✅ UPDATED: Sort features (✓ first, then –) + split sections
-      function renderHomePlans() {
-        const lang = localStorage.getItem(LANG_STORAGE_KEY) || "en";
-        const pack = dict[lang] || dict.en;
-        const hp = pack.homePricing || dict.en.homePricing;
-        const labels = hp.labels || dict.en.homePricing.labels;
-
-        const isAnnual = currentBilling === "annual";
-        const order = ["junior", "senior", "master"];
-
-        order.forEach((key) => {
-          const meta = PRICING_META[key];
-          if (!meta) return;
-
-          const c = calcForPlan(meta.monthlyExVat, currentBilling);
-
-          const priceEl = document.getElementById(`plan-${key}-price`);
-          const suffixEl = document.getElementById(`plan-${key}-price-suffix`);
-          const saveEl = document.getElementById(`plan-${key}-save`);
-          const monthEqRow = document.getElementById(`plan-${key}-monthEqRow`);
-          const monthEqEl = document.getElementById(`plan-${key}-monthEq`);
-          const billedEl = document.getElementById(`plan-${key}-billed`);
-
-          const subtotalEl = document.getElementById(`plan-${key}-subtotal`);
-          const vatEl = document.getElementById(`plan-${key}-vat`);
-          const totalEl = document.getElementById(`plan-${key}-total`);
-
-          if (priceEl) {
-            priceEl.textContent = isAnnual
-              ? moneyEUR(c.subtotal)
-              : moneyEUR(meta.monthlyExVat);
-          }
-
-          if (suffixEl) {
-            suffixEl.textContent = isAnnual
-              ? ` ${labels.perYear}`
-              : ` ${labels.perMonth}`;
-          }
-
-          if (saveEl) saveEl.classList.toggle("hidden", !isAnnual);
-
-          if (monthEqRow) monthEqRow.classList.toggle("hidden", !isAnnual);
-          if (monthEqEl && isAnnual)
-            monthEqEl.textContent = moneyEUR(c.perMonthEq);
-
-          if (billedEl) {
-            billedEl.textContent = isAnnual
-              ? labels.billedYearly
-              : labels.billedMonthly;
-          }
-
-          if (subtotalEl) subtotalEl.textContent = moneyEUR(c.subtotal);
-          if (vatEl) vatEl.textContent = moneyEUR(c.vat);
-          if (totalEl) totalEl.textContent = moneyEUR(c.total);
-        });
-      }
-
-      function setBillingUI(mode, shouldRender = true) {
-        currentBilling = mode;
-        localStorage.setItem(BILLING_STORAGE_KEY, mode);
-
-        const active = "bg-primary text-white shadow-sm";
-        const inactive = "text-slate-700 hover:bg-slate-50";
-
-        if (homeBtnMonthly) {
-          homeBtnMonthly.className =
-            "rounded-2xl px-4 py-2 text-sm font-semibold " +
-            (mode === "monthly" ? active : inactive);
-        }
-        if (homeBtnAnnual) {
-          homeBtnAnnual.className =
-            "rounded-2xl px-4 py-2 text-sm font-semibold " +
-            (mode === "annual" ? active : inactive);
-        }
-
-        if (shouldRender) renderHomePlans();
-      }
-
-      homeBtnMonthly?.addEventListener("click", () => setBillingUI("monthly"));
-      homeBtnAnnual?.addEventListener("click", () => setBillingUI("annual"));
-
-      // ---------------------------
-      // ✅ Language dropdown controls + flag images (SVG)
-      // ---------------------------
-      const langBtnDesktop = document.getElementById("langBtnDesktop");
-      const langMenuDesktop = document.getElementById("langMenuDesktop");
-      const langLabelDesktop = document.getElementById("langLabelDesktop");
-
-      const langBtnMobile = document.getElementById("langBtnMobile");
-      const langMenuMobile = document.getElementById("langMenuMobile");
-      const langLabelMobile = document.getElementById("langLabelMobile");
-
-      const FLAG_IMG = {
-        en: "/assets/en.svg",
-        th: "/assets/th.svg",
-        nl: "/assets/nl.svg",
-      };
-
-      const LANG_NAMES = {
-        en: "EN",
-        th: "TH",
-        nl: "NL",
-      };
-
-      function closeLangMenus() {
-        langMenuDesktop?.classList.add("hidden");
-        langBtnDesktop?.setAttribute("aria-expanded", "false");
-        langMenuMobile?.classList.add("hidden");
-        langBtnMobile?.setAttribute("aria-expanded", "false");
-      }
-
-      function toggleLangMenu(btn, menu) {
-        if (!btn || !menu) return;
-        const isOpen = !menu.classList.contains("hidden");
-
-        closeLangMenus();
-
-        if (!isOpen) {
-          menu.classList.remove("hidden");
-          btn.setAttribute("aria-expanded", "true");
-        }
-      }
-
-      function setLangLabel(lang) {
-        const src = FLAG_IMG[lang] || FLAG_IMG.en;
-        const name = LANG_NAMES[lang] || LANG_NAMES.en;
-
-        const html = `
-          <img src="${src}" alt="${name}" class="h-5 w-5 rounded-sm" onerror="this.remove();" />
-          <span class="text-sm font-semibold">${name}</span>
-        `;
-
-        if (langLabelDesktop) langLabelDesktop.innerHTML = html;
-        if (langLabelMobile) langLabelMobile.innerHTML = html;
-        document.documentElement.setAttribute("lang", lang);
-      }
-
-      langBtnDesktop?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleLangMenu(langBtnDesktop, langMenuDesktop);
-      });
-
-      langBtnMobile?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleLangMenu(langBtnMobile, langMenuMobile);
-      });
-
-      document.addEventListener("click", () => closeLangMenus());
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeLangMenus();
-      });
-
-      function applyLangVisibility(lang) {
-        const l = (lang || "").toLowerCase();
-
-        document.querySelectorAll("[data-lang-show]").forEach((el) => {
-          const allow = (el.getAttribute("data-lang-show") || "")
-            .split(",")
-            .map((s) => s.trim().toLowerCase())
-            .filter(Boolean);
-
-          const shouldShow = allow.includes(l);
-
-          // ✅ ถ้าไม่ใช่ภาษาที่อนุญาต → บังคับซ่อนแบบ !important (ชนะ md:block)
-          el.classList.toggle("lang-force-hide", !shouldShow);
-        });
-      }
-      // ---------------------------
-      // ✅ applyLang (Home + packages)
-      // ---------------------------
-      function applyLang(lang) {
-        const pack = dict[lang] || dict.en;
-
-        function getByPath(obj, path) {
-          return String(path)
-            .split(".")
-            .reduce((acc, part) => (acc != null ? acc[part] : undefined), obj);
-        }
-
-        document.querySelectorAll("[data-i18n]").forEach((el) => {
-          const key = el.getAttribute("data-i18n");
-          if (!key) return;
-
-          const isPath = key.includes(".");
-          const value = isPath ? getByPath(pack, key) : pack[key];
-          const fallback = isPath ? getByPath(dict.en, key) : dict.en[key];
-          const finalValue = value ?? fallback;
-
-          if (finalValue === undefined || finalValue === null) return;
-          if (typeof finalValue === "object") return;
-
-          el.textContent = String(finalValue);
-        });
-
-        const hp = pack.homePricing || dict.en.homePricing;
-        if (homeBtnMonthly) homeBtnMonthly.textContent = hp.billing.monthly;
-        if (homeBtnAnnual) homeBtnAnnual.textContent = hp.billing.annual;
-
-        setLangLabel(lang);
-        localStorage.setItem(LANG_STORAGE_KEY, lang);
-        closeLangMenus();
-        applyLangVisibility(lang);
-        applyActiveNav();
-        renderHomePlans();
-      }
-
-      function bindLangButtons(container) {
-        if (!container) return;
-        container.querySelectorAll("[data-lang]").forEach((btn) => {
-          btn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            const lang = btn.getAttribute("data-lang");
-            applyLang(lang);
-          });
-        });
-      }
-
-      bindLangButtons(langMenuDesktop);
-      bindLangButtons(langMenuMobile);
-
-      // ---------------------------
-      // Mobile menu controls
-      // ---------------------------
+      // ======= Mobile Menu =======
       const menuBtn = document.getElementById("menuBtn");
       const menuOverlay = document.getElementById("menuOverlay");
       const mobileMenu = document.getElementById("mobileMenu");
       const menuCloseBtn = document.getElementById("menuCloseBtn");
 
       const openMenu = () => {
-        closeLangMenus();
         menuOverlay.classList.remove("hidden");
         mobileMenu.classList.remove("translate-x-full");
         menuBtn?.setAttribute("aria-expanded", "true");
@@ -3179,15 +1293,92 @@
         if (e.key === "Escape") closeMenu();
       });
 
-      // ---------------------------
-      // Init
-      // ---------------------------
-      const saved = localStorage.getItem(LANG_STORAGE_KEY) || "en";
-      setBillingUI(currentBilling, false);
-      applyLang(saved);
+      // ======= Pricing Toggle (Monthly / Annual) =======
+      const VAT_RATE = 0.21;
+      const DISCOUNT_ANNUAL = 0.5;
 
-      applyActiveNav();
+      const PRICES = {
+        junior: 19.95,
+        senior: 39.95,
+        master: 49.95,
+      };
+
+      let currentBilling = "monthly";
+
+      const homeBtnMonthly = document.getElementById("homeBtnMonthly");
+      const homeBtnAnnual = document.getElementById("homeBtnAnnual");
+
+      const priceJunior = document.getElementById("priceJunior");
+      const priceSenior = document.getElementById("priceSenior");
+      const priceMaster = document.getElementById("priceMaster");
+
+      function moneyEUR(n) {
+        return "€" + Number(n).toFixed(2);
+      }
+
+      function calcAnnualMonthlyEquivalent(monthlyExVat) {
+        // ราคาแบบปี: monthlyExVat * 12 * (1 - discount) / 12
+        const subtotal = monthlyExVat * 12 * (1 - DISCOUNT_ANNUAL);
+        const perMonthEq = subtotal / 12;
+        return perMonthEq;
+      }
+
+      function renderPrices() {
+        if (currentBilling === "annual") {
+          priceJunior.textContent = moneyEUR(
+            calcAnnualMonthlyEquivalent(PRICES.junior),
+          );
+          priceSenior.textContent = moneyEUR(
+            calcAnnualMonthlyEquivalent(PRICES.senior),
+          );
+          priceMaster.textContent = moneyEUR(
+            calcAnnualMonthlyEquivalent(PRICES.master),
+          );
+        } else {
+          priceJunior.textContent = moneyEUR(PRICES.junior);
+          priceSenior.textContent = moneyEUR(PRICES.senior);
+          priceMaster.textContent = moneyEUR(PRICES.master);
+        }
+      }
+
+      function setBillingUI(mode) {
+        currentBilling = mode;
+
+        if (mode === "annual") {
+          homeBtnAnnual.classList.add("bg-primary", "text-white");
+          homeBtnAnnual.classList.remove("text-slate-700", "hover:bg-slate-50");
+
+          homeBtnMonthly.classList.remove("bg-primary", "text-white");
+          homeBtnMonthly.classList.add("text-slate-700", "hover:bg-slate-50");
+        } else {
+          homeBtnMonthly.classList.add("bg-primary", "text-white");
+          homeBtnMonthly.classList.remove(
+            "text-slate-700",
+            "hover:bg-slate-50",
+          );
+
+          homeBtnAnnual.classList.remove("bg-primary", "text-white");
+          homeBtnAnnual.classList.add("text-slate-700", "hover:bg-slate-50");
+        }
+
+        renderPrices();
+      }
+
+      homeBtnMonthly?.addEventListener("click", () => setBillingUI("monthly"));
+      homeBtnAnnual?.addEventListener("click", () => setBillingUI("annual"));
+
+      // Init
       document.getElementById("year").textContent = new Date().getFullYear();
+      setBillingUI("monthly");
+
+      // hero image fallback
+      const heroImg = document.querySelector(
+        'img[src="/assets/home-hero-illustration.png"]',
+      );
+      const heroFallback = document.getElementById("heroFallback");
+      heroImg?.addEventListener("error", () => {
+        heroFallback.style.display = "block";
+      });
     </script>
   </body>
 </html>

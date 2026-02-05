@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -21,18 +21,20 @@
   <body class="text-slate-900">
     <!-- Gradient background -->
     <div
-      class="min-h-screen bg-gradient-to-b from-white via-primary/5 to-white"
+      class="min-h-screen bg-[#FAF2FF][#FAF2FF]-to-b from-white via-primary/5 to-white"
     >
       <!-- Decorative blobs (no images needed) -->
       <div
-        class="pointer-events-none fixed -left-28 top-10 h-80 w-80 rounded-full bg-primary/15 blur-3xl"
+        class="pointer-events-none fixed -left-28 top-10 h-80 w-80 rounded-full bg-[#FAF2FF][#FAF2FF]/15 blur-3xl"
       ></div>
       <div
-        class="pointer-events-none fixed -right-28 top-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl"
+        class="pointer-events-none fixed -right-28 top-24 h-96 w-96 rounded-full bg-[#FAF2FF][#FAF2FF]/10 blur-3xl"
       ></div>
 
       <!-- Top bar -->
-      <div class="sticky top-0 z-40 border-b bg-white/75 backdrop-blur">
+      <div
+        class="sticky top-0 z-40 border-b bg-[#FAF2FF]transparent/75 backdrop-blur"
+      >
         <div
           class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
         >
@@ -50,7 +52,7 @@
             <a
               href="/"
               data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
               data-i18n="navHome"
               >Home</a
             >
@@ -58,28 +60,28 @@
             <a
               href="/solutions"
               data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
               data-i18n="navSolutions"
               >Solutions</a
             >
             <a
               href="/features"
               data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
               data-i18n="navFeatures"
               >Features</a
             >
             <a
               href="/pricing"
               data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
               data-i18n="navPricing"
               >Pricing</a
             >
             <a
               href="/contact"
               data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
               data-i18n="navContact"
               >Contact</a
             >
@@ -88,7 +90,7 @@
             <div class="relative">
               <button
                 id="langBtnDesktop"
-                class="inline-flex items-center gap-2 rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                class="inline-flex items-center gap-2 rounded-2xl border bg-[#FAF2FF]transparent px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
                 aria-haspopup="menu"
                 aria-expanded="false"
                 type="button"
@@ -110,11 +112,11 @@
 
               <div
                 id="langMenuDesktop"
-                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-white shadow-lg"
+                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-[#FAF2FF]transparent shadow-lg"
                 role="menu"
               >
                 <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-[#FAF2FF]slate-50"
                   data-lang="en"
                   role="menuitem"
                   type="button"
@@ -123,12 +125,12 @@
                     src="/assets/en.svg"
                     alt="English"
                     class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
+                    onerror="this.remove()"
                   />
                   <span>EN</span>
                 </button>
                 <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-[#FAF2FF]slate-50"
                   data-lang="th"
                   role="menuitem"
                   type="button"
@@ -137,12 +139,12 @@
                     src="/assets/th.svg"
                     alt="Thai"
                     class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
+                    onerror="this.remove()"
                   />
                   <span>TH</span>
                 </button>
                 <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-[#FAF2FF]slate-50"
                   data-lang="nl"
                   role="menuitem"
                   type="button"
@@ -151,7 +153,7 @@
                     src="/assets/nl.svg"
                     alt="Dutch"
                     class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
+                    onerror="this.remove()"
                   />
                   <span>NL</span>
                 </button>
@@ -160,13 +162,13 @@
 
             <a
               href="/login"
-              class="ml-1 inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              class="ml-1 inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
               data-i18n="navLogin"
               >Login</a
             >
             <a
               href="/trial"
-              class="inline-flex items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+              class="inline-flex items-center justify-center rounded-2xl bg-[#FAF2FF][#FAF2FF] px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
               data-i18n="navTrial"
               >Start 15-day trial</a
             >
@@ -178,7 +180,7 @@
             <div class="relative">
               <button
                 id="langBtnMobile"
-                class="inline-flex items-center gap-2 rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                class="inline-flex items-center gap-2 rounded-2xl border bg-[#FAF2FF]transparent px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
                 aria-haspopup="menu"
                 aria-expanded="false"
                 type="button"
@@ -201,11 +203,11 @@
 
               <div
                 id="langMenuMobile"
-                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-white shadow-lg"
+                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-[#FAF2FF]transparent shadow-lg"
                 role="menu"
               >
                 <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-[#FAF2FF]slate-50"
                   data-lang="en"
                   role="menuitem"
                   type="button"
@@ -214,12 +216,12 @@
                     src="/assets/en.svg"
                     alt="English"
                     class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
+                    onerror="this.remove()"
                   />
                   <span>EN</span>
                 </button>
                 <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-[#FAF2FF]slate-50"
                   data-lang="th"
                   role="menuitem"
                   type="button"
@@ -228,12 +230,12 @@
                     src="/assets/th.svg"
                     alt="Thai"
                     class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
+                    onerror="this.remove()"
                   />
                   <span>TH</span>
                 </button>
                 <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-[#FAF2FF]slate-50"
                   data-lang="nl"
                   role="menuitem"
                   type="button"
@@ -242,7 +244,7 @@
                     src="/assets/nl.svg"
                     alt="Dutch"
                     class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
+                    onerror="this.remove()"
                   />
                   <span>NL</span>
                 </button>
@@ -251,14 +253,14 @@
 
             <a
               href="/trial"
-              class="inline-flex items-center justify-center rounded-2xl bg-primary px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
+              class="inline-flex items-center justify-center rounded-2xl bg-[#FAF2FF][#FAF2FF] px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
               data-i18n="navTrialShort"
               >Start 15-day trial</a
             >
             <button
               id="menuBtn"
               type="button"
-              class="inline-flex items-center justify-center rounded-2xl border bg-white p-2.5 hover:bg-slate-50"
+              class="inline-flex items-center justify-center rounded-2xl border bg-[#FAF2FF]transparent p-2.5 hover:bg-[#FAF2FF]slate-50"
               aria-label="Open menu"
               aria-controls="mobileMenu"
               aria-expanded="false"
@@ -280,13 +282,13 @@
       <!-- Mobile drawer overlay -->
       <div
         id="menuOverlay"
-        class="fixed inset-0 z-50 hidden bg-slate-900/40 backdrop-blur-sm"
+        class="fixed inset-0 z-50 hidden bg-[#FAF2FF]slate-900/40 backdrop-blur-sm"
       ></div>
 
       <!-- Mobile drawer -->
       <aside
         id="mobileMenu"
-        class="fixed right-0 top-0 z-50 h-full w-[86%] max-w-sm translate-x-full border-l bg-white shadow-xl transition-transform duration-200"
+        class="fixed right-0 top-0 z-50 h-full w-[86%] max-w-sm translate-x-full border-l bg-[#FAF2FF]transparent shadow-xl transition-transform duration-200"
         aria-label="Mobile navigation"
       >
         <div class="flex items-center justify-between border-b px-4 py-3">
@@ -301,7 +303,7 @@
           <button
             id="menuCloseBtn"
             type="button"
-            class="inline-flex items-center justify-center rounded-2xl border bg-white p-2.5 hover:bg-slate-50"
+            class="inline-flex items-center justify-center rounded-2xl border bg-[#FAF2FF]transparent p-2.5 hover:bg-[#FAF2FF]slate-50"
             aria-label="Close menu"
           >
             <svg
@@ -320,7 +322,7 @@
           <a
             href="/"
             data-navlink
-            class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-[#FAF2FF]slate-50"
             data-i18n="navHome"
             >Home</a
           >
@@ -328,41 +330,41 @@
           <a
             href="/solutions"
             data-navlink
-            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-[#FAF2FF]slate-50"
             data-i18n="navSolutions"
             >Solutions</a
           >
           <a
             href="/features"
             data-navlink
-            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-[#FAF2FF]slate-50"
             data-i18n="navFeatures"
             >Features</a
           >
           <a
             href="/pricing"
             data-navlink
-            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-[#FAF2FF]slate-50"
             data-i18n="navPricing"
             >Pricing</a
           >
           <a
             href="/contact"
             data-navlink
-            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-[#FAF2FF]slate-50"
             data-i18n="navContact"
             >Contact</a
           >
 
           <a
             href="/trial"
-            class="mt-3 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
+            class="mt-3 inline-flex w-full items-center justify-center rounded-2xl bg-[#FAF2FF][#FAF2FF] px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
             data-i18n="navTrial"
             >Start 15-day trial</a
           >
           <a
             href="/login"
-            class="mt-2 inline-flex w-full items-center justify-center rounded-2xl border px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            class="mt-2 inline-flex w-full items-center justify-center rounded-2xl border px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
             data-i18n="navLogin"
             >Login</a
           >
@@ -376,14 +378,16 @@
         >
           <div>
             <div
-              class="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-sm text-slate-700"
+              class="inline-flex items-center gap-2 rounded-full border bg-[#FAF2FF]transparent px-3 py-1 text-sm text-slate-700"
             >
-              <span class="inline-block h-2 w-2 rounded-full bg-primary"></span>
+              <span
+                class="inline-block h-2 w-2 rounded-full bg-[#FAF2FF][#FAF2FF]"
+              ></span>
               <span data-i18n="heroBadge">Simple pricing that feels fair</span>
             </div>
 
             <h1
-              class="mt-4 text-3xl font-bold tracking-tight md:text-5xl"
+              class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl"
               data-i18n="heroTitle"
             >
               Choose a package that fits your salon or massage studio
@@ -398,7 +402,7 @@
             <div class="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#plans"
-                class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95"
+                class="inline-flex items-center justify-center rounded-2xl bg-[#FAF2FF][#FAF2FF] px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95"
                 data-i18n="heroCtaPrimary"
               >
                 See packages
@@ -406,14 +410,14 @@
 
               <a
                 href="/trial"
-                class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-white/60"
+                class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]transparent/60"
                 data-i18n="heroCtaSecondary"
               >
                 Start 15-day trial
               </a>
             </div>
 
-            <div class="mt-6 rounded-2xl border bg-white p-4">
+            <div class="mt-6 rounded-2xl border bg-[#FAF2FF]transparent p-4">
               <div
                 class="text-sm font-semibold text-slate-900"
                 data-i18n="benefitsTitle"
@@ -423,14 +427,14 @@
               <ul class="mt-2 grid gap-2 text-sm text-slate-600">
                 <li class="flex gap-2">
                   <span
-                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                     >✓</span
                   >
                   <span data-i18n="benefit1">Less admin work</span>
                 </li>
                 <li class="flex gap-2">
                   <span
-                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                     >✓</span
                   >
                   <span data-i18n="benefit2"
@@ -439,14 +443,14 @@
                 </li>
                 <li class="flex gap-2">
                   <span
-                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                     >✓</span
                   >
                   <span data-i18n="benefit3">Easier payments</span>
                 </li>
                 <li class="flex gap-2">
                   <span
-                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                     >✓</span
                   >
                   <span data-i18n="benefit4"
@@ -463,10 +467,12 @@
 
           <div class="relative">
             <div
-              class="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/10 via-white to-primary/5"
+              class="absolute -inset-6 -z-10 rounded-[2rem] bg-[#FAF2FF][#FAF2FF]-to-br from-primary/10 via-white to-primary/5"
             ></div>
 
-            <div class="rounded-[2rem] border bg-white p-4 shadow-sm">
+            <div
+              class="rounded-[2rem] border bg-[#FAF2FF]transparent p-4 shadow-sm"
+            >
               <img
                 src="/assets/pricing-hero-illustration.png"
                 alt="Pricing illustration"
@@ -474,7 +480,7 @@
               />
 
               <div class="mt-4 grid grid-cols-2 gap-3">
-                <div class="rounded-2xl border bg-white p-3">
+                <div class="rounded-2xl border bg-[#FAF2FF]transparent p-3">
                   <div
                     class="text-xs font-semibold text-slate-900"
                     data-i18n="mini1Title"
@@ -488,7 +494,7 @@
                     See your day clearly.
                   </div>
                 </div>
-                <div class="rounded-2xl border bg-white p-3">
+                <div class="rounded-2xl border bg-[#FAF2FF]transparent p-3">
                   <div
                     class="text-xs font-semibold text-slate-900"
                     data-i18n="mini2Title"
@@ -502,7 +508,7 @@
                     Simple setup once.
                   </div>
                 </div>
-                <div class="rounded-2xl border bg-white p-3">
+                <div class="rounded-2xl border bg-[#FAF2FF]transparent p-3">
                   <div
                     class="text-xs font-semibold text-slate-900"
                     data-i18n="mini3Title"
@@ -516,7 +522,7 @@
                     Online or in store.
                   </div>
                 </div>
-                <div class="rounded-2xl border bg-white p-3">
+                <div class="rounded-2xl border bg-[#FAF2FF]transparent p-3">
                   <div
                     class="text-xs font-semibold text-slate-900"
                     data-i18n="mini4Title"
@@ -533,7 +539,7 @@
               </div>
             </div>
 
-            <div class="mt-4 rounded-[2rem] border bg-white p-4">
+            <div class="mt-4 rounded-[2rem] border bg-[#FAF2FF]transparent p-4">
               <div class="flex items-center justify-between gap-3">
                 <div>
                   <div
@@ -551,7 +557,7 @@
                 </div>
                 <a
                   href="/contact"
-                  class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                  class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
                   data-i18n="stepsCta"
                   >Talk to us</a
                 >
@@ -562,14 +568,14 @@
       </header>
 
       <!-- Plans -->
-      <section id="plans" class="border-t bg-white/60">
+      <section id="plans" class="border-t bg-[#FAF2FF]transparent/60">
         <div class="mx-auto max-w-6xl px-4 py-12">
           <div
             class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end"
           >
             <div>
               <h2
-                class="text-2xl font-bold tracking-tight md:text-3xl"
+                class="text-2xl font-semibold tracking-tight md:text-3xl"
                 data-i18n="plansTitle"
               >
                 Packages & pricing
@@ -581,7 +587,7 @@
             </div>
 
             <!-- Billing toggle -->
-            <div class="rounded-3xl border bg-white p-2">
+            <div class="rounded-3xl border bg-[#FAF2FF]transparent p-2">
               <div class="flex items-center gap-2">
                 <button
                   id="btnMonthly"
@@ -616,37 +622,37 @@
             <ul class="mt-3 grid gap-2">
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Online booking website &amp; dashboard</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Booking calendar (up to 35 bookings / month)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Client list &amp; booking history</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Business info &amp; opening hours setup</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Manage up to 5 services (1 staff member)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Online payment setup</span>
               </li>
@@ -657,61 +663,61 @@
             <ul class="mt-3 grid gap-2">
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Automatic booking reminder emails</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Custom booking link (your brand URL)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Google Calendar sync</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Multi-user access</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Plans &amp; pricing management</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Discount codes &amp; promotions</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Staff &amp; service scheduling</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Booking reports &amp; activity logs</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Payment reports</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Priority support</span>
               </li>
@@ -725,73 +731,73 @@
             <ul class="mt-3 grid gap-2">
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Automatic booking reminder emails</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Online booking website &amp; dashboard</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Booking calendar (up to 100 bookings / month)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Client list &amp; booking history</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Business info &amp; opening hours setup</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Google Calendar sync</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Unlimited services &amp; up to 5 staff members</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Online payment setup</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Plans &amp; pricing management</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Discount codes &amp; promotions</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Staff &amp; service scheduling</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Booking reports &amp; activity logs</span>
               </li>
@@ -802,25 +808,25 @@
             <ul class="mt-3 grid gap-2">
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Custom booking link (your brand URL)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Multi-user access</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Payment reports</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Priority support</span>
               </li>
@@ -833,97 +839,97 @@
             <ul class="mt-3 grid gap-2">
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Automatic booking reminder emails</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Online booking website &amp; dashboard</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Custom booking link (your brand URL)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Unlimited bookings</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Client list &amp; booking history</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Business info &amp; opening hours setup</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Google Calendar sync</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Unlimited services &amp; up to 9 staff members</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Multi-user access</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Online payment setup</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Plans &amp; pricing management</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Discount codes &amp; promotions</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Staff &amp; service scheduling</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Booking reports &amp; activity logs</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Payment reports</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Priority support</span>
               </li>
@@ -935,37 +941,37 @@
             <ul class="mt-3 grid gap-2">
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>หน้าเว็บจองออนไลน์ &amp; แดชบอร์ด</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>ปฏิทินคิว (สูงสุด 35 การจอง/เดือน)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>รายชื่อลูกค้า &amp; ประวัติการจอง</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>ตั้งค่าข้อมูลร้าน &amp; เวลาเปิด-ปิด</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>เพิ่มได้สูงสุด 5 บริการ (พนักงาน 1 คน)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>ตั้งค่ารับชำระเงินออนไลน์</span>
               </li>
@@ -976,61 +982,61 @@
             <ul class="mt-3 grid gap-2">
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>อีเมลเตือนนัดอัตโนมัติ</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>ลิงก์จองแบบโดเมนแบรนด์คุณ (Custom URL)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>ซิงก์ Google Calendar</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>หลายผู้ใช้งานหลังบ้าน (Multi-user)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>จัดการแพ็กเกจ/ราคาในระบบ</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>โค้ดส่วนลด &amp; โปรโมชัน</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>ตารางงานพนักงาน &amp; บริการ</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>รายงานการจอง &amp; บันทึกกิจกรรม</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>รายงานการชำระเงิน</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Priority support</span>
               </li>
@@ -1042,73 +1048,73 @@
             <ul class="mt-3 grid gap-2">
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>อีเมลเตือนนัดอัตโนมัติ</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>หน้าเว็บจองออนไลน์ &amp; แดชบอร์ด</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>ปฏิทินคิว (สูงสุด 100 การจอง/เดือน)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>รายชื่อลูกค้า &amp; ประวัติการจอง</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>ตั้งค่าข้อมูลร้าน &amp; เวลาเปิด-ปิด</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>ซิงก์ Google Calendar</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>บริการไม่จำกัด &amp; พนักงานสูงสุด 5 คน</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>ตั้งค่ารับชำระเงินออนไลน์</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>จัดการแพ็กเกจ/ราคาในระบบ</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>โค้ดส่วนลด &amp; โปรโมชัน</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>ตารางงานพนักงาน &amp; บริการ</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>รายงานการจอง &amp; บันทึกกิจกรรม</span>
               </li>
@@ -1119,25 +1125,25 @@
             <ul class="mt-3 grid gap-2">
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>ลิงก์จองแบบโดเมนแบรนด์คุณ (Custom URL)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>หลายผู้ใช้งานหลังบ้าน (Multi-user)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>รายงานการชำระเงิน</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Priority support</span>
               </li>
@@ -1148,97 +1154,97 @@
             <ul class="mt-3 grid gap-2">
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>อีเมลเตือนนัดอัตโนมัติ</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>หน้าเว็บจองออนไลน์ &amp; แดชบอร์ด</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>ลิงก์จองแบบโดเมนแบรนด์คุณ (Custom URL)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>การจองไม่จำกัด</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>รายชื่อลูกค้า &amp; ประวัติการจอง</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>ตั้งค่าข้อมูลร้าน &amp; เวลาเปิด-ปิด</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>ซิงก์ Google Calendar</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>บริการไม่จำกัด &amp; พนักงานสูงสุด 9 คน</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>หลายผู้ใช้งานหลังบ้าน (Multi-user)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>ตั้งค่ารับชำระเงินออนไลน์</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>จัดการแพ็กเกจ/ราคาในระบบ</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>โค้ดส่วนลด &amp; โปรโมชัน</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>ตารางงานพนักงาน &amp; บริการ</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>รายงานการจอง &amp; บันทึกกิจกรรม</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>รายงานการชำระเงิน</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Priority support</span>
               </li>
@@ -1250,37 +1256,37 @@
             <ul class="mt-3 grid gap-2">
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Online boekingswebsite &amp; dashboard</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Boekingskalender (tot 35 boekingen/maand)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Klantenlijst &amp; boekingshistorie</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Bedrijfsinfo &amp; openingstijden instellen</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Tot 5 diensten beheren (1 medewerker)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Online betalen instellen</span>
               </li>
@@ -1291,61 +1297,61 @@
             <ul class="mt-3 grid gap-2">
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Automatische reminder e-mails</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Eigen boekingslink (jouw merk-URL)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Google Calendar sync</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Multi-user toegang</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Plannen &amp; prijzen beheren</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Kortingscodes &amp; promoties</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Roosters voor diensten &amp; personeel</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Boekingsrapporten &amp; activiteitenlog</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Betalingsrapporten</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Priority support</span>
               </li>
@@ -1357,73 +1363,73 @@
             <ul class="mt-3 grid gap-2">
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Automatische reminder e-mails</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Online boekingswebsite &amp; dashboard</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Boekingskalender (tot 100 boekingen/maand)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Klantenlijst &amp; boekingshistorie</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Bedrijfsinfo &amp; openingstijden instellen</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Google Calendar sync</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Onbeperkte diensten &amp; tot 5 medewerkers</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Online betalen instellen</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Plannen &amp; prijzen beheren</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Kortingscodes &amp; promoties</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Roosters voor diensten &amp; personeel</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Boekingsrapporten &amp; activiteitenlog</span>
               </li>
@@ -1434,25 +1440,25 @@
             <ul class="mt-3 grid gap-2">
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Eigen boekingslink (jouw merk-URL)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Multi-user toegang</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Betalingsrapporten</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500"
                   >–</span
                 ><span>Priority support</span>
               </li>
@@ -1463,97 +1469,97 @@
             <ul class="mt-3 grid gap-2">
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Automatische reminder e-mails</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Online boekingswebsite &amp; dashboard</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Eigen boekingslink (jouw merk-URL)</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Onbeperkte boekingen</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Klantenlijst &amp; boekingshistorie</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Bedrijfsinfo &amp; openingstijden instellen</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Google Calendar sync</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Onbeperkte diensten &amp; tot 9 medewerkers</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Multi-user toegang</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Online betalen instellen</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Plannen &amp; prijzen beheren</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Kortingscodes &amp; promoties</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Roosters voor diensten &amp; personeel</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Boekingsrapporten &amp; activiteitenlog</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Betalingsrapporten</span>
               </li>
               <li class="flex gap-2 text-sm text-slate-700">
                 <span
-                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                   >✓</span
                 ><span>Priority support</span>
               </li>
@@ -1563,8 +1569,10 @@
 
           <!-- Comparison / small note -->
           <div class="mt-10 grid gap-4 md:grid-cols-3">
-            <div class="rounded-3xl border bg-white p-6 md:col-span-2">
-              <h3 class="text-lg font-bold" data-i18n="compareTitle">
+            <div
+              class="rounded-3xl border bg-[#FAF2FF]transparent p-6 md:col-span-2"
+            >
+              <h3 class="text-lg font-semibold" data-i18n="compareTitle">
                 What’s included (overview)
               </h3>
               <p class="mt-2 text-sm text-slate-600" data-i18n="compareDesc">
@@ -1573,7 +1581,7 @@
               </p>
 
               <div class="mt-4 grid gap-3 sm:grid-cols-2">
-                <div class="rounded-2xl border bg-white p-4">
+                <div class="rounded-2xl border bg-[#FAF2FF]transparent p-4">
                   <div class="font-semibold" data-i18n="area1Title">
                     Calendar & bookings
                   </div>
@@ -1585,7 +1593,7 @@
                     tracking.
                   </div>
                 </div>
-                <div class="rounded-2xl border bg-white p-4">
+                <div class="rounded-2xl border bg-[#FAF2FF]transparent p-4">
                   <div class="font-semibold" data-i18n="area2Title">
                     Services & staff setup
                   </div>
@@ -1596,7 +1604,7 @@
                     Add services, staff skills, opening hours, schedules.
                   </div>
                 </div>
-                <div class="rounded-2xl border bg-white p-4">
+                <div class="rounded-2xl border bg-[#FAF2FF]transparent p-4">
                   <div class="font-semibold" data-i18n="area3Title">
                     Customers (CRM)
                   </div>
@@ -1607,7 +1615,7 @@
                     Client list, booking history, simple notes.
                   </div>
                 </div>
-                <div class="rounded-2xl border bg-white p-4">
+                <div class="rounded-2xl border bg-[#FAF2FF]transparent p-4">
                   <div class="font-semibold" data-i18n="area4Title">
                     Payments
                   </div>
@@ -1618,7 +1626,9 @@
                     Online payments, payment status, invoices support.
                   </div>
                 </div>
-                <div class="rounded-2xl border bg-white p-4 sm:col-span-2">
+                <div
+                  class="rounded-2xl border bg-[#FAF2FF]transparent p-4 sm:col-span-2"
+                >
                   <div class="font-semibold" data-i18n="area5Title">
                     Reports & logs
                   </div>
@@ -1633,13 +1643,13 @@
               </div>
             </div>
 
-            <aside class="rounded-3xl border bg-white p-6">
+            <aside class="rounded-3xl border bg-[#FAF2FF]transparent p-6">
               <div
-                class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary"
+                class="inline-flex items-center gap-2 rounded-full bg-[#FAF2FF][#FAF2FF]/10 px-3 py-1 text-sm font-semibold text-primary"
               >
                 <span data-i18n="sideBadge">Need help choosing?</span>
               </div>
-              <h3 class="mt-3 text-lg font-bold" data-i18n="sideTitle">
+              <h3 class="mt-3 text-lg font-semibold" data-i18n="sideTitle">
                 I can recommend the best fit
               </h3>
               <p class="mt-2 text-sm text-slate-600" data-i18n="sideDesc">
@@ -1647,7 +1657,7 @@
                 we’ll suggest a package kindly.
               </p>
 
-              <div class="mt-4 rounded-2xl bg-primary/5 p-4">
+              <div class="mt-4 rounded-2xl bg-[#FAF2FF][#FAF2FF]/5 p-4">
                 <div
                   class="text-sm font-semibold text-slate-900"
                   data-i18n="sideListTitle"
@@ -1657,28 +1667,28 @@
                 <ol class="mt-2 grid gap-2 text-sm text-slate-700">
                   <li class="flex gap-2">
                     <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary"
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#FAF2FF]transparent text-primary"
                       >1</span
                     >
                     <span data-i18n="flow1">Customer books</span>
                   </li>
                   <li class="flex gap-2">
                     <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary"
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#FAF2FF]transparent text-primary"
                       >2</span
                     >
                     <span data-i18n="flow2">Confirm</span>
                   </li>
                   <li class="flex gap-2">
                     <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary"
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#FAF2FF]transparent text-primary"
                       >3</span
                     >
                     <span data-i18n="flow3">Remind</span>
                   </li>
                   <li class="flex gap-2">
                     <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary"
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#FAF2FF]transparent text-primary"
                       >4</span
                     >
                     <span data-i18n="flow4">Payment</span>
@@ -1688,7 +1698,7 @@
 
               <a
                 href="/contact"
-                class="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+                class="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-[#FAF2FF][#FAF2FF] px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
                 data-i18n="sideCta"
                 >Message us</a
               >
@@ -1701,12 +1711,12 @@
       </section>
 
       <!-- FAQ -->
-      <section class="border-t bg-white">
+      <section class="border-t bg-[#FAF2FF]transparent">
         <div class="mx-auto max-w-6xl px-4 py-12">
           <div class="flex items-end justify-between gap-4">
             <div>
               <h2
-                class="text-2xl font-bold tracking-tight"
+                class="text-2xl font-semibold tracking-tight"
                 data-i18n="faqTitle"
               >
                 FAQ
@@ -1720,7 +1730,7 @@
             <div class="hidden md:block">
               <a
                 href="/trial"
-                class="inline-flex items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+                class="inline-flex items-center justify-center rounded-2xl bg-[#FAF2FF][#FAF2FF] px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
                 data-i18n="faqCta"
                 >Start 15-day trial</a
               >
@@ -1732,7 +1742,7 @@
       </section>
 
       <!-- Footer -->
-      <footer class="border-t bg-white/70 backdrop-blur">
+      <footer class="border-t bg-[#FAF2FF]transparent/70 backdrop-blur">
         <div class="mx-auto max-w-6xl px-4 py-10">
           <div
             class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
@@ -1754,13 +1764,13 @@
             <div class="flex flex-wrap items-center gap-3">
               <a
                 href="/privacy-policy"
-                class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
                 data-i18n="privacy"
                 >Privacy Policy</a
               >
 
               <a
-                class="rounded-xl p-2 hover:bg-slate-50"
+                class="rounded-xl p-2 hover:bg-[#FAF2FF]slate-50"
                 href="https://www.facebook.com/juztbooking"
                 aria-label="Facebook"
               >
@@ -1776,7 +1786,7 @@
               </a>
 
               <a
-                class="rounded-xl p-2 hover:bg-slate-50"
+                class="rounded-xl p-2 hover:bg-[#FAF2FF]slate-50"
                 href="https://www.x.com/juztbooking"
                 aria-label="X"
               >
@@ -1792,7 +1802,7 @@
               </a>
 
               <a
-                class="rounded-xl p-2 hover:bg-slate-50"
+                class="rounded-xl p-2 hover:bg-[#FAF2FF]slate-50"
                 href="https://www.instragram.com/juztbooking"
                 aria-label="Instagram"
               >
@@ -1908,13 +1918,13 @@
           const linkPath = normalizePath(href);
           const isActive = linkPath === currentPath;
 
-          a.classList.toggle("bg-primary/10", isActive);
+          a.classList.toggle("bg-[#FAF2FF][#FAF2FF]/10", isActive);
           a.classList.toggle("text-primary", isActive);
           a.classList.toggle("ring-1", isActive);
           a.classList.toggle("ring-primary/20", isActive);
-          a.classList.toggle("hover:bg-primary/10", isActive);
+          a.classList.toggle("hover:bg-[#FAF2FF][#FAF2FF]/10", isActive);
 
-          a.classList.toggle("hover:bg-slate-50", !isActive);
+          a.classList.toggle("hover:bg-[#FAF2FF]slate-50", !isActive);
 
           if (isActive) a.setAttribute("aria-current", "page");
           else a.removeAttribute("aria-current");
@@ -1946,8 +1956,8 @@
         currentBilling = mode;
         localStorage.setItem(BILLING_STORAGE_KEY, mode);
 
-        const active = "bg-primary text-white shadow-sm";
-        const inactive = "text-slate-700 hover:bg-slate-50";
+        const active = "bg-[#FAF2FF][#FAF2FF] text-white shadow-sm";
+        const inactive = "text-slate-700 hover:bg-[#FAF2FF]slate-50";
 
         btnMonthly.className =
           "rounded-2xl px-4 py-2 text-sm font-semibold " +
@@ -2653,14 +2663,14 @@
 
       function iconOk() {
         return `
-          <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary">
             ✓
           </span>
         `;
       }
       function iconNo() {
         return `
-          <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500">
+          <span class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF]slate-100 text-slate-500">
             –
           </span>
         `;
@@ -2683,15 +2693,15 @@
             const c = calcForPlan(meta.monthlyExVat, currentBilling);
 
             const badge = meta.highlight
-              ? `<span class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">${pack.labels.mostPopular}</span>`
+              ? `<span class="inline-flex items-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 px-3 py-1 text-xs font-semibold text-primary">${pack.labels.mostPopular}</span>`
               : "";
 
             const priceLine = `
               <div class="mt-4">
                 <div class="flex items-baseline justify-between gap-3">
-                  <div class="text-3xl font-bold tracking-tight">
+                  <div class="text-3xl font-semibold tracking-tight">
                     <span>${moneyEUR(
-                      isAnnual ? c.subtotal : meta.monthlyExVat
+                      isAnnual ? c.subtotal : meta.monthlyExVat,
                     )}</span><span class="text-sm font-semibold text-slate-600">
                       ${
                         isAnnual
@@ -2702,7 +2712,7 @@
 
                   <div class="${
                     isAnnual ? "" : "hidden"
-                  } text-xs font-semibold text-primary rounded-full bg-primary/10 px-3 py-1">
+                  } text-xs font-semibold text-primary rounded-full bg-[#FAF2FF][#FAF2FF]/10 px-3 py-1">
                     ${pack.labels.save10}
                   </div>
                 </div>
@@ -2728,23 +2738,23 @@
             `;
 
             const breakdown = `
-              <div class="mt-4 rounded-2xl border bg-white p-4 text-sm">
+              <div class="mt-4 rounded-2xl border bg-[#FAF2FF]transparent p-4 text-sm">
                 <div class="flex items-center justify-between gap-3">
                   <span class="text-slate-600">${pack.labels.subtotalEx}</span>
                   <span class="text-slate-900 font-semibold">${moneyEUR(
-                    c.subtotal
+                    c.subtotal,
                   )}</span>
                 </div>
                 <div class="mt-2 flex items-center justify-between gap-3">
                   <span class="text-slate-600">${pack.labels.vat}</span>
                   <span class="text-slate-900 font-semibold">${moneyEUR(
-                    c.vat
+                    c.vat,
                   )}</span>
                 </div>
                 <div class="mt-2 flex items-center justify-between gap-3">
                   <span class="text-slate-600">${pack.labels.totalInc}</span>
-                  <span class="text-slate-900 font-bold">${moneyEUR(
-                    c.total
+                  <span class="text-slate-900 font-semibold">${moneyEUR(
+                    c.total,
                   )}</span>
                 </div>
               </div>
@@ -2755,11 +2765,11 @@
             const featuresBlock = tpl ? tpl.innerHTML : "";
 
             const cardClass = meta.highlight
-              ? "rounded-3xl border-2 border-primary bg-white p-6 shadow-sm"
-              : "rounded-3xl border bg-white p-6 shadow-sm";
+              ? "rounded-3xl border-2 border-primary bg-[#FAF2FF]transparent p-6 shadow-sm"
+              : "rounded-3xl border bg-[#FAF2FF]transparent p-6 shadow-sm";
 
             const ctaClass =
-              "inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95";
+              "inline-flex w-full items-center justify-center rounded-2xl bg-[#FAF2FF][#FAF2FF] px-4 py-3 text-sm font-semibold text-white hover:opacity-95";
 
             return `
               <article class="${cardClass}">
@@ -2776,7 +2786,7 @@
                 <div class="mt-5">
                   ${featuresBlock}
 
-                  <div class="mt-4 rounded-2xl bg-primary/5 p-4 text-sm text-slate-700">
+                  <div class="mt-4 rounded-2xl bg-[#FAF2FF][#FAF2FF]/5 p-4 text-sm text-slate-700">
                     <div class="font-semibold text-slate-900">${pack.labels.noteShort}</div>
                     <div class="mt-1">${p.gentleNote}</div>
                   </div>
@@ -2800,11 +2810,11 @@
         root.innerHTML = pack.faqs
           .map(
             (item) => `
-            <div class="rounded-3xl border bg-white p-6">
+            <div class="rounded-3xl border bg-[#FAF2FF]transparent p-6">
               <div class="text-sm font-semibold text-slate-900">${item.q}</div>
               <div class="mt-2 text-sm text-slate-600 leading-relaxed">${item.a}</div>
             </div>
-          `
+          `,
           )
           .join("");
       }
@@ -2839,14 +2849,14 @@
           lang === "th"
             ? "รายเดือน"
             : lang === "nl"
-            ? "Maandelijks"
-            : "Monthly";
+              ? "Maandelijks"
+              : "Monthly";
         btnAnnual.textContent =
           lang === "th"
             ? "รายปี (ลด 50%)"
             : lang === "nl"
-            ? "Jaarlijks (50% korting)"
-            : "Annual (save 50%)";
+              ? "Jaarlijks (50% korting)"
+              : "Annual (save 50%)";
 
         setLangLabel(lang);
         localStorage.setItem(LANG_STORAGE_KEY, lang);

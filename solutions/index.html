@@ -1,934 +1,616 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="th" class="bg-[#FAF2FF]">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solutions | juztbooking</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
-          extend: { colors: { primary: "#9F4884" } },
+          extend: {
+            colors: {
+              primary: "#481A54",
+              secondary: "#5A3D93",
+              accent: "#C2508B",
+            },
+            boxShadow: {
+              soft: "0 10px 30px rgba(0,0,0,0.08)",
+            },
+          },
         },
       };
     </script>
+
+    <style>
+      ::selection {
+        background: rgba(194, 80, 139, 0.25);
+      }
+    </style>
+
+    <!--
+      ===== AI Images (Create & Put in /assets) =====
+
+      1) File: /assets/solutions-hero-booking.webp
+      Prompt:
+      Modern minimal 3D illustration, a smartphone showing an online booking calendar UI for a salon,
+      soft pastel background with purple and pink gradients, subtle abstract blobs, clean UI cards,
+      no readable brand names, premium feel, high quality, soft lighting, depth of field,
+      Thai-friendly aesthetic, 4k, no text
+
+      2) File: /assets/solutions-salon-types.webp
+      Prompt:
+      Flat vector illustration, three service icons in a row representing hair salon (scissors),
+      nail studio (nail polish), and massage & spa (massage bed), pastel purple/pink palette,
+      rounded shapes, minimal, modern, clean, no text, suitable for a SaaS website section header,
+      high quality
+    -->
   </head>
 
-  <body class="text-slate-900">
-    <!-- Gradient background -->
-    <div
-      class="min-h-screen bg-gradient-to-b from-white via-primary/5 to-white"
-    >
-      <!-- Decorative blobs -->
+  <body class="bg-[#FAF2FF] text-slate-900 font-[Prompt]">
+    <!-- BG Decorations -->
+    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
       <div
-        class="pointer-events-none fixed -left-28 top-10 h-80 w-80 rounded-full bg-primary/15 blur-3xl"
+        class="absolute -left-32 top-10 h-[420px] w-[420px] rounded-full bg-accent/20 blur-3xl"
       ></div>
       <div
-        class="pointer-events-none fixed -right-28 top-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl"
+        class="absolute -right-32 top-20 h-[520px] w-[520px] rounded-full bg-secondary/20 blur-3xl"
       ></div>
-
-      <!-- Top bar -->
-      <div class="sticky top-0 z-40 border-b bg-white/75 backdrop-blur">
-        <div
-          class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
-        >
-          <!-- Brand -->
-          <a href="/" class="flex items-center gap-3">
-            <img
-              src="/assets/logo-juztbooking.png"
-              alt="juztbooking"
-              class="h-12 rounded-xl object-cover"
-            />
-          </a>
-
-          <!-- Desktop nav (✅ show only on LG+) -->
-          <div class="hidden items-center gap-2 lg:flex">
-            <a
-              href="/"
-              data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              data-i18n="navHome"
-              >Home</a
-            >
-
-            <a
-              href="/solutions"
-              data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              data-i18n="navSolutions"
-              >Solutions</a
-            >
-            <a
-              href="/features"
-              data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              data-i18n="navFeatures"
-              >Features</a
-            >
-            <a
-              href="/pricing"
-              data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              data-i18n="navPricing"
-              >Pricing</a
-            >
-            <a
-              href="/contact"
-              data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              data-i18n="navContact"
-              >Contact</a
-            >
-
-            <!-- ✅ Language dropdown (Desktop) - same as Home -->
-            <div class="relative">
-              <button
-                id="langBtnDesktop"
-                class="inline-flex items-center gap-2 rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                aria-haspopup="menu"
-                aria-expanded="false"
-                type="button"
-              >
-                <span
-                  id="langLabelDesktop"
-                  class="inline-flex items-center gap-2"
-                ></span>
-                <svg
-                  viewBox="0 0 24 24"
-                  class="h-4 w-4 fill-slate-700"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
-                  />
-                </svg>
-              </button>
-
-              <div
-                id="langMenuDesktop"
-                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-white shadow-lg"
-                role="menu"
-              >
-                <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="en"
-                  role="menuitem"
-                  type="button"
-                >
-                  <img
-                    src="/assets/en.svg"
-                    alt="English"
-                    class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
-                  />
-                  <span>EN</span>
-                </button>
-                <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="th"
-                  role="menuitem"
-                  type="button"
-                >
-                  <img
-                    src="/assets/th.svg"
-                    alt="Thai"
-                    class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
-                  />
-                  <span>TH</span>
-                </button>
-                <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="nl"
-                  role="menuitem"
-                  type="button"
-                >
-                  <img
-                    src="/assets/nl.svg"
-                    alt="Dutch"
-                    class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
-                  />
-                  <span>NL</span>
-                </button>
-              </div>
-            </div>
-
-            <a
-              href="/login"
-              class="ml-1 inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-              data-i18n="navLogin"
-              >Login</a
-            >
-            <a
-              href="/trial"
-              class="inline-flex items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
-              data-i18n="navTrial"
-              >Start 15-day trial</a
-            >
-          </div>
-
-          <!-- ✅ Mobile / Tablet (same as Home) -->
-          <div class="flex items-center gap-2 lg:hidden">
-            <!-- Language dropdown (Mobile top) -->
-            <div class="relative">
-              <button
-                id="langBtnMobile"
-                class="inline-flex items-center gap-2 rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                aria-haspopup="menu"
-                aria-expanded="false"
-                type="button"
-                aria-label="Change language"
-              >
-                <span
-                  id="langLabelMobile"
-                  class="inline-flex items-center gap-2"
-                ></span>
-                <svg
-                  viewBox="0 0 24 24"
-                  class="h-4 w-4 fill-slate-700"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M7 10l5 5 5-5a1 1 0 0 0-1.4-1.4L12 12.2 8.4 8.6A1 1 0 1 0 7 10z"
-                  />
-                </svg>
-              </button>
-
-              <div
-                id="langMenuMobile"
-                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-white shadow-lg"
-                role="menu"
-              >
-                <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="en"
-                  role="menuitem"
-                  type="button"
-                >
-                  <img
-                    src="/assets/en.svg"
-                    alt="English"
-                    class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
-                  />
-                  <span>EN</span>
-                </button>
-                <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="th"
-                  role="menuitem"
-                  type="button"
-                >
-                  <img
-                    src="/assets/th.svg"
-                    alt="Thai"
-                    class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
-                  />
-                  <span>TH</span>
-                </button>
-                <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
-                  data-lang="nl"
-                  role="menuitem"
-                  type="button"
-                >
-                  <img
-                    src="/assets/nl.svg"
-                    alt="Dutch"
-                    class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
-                  />
-                  <span>NL</span>
-                </button>
-              </div>
-            </div>
-
-            <a
-              href="/trial"
-              class="inline-flex items-center justify-center rounded-2xl bg-primary px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
-              data-i18n="navTrialShort"
-              >Start 15-day trial</a
-            >
-            <button
-              id="menuBtn"
-              type="button"
-              class="inline-flex items-center justify-center rounded-2xl border bg-white p-2.5 hover:bg-slate-50"
-              aria-label="Open menu"
-              aria-controls="mobileMenu"
-              aria-expanded="false"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                class="h-5 w-5 fill-slate-800"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 6.5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mobile drawer overlay -->
       <div
-        id="menuOverlay"
-        class="fixed inset-0 z-50 hidden bg-slate-900/40 backdrop-blur-sm"
+        class="absolute left-1/2 top-[620px] h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl"
       ></div>
+    </div>
 
-      <!-- ✅ Mobile drawer (same as Home: no language block inside drawer) -->
-      <aside
-        id="mobileMenu"
-        class="fixed right-0 top-0 z-50 h-full w-[86%] max-w-sm translate-x-full border-l bg-white shadow-xl transition-transform duration-200"
-        aria-label="Mobile navigation"
+    <!-- Topbar -->
+    <header class="sticky top-0 z-50 bg-[#FAF2FF] backdrop-blur">
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
       >
-        <div class="flex items-center justify-between border-b px-4 py-3">
-          <div class="flex items-center gap-3">
-            <img
-              src="/assets/logo-juztbooking.png"
-              alt="juztbooking"
-              class="h-12 rounded-xl object-cover"
-            />
-          </div>
+        <!-- Brand -->
+        <a href="/" class="flex items-center gap-3">
+          <img
+            src="/assets/logo-juztbooking.png"
+            alt="juztbooking"
+            class="h-10"
+            onerror="this.style.display = 'none'"
+          />
+        </a>
 
-          <button
-            id="menuCloseBtn"
-            type="button"
-            class="inline-flex items-center justify-center rounded-2xl border bg-white p-2.5 hover:bg-slate-50"
-            aria-label="Close menu"
+        <!-- Desktop Nav -->
+        <nav class="hidden items-center gap-2 lg:flex">
+          <a
+            href="/"
+            class="rounded-2xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            >หน้าหลัก</a
           >
-            <svg
-              viewBox="0 0 24 24"
-              class="h-5 w-5 fill-slate-800"
-              aria-hidden="true"
-            >
+          <a
+            href="/solutions"
+            class="rounded-2xl px-3 py-2 text-sm font-semibold text-primary bg-primary/10"
+            >โซลูชัน</a
+          >
+          <a
+            href="/features"
+            class="rounded-2xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            >ฟีเจอร์</a
+          >
+          <a
+            href="/pricing"
+            class="rounded-2xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            >ราคา</a
+          >
+          <a
+            href="/contact"
+            class="rounded-2xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            >ติดต่อเรา</a
+          >
+
+          <a
+            href="/login"
+            class="ml-2 inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            >เข้าสู่ระบบ</a
+          >
+          <a
+            href="/trial"
+            class="inline-flex items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+            >ทดลองใช้ 15 วัน</a
+          >
+        </nav>
+
+        <!-- Mobile -->
+        <div class="flex items-center gap-2 lg:hidden">
+          <a
+            href="/trial"
+            class="inline-flex items-center justify-center rounded-2xl bg-primary px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
+            >ทดลองใช้</a
+          >
+          <button
+            id="menuBtn"
+            class="inline-flex items-center justify-center rounded-2xl border bg-[#FAF2FF] p-2.5 hover:bg-slate-50"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            <svg viewBox="0 0 24 24" class="h-5 w-5 fill-slate-800">
               <path
-                d="M18.3 5.71a1 1 0 0 1 0 1.41L13.41 12l4.89 4.88a1 1 0 1 1-1.41 1.42L12 13.41l-4.88 4.89a1 1 0 1 1-1.42-1.41L10.59 12 5.7 7.12A1 1 0 1 1 7.12 5.7L12 10.59l4.88-4.89a1 1 0 0 1 1.42.01z"
+                d="M4 6.5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 5h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
               />
             </svg>
           </button>
         </div>
+      </div>
+    </header>
 
-        <nav class="px-4 py-4">
-          <a
-            href="/"
-            data-navlink
-            class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            data-i18n="navHome"
-            >Home</a
-          >
+    <!-- Mobile Drawer -->
+    <div
+      id="menuOverlay"
+      class="fixed inset-0 z-50 hidden bg-slate-900/40 backdrop-blur-sm"
+    ></div>
 
-          <a
-            href="/solutions"
-            data-navlink
-            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            data-i18n="navSolutions"
-            >Solutions</a
+    <aside
+      id="mobileMenu"
+      class="fixed right-0 top-0 z-50 h-full w-[86%] max-w-sm translate-x-full border-l bg-[#FAF2FF] shadow-xl transition-transform duration-200"
+    >
+      <div class="flex items-center justify-between border-b px-4 py-3">
+        <div class="flex items-center gap-3">
+          <div
+            class="grid h-10 w-10 place-items-center rounded-2xl bg-primary text-white font-semibold"
           >
-          <a
-            href="/features"
-            data-navlink
-            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            data-i18n="navFeatures"
-            >Features</a
-          >
-          <a
-            href="/pricing"
-            data-navlink
-            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            data-i18n="navPricing"
-            >Pricing</a
-          >
-          <a
-            href="/contact"
-            data-navlink
-            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            data-i18n="navContact"
-            >Contact</a
-          >
+            JZ
+          </div>
+          <div>
+            <div class="text-sm font-extrabold text-primary">juztbooking</div>
+            <div class="text-xs text-slate-500">เมนูหลัก</div>
+          </div>
+        </div>
 
-          <a
-            href="/trial"
-            class="mt-3 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
-            data-i18n="navTrial"
-            >Start 15-day trial</a
-          >
-          <a
-            href="/login"
-            class="mt-2 inline-flex w-full items-center justify-center rounded-2xl border px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-            data-i18n="navLogin"
-            >Login</a
-          >
-        </nav>
-      </aside>
-
-      <!-- Hero -->
-      <header class="relative">
-        <div
-          class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-4 py-12 md:grid-cols-2 md:py-16"
+        <button
+          id="menuCloseBtn"
+          class="inline-flex items-center justify-center rounded-2xl border bg-[#FAF2FF] p-2.5 hover:bg-slate-50"
+          aria-label="Close menu"
         >
+          <svg viewBox="0 0 24 24" class="h-5 w-5 fill-slate-800">
+            <path
+              d="M18.3 5.71a1 1 0 0 1 0 1.41L13.41 12l4.89 4.88a1 1 0 1 1-1.41 1.42L12 13.41l-4.88 4.89a1 1 0 1 1-1.42-1.41L10.59 12 5.7 7.12A1 1 0 1 1 7.12 5.7L12 10.59l4.88-4.89a1 1 0 0 1 1.42.01z"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="px-4 py-4">
+        <a
+          href="/"
+          class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+          >หน้าหลัก</a
+        >
+        <a
+          href="/solutions"
+          class="mt-1 block rounded-2xl bg-primary/10 px-4 py-3 text-sm font-semibold text-primary"
+          >โซลูชัน</a
+        >
+        <a
+          href="/features"
+          class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+          >ฟีเจอร์</a
+        >
+        <a
+          href="/pricing"
+          class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+          >ราคา</a
+        >
+        <a
+          href="/contact"
+          class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+          >ติดต่อเรา</a
+        >
+
+        <a
+          href="/trial"
+          class="mt-3 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
+          >ทดลองใช้ 15 วัน</a
+        >
+        <a
+          href="/login"
+          class="mt-2 inline-flex w-full items-center justify-center rounded-2xl border px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+          >เข้าสู่ระบบ</a
+        >
+      </nav>
+    </aside>
+
+    <!-- HERO (Solutions) -->
+    <section
+      class="relative overflow-hidden bg-[#491258] text-white h-[140vh] md:h-[700px]"
+    >
+      <!-- hero blobs -->
+      <div class="pointer-events-none absolute inset-0">
+        <div
+          class="absolute left-[10%] top-[-10%] h-[520px] w-[520px] rounded-full opacity-20 blur-[0px]"
+          style="
+            background: radial-gradient(
+              circle at 35% 25%,
+              rgba(255, 94, 160, 0.55) 0%,
+              rgba(255, 94, 160, 0.25) 35%,
+              rgba(120, 90, 255, 0.25) 70%
+            );
+          "
+        ></div>
+
+        <div
+          class="absolute right-[-18%] top-[-12%] h-[720px] w-[720px] rounded-full opacity-30 blur-[0px]"
+          style="
+            background: radial-gradient(
+              circle at 35% 25%,
+              rgba(255, 94, 160, 0.6) 0%,
+              rgba(255, 94, 160, 0.18) 38%,
+              rgba(120, 90, 255, 0.35) 78%
+            );
+          "
+        ></div>
+      </div>
+
+      <div class="relative mx-auto max-w-6xl px-4 py-14 md:pt-20">
+        <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <div
-              class="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-sm text-slate-700"
+              class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1 text-sm text-white/95"
             >
-              <span class="inline-block h-2 w-2 rounded-full bg-primary"></span>
-              <span data-i18n="heroBadge"
-                >Solutions for massage businesses</span
-              >
+              <span
+                class="inline-block h-2 w-2 rounded-full bg-[#D53A79]"
+              ></span>
+              โซลูชันสำหรับร้าน Salon & นวดในยุโรป
             </div>
 
             <h1
-              class="mt-4 text-3xl font-bold tracking-tight md:text-5xl"
-              data-i18n="heroTitle"
+              class="mt-10 text-4xl font-semibold tracking-wide md:text-5xl lg:text-5xl"
             >
-              Calm booking flow for Spa & Massage
+              ทำให้การจองคิวดูโปร
+              <div>
+                <span class="text-[#D53A79]">เหมือนมีผู้ช่วย</span> ทั้งวัน
+              </div>
             </h1>
 
-            <p class="mt-4 text-slate-600 md:text-lg" data-i18n="heroDesc">
-              Keep your calendar clean, reduce no-shows, and make payments
-              easier. Customers can choose time, service, duration, and
-              preferred therapist — without back-and-forth.
+            <p class="mt-4 text-white/90 md:text-lg">
+              ไม่ว่าร้านคุณจะเป็น <b>ร้านนวดและสปา</b> <b>ร้านทำเล็บ</b> หรือ
+              <b>ร้านทำผม</b> ลูกค้าจองเองได้ 24 ชม. ระบบล็อกคิว กันคิวซ้อน
+              และช่วยให้ทีมพนักงานทำงานลื่นขึ้นแบบเห็นผล
             </p>
 
-            <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#massage"
-                class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95"
-                data-i18n="heroCtaPrimary"
-              >
-                See the flow
-              </a>
-
+            <div class="mt-12 flex flex-col gap-3 sm:flex-row">
               <a
                 href="/trial"
-                class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-white/60"
-                data-i18n="heroCtaSecondary"
+                class="inline-flex items-center justify-center rounded-2xl bg-[#D53A79] px-7 py-3 text-sm font-semibold text-white shadow-soft hover:opacity-95"
               >
-                Start 15-day trial
+                ทดลองใช้ 15 วัน
+              </a>
+
+              <a
+                href="#salon-types"
+                class="inline-flex items-center justify-center rounded-2xl border border-white/30 bg-white/10 px-7 py-3 text-md font-semibold text-white hover:bg-white/15"
+              >
+                ดูตัวอย่างประเภทร้าน
               </a>
             </div>
 
-            <div class="mt-6 rounded-2xl border bg-white p-4">
-              <div
-                class="text-sm font-semibold text-slate-900"
-                data-i18n="flowTitle"
-              >
-                Most common workflow
-              </div>
-              <ol class="mt-2 grid gap-2 text-sm text-slate-600">
-                <li class="flex gap-2">
-                  <span
-                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                    >1</span
-                  >
-                  <span data-i18n="flow1">Customer books</span>
-                </li>
-                <li class="flex gap-2">
-                  <span
-                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                    >2</span
-                  >
-                  <span data-i18n="flow2">Confirm</span>
-                </li>
-                <li class="flex gap-2">
-                  <span
-                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                    >3</span
-                  >
-                  <span data-i18n="flow3">Remind</span>
-                </li>
-                <li class="flex gap-2">
-                  <span
-                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                    >4</span
-                  >
-                  <span data-i18n="flow4">Payment</span>
-                </li>
-              </ol>
-
-              <div class="mt-3 text-xs text-slate-500" data-i18n="notifyNote">
-                Gentle reminders can be sent via Email.
-              </div>
-            </div>
-
-            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <div class="mt-7 flex flex-wrap gap-2 text-sm">
               <span
-                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
-                data-i18n="benefit1"
-                >Reduce no-show</span
+                class="rounded-full bg-white/10 px-3 py-1 text-white/95 ring-1 ring-white/20"
+                >ไม่ต้องใช้บัตรเครดิต</span
               >
               <span
-                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
-                data-i18n="benefit2"
-                >Cleaner calendar</span
+                class="rounded-full bg-white/10 px-3 py-1 text-white/95 ring-1 ring-white/20"
+                >เริ่มใช้งานได้ทันที</span
               >
               <span
-                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
-                data-i18n="benefit3"
-                >Therapist selection</span
-              >
-              <span
-                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
-                data-i18n="benefit4"
-                >Payments & reports</span
+                class="rounded-full bg-white/10 px-3 py-1 text-white/95 ring-1 ring-white/20"
+                >ทีมช่วยตั้งค่าให้ฟรี</span
               >
             </div>
           </div>
 
+          <!-- HERO IMAGE (AI) -->
           <div class="relative">
             <div
-              class="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/10 via-white to-primary/5"
-            ></div>
-
-            <div class="rounded-[2rem] border bg-white p-4 shadow-sm">
+              class="rounded-[2rem] border border-white/15 bg-white/10 p-2 shadow-soft"
+            >
               <img
-                src="/assets/solutions-hero-illustration.png"
-                alt="Massage booking illustration"
-                class="h-[340px] w-full rounded-[1.5rem] object-cover md:h-[420px]"
+                src="/assets/solutions-hero-booking.webp"
+                alt="ภาพประกอบระบบจองคิวบนมือถือ"
+                class="w-full rounded-[1.6rem] object-cover"
+                onerror="
+                  this.style.display = 'none';
+                  document.getElementById('heroAiFallback').style.display =
+                    'block';
+                "
               />
 
-              <div class="mt-4 grid grid-cols-2 gap-3">
-                <div class="rounded-2xl border bg-white p-3">
-                  <div
-                    class="text-xs font-semibold text-slate-900"
-                    data-i18n="mini1Title"
-                  >
-                    Choose therapist
-                  </div>
-                  <div
-                    class="mt-1 text-xs text-slate-600"
-                    data-i18n="mini1Desc"
-                  >
-                    Customers pick who they prefer.
-                  </div>
+              <div
+                id="heroAiFallback"
+                class="hidden rounded-[1.6rem] border border-white/15 bg-white/10 p-10 text-center"
+              >
+                <div class="text-lg font-semibold">ภาพประกอบ (AI)</div>
+                <div class="mt-2 text-sm text-white/70">
+                  ใส่ไฟล์: <b>/assets/solutions-hero-booking.webp</b>
                 </div>
-                <div class="rounded-2xl border bg-white p-3">
-                  <div
-                    class="text-xs font-semibold text-slate-900"
-                    data-i18n="mini2Title"
-                  >
-                    Duration options
-                  </div>
-                  <div
-                    class="mt-1 text-xs text-slate-600"
-                    data-i18n="mini2Desc"
-                  >
-                    60/90/120 minutes, clear slots.
-                  </div>
+              </div>
+            </div>
+
+            <div class="mt-8 grid grid-cols-2 gap-2 md:grid-cols-3">
+              <div
+                class="text-center rounded-2xl border border-white/15 bg-white/10 p-3"
+              >
+                <div class="text-sm md:text-md font-medium">ใช้งานง่าย</div>
+                <div class="mt-1 text-xs md:text-sm text-white/70">
+                  เริ่มได้ทันทีแม้ไม่มีพื้นฐาน
                 </div>
-                <div class="rounded-2xl border bg-white p-3">
-                  <div
-                    class="text-xs font-semibold text-slate-900"
-                    data-i18n="mini3Title"
-                  >
-                    Friendly reminders
-                  </div>
-                  <div
-                    class="mt-1 text-xs text-slate-600"
-                    data-i18n="mini3Desc"
-                  >
-                    Fewer no-shows.
-                  </div>
+              </div>
+
+              <div
+                class="text-center rounded-2xl border border-white/15 bg-white/10 p-3"
+              >
+                <div class="text-sm md:text-md font-medium">แจ้งเตือนสุภาพ</div>
+                <div class="mt-1 text-xs md:text-sm text-white/70">
+                  ลด no-show ได้จริง
                 </div>
-                <div class="rounded-2xl border bg-white p-3">
-                  <div
-                    class="text-xs font-semibold text-slate-900"
-                    data-i18n="mini4Title"
-                  >
-                    Simple payments
-                  </div>
-                  <div
-                    class="mt-1 text-xs text-slate-600"
-                    data-i18n="mini4Desc"
-                  >
-                    Online or in store.
-                  </div>
+              </div>
+              <div
+                class="text-center rounded-2xl border border-white/15 bg-white/10 p-3"
+              >
+                <div class="text-sm md:text-md font-medium">รองรับหลายร้าน</div>
+                <div class="mt-1 text-xs md:text-sm text-white/70">
+                  ผม/เล็บ/นวด/สปา
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </header>
+      </div>
 
-      <!-- Built for Massage -->
-      <section id="choose" class="border-t bg-white/60">
-        <div class="mx-auto max-w-6xl px-4 py-12">
-          <div class="flex items-end justify-between gap-4">
-            <div>
-              <h2
-                class="text-2xl font-bold tracking-tight md:text-3xl"
-                data-i18n="chooseTitle"
-              >
-                Built for Spa & Massage
-              </h2>
-              <p class="mt-2 text-slate-600" data-i18n="chooseDesc">
-                Designed for massage studios that run on peak hours, therapist
-                preferences, and clear time blocks.
-              </p>
-            </div>
+      <!-- Curved bottom wave -->
 
-            <div class="hidden md:block">
-              <a
-                href="/pricing"
-                class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                data-i18n="chooseCta"
-                >See pricing</a
-              >
-            </div>
+      <div class="absolute bottom-0 left-0 right-0">
+        <svg
+          viewBox="0 0 1440 120"
+          class="h-[150px] w-full"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,64 C240,130 480,130 720,78 C960,26 1200,10 1440,36 L1440,120 L0,120 Z"
+            fill="#FAF2FF"
+          ></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- SALON TYPES (3 examples) -->
+    <section id="salon-types" class="border-t bg-[#FAF2FF]">
+      <div class="mx-auto max-w-6xl px-4 py-16">
+        <div class="text-center">
+          <div
+            class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-[#FAF2FF]/80 px-4 py-1 text-sm font-semibold text-[#B91774]"
+          >
+            ตัวอย่างประเภทร้าน
           </div>
+          <h2
+            class="mt-6 text-3xl font-semibold tracking-tight md:text-4xl text-primary"
+          >
+            รองรับร้านยอดฮิต: ร้านนวด & สปา/ ร้านทำผม / ร้านทำเล็บ
+          </h2>
+          <p class="mt-2 text-slate-600 md:max-w-4xl mx-auto">
+            โครงสร้างการจองเหมือนกัน: เลือกบริการ → เลือกพนักงาน → เลือกเวลา →
+            ยืนยัน/แจ้งเตือน
+          </p>
 
-          <div class="mt-8 grid gap-4 md:grid-cols-3">
-            <div class="rounded-3xl border bg-white p-6 shadow-sm">
-              <div class="font-bold text-slate-900" data-i18n="pill1T">
-                Clear time blocks
-              </div>
-              <div class="mt-2 text-sm text-slate-600" data-i18n="pill1D">
-                Services with 60/90/120 minutes fit neatly into your calendar.
-              </div>
-            </div>
-            <div class="rounded-3xl border bg-white p-6 shadow-sm">
-              <div class="font-bold text-slate-900" data-i18n="pill2T">
-                Therapist preference
-              </div>
-              <div class="mt-2 text-sm text-slate-600" data-i18n="pill2D">
-                Let customers choose the therapist they’re comfortable with.
-              </div>
-            </div>
-            <div class="rounded-3xl border bg-white p-6 shadow-sm">
-              <div class="font-bold text-slate-900" data-i18n="pill3T">
-                Reduce no-shows
-              </div>
-              <div class="mt-2 text-sm text-slate-600" data-i18n="pill3D">
-                Confirmation + email reminders protect your peak hours.
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-6">
-            <a
-              href="#massage"
-              class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:opacity-95"
-              data-i18n="choosePrimary"
+          <!-- Section Image (AI) -->
+          <div class="mt-8">
+            <div
+              class="mx-auto overflow-hidden rounded-[2rem] border bg-white shadow-soft"
             >
-              See massage flow
-            </a>
+              <img
+                src="/assets/solutions-salon-types.webp"
+                alt="ภาพประกอบประเภทร้านที่รองรับ"
+                class="w-full object-cover"
+                onerror="
+                  this.style.display = 'none';
+                  document.getElementById('typesAiFallback').style.display =
+                    'block';
+                "
+              />
+              <div
+                id="typesAiFallback"
+                class="hidden p-10 text-center text-primary"
+              >
+                <div class="text-lg font-semibold">ภาพประกอบ (AI)</div>
+                <div class="mt-2 text-sm text-slate-600">
+                  ใส่ไฟล์: <b>/assets/solutions-salon-types.webp</b>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+          <!-- Massage & Spa -->
+          <article class="rounded-[2rem] border bg-[#FAF2FF] p-6 shadow-soft">
+            <div class="flex justify-center">
+              <img src="/assets/shop1.webp" alt="" />
+            </div>
+            <div class="mt-5 text-center text-xl font-semibold text-[#B91774]">
+              ร้านนวดและสปา
+            </div>
+            <p class="mt-2 text-sm text-primary">
+              จองนวดไทย ออยล์ สครับ หรือสปาได้เป็นรอบเวลา เลือกพนักงาน/ห้องได้
+              (ถ้าร้านต้องการ)
+            </p>
+
+            <ul class="mt-5 grid gap-2 text-sm text-slate-700">
+              <li class="flex gap-2">
+                <span
+                  class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-accent/10 text-accent"
+                  >✓</span
+                >
+                ตั้งรอบ 60/90/120 นาที และเวลาพักได้
+              </li>
+              <li class="flex gap-2">
+                <span
+                  class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-accent/10 text-accent"
+                  >✓</span
+                >
+                กันคิวชนข้ามพนักงาน/ข้ามห้องอัตโนมัติ
+              </li>
+              <li class="flex gap-2">
+                <span
+                  class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-accent/10 text-accent"
+                  >✓</span
+                >
+                แจ้งเตือนก่อนนัด ช่วยลด no-show
+              </li>
+            </ul>
+          </article>
+          <!-- Hair -->
+          <article class="rounded-[2rem] border bg-[#FAF2FF] p-6 shadow-soft">
+            <div class="flex justify-center">
+              <img src="/assets/shop2.webp" alt="" />
+            </div>
+            <div class="mt-5 text-center text-xl font-semibold text-[#B91774]">
+              ร้านทำผม
+            </div>
+            <p class="mt-2 text-sm text-primary">
+              จองคิวตัด สระ ไดร์ ทำสี หรือทรีตเมนต์
+              พร้อมเลือกช่างที่ลูกค้าประจำไว้ใจ
+            </p>
+
+            <ul class="mt-5 grid gap-2 text-sm text-slate-700">
+              <li class="flex gap-2">
+                <span
+                  class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  >✓</span
+                >
+                แยกระยะเวลาแต่ละบริการได้ (45/60/90 นาที)
+              </li>
+              <li class="flex gap-2">
+                <span
+                  class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  >✓</span
+                >
+                เลือกพนักงาน / ช่างประจำได้
+              </li>
+              <li class="flex gap-2">
+                <span
+                  class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  >✓</span
+                >
+                กันคิวซ้อนในช่วงพีคอัตโนมัติ
+              </li>
+            </ul>
+          </article>
+
+          <!-- Nail -->
+          <article class="rounded-[2rem] border bg-[#FAF2FF] p-6 shadow-soft">
+            <div class="flex justify-center">
+              <img src="/assets/shop3.webp" alt="" />
+            </div>
+            <div class="mt-5 text-center text-xl font-semibold text-[#B91774]">
+              ร้านทำเล็บ
+            </div>
+            <p class="mt-2 text-sm text-primary">
+              จองทำเล็บเจล สปามือ-เท้า ต่อเล็บ หรือแก้ลาย พร้อมระบุเวลาชัด
+              ลดคิวสะดุด
+            </p>
+
+            <ul class="mt-5 grid gap-2 text-sm text-slate-700">
+              <li class="flex gap-2">
+                <span
+                  class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-secondary/10 text-secondary"
+                  >✓</span
+                >
+                แยกเมนูละเอียด + เพิ่มตัวเลือกเสริมได้
+              </li>
+              <li class="flex gap-2">
+                <span
+                  class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-secondary/10 text-secondary"
+                  >✓</span
+                >
+                ล็อกเวลาตามความยาวงาน ลดคิวชน
+              </li>
+              <li class="flex gap-2">
+                <span
+                  class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-secondary/10 text-secondary"
+                  >✓</span
+                >
+                เหมาะกับร้านที่รับจองเยอะช่วงเย็น/เสาร์อาทิตย์
+              </li>
+            </ul>
+          </article>
         </div>
-      </section>
 
-      <!-- Massage detail -->
-      <section id="massage" class="border-t bg-white">
-        <div class="mx-auto max-w-6xl px-4 py-12">
-          <div class="grid gap-8 md:grid-cols-2 md:items-center">
-            <div>
-              <div
-                class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary"
-              >
-                <span>Massage</span>
-                <span class="text-primary/70">•</span>
-                <span data-i18n="massageBadge">Spa & Wellness</span>
-              </div>
+        <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-center">
+          <a
+            href="/trial"
+            class="inline-flex items-center justify-center rounded-2xl bg-primary px-7 py-3 text-sm font-semibold text-white shadow-soft hover:opacity-95"
+          >
+            ลองใช้งานจริง 15 วัน
+          </a>
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center rounded-2xl border border-[#B91774] px-7 py-3 text-sm font-semibold text-[#B91774] hover:bg-slate-50"
+          >
+            ขอคำแนะนำการตั้งค่า
+          </a>
+        </div>
+      </div>
+    </section>
 
-              <h2
-                class="mt-4 text-2xl font-bold tracking-tight md:text-4xl"
-                data-i18n="massageTitle"
-              >
-                Let customers choose the service and therapist, calmly
-              </h2>
-
-              <p class="mt-3 text-slate-600 md:text-lg" data-i18n="massageDesc">
-                For massage businesses, no-shows can be painful. With a clear
-                calendar and friendly reminders, you can protect your peak hours
-                and keep the day smooth.
-              </p>
-
-              <div class="mt-6 rounded-3xl border bg-white p-6">
-                <div
-                  class="text-sm font-semibold text-slate-900"
-                  data-i18n="massagePainTitle"
-                >
-                  Common pain points
-                </div>
-                <ul class="mt-3 grid gap-2 text-sm text-slate-700">
-                  <li class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="massagePain1"
-                      >Customers forget appointments — especially evenings and
-                      weekends</span
-                    >
-                  </li>
-                  <li class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="massagePain2"
-                      >Customers want specific massage types and durations</span
-                    >
-                  </li>
-                  <li class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="massagePain3"
-                      >Therapist preference matters for comfort and repeat
-                      visits</span
-                    >
-                  </li>
-                  <li class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="massagePain4"
-                      >Manual payment tracking takes time</span
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <div class="mt-4 rounded-3xl bg-white p-6">
-                <div
-                  class="text-sm font-semibold text-slate-900"
-                  data-i18n="massageFlowTitle"
-                >
-                  Recommended workflow
-                </div>
-
-                <div class="mt-3 grid gap-3 text-sm text-slate-700">
-                  <div class="flex items-start gap-3">
-                    <span
-                      class="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-primary/10 text-primary font-bold"
-                      >1</span
-                    >
-                    <div>
-                      <div class="font-semibold" data-i18n="massageFlow1T">
-                        Customer books
-                      </div>
-                      <div class="text-slate-600" data-i18n="massageFlow1D">
-                        Customer chooses Thai / Oil / Aroma, duration, and
-                        therapist.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="flex items-start gap-3">
-                    <span
-                      class="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-primary/10 text-primary font-bold"
-                      >2</span
-                    >
-                    <div>
-                      <div class="font-semibold" data-i18n="massageFlow2T">
-                        Confirm
-                      </div>
-                      <div class="text-slate-600" data-i18n="massageFlow2D">
-                        Confirm instantly, and the slot is locked on the
-                        calendar.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="flex items-start gap-3">
-                    <span
-                      class="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-primary/10 text-primary font-bold"
-                      >3</span
-                    >
-                    <div>
-                      <div class="font-semibold" data-i18n="massageFlow3T">
-                        Remind & re-confirm
-                      </div>
-                      <div class="text-slate-600" data-i18n="massageFlow3D">
-                        Send friendly reminders via Email to reduce no-shows.
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="flex items-start gap-3">
-                    <span
-                      class="inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-primary/10 text-primary font-bold"
-                      >4</span
-                    >
-                    <div>
-                      <div class="font-semibold" data-i18n="massageFlow4T">
-                        Payment
-                      </div>
-                      <div class="text-slate-600" data-i18n="massageFlow4D">
-                        Take payment online or in store, and keep a clear
-                        record.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href="/trial"
-                  class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:opacity-95"
-                  data-i18n="massageCtaPrimary"
-                >
-                  Start 15-day trial
-                </a>
-                <a
-                  href="/contact"
-                  class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                  data-i18n="massageCtaSecondary"
-                >
-                  Talk to us
-                </a>
-              </div>
-            </div>
-
-            <div class="relative">
-              <div
-                class="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/10 via-white to-primary/5"
-              ></div>
-
-              <div class="rounded-[2rem] border bg-white p-4 shadow-sm">
-                <img
-                  src="/assets/solution-massage-case.png"
-                  alt="Massage use case"
-                  class="h-[320px] w-full rounded-[1.5rem] object-cover md:h-[440px]"
-                />
-
-                <div class="mt-4 grid gap-3 sm:grid-cols-2">
-                  <div class="rounded-2xl border bg-white p-4">
-                    <div
-                      class="text-sm font-semibold text-slate-900"
-                      data-i18n="massageHi1T"
-                    >
-                      Service types & duration
-                    </div>
-                    <div
-                      class="mt-1 text-sm text-slate-600"
-                      data-i18n="massageHi1D"
-                    >
-                      Thai, oil, aroma — 60/90/120 minutes.
-                    </div>
-                  </div>
-                  <div class="rounded-2xl border bg-white p-4">
-                    <div
-                      class="text-sm font-semibold text-slate-900"
-                      data-i18n="massageHi2T"
-                    >
-                      Therapist preference
-                    </div>
-                    <div
-                      class="mt-1 text-sm text-slate-600"
-                      data-i18n="massageHi2D"
-                    >
-                      Customers choose who they feel comfortable with.
-                    </div>
-                  </div>
-                  <div class="rounded-2xl border bg-white p-4">
-                    <div
-                      class="text-sm font-semibold text-slate-900"
-                      data-i18n="massageHi3T"
-                    >
-                      Status tracking
-                    </div>
-                    <div
-                      class="mt-1 text-sm text-slate-600"
-                      data-i18n="massageHi3D"
-                    >
-                      Arrived / confirmed / no-show — simple and clear.
-                    </div>
-                  </div>
-                  <div class="rounded-2xl border bg-white p-4">
-                    <div
-                      class="text-sm font-semibold text-slate-900"
-                      data-i18n="massageHi4T"
-                    >
-                      Deposit option (package dependent)
-                    </div>
-                    <div
-                      class="mt-1 text-sm text-slate-600"
-                      data-i18n="massageHi4D"
-                    >
-                      Helps protect busy hours.
-                    </div>
-                  </div>
-                </div>
-
-                <div class="mt-4 rounded-3xl bg-primary/5 p-5">
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="massageExampleTitle"
-                  >
-                    Example booking
-                  </div>
-                  <div
-                    class="mt-2 text-sm text-slate-700"
-                    data-i18n="massageExampleDesc"
-                  >
-                    “Aroma Oil Massage (90 min)” with Therapist “Nina”,
-                    Wednesday 18:30. A reminder goes out automatically before
-                    the appointment.
-                  </div>
-                </div>
-              </div>
-            </div>
+    <!-- HOW IT HELPS -->
+    <section
+      class="border-t bg-gradient-to-b from-white via-primary/5 to-white"
+    >
+      <div class="mx-auto max-w-6xl px-4 py-16">
+        <div class="text-center">
+          <div
+            class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-[#FAF2FF]/80 px-4 py-1 text-sm font-semibold text-[#B91774]"
+          >
+            ช่วยร้านจัดการได้จริง
           </div>
+          <h2
+            class="mt-6 text-3xl font-semibold tracking-tight md:text-4xl text-primary"
+          >
+            ระบบ JuztBooking ช่วยทำให้ทีมทำงานง่ายขึ้น
+          </h2>
+          <p class="mt-2 text-slate-600 md:max-w-3xl mx-auto">
+            ช่วยจัดการคิว ลดแชท รับมือช่วงพีค และจัดตารางพนักงานได้ง่าย
+            เหมาะกับร้านนวดที่มีหลายคอร์ส หลายรอบเวลา
+          </p>
+        </div>
 
-          <!-- Feature modules (Massage) -->
-          <div class="mt-10 rounded-[2rem] border bg-white p-6 md:p-8">
-            <div class="flex items-end justify-between gap-4">
-              <div>
-                <h3
-                  class="text-xl font-bold tracking-tight md:text-2xl"
-                  data-i18n="modulesTitle"
-                >
-                  Features that support massage studios
-                </h3>
-                <p class="mt-2 text-slate-600" data-i18n="modulesDesc">
-                  Set it up once, and daily bookings feel calmer.
+        <div class="mt-10 grid gap-5 md:grid-cols-2">
+          <article class="rounded-[2rem] border bg-[#FAF2FF] p-7 shadow-soft">
+            <div class="flex items-start gap-4">
+              <div
+                class="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary"
+                aria-hidden="true"
+              >
+                <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                  <path
+                    d="M6 2a1 1 0 0 1 1 1v1h10V3a1 1 0 1 1 2 0v1h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1V3a1 1 0 0 1 1-1zm14 8H4v10h16V10z"
+                  />
+                </svg>
+              </div>
+
+              <div class="flex-1">
+                <div class="text-lg font-semibold text-primary">
+                  ปฏิทินคิวชัด + กันคิวซ้อนอัตโนมัติ
+                </div>
+                <p class="mt-1 text-sm text-slate-600">
+                  ลูกค้าเห็นช่องว่างจริง เลือกเวลาที่จองได้ ระบบล็อกคิวให้ทันที
+                  ลดความผิดพลาดหน้างาน โดยเฉพาะช่วงพีค
                 </p>
-              </div>
-              <div class="hidden md:block">
-                <a
-                  href="/features"
-                  class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                  data-i18n="modulesCta"
-                  >See all features</a
-                >
-              </div>
-            </div>
-
-            <div class="mt-6 grid gap-4 md:grid-cols-2">
-              <div class="rounded-3xl border bg-white p-6">
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <div class="font-bold text-slate-900" data-i18n="m1Title">
-                      Calendar & Bookings
-                    </div>
-                    <div class="mt-2 text-sm text-slate-600" data-i18n="m1Desc">
-                      Day/week view with statuses like confirmed, cancelled,
-                      no-show, arrived.
-                    </div>
-                  </div>
-                  <div
-                    class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      class="h-6 w-6 fill-current"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M7 2a1 1 0 0 1 1 1v1h8V3a1 1 0 1 1 2 0v1h1a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h1V3a1 1 0 0 1 1-1zm12 8H5v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-9zM6 6a1 1 0 0 0-1 1v1h14V7a1 1 0 0 0-1-1H6z"
-                      />
-                    </svg>
-                  </div>
-                </div>
 
                 <ul class="mt-4 grid gap-2 text-sm text-slate-700">
                   <li class="flex gap-2">
@@ -936,999 +618,285 @@
                       class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
                       >✓</span
                     >
-                    <span data-i18n="m1B1">View per therapist (resources)</span>
+                    ตั้งเวลาพัก/วันหยุด/ปิดร้านได้
                   </li>
                   <li class="flex gap-2">
                     <span
                       class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
                       >✓</span
                     >
-                    <span data-i18n="m1B2"
-                      >Create/edit/move/cancel bookings</span
-                    >
+                    รองรับหลายพนักงาน หลายบริการ
                   </li>
                   <li class="flex gap-2">
                     <span
                       class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
                       >✓</span
                     >
-                    <span data-i18n="m1B3"
-                      >Block breaks, holidays, closed times</span
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <div class="rounded-3xl border bg-white p-6">
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <div class="font-bold text-slate-900" data-i18n="m2Title">
-                      Services & Therapists Setup
-                    </div>
-                    <div class="mt-2 text-sm text-slate-600" data-i18n="m2Desc">
-                      Add massage types, durations, prices, and who can do what.
-                    </div>
-                  </div>
-                  <div
-                    class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      class="h-6 w-6 fill-current"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M12 2a5 5 0 0 1 5 5v1h1a3 3 0 0 1 3 3v7a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-7a3 3 0 0 1 3-3h1V7a5 5 0 0 1 5-5zm3 6V7a3 3 0 0 0-6 0v1h6z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                <ul class="mt-4 grid gap-2 text-sm text-slate-700">
-                  <li class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="m2B1"
-                      >Service name, price, duration, description</span
-                    >
-                  </li>
-                  <li class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="m2B2">Therapist profiles and skills</span>
-                  </li>
-                  <li class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="m2B3"
-                      >Opening hours, breaks, scheduling rules</span
-                    >
-                  </li>
-                </ul>
-              </div>
-
-              <div class="rounded-3xl border bg-white p-6">
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <div class="font-bold text-slate-900" data-i18n="m3Title">
-                      Payments
-                    </div>
-                    <div class="mt-2 text-sm text-slate-600" data-i18n="m3Desc">
-                      Get paid easily and keep payment status clear.
-                    </div>
-                  </div>
-                  <div
-                    class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      class="h-6 w-6 fill-current"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M3 6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6zm3-1a1 1 0 0 0-1 1v1h14V6a1 1 0 0 0-1-1H6zm13 6H5v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                <ul class="mt-4 grid gap-2 text-sm text-slate-700">
-                  <li class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="m3B1"
-                      >Deposit / online payment setup (optional)</span
-                    >
-                  </li>
-                  <li class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="m3B2">Cash / card / online tracking</span>
-                  </li>
-                  <li class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="m3B3">Outstanding balance follow-up</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="rounded-3xl border bg-white p-6">
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <div class="font-bold text-slate-900" data-i18n="m4Title">
-                      Reports & Logs
-                    </div>
-                    <div class="mt-2 text-sm text-slate-600" data-i18n="m4Desc">
-                      See bookings and sales clearly, and review activity when
-                      needed.
-                    </div>
-                  </div>
-                  <div
-                    class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      class="h-6 w-6 fill-current"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M4 19a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1zM7 10a1 1 0 0 1 1 1v5H6v-5a1 1 0 0 1 1-1zm5-4a1 1 0 0 1 1 1v9h-2V7a1 1 0 0 1 1-1zm5 2a1 1 0 0 1 1 1v7h-2V9a1 1 0 0 1 1-1z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                <ul class="mt-4 grid gap-2 text-sm text-slate-700">
-                  <li class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="m4B1"
-                      >Booking report (filter by day/service/therapist)</span
-                    >
-                  </li>
-                  <li class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="m4B2"
-                      >Transaction history overview (package dependent)</span
-                    >
-                  </li>
-                  <li class="flex gap-2">
-                    <span
-                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-primary"
-                      >✓</span
-                    >
-                    <span data-i18n="m4B3">Activity logs for review</span>
+                    ลดคิวชนช่วงเย็น/เสาร์อาทิตย์
                   </li>
                 </ul>
               </div>
             </div>
+          </article>
 
-            <div class="mt-6 rounded-3xl bg-primary/5 p-6">
+          <article class="rounded-[2rem] border bg-[#FAF2FF] p-7 shadow-soft">
+            <div class="flex items-start gap-4">
               <div
-                class="text-sm font-semibold text-slate-900"
-                data-i18n="setupStepsTitle"
+                class="grid h-12 w-12 place-items-center rounded-2xl bg-accent/10 text-accent"
+                aria-hidden="true"
               >
-                Easy setup steps
+                <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                  <path
+                    d="M20 3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-6l-4 3v-3H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16zm0 2H4v9h7.2l.8.6V14h8V5z"
+                  />
+                </svg>
               </div>
-              <ol class="mt-3 grid gap-2 text-sm text-slate-700">
-                <li class="flex gap-2">
-                  <span
-                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary font-bold"
-                    >1</span
-                  >
-                  <span data-i18n="setupStep1"
-                    >Add services (price / duration)</span
-                  >
-                </li>
-                <li class="flex gap-2">
-                  <span
-                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary font-bold"
-                    >2</span
-                  >
-                  <span data-i18n="setupStep2"
-                    >Add therapists & opening hours</span
-                  >
-                </li>
-                <li class="flex gap-2">
-                  <span
-                    class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary font-bold"
-                    >3</span
-                  >
-                  <span data-i18n="setupStep3"
-                    >Share booking link & manage calendar</span
-                  >
-                </li>
-              </ol>
-            </div>
-          </div>
 
-          <!-- Small note -->
-          <div class="mt-10 grid gap-4 md:grid-cols-3">
-            <div class="rounded-3xl border bg-white p-6 md:col-span-2">
-              <h3 class="text-lg font-bold" data-i18n="supportTitle">
-                Good to know
-              </h3>
-              <p class="mt-2 text-sm text-slate-600" data-i18n="supportDesc">
-                If you already have a website, you can add a “Book now” button
-                and link to juztbooking. If you don’t have a website, we can
-                build a lovely one for you and connect the booking flow.
-              </p>
+              <div class="flex-1">
+                <div class="text-lg font-semibold text-primary">
+                  แจ้งเตือนสุภาพ ลด no-show
+                </div>
+                <p class="mt-1 text-sm text-slate-600">
+                  ส่งอีเมลยืนยันและแจ้งเตือนก่อนถึงคิว ช่วยให้ลูกค้าไม่ลืมนัด
+                  และลดการตามคอนเฟิร์ม ทำให้หน้าร้านโล่งขึ้น
+                </p>
 
-              <div class="mt-4 grid gap-3 sm:grid-cols-2">
-                <div class="rounded-2xl bg-primary/5 p-4">
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="support1T"
-                  >
-                    Works with your brand
-                  </div>
-                  <div
-                    class="mt-1 text-sm text-slate-700"
-                    data-i18n="support1D"
-                  >
-                    Share your booking link and place it on your website and
-                    social pages.
-                  </div>
-                </div>
-                <div class="rounded-2xl bg-primary/5 p-4">
-                  <div
-                    class="text-sm font-semibold text-slate-900"
-                    data-i18n="support2T"
-                  >
-                    Clear for your team
-                  </div>
-                  <div
-                    class="mt-1 text-sm text-slate-700"
-                    data-i18n="support2D"
-                  >
-                    Calendar view, customer history, and simple payments — in
-                    one place.
-                  </div>
-                </div>
+                <ul class="mt-4 grid gap-2 text-sm text-slate-700">
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-accent/10 text-accent"
+                      >✓</span
+                    >
+                    ลดข้อความถาม-ตอบซ้ำ ๆ
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-accent/10 text-accent"
+                      >✓</span
+                    >
+                    ลูกค้ารู้เวลานัดชัดเจน
+                  </li>
+                  <li class="flex gap-2">
+                    <span
+                      class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-accent/10 text-accent"
+                      >✓</span
+                    >
+                    ร้านจัดคิววันพีคได้ง่ายขึ้น
+                  </li>
+                </ul>
               </div>
             </div>
+          </article>
+        </div>
 
-            <aside class="rounded-3xl border bg-white p-6">
+        <div class="mt-10 rounded-[2rem] border bg-primary p-7 shadow-soft">
+          <div class="grid gap-6 lg:grid-cols-3 lg:items-center">
+            <div class="lg:col-span-2">
               <div
-                class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary"
+                class="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1 text-sm text-white"
               >
-                <span data-i18n="ctaBadge">Ready when you are</span>
+                พร้อมเริ่มได้ทันที
               </div>
-              <h3 class="mt-3 text-lg font-bold" data-i18n="ctaTitle">
-                Try juztbooking for 15 days
-              </h3>
-              <p class="mt-2 text-sm text-slate-600" data-i18n="ctaDesc">
-                Start with a simple setup. If you want, our team can guide you
-                kindly.
+              <div class="mt-6 text-2xl font-semibold text-white md:text-/xl">
+                ตั้งค่าระบบให้พร้อมใช้งานได้ใน “ไม่กี่นาที”
+              </div>
+              <p class="mt-4 text-white/80">
+                เริ่มจากเพิ่มบริการ → เพิ่มพนักงาน → เปิดลิงก์จองให้ลูกค้า
+                แล้วปล่อยให้ระบบดูแลคิวให้
               </p>
+            </div>
+
+            <div
+              class="flex flex-col gap-3 sm:flex-row lg:flex-col lg:justify-end"
+            >
               <a
                 href="/trial"
-                class="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
-                data-i18n="ctaPrimary"
-                >Start 15-day trial</a
+                class="inline-flex items-center justify-center rounded-2xl bg-[#FAF2FF] px-7 py-3 text-sm font-semibold text-primary hover:opacity-95"
               >
+                เริ่มทดลองใช้ 15 วัน
+              </a>
               <a
                 href="/contact"
-                class="mt-2 inline-flex w-full items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                data-i18n="ctaSecondary"
-                >Message us</a
+                class="inline-flex items-center justify-center rounded-2xl border border-white/30 bg-white/10 px-7 py-3 text-sm font-semibold text-white hover:bg-white/15"
               >
-              <div class="mt-2 text-xs text-slate-500" data-i18n="ctaFoot">
-                Annual billing saves 10% compared to monthly.
-              </div>
-            </aside>
+                ทักหาเรา
+              </a>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Footer -->
-      <footer class="border-t bg-white/70 backdrop-blur">
-        <div class="mx-auto max-w-6xl px-4 py-10">
-          <div
-            class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
-          >
+    <!-- Footer (same as Home) -->
+    <footer class="bg-[#080A12] border-t border-purple-100">
+      <div class="mx-auto max-w-6xl px-4 py-14">
+        <!-- Top grid -->
+        <div class="grid gap-10 md:grid-cols-4">
+          <!-- Brand -->
+          <div class="md:col-span-2">
             <div class="flex items-center gap-3">
-              <img
-                src="/assets/logo-juztbooking.png"
-                alt="juztbooking"
-                class="h-12 rounded-xl object-cover"
-              />
+              <div
+                class="grid h-12 w-12 place-items-center rounded-2xl text-white font-semibold"
+              >
+                <img src="/assets/j-logo.svg" alt="" />
+              </div>
               <div>
-                <div class="font-semibold">juztbooking</div>
-                <div class="text-sm text-slate-600" data-i18n="footerLine">
-                  Booking system for Spa & Massage
+                <div class="text-sm font-semibold text-white">juztbooking</div>
+                <div class="text-sm text-white">
+                  ระบบจองคิวสำหรับ Salon & ร้านนวด
                 </div>
               </div>
             </div>
 
-            <div class="flex flex-wrap items-center gap-3">
-              <a
-                href="/privacy-policy"
-                class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-                data-i18n="privacy"
-                >Privacy Policy</a
-              >
+            <p class="mt-4 text-sm text-white leading-relaxed">
+              ช่วยให้ร้านจัดการคิว ลูกค้า และพนักงานได้ง่ายขึ้น
+              ตั้งแต่จองออนไลน์ ไปจนถึงรายงานและการชำระเงิน
+              เหมาะกับร้านเล็กถึงร้านที่มีหลายสาขา
+            </p>
 
+            <!-- Social -->
+            <div class="mt-5 flex flex-wrap items-center gap-2">
               <a
-                class="rounded-xl p-2 hover:bg-slate-50"
-                href="https://www.facebook.com/juztbooking"
+                href="https://www.facebook.com/profile.php?id=61585810976713"
+                class="inline-flex items-center gap-2 rounded-xl border border-purple-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
                 aria-label="Facebook"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  class="h-5 w-5 fill-slate-700"
-                  aria-hidden="true"
-                >
+                <svg viewBox="0 0 24 24" class="h-4 w-4 fill-slate-700">
                   <path
                     d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"
                   />
                 </svg>
+                Facebook
               </a>
 
               <a
-                class="rounded-xl p-2 hover:bg-slate-50"
-                href="https://x.com/juztbooking"
-                aria-label="X"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  class="h-5 w-5 fill-slate-700"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M18.9 2H22l-6.77 7.73L23 22h-6.17l-4.83-7.06L5.9 22H2.8l7.25-8.29L1 2h6.32l4.37 6.41L18.9 2zm-1.08 18h1.71L7.23 3.9H5.4L17.82 20z"
-                  />
-                </svg>
-              </a>
-
-              <a
-                class="rounded-xl p-2 hover:bg-slate-50"
-                href="https://www.instagram.com/juztbooking"
+                href="https://www.instagram.com/juztbooking/?fbclid=IwY2xjawPxmyxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAEwAAEe5v5lRSrrLk3mlyUPv_nZN2n6hlo7VJEKBj9SBofjbnAsYy6afPGIRMl2V6c_aem_2HOXQYqem7G1DWZe3oCuig"
+                class="inline-flex items-center gap-2 rounded-xl border border-purple-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
                 aria-label="Instagram"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  class="h-5 w-5 fill-slate-700"
-                  aria-hidden="true"
-                >
+                <svg viewBox="0 0 24 24" class="h-4 w-4 fill-slate-700">
                   <path
-                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4.5A5.5 5.5 0 1 1 6.5 14 5.5 5.5 0 0 1 12 8.5zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5zM18 6.2a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"
+                    d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"
                   />
                 </svg>
+                Instagram
+              </a>
+
+              <a
+                href="https://www.tiktok.com/@juztbooking.system?is_from_webapp=1&sender_device=pc"
+                class="inline-flex items-center gap-2 rounded-xl border border-purple-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                aria-label="TikTok"
+              >
+                <svg viewBox="0 0 24 24" class="h-4 w-4 fill-slate-700">
+                  <path
+                    d="M16.5 2c.4 2.7 2.1 4.6 4.5 5v3.1c-1.7.1-3.3-.4-4.5-1.4V16c0 3.4-2.8 6-6.2 6A6.2 6.2 0 0 1 4 15.8c0-3.3 2.7-6 6.2-6 .5 0 1 .1 1.5.2v3.4c-.5-.2-1-.3-1.5-.3-1.6 0-2.9 1.2-2.9 2.7 0 1.6 1.3 2.9 2.9 2.9 1.7 0 3.1-1.3 3.1-3.3V2h3.2z"
+                  />
+                </svg>
+                TikTok
               </a>
             </div>
           </div>
 
-          <div class="mt-6 text-xs text-slate-500">
-            © <span id="year"></span> juztbooking.
-            <span data-i18n="footerRights">All rights reserved.</span>
+          <!-- Quick links -->
+          <div>
+            <div class="text-sm font-extrabold text-white">เมนู</div>
+            <ul class="mt-4 space-y-2 text-sm">
+              <li>
+                <a href="/pricing" class="text-white hover:text-primary"
+                  >ราคาแพ็กเกจ</a
+                >
+              </li>
+              <li>
+                <a href="/features" class="text-white hover:text-primary"
+                  >ฟีเจอร์ทั้งหมด</a
+                >
+              </li>
+              <li>
+                <a href="/trial" class="text-white hover:text-primary"
+                  >ทดลองใช้</a
+                >
+              </li>
+            </ul>
+
+            <ul class="mt-2 space-y-2 text-sm">
+              <li>
+                <a href="/privacy-policy" class="text-white hover:text-primary"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="/terms" class="text-white hover:text-primary"
+                  >Terms of Service</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Support / Contact -->
+          <div>
+            <div class="text-sm font-extrabold text-white">ติดต่อ</div>
+            <ul class="mt-4 space-y-2 text-sm text-white">
+              <li>
+                อีเมล:
+                <a
+                  class="hover:text-primary"
+                  href="mailto:admin@juztbooking.com"
+                  >admin@juztbooking.com</a
+                >
+              </li>
+              <li>เวลาให้บริการ: จ.- ศ. 10:00 - 18:00</li>
+            </ul>
+
+            <a
+              href="/trial"
+              class="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-black text-white hover:opacity-95"
+            >
+              เริ่มทดลองใช้
+            </a>
           </div>
         </div>
-      </footer>
-    </div>
 
+        <!-- Bottom bar -->
+        <div
+          class="mt-12 flex flex-col gap-3 border-t border-purple-100 pt-6 md:flex-row md:items-center md:justify-between"
+        >
+          <div class="text-xs text-white">
+            © <span id="year"></span> juztbooking. สงวนลิขสิทธิ์
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <a
+              href="/privacy-policy"
+              class="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-slate-800"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="/terms"
+              class="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-slate-800"
+            >
+              Terms
+            </a>
+            <a
+              href="/contact"
+              class="rounded-lg px-2 py-1 text-white hover:bg-white hover:text-slate-800"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS -->
     <script>
-      // ---------------------------
-      // ✅ i18n dictionary (EN / TH / NL)
-      // ---------------------------
-      const dict = {
-        en: {
-          navHome: "Home",
-          navSolutions: "Solutions",
-          navFeatures: "Features",
-          navPricing: "Pricing",
-          navContact: "Contact",
-          navLogin: "Login",
-          navTrial: "Start 15-day trial",
-          navTrialShort: "Start 15-day trial",
-          navLangTitle: "Language",
-
-          heroBadge: "Solutions for massage businesses",
-          heroTitle: "Calm booking flow for Spa & Massage",
-          heroDesc:
-            "Keep your calendar clean, reduce no-shows, and make payments easier. Customers can choose time, service, duration, and preferred therapist — without back-and-forth.",
-          heroCtaPrimary: "See the flow",
-          heroCtaSecondary: "Start 15-day trial",
-
-          flowTitle: "Most common workflow",
-          flow1: "Customer books",
-          flow2: "Confirm",
-          flow3: "Remind",
-          flow4: "Payment",
-          notifyNote: "Gentle reminders can be sent via Email.",
-
-          benefit1: "Reduce no-show",
-          benefit2: "Cleaner calendar",
-          benefit3: "Therapist selection",
-          benefit4: "Payments & reports",
-
-          mini1Title: "Choose therapist",
-          mini1Desc: "Customers pick who they prefer.",
-          mini2Title: "Duration options",
-          mini2Desc: "60/90/120 minutes, clear slots.",
-          mini3Title: "Friendly reminders",
-          mini3Desc: "Fewer no-shows.",
-          mini4Title: "Simple payments",
-          mini4Desc: "Online or in store.",
-
-          chooseTitle: "Built for Spa & Massage",
-          chooseDesc:
-            "Designed for massage studios that run on peak hours, therapist preferences, and clear time blocks.",
-          chooseCta: "See pricing",
-          choosePrimary: "See massage flow",
-
-          pill1T: "Clear time blocks",
-          pill1D:
-            "Services with 60/90/120 minutes fit neatly into your calendar.",
-          pill2T: "Therapist preference",
-          pill2D:
-            "Let customers choose the therapist they’re comfortable with.",
-          pill3T: "Reduce no-shows",
-          pill3D: "Confirmation + email reminders protect your peak hours.",
-
-          massageBadge: "Spa & Wellness",
-          massageTitle:
-            "Let customers choose the service and therapist, calmly",
-          massageDesc:
-            "For massage businesses, no-shows can be painful. With a clear calendar and friendly reminders, you can protect your peak hours and keep the day smooth.",
-          massagePainTitle: "Common pain points",
-          massagePain1:
-            "Customers forget appointments — especially evenings and weekends",
-          massagePain2: "Customers want specific massage types and durations",
-          massagePain3:
-            "Therapist preference matters for comfort and repeat visits",
-          massagePain4: "Manual payment tracking takes time",
-
-          massageFlowTitle: "Recommended workflow",
-          massageFlow1T: "Customer books",
-          massageFlow1D:
-            "Customer chooses Thai / Oil / Aroma, duration, and therapist.",
-          massageFlow2T: "Confirm",
-          massageFlow2D:
-            "Confirm instantly, and the slot is locked on the calendar.",
-          massageFlow3T: "Remind & re-confirm",
-          massageFlow3D:
-            "Send friendly reminders via Email to reduce no-shows.",
-          massageFlow4T: "Payment",
-          massageFlow4D:
-            "Take payment online or in store, and keep a clear record.",
-
-          massageCtaPrimary: "Start 15-day trial",
-          massageCtaSecondary: "Talk to us",
-
-          massageHi1T: "Service types & duration",
-          massageHi1D: "Thai, oil, aroma — 60/90/120 minutes.",
-          massageHi2T: "Therapist preference",
-          massageHi2D: "Customers choose who they feel comfortable with.",
-          massageHi3T: "Status tracking",
-          massageHi3D: "Arrived / confirmed / no-show — simple and clear.",
-          massageHi4T: "Deposit option (package dependent)",
-          massageHi4D: "Helps protect busy hours.",
-          massageExampleTitle: "Example booking",
-          massageExampleDesc:
-            "“Aroma Oil Massage (90 min)” with Therapist “Nina”, Wednesday 18:30. A reminder goes out automatically before the appointment.",
-
-          modulesTitle: "Features that support massage studios",
-          modulesDesc: "Set it up once, and daily bookings feel calmer.",
-          modulesCta: "See all features",
-
-          m1Title: "Calendar & Bookings",
-          m1Desc:
-            "Day/week view with statuses like confirmed, cancelled, no-show, arrived.",
-          m1B1: "View per therapist (resources)",
-          m1B2: "Create/edit/move/cancel bookings",
-          m1B3: "Block breaks, holidays, closed times",
-
-          m2Title: "Services & Therapists Setup",
-          m2Desc: "Add massage types, durations, prices, and who can do what.",
-          m2B1: "Service name, price, duration, description",
-          m2B2: "Therapist profiles and skills",
-          m2B3: "Opening hours, breaks, scheduling rules",
-
-          m3Title: "Payments",
-          m3Desc: "Get paid easily and keep payment status clear.",
-          m3B1: "Deposit / online payment setup (optional)",
-          m3B2: "Cash / card / online tracking",
-          m3B3: "Outstanding balance follow-up",
-
-          m4Title: "Reports & Logs",
-          m4Desc:
-            "See bookings and sales clearly, and review activity when needed.",
-          m4B1: "Booking report (filter by day/service/therapist)",
-          m4B2: "Transaction history overview (package dependent)",
-          m4B3: "Activity logs for review",
-
-          setupStepsTitle: "Easy setup steps",
-          setupStep1: "Add services (price / duration)",
-          setupStep2: "Add therapists & opening hours",
-          setupStep3: "Share booking link & manage calendar",
-
-          supportTitle: "Good to know",
-          supportDesc:
-            "If you already have a website, you can add a “Book now” button and link to juztbooking. If you don’t have a website, we can build a lovely one for you and connect the booking flow.",
-          support1T: "Works with your brand",
-          support1D:
-            "Share your booking link and place it on your website and social pages.",
-          support2T: "Clear for your team",
-          support2D:
-            "Calendar view, customer history, and simple payments — in one place.",
-
-          ctaBadge: "Ready when you are",
-          ctaTitle: "Try juztbooking for 15 days",
-          ctaDesc:
-            "Start with a simple setup. If you want, our team can guide you kindly.",
-          ctaPrimary: "Start 15-day trial",
-          ctaSecondary: "Message us",
-          ctaFoot: "Annual billing saves 10% compared to monthly.",
-
-          footerLine: "Booking system for Spa & Massage",
-          privacy: "Privacy Policy",
-          footerRights: "All rights reserved.",
-        },
-
-        th: {
-          navHome: "หน้าแรก",
-          navSolutions: "โซลูชัน",
-          navFeatures: "ฟีเจอร์",
-          navPricing: "แพ็กเกจ",
-          navContact: "ติดต่อ",
-          navLogin: "เข้าสู่ระบบ",
-          navTrial: "ทดลองใช้ 15 วัน",
-          navTrialShort: "ทดลองใช้ 15 วัน",
-          navLangTitle: "ภาษา",
-
-          heroBadge: "โซลูชันสำหรับธุรกิจร้านนวด",
-          heroTitle: "Flow จองคิวแบบสบาย ๆ สำหรับร้านนวด & สปา",
-          heroDesc:
-            "ช่วยให้ปฏิทินคิวชัดขึ้น ลด no-show และทำให้เก็บเงินง่ายขึ้น ลูกค้าสามารถเลือกเวลา บริการ ระยะเวลา และหมอนวดที่ต้องการได้เลย โดยไม่ต้องทักถามไปมาให้เสียเวลา",
-          heroCtaPrimary: "ดูขั้นตอนการทำงาน",
-          heroCtaSecondary: "เริ่มทดลองใช้ 15 วัน",
-
-          flowTitle: "Workflow ที่ใช้บ่อย",
-          flow1: "ลูกค้าจอง",
-          flow2: "ยืนยัน",
-          flow3: "แจ้งเตือน",
-          flow4: "รับชำระ",
-          notifyNote: "รองรับการแจ้งเตือนผ่าน Email",
-
-          benefit1: "ลด no-show",
-          benefit2: "ปฏิทินดูง่าย",
-          benefit3: "เลือกหมอนวดได้",
-          benefit4: "ชำระเงิน & รายงาน",
-
-          mini1Title: "เลือกหมอนวด",
-          mini1Desc: "ลูกค้าเลือกคนที่สบายใจได้ค่ะ",
-          mini2Title: "ตัวเลือกระยะเวลา",
-          mini2Desc: "60/90/120 นาที คิวไม่เละ",
-          mini3Title: "เตือนนัดแบบสุภาพ",
-          mini3Desc: "ช่วยลด no-show",
-          mini4Title: "ชำระเงินง่าย",
-          mini4Desc: "ออนไลน์หรือหน้าร้าน",
-
-          chooseTitle: "ออกแบบมาเพื่อร้านนวด & สปา",
-          chooseDesc:
-            "เหมาะกับร้านที่มีช่วงเวลาทอง ลูกค้าอยากเลือกหมอนวด และต้องการล็อกเวลาบริการให้ชัดเจน",
-          chooseCta: "ดูราคาแพ็กเกจ",
-          choosePrimary: "ดู flow ร้านนวด",
-
-          pill1T: "ล็อกเวลาชัดเจน",
-          pill1D: "บริการ 60/90/120 นาที วางคิวได้เป็นระเบียบ",
-          pill2T: "เลือกหมอนวดได้",
-          pill2D: "ให้ลูกค้าเลือกหมอนวดที่คุ้นเคยหรือสบายใจ",
-          pill3T: "ลด no-show",
-          pill3D: "ยืนยัน + เตือนนัดผ่านอีเมล ช่วยกันช่วงเวลาคิวแน่น",
-
-          massageBadge: "Spa & Wellness",
-          massageTitle: "ให้ลูกค้าเลือกบริการและหมอนวดได้แบบสบาย ๆ",
-          massageDesc:
-            "ร้านนวดเจอปัญหา no-show ได้บ่อยค่ะ ปฏิทินที่ชัด + การเตือนนัดแบบสุภาพ จะช่วยปกป้องช่วงเวลาทองของร้าน และทำให้ทั้งวันไหลลื่นขึ้น",
-          massagePainTitle: "ปัญหาที่เจอบ่อย",
-          massagePain1: "ลูกค้าลืมนัด โดยเฉพาะช่วงเย็น/สุดสัปดาห์",
-          massagePain2: "ลูกค้าอยากเลือกประเภทนวดและระยะเวลา",
-          massagePain3: "ลูกค้าอยากเลือกหมอนวดที่คุ้นเคย",
-          massagePain4: "สรุปการชำระเงินด้วยมือใช้เวลามาก",
-
-          massageFlowTitle: "Workflow ที่แนะนำ",
-          massageFlow1T: "ลูกค้าจอง",
-          massageFlow1D: "เลือกนวดไทย/น้ำมัน/อโรม่า ระยะเวลา และหมอนวด",
-          massageFlow2T: "ยืนยัน",
-          massageFlow2D: "กดยืนยันแล้วคิวจะล็อกไว้ในปฏิทินค่ะ",
-          massageFlow3T: "เตือนนัดและยืนยันซ้ำ",
-          massageFlow3D: "ส่งเตือนผ่าน Email เพื่อลด no-show",
-          massageFlow4T: "รับชำระ",
-          massageFlow4D:
-            "รับเงินออนไลน์หรือหน้าร้าน และเก็บประวัติให้เรียบร้อย",
-
-          massageCtaPrimary: "เริ่มทดลองใช้ 15 วัน",
-          massageCtaSecondary: "ทักมาคุย",
-
-          massageHi1T: "บริการและระยะเวลา",
-          massageHi1D: "ไทย/น้ำมัน/อโรม่า — 60/90/120 นาที",
-          massageHi2T: "เลือกหมอนวด",
-          massageHi2D: "ลูกค้าเลือกคนที่สบายใจได้ค่ะ",
-          massageHi3T: "สถานะคิวชัดเจน",
-          massageHi3D: "arrived / confirmed / no-show — ดูง่าย",
-          massageHi4T: "มัดจำ (ตามแพ็กเกจ)",
-          massageHi4D: "ช่วยกันช่วงเวลาที่คิวแน่น",
-          massageExampleTitle: "ตัวอย่างการจอง",
-          massageExampleDesc:
-            "“อโรม่า (90 นาที)” กับหมอนวด “Nina” วันพุธ 18:30 ระบบจะส่งเตือนนัดอัตโนมัติก่อนถึงเวลา",
-
-          modulesTitle: "ฟีเจอร์ที่ช่วยให้ร้านนวดทำงานสบายขึ้น",
-          modulesDesc:
-            "ตั้งค่าครั้งเดียว แล้วการจองในแต่ละวันจะเป็นระเบียบขึ้นมากค่ะ",
-          modulesCta: "ดูฟีเจอร์ทั้งหมด",
-
-          m1Title: "Calendar & Bookings",
-          m1Desc:
-            "มุมมอง Day/Week พร้อมสถานะ เช่น confirmed, cancelled, no-show, arrived",
-          m1B1: "ดูคิวตามหมอนวดได้",
-          m1B2: "สร้าง/แก้ไข/เลื่อน/ยกเลิกนัด",
-          m1B3: "บล็อกพัก/วันหยุด/เวลาไม่รับบริการ",
-
-          m2Title: "Services & Therapists Setup",
-          m2Desc: "เพิ่มประเภทนวด ระยะเวลา ราคา และกำหนดว่าใครทำอะไรได้",
-          m2B1: "ชื่อบริการ ราคา ระยะเวลา คำอธิบาย",
-          m2B2: "โปรไฟล์หมอนวดและทักษะ",
-          m2B3: "เวลาเปิด-ปิด เวลาพัก กติกาการจอง",
-
-          m3Title: "Payments",
-          m3Desc: "เก็บเงินง่าย และสถานะการชำระเงินชัดเจน",
-          m3B1: "ตั้งค่ามัดจำ/ชำระเงินออนไลน์ (เลือกได้)",
-          m3B2: "ติดตามเงินสด/บัตร/ออนไลน์",
-          m3B3: "ติดตามยอดค้างชำระ",
-
-          m4Title: "Reports & Logs",
-          m4Desc: "ดูการจองและยอดขายชัด ๆ และย้อนดูการใช้งานได้เมื่อจำเป็น",
-          m4B1: "รายงานการจอง (กรองตามวัน/บริการ/หมอนวด)",
-          m4B2: "สรุปประวัติธุรกรรม (ตามแพ็กเกจ)",
-          m4B3: "บันทึกกิจกรรมเพื่อรีวิว",
-
-          setupStepsTitle: "ขั้นตอนการตั้งค่าง่าย ๆ",
-          setupStep1: "เพิ่มบริการ (ราคา / ระยะเวลา)",
-          setupStep2: "เพิ่มหมอนวด & เวลาเปิด-ปิด",
-          setupStep3: "แชร์ลิงก์จอง & จัดการปฏิทิน",
-
-          supportTitle: "ควรรู้ไว้",
-          supportDesc:
-            "ถ้ามีเว็บไซต์อยู่แล้ว สามารถเพิ่มปุ่ม “จองเลย” แล้วลิงก์ไปที่ juztbooking ได้เลย ถ้ายังไม่มีเว็บไซต์ เราช่วยทำเว็บใหม่ให้สวย ๆ และเชื่อมระบบจองให้ครบได้ค่ะ",
-          support1T: "เข้ากับแบรนด์ร้าน",
-          support1D: "แชร์ลิงก์จองไปไว้บนเว็บไซต์และโซเชียลของร้านได้ทันที",
-          support2T: "ทีมงานเห็นภาพเดียวกัน",
-          support2D: "ปฏิทินคิว ประวัติลูกค้า และการชำระเงิน — อยู่ที่เดียว",
-
-          ctaBadge: "พร้อมเมื่อไหร่ก็เริ่มได้",
-          ctaTitle: "ลองใช้ juztbooking 15 วัน",
-          ctaDesc:
-            "เริ่มจากการตั้งค่าแบบง่าย ๆ ถ้าต้องการ ทีมงานช่วยแนะนำได้ค่ะ",
-          ctaPrimary: "เริ่มทดลองใช้ 15 วัน",
-          ctaSecondary: "ทักหาเรา",
-          ctaFoot: "รายปีประหยัด 10% เมื่อเทียบกับรายเดือน",
-
-          footerLine: "ระบบจองคิวสำหรับ Spa & ร้านนวด",
-          privacy: "Privacy Policy",
-          footerRights: "สงวนลิขสิทธิ์",
-        },
-
-        nl: {
-          navHome: "Home",
-          navSolutions: "Oplossingen",
-          navFeatures: "Functies",
-          navPricing: "Prijzen",
-          navContact: "Contact",
-          navLogin: "Inloggen",
-          navTrial: "Start 15 dagen proef",
-          navTrialShort: "Start 15 dagen proef",
-          navLangTitle: "Taal",
-
-          heroBadge: "Oplossingen voor massagebedrijven",
-          heroTitle: "Rustige boekingsflow voor Spa & Massage",
-          heroDesc:
-            "Houd je agenda overzichtelijk, verminder no-shows en maak betalen eenvoudiger. Klanten kiezen tijd, dienst, duur en favoriete therapeut — zonder heen-en-weer.",
-          heroCtaPrimary: "Bekijk de flow",
-          heroCtaSecondary: "Start 15 dagen proef",
-
-          flowTitle: "Meest gebruikte workflow",
-          flow1: "Klant boekt",
-          flow2: "Bevestigen",
-          flow3: "Herinneren",
-          flow4: "Betalen",
-          notifyNote: "Vriendelijke herinneringen via e-mail.",
-
-          benefit1: "Minder no-shows",
-          benefit2: "Nettere agenda",
-          benefit3: "Therapeut kiezen",
-          benefit4: "Betalingen & rapporten",
-
-          mini1Title: "Kies therapeut",
-          mini1Desc: "Klanten kiezen wie ze willen.",
-          mini2Title: "Duur-opties",
-          mini2Desc: "60/90/120 minuten, heldere slots.",
-          mini3Title: "Vriendelijke reminders",
-          mini3Desc: "Minder no-shows.",
-          mini4Title: "Eenvoudig betalen",
-          mini4Desc: "Online of in de zaak.",
-
-          chooseTitle: "Gemaakt voor Spa & Massage",
-          chooseDesc:
-            "Voor studio’s met piekuren, voorkeur voor therapeuten en duidelijke tijdblokken.",
-          chooseCta: "Bekijk prijzen",
-          choosePrimary: "Bekijk massageflow",
-
-          pill1T: "Duidelijke tijdblokken",
-          pill1D: "Diensten van 60/90/120 minuten passen netjes in je agenda.",
-          pill2T: "Therapeut-voorkeur",
-          pill2D: "Laat klanten kiezen met wie ze zich prettig voelen.",
-          pill3T: "Minder no-shows",
-          pill3D: "Bevestiging + e-mail reminders beschermen je piekuren.",
-
-          massageBadge: "Spa & Wellness",
-          massageTitle: "Laat klanten rustig dienst en therapeut kiezen",
-          massageDesc:
-            "No-shows kunnen pijnlijk zijn. Met een heldere agenda en vriendelijke reminders bescherm je piekuren en blijft de dag soepel.",
-          massagePainTitle: "Veelvoorkomende knelpunten",
-          massagePain1:
-            "Klanten vergeten afspraken — vooral ’s avonds en in het weekend",
-          massagePain2: "Klanten willen specifieke types massage en duur",
-          massagePain3:
-            "Therapeut-voorkeur is belangrijk voor comfort en herhaalbezoek",
-          massagePain4: "Handmatige betalingstracking kost tijd",
-
-          massageFlowTitle: "Aanbevolen workflow",
-          massageFlow1T: "Klant boekt",
-          massageFlow1D: "Klant kiest Thai / Oil / Aroma, duur en therapeut.",
-          massageFlow2T: "Bevestigen",
-          massageFlow2D:
-            "Direct bevestigen; het tijdslot wordt vastgezet in de agenda.",
-          massageFlow3T: "Herinneren & herbevestigen",
-          massageFlow3D:
-            "Stuur vriendelijke e-mail reminders om no-shows te verminderen.",
-          massageFlow4T: "Betalen",
-          massageFlow4D:
-            "Betaal online of in de zaak en houd alles netjes bij.",
-
-          massageCtaPrimary: "Start 15 dagen proef",
-          massageCtaSecondary: "Neem contact op",
-
-          massageHi1T: "Diensten & duur",
-          massageHi1D: "Thai, oil, aroma — 60/90/120 minuten.",
-          massageHi2T: "Therapeut-voorkeur",
-          massageHi2D: "Klanten kiezen wie ze prettig vinden.",
-          massageHi3T: "Status-tracking",
-          massageHi3D: "Arrived / confirmed / no-show — helder en simpel.",
-          massageHi4T: "Aanbetaling (afhankelijk van pakket)",
-          massageHi4D: "Beschermt drukke uren.",
-          massageExampleTitle: "Voorbeeldboeking",
-          massageExampleDesc:
-            "“Aroma Oil Massage (90 min)” met therapeut “Nina”, woensdag 18:30. Er gaat automatisch een reminder uit voor de afspraak.",
-
-          modulesTitle: "Features die massagesalons ondersteunen",
-          modulesDesc:
-            "Eenmalig instellen, en dagelijkse boekingen voelen rustiger.",
-          modulesCta: "Bekijk alle functies",
-
-          m1Title: "Agenda & boekingen",
-          m1Desc:
-            "Dag/week-overzicht met statussen zoals confirmed, cancelled, no-show, arrived.",
-          m1B1: "Bekijk per therapeut (resources)",
-          m1B2: "Boekingen maken/bewerken/verplaatsen/annuleren",
-          m1B3: "Pauzes, feestdagen en gesloten tijden blokkeren",
-
-          m2Title: "Diensten & therapeuten instellen",
-          m2Desc: "Voeg massagetypes, duur, prijzen toe en wie wat kan doen.",
-          m2B1: "Naam, prijs, duur, beschrijving",
-          m2B2: "Therapeut-profielen en skills",
-          m2B3: "Openingstijden, pauzes, boekingsregels",
-
-          m3Title: "Betalingen",
-          m3Desc: "Word makkelijk betaald en houd betalingsstatus helder.",
-          m3B1: "Aanbetaling / online betaling (optioneel)",
-          m3B2: "Contant / kaart / online tracking",
-          m3B3: "Openstaande saldo opvolgen",
-
-          m4Title: "Rapporten & logs",
-          m4Desc:
-            "Bekijk boekingen en omzet duidelijk en controleer activiteiten wanneer nodig.",
-          m4B1: "Boekingsrapport (filter op dag/dienst/therapeut)",
-          m4B2: "Transactie-overzicht (afhankelijk van pakket)",
-          m4B3: "Activiteitenlog om te reviewen",
-
-          setupStepsTitle: "Eenvoudige setup-stappen",
-          setupStep1: "Diensten toevoegen (prijs / duur)",
-          setupStep2: "Therapeuten & openingstijden toevoegen",
-          setupStep3: "Boekingslink delen & agenda beheren",
-
-          supportTitle: "Goed om te weten",
-          supportDesc:
-            "Heb je al een website? Voeg een “Boek nu”-knop toe en link naar juztbooking. Geen website? Dan kunnen wij een mooie site bouwen en de boekingsflow koppelen.",
-          support1T: "Werkt met je merk",
-          support1D: "Deel je boekingslink op je website en socials.",
-          support2T: "Helder voor je team",
-          support2D:
-            "Agenda, klantgeschiedenis en betalingen — alles op één plek.",
-
-          ctaBadge: "Klaar wanneer jij klaar bent",
-          ctaTitle: "Probeer juztbooking 15 dagen",
-          ctaDesc:
-            "Start eenvoudig. Als je wilt, helpt ons team je vriendelijk op weg.",
-          ctaPrimary: "Start 15 dagen proef",
-          ctaSecondary: "Stuur ons een bericht",
-          ctaFoot: "Jaarlijks bespaart 10% t.o.v. maandelijks.",
-
-          footerLine: "Boekingssysteem voor Spa & Massage",
-          privacy: "Privacybeleid",
-          footerRights: "Alle rechten voorbehouden",
-        },
-      };
-
-      const LANG_STORAGE_KEY = "juztbooking_lang";
-
-      // ---------------------------
-      // ✅ Active menu (PC / Mobile / Tablet)
-      // ---------------------------
-      function normalizePath(p) {
-        if (!p) return "/";
-        p = p.split("?")[0].split("#")[0];
-        if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
-        return p;
-      }
-
-      function applyActiveNav() {
-        const currentPath = normalizePath(window.location.pathname);
-
-        document.querySelectorAll("a[data-navlink]").forEach((a) => {
-          const href = a.getAttribute("href") || "";
-          if (!href.startsWith("/")) return;
-
-          const linkPath = normalizePath(href);
-          const isActive = linkPath === currentPath;
-
-          a.classList.toggle("bg-primary/10", isActive);
-          a.classList.toggle("text-primary", isActive);
-          a.classList.toggle("ring-1", isActive);
-          a.classList.toggle("ring-primary/20", isActive);
-          a.classList.toggle("hover:bg-primary/10", isActive);
-
-          a.classList.toggle("hover:bg-slate-50", !isActive);
-
-          if (isActive) a.setAttribute("aria-current", "page");
-          else a.removeAttribute("aria-current");
-        });
-      }
-
-      // ---------------------------
-      // ✅ Language dropdown controls + flag images (SVG) - same as Home
-      // ---------------------------
-      const langBtnDesktop = document.getElementById("langBtnDesktop");
-      const langMenuDesktop = document.getElementById("langMenuDesktop");
-      const langLabelDesktop = document.getElementById("langLabelDesktop");
-
-      const langBtnMobile = document.getElementById("langBtnMobile");
-      const langMenuMobile = document.getElementById("langMenuMobile");
-      const langLabelMobile = document.getElementById("langLabelMobile");
-
-      const FLAG_IMG = {
-        en: "/assets/en.svg",
-        th: "/assets/th.svg",
-        nl: "/assets/nl.svg",
-      };
-
-      const LANG_NAMES = {
-        en: "EN",
-        th: "TH",
-        nl: "NL",
-      };
-
-      function closeLangMenus() {
-        langMenuDesktop?.classList.add("hidden");
-        langBtnDesktop?.setAttribute("aria-expanded", "false");
-        langMenuMobile?.classList.add("hidden");
-        langBtnMobile?.setAttribute("aria-expanded", "false");
-      }
-
-      function toggleLangMenu(btn, menu) {
-        if (!btn || !menu) return;
-        const isOpen = !menu.classList.contains("hidden");
-
-        closeLangMenus();
-
-        if (!isOpen) {
-          menu.classList.remove("hidden");
-          btn.setAttribute("aria-expanded", "true");
-        }
-      }
-
-      function setLangLabel(lang) {
-        const src = FLAG_IMG[lang] || FLAG_IMG.en;
-        const name = LANG_NAMES[lang] || LANG_NAMES.en;
-
-        const html = `
-          <img src="${src}" alt="${name}" class="h-5 w-5 rounded-sm" onerror="this.remove();" />
-          <span class="text-sm font-semibold">${name}</span>
-        `;
-
-        if (langLabelDesktop) langLabelDesktop.innerHTML = html;
-        if (langLabelMobile) langLabelMobile.innerHTML = html;
-        document.documentElement.setAttribute("lang", lang);
-      }
-
-      langBtnDesktop?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleLangMenu(langBtnDesktop, langMenuDesktop);
-      });
-
-      langBtnMobile?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleLangMenu(langBtnMobile, langMenuMobile);
-      });
-
-      document.addEventListener("click", () => closeLangMenus());
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeLangMenus();
-      });
-
-      // ---------------------------
-      // ✅ applyLang
-      // ---------------------------
-      function applyLang(lang) {
-        const pack = dict[lang] || dict.en;
-
-        document.querySelectorAll("[data-i18n]").forEach((el) => {
-          const key = el.getAttribute("data-i18n");
-          const value = pack[key] ?? dict.en[key];
-          if (value) el.textContent = value;
-        });
-
-        setLangLabel(lang);
-        localStorage.setItem(LANG_STORAGE_KEY, lang);
-        closeLangMenus();
-
-        // keep active nav highlight
-        applyActiveNav();
-      }
-
-      function bindLangButtons(container) {
-        if (!container) return;
-        container.querySelectorAll("[data-lang]").forEach((btn) => {
-          btn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            const lang = btn.getAttribute("data-lang");
-            applyLang(lang);
-          });
-        });
-      }
-
-      bindLangButtons(langMenuDesktop);
-      bindLangButtons(langMenuMobile);
-
-      // ---------------------------
-      // ✅ Mobile menu controls (same as Home)
-      // ---------------------------
+      // ======= Mobile Menu =======
       const menuBtn = document.getElementById("menuBtn");
       const menuOverlay = document.getElementById("menuOverlay");
       const mobileMenu = document.getElementById("mobileMenu");
       const menuCloseBtn = document.getElementById("menuCloseBtn");
 
       const openMenu = () => {
-        closeLangMenus(); // ✅ prevent overlap
         menuOverlay.classList.remove("hidden");
         mobileMenu.classList.remove("translate-x-full");
         menuBtn?.setAttribute("aria-expanded", "true");
@@ -1948,15 +916,6 @@
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closeMenu();
       });
-
-      // ---------------------------
-      // Init
-      // ---------------------------
-      const saved = localStorage.getItem(LANG_STORAGE_KEY) || "en";
-      applyLang(saved);
-
-      // Active nav on load
-      applyActiveNav();
 
       // Footer year
       document.getElementById("year").textContent = new Date().getFullYear();

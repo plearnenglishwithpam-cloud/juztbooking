@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -21,18 +21,20 @@
   <body class="text-slate-900">
     <!-- Gradient background -->
     <div
-      class="min-h-screen bg-gradient-to-b from-white via-primary/5 to-white"
+      class="min-h-screen bg-[#FAF2FF][#FAF2FF]-to-b from-white via-primary/5 to-white"
     >
       <!-- Decorative blobs (no images needed) -->
       <div
-        class="pointer-events-none fixed -left-28 top-10 h-80 w-80 rounded-full bg-primary/15 blur-3xl"
+        class="pointer-events-none fixed -left-28 top-10 h-80 w-80 rounded-full bg-[#FAF2FF][#FAF2FF]/15 blur-3xl"
       ></div>
       <div
-        class="pointer-events-none fixed -right-28 top-24 h-96 w-96 rounded-full bg-primary/10 blur-3xl"
+        class="pointer-events-none fixed -right-28 top-24 h-96 w-96 rounded-full bg-[#FAF2FF][#FAF2FF]/10 blur-3xl"
       ></div>
 
       <!-- Top bar -->
-      <div class="sticky top-0 z-40 border-b bg-white/75 backdrop-blur">
+      <div
+        class="sticky top-0 z-40 border-b bg-[#FAF2FF]transparent/75 backdrop-blur"
+      >
         <div
           class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3"
         >
@@ -50,7 +52,7 @@
             <a
               href="/"
               data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
               data-i18n="navHome"
               >Home</a
             >
@@ -58,28 +60,28 @@
             <a
               href="/solutions"
               data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
               data-i18n="navSolutions"
               >Solutions</a
             >
             <a
               href="/features"
               data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
               data-i18n="navFeatures"
               >Features</a
             >
             <a
               href="/pricing"
               data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
               data-i18n="navPricing"
               >Pricing</a
             >
             <a
               href="/contact"
               data-navlink
-              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
               data-i18n="navContact"
               >Contact</a
             >
@@ -88,7 +90,7 @@
             <div class="relative">
               <button
                 id="langBtnDesktop"
-                class="inline-flex items-center gap-2 rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                class="inline-flex items-center gap-2 rounded-2xl border bg-[#FAF2FF]transparent px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
                 aria-haspopup="menu"
                 aria-expanded="false"
                 type="button"
@@ -110,11 +112,11 @@
 
               <div
                 id="langMenuDesktop"
-                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-white shadow-lg"
+                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-[#FAF2FF]transparent shadow-lg"
                 role="menu"
               >
                 <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-[#FAF2FF]slate-50"
                   data-lang="en"
                   role="menuitem"
                   type="button"
@@ -123,12 +125,12 @@
                     src="/assets/en.svg"
                     alt="English"
                     class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
+                    onerror="this.remove()"
                   />
                   <span>EN</span>
                 </button>
                 <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-[#FAF2FF]slate-50"
                   data-lang="th"
                   role="menuitem"
                   type="button"
@@ -137,12 +139,12 @@
                     src="/assets/th.svg"
                     alt="Thai"
                     class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
+                    onerror="this.remove()"
                   />
                   <span>TH</span>
                 </button>
                 <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-[#FAF2FF]slate-50"
                   data-lang="nl"
                   role="menuitem"
                   type="button"
@@ -151,7 +153,7 @@
                     src="/assets/nl.svg"
                     alt="Dutch"
                     class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
+                    onerror="this.remove()"
                   />
                   <span>NL</span>
                 </button>
@@ -160,13 +162,13 @@
 
             <a
               href="/login"
-              class="ml-1 inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+              class="ml-1 inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
               data-i18n="navLogin"
               >Login</a
             >
             <a
               href="/trial"
-              class="inline-flex items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+              class="inline-flex items-center justify-center rounded-2xl bg-[#FAF2FF][#FAF2FF] px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
               data-i18n="navTrial"
               >Start 15-day trial</a
             >
@@ -178,7 +180,7 @@
             <div class="relative">
               <button
                 id="langBtnMobile"
-                class="inline-flex items-center gap-2 rounded-2xl border bg-white px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                class="inline-flex items-center gap-2 rounded-2xl border bg-[#FAF2FF]transparent px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
                 aria-haspopup="menu"
                 aria-expanded="false"
                 type="button"
@@ -201,11 +203,11 @@
 
               <div
                 id="langMenuMobile"
-                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-white shadow-lg"
+                class="absolute right-0 mt-2 hidden w-44 overflow-hidden rounded-2xl border bg-[#FAF2FF]transparent shadow-lg"
                 role="menu"
               >
                 <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-[#FAF2FF]slate-50"
                   data-lang="en"
                   role="menuitem"
                   type="button"
@@ -214,12 +216,12 @@
                     src="/assets/en.svg"
                     alt="English"
                     class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
+                    onerror="this.remove()"
                   />
                   <span>EN</span>
                 </button>
                 <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-[#FAF2FF]slate-50"
                   data-lang="th"
                   role="menuitem"
                   type="button"
@@ -228,12 +230,12 @@
                     src="/assets/th.svg"
                     alt="Thai"
                     class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
+                    onerror="this.remove()"
                   />
                   <span>TH</span>
                 </button>
                 <button
-                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-slate-50"
+                  class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm hover:bg-[#FAF2FF]slate-50"
                   data-lang="nl"
                   role="menuitem"
                   type="button"
@@ -242,7 +244,7 @@
                     src="/assets/nl.svg"
                     alt="Dutch"
                     class="h-5 w-5 rounded-sm"
-                    onerror="this.remove();"
+                    onerror="this.remove()"
                   />
                   <span>NL</span>
                 </button>
@@ -251,14 +253,14 @@
 
             <a
               href="/trial"
-              class="inline-flex items-center justify-center rounded-2xl bg-primary px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
+              class="inline-flex items-center justify-center rounded-2xl bg-[#FAF2FF][#FAF2FF] px-3 py-2 text-sm font-semibold text-white hover:opacity-95"
               data-i18n="navTrialShort"
               >Start 15-day trial</a
             >
             <button
               id="menuBtn"
               type="button"
-              class="inline-flex items-center justify-center rounded-2xl border bg-white p-2.5 hover:bg-slate-50"
+              class="inline-flex items-center justify-center rounded-2xl border bg-[#FAF2FF]transparent p-2.5 hover:bg-[#FAF2FF]slate-50"
               aria-label="Open menu"
               aria-controls="mobileMenu"
               aria-expanded="false"
@@ -280,13 +282,13 @@
       <!-- Mobile drawer overlay -->
       <div
         id="menuOverlay"
-        class="fixed inset-0 z-50 hidden bg-slate-900/40 backdrop-blur-sm"
+        class="fixed inset-0 z-50 hidden bg-[#FAF2FF]slate-900/40 backdrop-blur-sm"
       ></div>
 
       <!-- Mobile drawer -->
       <aside
         id="mobileMenu"
-        class="fixed right-0 top-0 z-50 h-full w-[86%] max-w-sm translate-x-full border-l bg-white shadow-xl transition-transform duration-200"
+        class="fixed right-0 top-0 z-50 h-full w-[86%] max-w-sm translate-x-full border-l bg-[#FAF2FF]transparent shadow-xl transition-transform duration-200"
         aria-label="Mobile navigation"
       >
         <div class="flex items-center justify-between border-b px-4 py-3">
@@ -301,7 +303,7 @@
           <button
             id="menuCloseBtn"
             type="button"
-            class="inline-flex items-center justify-center rounded-2xl border bg-white p-2.5 hover:bg-slate-50"
+            class="inline-flex items-center justify-center rounded-2xl border bg-[#FAF2FF]transparent p-2.5 hover:bg-[#FAF2FF]slate-50"
             aria-label="Close menu"
           >
             <svg
@@ -320,7 +322,7 @@
           <a
             href="/"
             data-navlink
-            class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            class="block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-[#FAF2FF]slate-50"
             data-i18n="navHome"
             >Home</a
           >
@@ -328,41 +330,41 @@
           <a
             href="/solutions"
             data-navlink
-            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-[#FAF2FF]slate-50"
             data-i18n="navSolutions"
             >Solutions</a
           >
           <a
             href="/features"
             data-navlink
-            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-[#FAF2FF]slate-50"
             data-i18n="navFeatures"
             >Features</a
           >
           <a
             href="/pricing"
             data-navlink
-            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-[#FAF2FF]slate-50"
             data-i18n="navPricing"
             >Pricing</a
           >
           <a
             href="/contact"
             data-navlink
-            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            class="mt-1 block rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-[#FAF2FF]slate-50"
             data-i18n="navContact"
             >Contact</a
           >
 
           <a
             href="/trial"
-            class="mt-3 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
+            class="mt-3 inline-flex w-full items-center justify-center rounded-2xl bg-[#FAF2FF][#FAF2FF] px-4 py-3 text-sm font-semibold text-white hover:opacity-95"
             data-i18n="navTrial"
             >Start 15-day trial</a
           >
           <a
             href="/login"
-            class="mt-2 inline-flex w-full items-center justify-center rounded-2xl border px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            class="mt-2 inline-flex w-full items-center justify-center rounded-2xl border px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
             data-i18n="navLogin"
             >Login</a
           >
@@ -376,16 +378,18 @@
         >
           <div>
             <div
-              class="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-sm text-slate-700"
+              class="inline-flex items-center gap-2 rounded-full border bg-[#FAF2FF]transparent px-3 py-1 text-sm text-slate-700"
             >
-              <span class="inline-block h-2 w-2 rounded-full bg-primary"></span>
+              <span
+                class="inline-block h-2 w-2 rounded-full bg-[#FAF2FF][#FAF2FF]"
+              ></span>
               <span data-i18n="heroBadge"
                 >Talk to us — friendly help is here</span
               >
             </div>
 
             <h1
-              class="mt-4 text-3xl font-bold tracking-tight md:text-5xl"
+              class="mt-4 text-3xl font-semibold tracking-tight md:text-5xl"
               data-i18n="heroTitle"
             >
               We’ll help you start taking bookings smoothly
@@ -400,7 +404,7 @@
             <div class="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#contact-form"
-                class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95"
+                class="inline-flex items-center justify-center rounded-2xl bg-[#FAF2FF][#FAF2FF] px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95"
                 data-i18n="heroCtaPrimary"
               >
                 Send a message
@@ -408,14 +412,14 @@
 
               <a
                 href="/trial"
-                class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-white/60"
+                class="inline-flex items-center justify-center rounded-2xl border px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]transparent/60"
                 data-i18n="heroCtaTrial"
               >
                 Start 15-day trial
               </a>
             </div>
 
-            <div class="mt-6 rounded-2xl border bg-white p-4">
+            <div class="mt-6 rounded-2xl border bg-[#FAF2FF]transparent p-4">
               <div
                 class="text-sm font-semibold text-slate-900"
                 data-i18n="stepsTitle"
@@ -425,7 +429,7 @@
               <ol class="mt-2 grid gap-2 text-sm text-slate-600">
                 <li class="flex gap-2">
                   <span
-                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                     >1</span
                   >
                   <span data-i18n="step1"
@@ -434,14 +438,14 @@
                 </li>
                 <li class="flex gap-2">
                   <span
-                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                     >2</span
                   >
                   <span data-i18n="step2">Add staff and opening hours</span>
                 </li>
                 <li class="flex gap-2">
                   <span
-                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                    class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FAF2FF][#FAF2FF]/10 text-primary"
                     >3</span
                   >
                   <span data-i18n="step3"
@@ -458,22 +462,22 @@
 
             <div class="mt-4 flex flex-wrap gap-2 text-xs">
               <span
-                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
+                class="rounded-full bg-[#FAF2FF][#FAF2FF]/10 px-3 py-1 font-semibold text-primary"
                 data-i18n="benefit1"
                 >Reduce admin work</span
               >
               <span
-                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
+                class="rounded-full bg-[#FAF2FF][#FAF2FF]/10 px-3 py-1 font-semibold text-primary"
                 data-i18n="benefit2"
                 >Reduce no-show</span
               >
               <span
-                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
+                class="rounded-full bg-[#FAF2FF][#FAF2FF]/10 px-3 py-1 font-semibold text-primary"
                 data-i18n="benefit3"
                 >Easier payments</span
               >
               <span
-                class="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary"
+                class="rounded-full bg-[#FAF2FF][#FAF2FF]/10 px-3 py-1 font-semibold text-primary"
                 data-i18n="benefit4"
                 >Clear reports</span
               >
@@ -482,10 +486,12 @@
 
           <div class="relative">
             <div
-              class="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/10 via-white to-primary/5"
+              class="absolute -inset-6 -z-10 rounded-[2rem] bg-[#FAF2FF][#FAF2FF]-to-br from-primary/10 via-white to-primary/5"
             ></div>
 
-            <div class="rounded-[2rem] border bg-white p-4 shadow-sm">
+            <div
+              class="rounded-[2rem] border bg-[#FAF2FF]transparent p-4 shadow-sm"
+            >
               <img
                 src="/assets/contact-hero-illustration.png"
                 alt="Contact illustration"
@@ -493,7 +499,7 @@
               />
 
               <div class="mt-4 grid grid-cols-2 gap-3">
-                <div class="rounded-2xl border bg-white p-3">
+                <div class="rounded-2xl border bg-[#FAF2FF]transparent p-3">
                   <div
                     class="text-xs font-semibold text-slate-900"
                     data-i18n="miniCard1Title"
@@ -507,7 +513,7 @@
                     You can start in days.
                   </div>
                 </div>
-                <div class="rounded-2xl border bg-white p-3">
+                <div class="rounded-2xl border bg-[#FAF2FF]transparent p-3">
                   <div
                     class="text-xs font-semibold text-slate-900"
                     data-i18n="miniCard2Title"
@@ -521,7 +527,7 @@
                     Friendly reminders help.
                   </div>
                 </div>
-                <div class="rounded-2xl border bg-white p-3">
+                <div class="rounded-2xl border bg-[#FAF2FF]transparent p-3">
                   <div
                     class="text-xs font-semibold text-slate-900"
                     data-i18n="miniCard3Title"
@@ -535,7 +541,7 @@
                     Cash, card, or online.
                   </div>
                 </div>
-                <div class="rounded-2xl border bg-white p-3">
+                <div class="rounded-2xl border bg-[#FAF2FF]transparent p-3">
                   <div
                     class="text-xs font-semibold text-slate-900"
                     data-i18n="miniCard4Title"
@@ -556,12 +562,12 @@
       </header>
 
       <!-- Quick contact -->
-      <section class="border-t bg-white/60">
+      <section class="border-t bg-[#FAF2FF]transparent/60">
         <div class="mx-auto max-w-6xl px-4 py-12">
           <div class="flex items-end justify-between gap-4">
             <div>
               <h2
-                class="text-2xl font-bold tracking-tight"
+                class="text-2xl font-semibold tracking-tight"
                 data-i18n="quickTitle"
               >
                 Quick contact
@@ -573,7 +579,7 @@
 
             <div class="hidden text-sm text-slate-600 md:block">
               <span
-                class="rounded-full bg-primary/10 px-3 py-1 text-primary"
+                class="rounded-full bg-[#FAF2FF][#FAF2FF]/10 px-3 py-1 text-primary"
                 data-i18n="annualNote"
               >
                 Annual billing saves 50%
@@ -583,7 +589,7 @@
 
           <div class="mt-8 grid gap-4 md:grid-cols-3">
             <!-- WhatsApp -->
-            <div class="rounded-3xl border bg-white p-5">
+            <div class="rounded-3xl border bg-[#FAF2FF]transparent p-5">
               <div class="flex items-center gap-3">
                 <img
                   src="/assets/icon-whatsapp.png"
@@ -616,7 +622,7 @@
 
                 <div class="mt-2">
                   <a
-                    class="inline-flex items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+                    class="inline-flex items-center justify-center rounded-2xl bg-[#FAF2FF][#FAF2FF] px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
                     href="https://wa.me/0618272749"
                     target="_blank"
                     rel="noopener"
@@ -630,7 +636,7 @@
             </div>
 
             <!-- Email -->
-            <div class="rounded-3xl border bg-white p-5">
+            <div class="rounded-3xl border bg-[#FAF2FF]transparent p-5">
               <div class="flex items-center gap-3">
                 <img
                   src="/assets/icon-email.png"
@@ -653,7 +659,7 @@
                 </div>
                 <div class="mt-2">
                   <a
-                    class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                    class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
                     href="mailto:admin@juztbooking.com"
                     data-i18n="emailCta"
                   >
@@ -664,7 +670,7 @@
             </div>
 
             <!-- Phone -->
-            <div class="rounded-3xl border bg-white p-5">
+            <div class="rounded-3xl border bg-[#FAF2FF]transparent p-5">
               <div class="flex items-center gap-3">
                 <img
                   src="/assets/icon-phone.png"
@@ -700,7 +706,7 @@
                 <div class="mt-2">
                   <a
                     href="tel:0618272749"
-                    class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                    class="inline-flex items-center justify-center rounded-2xl border px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
                     aria-label="Tap to call"
                   >
                     Call now
@@ -713,17 +719,19 @@
       </section>
 
       <!-- Form + Office -->
-      <section id="contact-form" class="border-t bg-white">
+      <section id="contact-form" class="border-t bg-[#FAF2FF]transparent">
         <div
           class="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 py-12 md:grid-cols-5"
         >
           <!-- Form -->
           <div class="md:col-span-3">
-            <div class="rounded-3xl border bg-white p-6 shadow-sm">
+            <div
+              class="rounded-3xl border bg-[#FAF2FF]transparent p-6 shadow-sm"
+            >
               <div class="flex items-start justify-between gap-4">
                 <div>
                   <h2
-                    class="text-2xl font-bold tracking-tight"
+                    class="text-2xl font-semibold tracking-tight"
                     data-i18n="formTitle"
                   >
                     Send us a message
@@ -737,7 +745,7 @@
 
               <form
                 class="mt-6 grid gap-4"
-                onsubmit="return handleSubmit(event)"
+                onsubmit="return handleSubmit(event);"
               >
                 <div class="grid gap-4 sm:grid-cols-2">
                   <div>
@@ -942,7 +950,7 @@
                 >
                   <button
                     type="submit"
-                    class="inline-flex items-center justify-center rounded-2xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95"
+                    class="inline-flex items-center justify-center rounded-2xl bg-[#FAF2FF][#FAF2FF] px-5 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-95"
                     data-i18n="fSubmit"
                   >
                     Submit
@@ -954,7 +962,7 @@
 
                 <div
                   id="formToast"
-                  class="hidden rounded-2xl border bg-white p-4 text-sm"
+                  class="hidden rounded-2xl border bg-[#FAF2FF]transparent p-4 text-sm"
                 ></div>
               </form>
             </div>
@@ -962,8 +970,10 @@
 
           <!-- Office -->
           <div class="md:col-span-2">
-            <div class="rounded-3xl border bg-white p-6">
-              <h3 class="text-lg font-bold" data-i18n="officeTitle">Office</h3>
+            <div class="rounded-3xl border bg-[#FAF2FF]transparent p-6">
+              <h3 class="text-lg font-semibold" data-i18n="officeTitle">
+                Office
+              </h3>
               <p class="mt-2 text-sm text-slate-600" data-i18n="officeAddr">
                 Keizersgracht 123, 1015 CJ Amsterdam, Netherlands
               </p>
@@ -987,7 +997,7 @@
                 full attention.
               </p>
 
-              <div class="mt-6 rounded-3xl bg-primary/5 p-5">
+              <div class="mt-6 rounded-3xl bg-[#FAF2FF][#FAF2FF]/5 p-5">
                 <div
                   class="text-sm font-semibold text-slate-900"
                   data-i18n="sideTitle"
@@ -1009,7 +1019,7 @@
 
                 <a
                   href="/trial"
-                  class="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-primary px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+                  class="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-[#FAF2FF][#FAF2FF] px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
                   data-i18n="sideCta"
                   >Start 15-day trial</a
                 >
@@ -1020,7 +1030,7 @@
       </section>
 
       <!-- Footer -->
-      <footer class="border-t bg-white/70 backdrop-blur">
+      <footer class="border-t bg-[#FAF2FF]transparent/70 backdrop-blur">
         <div class="mx-auto max-w-6xl px-4 py-10">
           <div
             class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between"
@@ -1042,13 +1052,13 @@
             <div class="flex flex-wrap items-center gap-3">
               <a
                 href="/privacy-policy"
-                class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-[#FAF2FF]slate-50"
                 data-i18n="privacy"
                 >Privacy Policy</a
               >
 
               <a
-                class="rounded-xl p-2 hover:bg-slate-50"
+                class="rounded-xl p-2 hover:bg-[#FAF2FF]slate-50"
                 href="https://www.facebook.com/juztbooking"
                 aria-label="Facebook"
               >
@@ -1064,7 +1074,7 @@
               </a>
 
               <a
-                class="rounded-xl p-2 hover:bg-slate-50"
+                class="rounded-xl p-2 hover:bg-[#FAF2FF]slate-50"
                 href="https://www.x.com/juztbooking"
                 aria-label="X"
               >
@@ -1080,8 +1090,8 @@
               </a>
 
               <a
-                class="rounded-xl p-2 hover:bg-slate-50"
-                href="https://www.instagram.com/juztbooking"
+                class="rounded-xl p-2 hover:bg-[#FAF2FF]slate-50"
+                href="https://www.instagram.com/juztbooking/?fbclid=IwY2xjawPxmyxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAEwAAEe5v5lRSrrLk3mlyUPv_nZN2n6hlo7VJEKBj9SBofjbnAsYy6afPGIRMl2V6c_aem_2HOXQYqem7G1DWZe3oCuig"
                 aria-label="Instagram"
               >
                 <svg
@@ -1126,13 +1136,13 @@
           const linkPath = normalizePath(href);
           const isActive = linkPath === currentPath;
 
-          a.classList.toggle("bg-primary/10", isActive);
+          a.classList.toggle("bg-[#FAF2FF][#FAF2FF]/10", isActive);
           a.classList.toggle("text-primary", isActive);
           a.classList.toggle("ring-1", isActive);
           a.classList.toggle("ring-primary/20", isActive);
-          a.classList.toggle("hover:bg-primary/10", isActive);
+          a.classList.toggle("hover:bg-[#FAF2FF][#FAF2FF]/10", isActive);
 
-          a.classList.toggle("hover:bg-slate-50", !isActive);
+          a.classList.toggle("hover:bg-[#FAF2FF]slate-50", !isActive);
 
           if (isActive) a.setAttribute("aria-current", "page");
           else a.removeAttribute("aria-current");
